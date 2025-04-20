@@ -8,7 +8,7 @@ Resumen de contenidos de las materias Análisis Matemático 1, 2 y 3 y Álgebra 
 ## Descargar PDF
 
 &nbsp;
-Cada vez que se realiza un cambio, una nueva versión del documento es compilada y publicada en [Releases](https://github.com/mrmalvicino/math-notes/releases) y puede ser descargada libremente.
+Cada vez que se realiza un cambio, una nueva versión del documento es compilada y publicada en [Releases](https://github.com/mrmalvicino/math-notes/releases) automáticamente.
 
 ## Licencia y contribuciones
 
