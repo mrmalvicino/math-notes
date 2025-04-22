@@ -3,7 +3,7 @@
 ## Introducción
 
 &nbsp;
-Resumen de contenidos de las materias Análisis Matemático 1, 2 y 3 y Álgebra 1 y 2 para Ingeniería de Sonido en la Universidad Nacional de Tres de Febrero.
+Resumen de contenidos de las materias Análisis Matemático 1, 2 y 3, Álgebra 1 y 2 y Probabilidad y Estadística para Ingeniería de Sonido en la Universidad Nacional de Tres de Febrero.
 
 ## Descargar PDF
 

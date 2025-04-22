@@ -48,7 +48,7 @@ Notas de cálculo de varias variables reales, cálculo de una variable compleja 
 La versión digital más reciente de este texto es gratis y puede ser descargada de
 \begin{center}
     \small
-    \url{https://github.com/mrmalvicino/notas-de-matematica}
+    \url{https://github.com/mrmalvicino/math-notes}
 \end{center}
 
 \renewcommand{\spanishappendixname}{Anexo}
@@ -4689,7 +4689,7 @@ Se puede definir como un par ordenado perteneciente al plano complejo, donde la 
     \end{defn}
     \cusTi{Forma vectorial}
     \begin{equation*}
-        z = (x,y) = \left[\Re(z),\im(z)\right] \in \setC
+        z = (x,y) = \left[\Re(z),\Im(z)\right] \in \setC
     \end{equation*}
 \end{mdframed}
 
@@ -4876,7 +4876,7 @@ El módulo de un número es mayor que sus componentes:
 
 \concept{Demostración}
 
-La parte derecha de la desigualdad es evidente geometricamente, y la otra se demuestra como un corolario de la primera.
+La parte derecha de la desigualdad es evidente geométricamente, y la otra se demuestra como un corolario de la primera.
 
 Al plantear los dos siguientes casos, quedan demostradas las dos situaciones que contempla el módulo en la desigualdad izquierda de la inecuación:
 
@@ -5033,6 +5033,8 @@ En primer lugar, se completan cuadrados:
     \left( z+\frac{b}{2a} \right)^2 - \left( \frac{b^2}{4a^2} - \frac{c}{a} \right) = 0
     \\
     \norm{z+\frac{b}{2a}} = \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}}
+    = \sqrt{\frac{a \, b^2 - 4 \, a^2 \, c}{4 \, a^3}}
+    = \frac{\sqrt{b^2 - 4ac}}{\norm{2a}}
     \\
     z_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 \end{gather*}
@@ -5042,7 +5044,10 @@ Donde:
     \textrm{Si} \enspace \frac{b^2}{4a^2} - \frac{c}{a} \geq 0 \Rightarrow b^2 \geq 4ac \Rightarrow z \in \setR
 \end{equation*}
 
-Luego, hay que observar que en el despeje algebráico queda una raíz cuadrada, que de tratarse solamente de números reales tendría un radicando positivo, pero si proponemos una solución compleja, puede tener un radicando negativo. Para expresar esto, vamos a valernos de la definición del número $\iu$ partiendo de la tercera ecuación:
+Observar que en el despeje algebráico queda una raíz cuadrada.
+De tratarse solamente de números reales tendría un radicando positivo.
+Pero si proponemos una solución compleja, puede tener un radicando negativo.
+Para expresar esto, vamos a valernos de la definición del número $\iu$ partiendo de la segunda ecuación:
 \begin{gather*}
     \left( z+\frac{b}{2a} \right)^2 + \left( \frac{c}{a} - \frac{b^2}{4a^2} \right) = 0
     \\
