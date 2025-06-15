@@ -123,7 +123,9 @@ Hay varios tipos de normas, siendo algunas definiciones más precisas que otras 
 
 \section{Entornos y bolas}
 
-El entorno o bola de un punto es un conjunto que contiene los puntos más próximos a él. Se lo llama entorno cuando se trata de un intervalo en una recta, disco cuando se trata de un plano y bola en el espacio o en $\nth$ dimensiones. Dependiendo de si contiene o no a los puntos del borde o al punto del centro se pueden definir bolas abiertas, cerradas y reducidas.
+El entorno o bola de un punto es un conjunto que contiene los puntos más próximos a él.
+Se lo llama entorno cuando se trata de un intervalo en una recta, disco cuando se trata de un plano y bola en el espacio o en $\nth$ dimensiones.
+Dependiendo de si contiene o no a los puntos del borde o al punto del centro se pueden definir bolas abiertas, cerradas y reducidas.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -505,7 +507,8 @@ Entonces el sistema lineal es compatible si el rango de la matriz de coeficiente
     \operatorname{rg}(A) = \operatorname{rg}\left(A\Big|\Vec{b}\right)
 \end{equation*}
 
-Y el conjunto de soluciones $S$ se puede expresar de forma paramétrica por $\nth-\operatorname{rg}(A)$ parámetros. Particularmente, si $\operatorname{rg}(A)=\nth$ entonces la solución es un único punto.
+Y el conjunto de soluciones $S$ se puede expresar de forma paramétrica por $\nth-\operatorname{rg}(A)$ parámetros.
+Particularmente, si $\operatorname{rg}(A)=\nth$ entonces la solución es un único punto.
 
 Más formalmente, se dice que el conjunto de soluciones forman un subespacio afín $S\in\setR^\nth$ que verifica:
 \begin{equation*}
@@ -556,7 +559,8 @@ Y la operación externa $\cdot:\setK \times \setV \longrightarrow \setV$ verific
     \begin{defn}
     \end{defn}
     \cusTi{Independencia lineal}
-    \cusTe{Un conjunto $S \subseteq \setR^n$ es linealmente independiente si no existe ningún $\Vec{v}_\ith \in S$ que sea combinación lineal de los demás elementos. Esto es:}
+    \cusTe{Un conjunto $S \subseteq \setR^n$ es linealmente independiente si no existe ningún $\Vec{v}_\ith \in S$ que sea combinación lineal de los demás elementos.
+    Esto es:}
     \begin{equation*}
         \Vec{0} = \sum_{\ith=1}^\kth \lambda_\ith \, \Vec{v}_\ith
         \iff \lambda_\ith = 0 \enspace \forall \enspace \ith \in [1;\kth]
@@ -590,7 +594,8 @@ Y la operación externa $\cdot:\setK \times \setV \longrightarrow \setV$ verific
     \begin{defn}
     \end{defn}
     \cusTi{Base}
-    \cusTe{Se dice que el conjunto $B=\braces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}$ es base de $S \subseteq \setR^\nth$ si es un conjunto generador linealmente independiente. Esto es:}
+    \cusTe{Se dice que el conjunto $B=\braces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}$ es base de $S \subseteq \setR^\nth$ si es un conjunto generador linealmente independiente.
+    Esto es:}
     \begin{equation*}
         S = \operatorname{gen}\braces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}
         \enspace \land \enspace
@@ -608,7 +613,9 @@ Y la operación externa $\cdot:\setK \times \setV \longrightarrow \setV$ verific
     \end{equation*}
 \end{mdframed}
 
-Observar que la cantidad ($k$) de elementos de un conjunto generador de $S$ puede ser mayor, igual o menor que la dimensión de un espacio que contenga a $S$. Pero no puede ser menor que la dimensión de $S$. Se identifican entonces dos casos:
+Observar que la cantidad ($k$) de elementos de un conjunto generador de $S$ puede ser mayor, igual o menor que la dimensión de un espacio que contenga a $S$.
+Pero no puede ser menor que la dimensión de $S$.
+Se identifican entonces dos casos:
 \begin{itemize}
     \item Primer caso: $\operatorname{dim}(S) \leq \nth \leq \kth$
     \item Segundo caso: $\operatorname{dim}(S) \leq \kth \leq \nth$
@@ -673,7 +680,8 @@ Las coordenadas de un vector $\Vec{w}=(w_1,w_2 \dots w_\nth)$ expresado en la ba
     \end{equation*}
 \end{mdframed}
 
-Observar que $\setV$ puede ser un espacio abstracto, por ejemplo de polinomios o matrices. Pero las coordenadas de sus elementos van a estar dadas en $\setR^\nth$ porque $\operatorname{dim}(\setV)=\nth$.
+Observar que $\setV$ puede ser un espacio abstracto, por ejemplo de polinomios o matrices.
+Pero las coordenadas de sus elementos van a estar dadas en $\setR^\nth$ porque $\operatorname{dim}(\setV)=\nth$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -753,7 +761,8 @@ Observar que $\setV$ puede ser un espacio abstracto, por ejemplo de polinomios o
     \end{gather*}
 \end{mdframed}
 
-En el ejemplo anterior, la matriz que al ser multiplicada por las coordenadas de $\Vec{w}$ en base $B$ da como resultado las coordenadas del vector en base canónica, se la conoce como matriz de cambio de base. Observar que tiene por columnas los elementos de la base.
+En el ejemplo anterior, la matriz que al ser multiplicada por las coordenadas de $\Vec{w}$ en base $B$ da como resultado las coordenadas del vector en base canónica, se la conoce como matriz de cambio de base.
+Observar que tiene por columnas los elementos de la base.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -835,9 +844,13 @@ Quedando definida la matriz de cambio de base que al ser multiplicada por un vec
     \end{equation*}
 \end{mdframed}
 
-Las  matrices de cambio de base son útiles no solo para cambiar la base en la que están dadas las coordenadas de un vector, sino que también sirven para expresar sistemas matriciales en diferentes bases. Esta aplicación es de gran utilidad para cambiar las bases de una transformación lineal, como se verá en el capítulo \ref{cha:TL}. Definamos entonces una matriz de cambio de base que cambie la base de matrices (o eventualmente vectores) entre dos bases $B$ y $B'$ genéricas (pudiendo o no ser alguna de las bases la canónica).
+Las  matrices de cambio de base son útiles no solo para cambiar la base en la que están dadas las coordenadas de un vector, sino que también sirven para expresar sistemas matriciales en diferentes bases.
+Esta aplicación es de gran utilidad para cambiar las bases de una transformación lineal, como se verá en el capítulo \ref{cha:TL}.
+Definamos entonces una matriz de cambio de base que cambie la base de matrices (o eventualmente vectores) entre dos bases $B$ y $B'$ genéricas (pudiendo o no ser alguna de las bases la canónica).
 
-Sabemos que una matriz de cambio de base $C_{BE}$ está dada por los elementos de $B$ puestos como columna. Así mismo, una matriz de cambio de base $C_{EB'}$ está dada por la inversa de los elementos de $B'$ puestos como columna. Estas matrices verifican, por definición, las siguientes ecuaciones respectivamente:
+Sabemos que una matriz de cambio de base $C_{BE}$ está dada por los elementos de $B$ puestos como columna.
+Así mismo, una matriz de cambio de base $C_{EB'}$ está dada por la inversa de los elementos de $B'$ puestos como columna.
+Estas matrices verifican, por definición, las siguientes ecuaciones respectivamente:
 \begin{gather*}
     \begin{bmatrix}
         \Vec{w}
@@ -885,14 +898,19 @@ Reemplazando la primera en la segunda se tiene:
     \end{equation*}
 \end{mdframed}
 
-Al ser una multiplicación matricial, el orden de los factores sí altera el producto. Para $C_{BB'}$ la base de entrada es $B$ y la base de salida es $B'$. Al desarrollar el producto, a la derecha de la igualdad, la matriz que primero actúa es $C_{BE}$ siendo $B$ su entrada y $E$ su salida. Y luego actúa $C_{EB'}$ siendo $E$ su entrada (que es la salida de $C_{BE}$) y $B'$ su salida.
+Al ser una multiplicación matricial, el orden de los factores sí altera el producto.
+Para $C_{BB'}$ la base de entrada es $B$ y la base de salida es $B'$.
+Al desarrollar el producto, a la derecha de la igualdad, la matriz que primero actúa es $C_{BE}$ siendo $B$ su entrada y $E$ su salida.
+Y luego actúa $C_{EB'}$ siendo $E$ su entrada (que es la salida de $C_{BE}$) y $B'$ su salida.
 
 \begin{center}
     \def\svgwidth{0.4\linewidth}
     \input{./images/alg-rulo.pdf_tex}
 \end{center}
 
-Esto no solo es así en las matrices de cambio de base, sino en cualquier producto matricial donde haya bases involucradas. La primer letra del subíndice de una matriz es la base de entrada de esa matriz, y la segunda la base de salida. Y ya sea que se multipliquen dos o más matrices, se cumple que el orden está dado por \emph{el rulo} dibujado.
+Esto no solo es así en las matrices de cambio de base, sino en cualquier producto matricial donde haya bases involucradas.
+La primer letra del subíndice de una matriz es la base de entrada de esa matriz, y la segunda la base de salida.
+Y ya sea que se multipliquen dos o más matrices, se cumple que el orden está dado por \emph{el rulo} dibujado.
 
 
 \section{Operaciones entre subespacios}
@@ -929,7 +947,8 @@ Esto no solo es así en las matrices de cambio de base, sino en cualquier produc
     \begin{defn}
     \end{defn}
     \cusTi{Suma directa}
-    \cusTe{Sean $B_1$ y $B_2$ bases de los subespacios $S_1$ y $S_2$ respectivamente. Si el conunto de los elementos de ambas bases $\braces{B_1 , B_2}$ es LI, se dice que $S_1$ y $S_2$ están en suma directa.}
+    \cusTe{Sean $B_1$ y $B_2$ bases de los subespacios $S_1$ y $S_2$ respectivamente.
+    Si el conunto de los elementos de ambas bases $\braces{B_1 , B_2}$ es LI, se dice que $S_1$ y $S_2$ están en suma directa.}
     \begin{equation*}
         S_1 \oplus S_2 = \operatorname{gen} \braces{B_1 , B_2} \iff S_1 \cap S_2 = 0
     \end{equation*}
@@ -950,7 +969,8 @@ Esto no solo es así en las matrices de cambio de base, sino en cualquier produc
     \end{equation*}
 \end{mdframed}
 
-Observar que si la definición se cumple para todo $\lambda$ y para todo $\Vec{v}$ entonces se cumple particularmente para $\lambda=1$ y para $\Vec{v}_2=\Vec{0}$. Es decir que si se cumple $f(\lambda \, \Vec{v}_1 + \Vec{v}_2)=\lambda \, f(\Vec{v}_1) + f(\Vec{v}_2)$ entonces se cumplen las siguientes condiciones simultáneamente:
+Observar que si la definición se cumple para todo $\lambda$ y para todo $\Vec{v}$ entonces se cumple particularmente para $\lambda=1$ y para $\Vec{v}_2=\Vec{0}$.
+Es decir que si se cumple $f(\lambda \, \Vec{v}_1 + \Vec{v}_2)=\lambda \, f(\Vec{v}_1) + f(\Vec{v}_2)$ entonces se cumplen las siguientes condiciones simultáneamente:
 \begin{equation*}
     \left\{
     \begin{aligned}
@@ -1056,9 +1076,11 @@ Entonces:
 
 Donde $\nth=\operatorname{dim}(\setV)$ y $\mth=\operatorname{dim}(\setW)$.
 
-La matriz $M_{BE}$ de la ecuación anterior tiene como columnas a las imágenes de los elementos de la base $B$. Si esta base fuese la canónica, la matriz obtenida sería $M_{EE}(f)$ y estaría dada por las imágenes de los versores canónicos.
+La matriz $M_{BE}$ de la ecuación anterior tiene como columnas a las imágenes de los elementos de la base $B$.
+Si esta base fuese la canónica, la matriz obtenida sería $M_{EE}(f)$ y estaría dada por las imágenes de los versores canónicos.
 
-Pero en caso de no tener $M(f)$, sino $M_{BE}(f)$, el inconveniente que surge es que las variables que querramos evaluar en $f(\Vec{v})$ van a estar en base $E$ pero las variables de la fórmula en forma matricial en base $B$. En tal caso, podemos usar las matrices de cambio de base (Def. \ref{defn:C_BE}) para obtener las coordenadas de $\Vec{v}$ en base canónica.
+Pero en caso de no tener $M(f)$, sino $M_{BE}(f)$, el inconveniente que surge es que las variables que querramos evaluar en $f(\Vec{v})$ van a estar en base $E$ pero las variables de la fórmula en forma matricial en base $B$.
+En tal caso, podemos usar las matrices de cambio de base (Def. \ref{defn:C_BE}) para obtener las coordenadas de $\Vec{v}$ en base canónica.
 \begin{align*}
     f(\Vec{v}) &= M_{BE} (f) \cdot \trans{[\Vec{v}]_B}
     \\
@@ -1088,7 +1110,8 @@ Donde:
     \end{pmatrix}^{-1}
 \end{align*}
 
-Observar que los $\Vec{w}$ anteriores están en base canónica, pero podrían estarlo en otra base. Podemos definir una transformación matricialmente en bases $A$ y $B$ genéricas de la siguiente forma.
+Observar que los $\Vec{w}$ anteriores están en base canónica, pero podrían estarlo en otra base.
+Podemos definir una transformación matricialmente en bases $A$ y $B$ genéricas de la siguiente forma.
 
 Notar que en tal caso $A$ cumple el papel que antes cumplía $B$, ya que $B$ cumplirá el papel que antes cumplía $E$.
 
@@ -1162,7 +1185,8 @@ Obteniendo:
     \end{equation*}
 \end{mdframed}
 
-Para calcular la imagen se aplica la transformación a cada elemento de una base $B=\braces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ de $\setV$ y así otener un conjunto generador de la imagen. Observar que para cualquier elemento $\Vec{v}\in\setV$ se verifica:
+Para calcular la imagen se aplica la transformación a cada elemento de una base $B=\braces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ de $\setV$ y así otener un conjunto generador de la imagen.
+Observar que para cualquier elemento $\Vec{v}\in\setV$ se verifica:
 \begin{gather*}
     f(\Vec{v}) = f(\lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth)
     \\
@@ -1219,7 +1243,9 @@ Para calcular la imagen se aplica la transformación a cada elemento de una base
 
 \section{Clasificación de T.L.}
 
-Si $f: \setV \longrightarrow \setW$ es una T.L. basta con que el núcleo esté compuesto solamente por el vector origen para que $f$ sea inyectiva. Esto implica que no existe T.L. cuyo núcleo sea el origen, y además tenga una misma imagen para dos elementos de $\setV$ distintos. Esto es:
+Si $f: \setV \longrightarrow \setW$ es una T.L. basta con que el núcleo esté compuesto solamente por el vector origen para que $f$ sea inyectiva.
+Esto implica que no existe T.L. cuyo núcleo sea el origen, y además tenga una misma imagen para dos elementos de $\setV$ distintos.
+Esto es:
 \begin{gather*}
     \textrm{Sea} \enspace f: \setV \longrightarrow \setW \enspace \textrm{una T.L.}
     \\
@@ -1296,7 +1322,8 @@ Si $f: \setV \longrightarrow \setW$ es una T.L. basta con que el núcleo esté c
         \label{defn:autovalor}
     \end{defn}
     \cusTi{Autovalor}
-    \cusTe{Sea $A \in \setR^{\nth\times\nth}$ una matriz y $\lambda \in \setR$ un escalar. Se dice que $\lambda$ es un autovalor de $A$ si $\exists \enspace \Vec{v} \in \setR^\nth \tq \Vec{v} \neq \Vec{0}$} verificando:
+    \cusTe{Sea $A \in \setR^{\nth\times\nth}$ una matriz y $\lambda \in \setR$ un escalar.
+    Se dice que $\lambda$ es un autovalor de $A$ si $\exists \enspace \Vec{v} \in \setR^\nth \tq \Vec{v} \neq \Vec{0}$} verificando:
     \begin{equation*}
         A \, \Vec{v} = \lambda \, \Vec{v}
     \end{equation*}
@@ -1313,7 +1340,9 @@ Queda un sistema lineal homogéneo que siempre tiene (al menos una) solución.
     \label{eqn:autovectores}
 \end{equation}
 
-Si el determinante de la matriz asociada al sistema fuese distinto de cero entonces la única solución sería la trivial. Pero si $\Vec{v}=\Vec{0}$ es la única solución se estaría contradiciendo a la definición de autovalor (Def. \ref{defn:autovalor}) que pide un vector no nulo. Además, no sería útil como aplicación elevar una matriz a cierta potencia.
+Si el determinante de la matriz asociada al sistema fuese distinto de cero entonces la única solución sería la trivial.
+Pero si $\Vec{v}=\Vec{0}$ es la única solución se estaría contradiciendo a la definición de autovalor (Def. \ref{defn:autovalor}) que pide un vector no nulo.
+Además, no sería útil como aplicación elevar una matriz a cierta potencia.
 
 Para que el sistema tenga infinitas soluciones, además de la trivial, se tiene que cumplir:
 \begin{equation*}
@@ -1322,7 +1351,8 @@ Para que el sistema tenga infinitas soluciones, además de la trivial, se tiene 
 
 Al desarrollar se obtiene un \emph{polinomio característico} de la matriz cuyas raíces son los \emph{autovalores}.
 
-Reemplazando un autovalor $\lambda$ en la ecuación \ref{eqn:autovectores} se obtiene un subespacio de autovectores $\Vec{v}$ que la verifican. El subespacio generado por un autovector es llamado \emph{autoespacio} asociado al autovalor evaluado.
+Reemplazando un autovalor $\lambda$ en la ecuación \ref{eqn:autovectores} se obtiene un subespacio de autovectores $\Vec{v}$ que la verifican.
+El subespacio generado por un autovector es llamado \emph{autoespacio} asociado al autovalor evaluado.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -1353,14 +1383,16 @@ Un ejemplo de matrices semejantes son las matrices $M_{AB}$ y $M_{A'B'}$ de la p
 
 Una característica importante de las matrices semejantes es que tienen el mismo polinomio característico.
 
-Una matriz se dice diagonalizable si existe una matriz semejante que sea diagonal. Notar que dos matrices que no sean cuadradas no van a poder verificar la condición de semejanza, porque en tal caso no es posible definir $C$ y su inversa.
+Una matriz se dice diagonalizable si existe una matriz semejante que sea diagonal.
+Notar que dos matrices que no sean cuadradas no van a poder verificar la condición de semejanza, porque en tal caso no es posible definir $C$ y su inversa.
 
 Sea $D$ una matriz diagonal, si $A$ es diagonalizable se tiene:
 \begin{equation*}
     A = C^{-1} \cdot D \cdot C
 \end{equation*}
 
-En tal caso, las potencias donde se eleva una matriz diagonalizable $A$ a un exponente $\kth$ pueden ser computadas más eficientemente. A saber:
+En tal caso, las potencias donde se eleva una matriz diagonalizable $A$ a un exponente $\kth$ pueden ser computadas más eficientemente.
+A saber:
 \begin{align*}
     A^2 &= \left( C^{-1} \cdot D \cdot C \right) \left( C^{-1} \cdot D \cdot C \right)
     \\
@@ -1444,7 +1476,8 @@ Y por extrapolación se infiere:
         \end{pmatrix}
     \end{equation*}
     
-    Y además siendo las columnas de $M_{BB}(f)$ las coordenadas en base $B$ de los transformados de la base $B$. Esto es:
+    Y además siendo las columnas de $M_{BB}(f)$ las coordenadas en base $B$ de los transformados de la base $B$.
+    Esto es:
     \begin{equation*}
         M_{BB}(f) =
         \begin{pmatrix}
@@ -1606,7 +1639,8 @@ Y por extrapolación se infiere:
 
 \section{Multiplicidad}
 
-Se llama \emph{multiplicidad algebráica} al grado de un autovalor como raíz del polinomio característico. Mientras que se llama \emph{multiplicidad geométrica} a la dimensión del autoespacio asociado a un autovalor.
+Se llama \emph{multiplicidad algebráica} al grado de un autovalor como raíz del polinomio característico.
+Mientras que se llama \emph{multiplicidad geométrica} a la dimensión del autoespacio asociado a un autovalor.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -1616,7 +1650,8 @@ Se llama \emph{multiplicidad algebráica} al grado de un autovalor como raíz de
     \end{equation*}
 \end{mdframed}
 
-Si $\Vec{v} \neq \Vec{0}$ pertenece a $E_{\lambda_1} \cap E_{\lambda_1}$ sería un autovalor de ambos autovectores. Esto es:
+Si $\Vec{v} \neq \Vec{0}$ pertenece a $E_{\lambda_1} \cap E_{\lambda_1}$ sería un autovalor de ambos autovectores.
+Esto es:
 \begin{equation*}
     \left\{
     \begin{aligned}
@@ -1628,7 +1663,8 @@ Si $\Vec{v} \neq \Vec{0}$ pertenece a $E_{\lambda_1} \cap E_{\lambda_1}$ sería 
     \Rightarrow \Vec{0} = f(\Vec{v}) - f(\Vec{v}) = \left( \lambda_1-\lambda_2 \right) \Vec{v}
 \end{equation*}
 
-Pero dado que $\Vec{v}\neq\Vec{0}$ se tiene que $\lambda_1=\lambda_2$ lo cual es absurdo. Por lo tanto, se tiene la siguiente propiedad que se puede demostrar para una cantidad arbitraria de autoespacios.
+Pero dado que $\Vec{v}\neq\Vec{0}$ se tiene que $\lambda_1=\lambda_2$ lo cual es absurdo.
+Por lo tanto, se tiene la siguiente propiedad que se puede demostrar para una cantidad arbitraria de autoespacios.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -1654,7 +1690,8 @@ Pero dado que $\Vec{v}\neq\Vec{0}$ se tiene que $\lambda_1=\lambda_2$ lo cual es
 
 \chapter{Espacios euclídeos}
 
-Los \emph{espacios euclídeos} son espacios vectoriales dotados de un producto interno. Se diferencian de los \emph{espacios normados} para los que se define distancia y norma y los \emph{espacios métricos} para los que solo se define distancia, por no tener estos producto interno.
+Los \emph{espacios euclídeos} son espacios vectoriales dotados de un producto interno.
+Se diferencian de los \emph{espacios normados} para los que se define distancia y norma y los \emph{espacios métricos} para los que solo se define distancia, por no tener estos producto interno.
 
 El producto interno para espacios euclídeos permite definir una noción de norma, de ángulo u ortogonalidad y de proyección ortogonal para elementos de un subespacio.
 
@@ -1666,7 +1703,8 @@ El producto interno para espacios euclídeos permite definir una noción de norm
         \label{defn:intProd}
     \end{defn}
     \cusTi{Producto interno}
-    \cusTe{Sea $\setV$ un subespacio vectorial, se define la función $\intProd{\enspace}{\enspace}: \setV \times \setV \longrightarrow \setR$ como un producto interno si y solo si es una forma bilineal, simétrica y definida positiva. Esto es, si para todo $\Vec{u},\Vec{v},\Vec{w} \in \setV , \lambda \in \setR$ se verifica:}
+    \cusTe{Sea $\setV$ un subespacio vectorial, se define la función $\intProd{\enspace}{\enspace}: \setV \times \setV \longrightarrow \setR$ como un producto interno si y solo si es una forma bilineal, simétrica y definida positiva.
+    Esto es, si para todo $\Vec{u},\Vec{v},\Vec{w} \in \setV , \lambda \in \setR$ se verifica:}
     \begin{align*}
         \textrm{Bilinealidad:} &
         \\
@@ -1744,12 +1782,15 @@ Que para $\setV = \setR^2$ es:
     &= v_x \, w_x + v_y \, w_y
 \end{align*}
 
-Pero para ciertos espacios vectoriales los productos internos pueden ser más abstractos. Para el espacio vectorial de funciones contínuas el producto interno puede estar definido por una integral.
+Pero para ciertos espacios vectoriales los productos internos pueden ser más abstractos.
+Para el espacio vectorial de funciones contínuas el producto interno puede estar definido por una integral.
 \begin{equation*}
     \intProd{f}{g} = \int_a^b f(x) \, g(x) \, \dif x
 \end{equation*}
 
-Como se mencionó anteriormente, los conceptos de norma, distancia, ángulo y ortogonalidad se definen en función del producto interno. Esto significa que la norma de un mismo vector puede tener distintos valores para productos internos diferentes. Y así mismo, la distancia o el ángulo entre dos vectores puede variar en función de cómo se defina el producto interno.
+Como se mencionó anteriormente, los conceptos de norma, distancia, ángulo y ortogonalidad se definen en función del producto interno.
+Esto significa que la norma de un mismo vector puede tener distintos valores para productos internos diferentes.
+Y así mismo, la distancia o el ángulo entre dos vectores puede variar en función de cómo se defina el producto interno.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -1760,7 +1801,8 @@ Como se mencionó anteriormente, los conceptos de norma, distancia, ángulo y or
     \end{equation*}
 \end{mdframed}
 
-Observar que para $\setV = \setR^\nth$, si el producto interno es el producto escalar, la fórmula es la definida según la norma 2 (Def. \ref{defn:norm2}). Particularmente para $\setR^2$ es:
+Observar que para $\setV = \setR^\nth$, si el producto interno es el producto escalar, la fórmula es la definida según la norma 2 (Def. \ref{defn:norm2}).
+Particularmente para $\setR^2$ es:
 \begin{equation*}
     \nnorm{\Vec{v}} = \sqrt{(x,y) \cdot (x,y)} = \sqrt{x^2+y^2}
 \end{equation*}
@@ -1817,7 +1859,9 @@ Surgen luego las siguientes definiciones:
     \end{equation*}
 \end{mdframed}
 
-La proyección de un vector $\Vec{v}$ sobre un director $\Vec{r}$ es un tercer vector proporcional a $\Vec{r}$. En $\setR^2$ y $\setR^3$ la proporción surge de \emph{proyectar}, desde la punta de $\Vec{v}$, una recta que sea ortogonal a $\Vec{r}$. A contnuación se tiene un esquema en $\setR^2$.
+La proyección de un vector $\Vec{v}$ sobre un director $\Vec{r}$ es un tercer vector proporcional a $\Vec{r}$.
+En $\setR^2$ y $\setR^3$ la proporción surge de \emph{proyectar}, desde la punta de $\Vec{v}$, una recta que sea ortogonal a $\Vec{r}$.
+A contnuación se tiene un esquema en $\setR^2$.
 
 \begin{center}
     \def\svgwidth{0.6\linewidth}
@@ -1830,7 +1874,8 @@ Se plantea entonces la condición de proporción mencionada y se pretende deduci
     \label{eqn:orto1}
 \end{equation}
 
-Vemos que el vector que va desde la proyección $\proy_{\Vec{r}}(\Vec{v})$ hasta $\Vec{v}$ está dado por la resta de estos y es ortogonal a $\Vec{r}$. Con lo cual:
+Vemos que el vector que va desde la proyección $\proy_{\Vec{r}}(\Vec{v})$ hasta $\Vec{v}$ está dado por la resta de estos y es ortogonal a $\Vec{r}$.
+Con lo cual:
 \begin{equation}
     \intProd{\Vec{v} - \proy_{\Vec{r}}(\Vec{v})}{\Vec{r}} = 0
     \label{eqn:orto2}
@@ -1874,7 +1919,8 @@ Por lo tanto, reemplazando $\lambda$ en la ecuacíon \ref{eqn:orto1} se infiere 
 
 El método de Gram Schmidt es un algoritmo recursivo para obtener, a partir de cierta base dada, una base ortogonal que genere el mismo subespacio que la base original.
 
-Sea $B=\braces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base de cierto subespacio $\setV$. Llamaremos $B'$ a la nueva base ortogonal de $\setV$ dada por:
+Sea $B=\braces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base de cierto subespacio $\setV$.
+Llamaremos $B'$ a la nueva base ortogonal de $\setV$ dada por:
 \begin{equation*}
     B' = \braces{\Vec{w}_1 , \Vec{w}_2 \dots \Vec{w}_\nth}
 \end{equation*}
@@ -1884,21 +1930,24 @@ El primer elemento de $B'$ lo podemos definir de manera arbitraria a partir de c
     \Vec{w}_1 = \Vec{v}_1
 \end{equation*}
 
-El segundo elemento de $B'$ se define de manera análoga a como se dedujo la proyección ortogonal anteriormente (Prop. \ref{prop:proyOrto}). A continuación se tiene un esquema equivalente, ya que el proyectado y el director son elementos de la base $B$ por lo que cambia la notación.
+El segundo elemento de $B'$ se define de manera análoga a como se dedujo la proyección ortogonal anteriormente (Prop. \ref{prop:proyOrto}).
+A continuación se tiene un esquema equivalente, ya que el proyectado y el director son elementos de la base $B$ por lo que cambia la notación.
 
 \begin{center}
     \def\svgwidth{0.6\linewidth}
     \input{./images/alg-orto-2.pdf_tex}
 \end{center}
 
-Vemos que podemos construir un vector ortogonal a $\Vec{v}_1$ restando al proyectado la proyección ortogonal. Este será el segundo elemento de la base ortogonal $B'$.
+Vemos que podemos construir un vector ortogonal a $\Vec{v}_1$ restando al proyectado la proyección ortogonal.
+Este será el segundo elemento de la base ortogonal $B'$.
 \begin{align*}
     \Vec{w}_2 &= \Vec{v}_2 - \proy_{\Vec{v}_1}(\Vec{v}_2)
     \\[1ex]
     &= \Vec{v}_2 - \frac{\intProd{\Vec{v}_2}{\Vec{v}_1}}{\nnorm{\Vec{v}_1}^2} \, \Vec{v}_1
 \end{align*}
 
-Si la base original $B$ fuese de 3 o más elementos, el tercer elemento de la nueva base ortogonal $B'$ se obtendría con el mismo razonamiento. La siguiente es una representación simplista de los vectores de $B$ y sus proyecciones, a partir de las que se obtienen los vectores de $B'$.
+Si la base original $B$ fuese de 3 o más elementos, el tercer elemento de la nueva base ortogonal $B'$ se obtendría con el mismo razonamiento.
+La siguiente es una representación simplista de los vectores de $B$ y sus proyecciones, a partir de las que se obtienen los vectores de $B'$.
 
 \begin{center}
     \def\svgwidth{0.6\linewidth}
@@ -1912,14 +1961,17 @@ Quedando el tercer elemento $\Vec{w}_3$ expresado por:
     &= \Vec{v}_3 - \frac{\intProd{\Vec{v}_3}{\Vec{v}_1}}{\nnorm{\Vec{v}_1}^2} \, \Vec{v}_1 - \frac{\intProd{\Vec{v}_3}{\Vec{w}_2}}{\nnorm{\Vec{w}_2}^2} \, \Vec{w}_2
 \end{align*}
 
-A primera vista uno puede suponer que el término $-\proy_{\Vec{w}_2}(\Vec{v}_3)$ está de más, pero no es así. En la representación anterior la proyección de $\Vec{v}_3$ sobre $\Vec{w}_2$ es nula, y por eso este término no afecta la ecuación. Un esquema más representativo sería el siguiente, donde $\Vec{v}_3$ no está contenido en el plano gris y aún así forma parte de una base de $\setR^3$ junto con $\Vec{v}_1$ y $\Vec{v}_2$.
+A primera vista uno puede suponer que el término $-\proy_{\Vec{w}_2}(\Vec{v}_3)$ está de más, pero no es así.
+En la representación anterior la proyección de $\Vec{v}_3$ sobre $\Vec{w}_2$ es nula, y por eso este término no afecta la ecuación.
+Un esquema más representativo sería el siguiente, donde $\Vec{v}_3$ no está contenido en el plano gris y aún así forma parte de una base de $\setR^3$ junto con $\Vec{v}_1$ y $\Vec{v}_2$.
 
 \begin{center}
     \def\svgwidth{0.7\linewidth}
     \input{./images/alg-orto-4.pdf_tex}
 \end{center}
 
-De esta forma podemos ver que la resta $\Vec{v}_3-\proy_{\Vec{v}_1}(\Vec{v}_3)$ sobresale del plano gris. Por este motivo, es necesario restar la componente vertical, que es $\proy_{\Vec{w}_2}(\Vec{v}_3)$.
+De esta forma podemos ver que la resta $\Vec{v}_3-\proy_{\Vec{v}_1}(\Vec{v}_3)$ sobresale del plano gris.
+Por este motivo, es necesario restar la componente vertical, que es $\proy_{\Vec{w}_2}(\Vec{v}_3)$.
 
 
 \section{Complemento ortogonal}
@@ -2096,7 +2148,8 @@ Dado que podemos escribir $\Vec{v}$ como la suma de un vector de $S$ más uno de
     &= \sum_{\ith=1}^\kth \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2} \Vec{v}_\ith
 \end{align*}
 
-A partir de esta conclusión no solo vemos que la definición \ref{defn:proyOrto} es correcta. Sino que además se obtiene la siguiente fórmula para la proyección de $\Vec{v}$ sobre $S$, que es el elemento de $S$ que está a la menor distancia de $\Vec{v}$.
+A partir de esta conclusión no solo vemos que la definición \ref{defn:proyOrto} es correcta.
+Sino que además se obtiene la siguiente fórmula para la proyección de $\Vec{v}$ sobre $S$, que es el elemento de $S$ que está a la menor distancia de $\Vec{v}$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -2142,7 +2195,9 @@ Para el producto interno definido como:
     \intProd{f}{g} = \int_{-\pi}^\pi f(x) \, g(x) \, \dif x
 \end{equation*}
 
-Podemos definir la proyección ortogonal de una función $f$ sobre el subespacio $S_\Nth$ de polinomios trigonométricos. Como se vio en la sección anterior esta proyección sería, de todos los elementos de $S_\Nth$, aquel polinomio que mejor se aproxime a $f$ por estar a la mínima distancia. Según la propiedad \ref{prop:proyOrto2} esta aproximación estaría dada por:
+Podemos definir la proyección ortogonal de una función $f$ sobre el subespacio $S_\Nth$ de polinomios trigonométricos.
+Como se vio en la sección anterior esta proyección sería, de todos los elementos de $S_\Nth$, aquel polinomio que mejor se aproxime a $f$ por estar a la mínima distancia.
+Según la propiedad \ref{prop:proyOrto2} esta aproximación estaría dada por:
 \begin{multline*}
     \proy_{S_\Nth}(f) = \frac{\intProd{f}{1}}{\nnorm{1}^2} 1 +
     \\[1ex]
@@ -2153,7 +2208,8 @@ Podemos definir la proyección ortogonal de una función $f$ sobre el subespacio
     + \frac{\intProd{f}{\sin(\Nth x)}}{\nnorm{\sin(\Nth x)}^2} \sin(\Nth x) + \frac{\intProd{f}{\cos(\Nth x)}}{\nnorm{\cos(\Nth x)}^2} \cos(\Nth x)
 \end{multline*}
 
-Según el desarrollo en serie de Fourier sabemos que si $f$ es periódica y si el polinomio trigonométrico fuese de orden infinito, la suma convergería exactamente a la función. En tal caso, los valores que multiplican a los elementos de la base $B$ son llamados coeficientes de Fourier.
+Según el desarrollo en serie de Fourier sabemos que si $f$ es periódica y si el polinomio trigonométrico fuese de orden infinito, la suma convergería exactamente a la función.
+En tal caso, los valores que multiplican a los elementos de la base $B$ son llamados coeficientes de Fourier.
 
 
 \chapter{Funciones reales}
@@ -2206,9 +2262,11 @@ Podemos clasificar las funciones según sus conjuntos de partida y llegada.
 
 \section{Dominio}
 
-El dominio es un subconjunto del conjunto de partida de una función. El dominio es el conjunto de elementos que admiten las variables de una función.
+El dominio es un subconjunto del conjunto de partida de una función.
+El dominio es el conjunto de elementos que admiten las variables de una función.
 
-Por ejemplo, suponiendo que la función tenga una división, una raíz de orden par o un logaritmo, los elementos excluidos del dominio son aquellos que anulen el denominador, que hagan negativo el radicando o que hagan menor o igual a cero el logaritmo. Cualquier otra operación estaría permitida, y estos elementos que no presentan inconvenientes están en el dominio de la función.
+Por ejemplo, suponiendo que la función tenga una división, una raíz de orden par o un logaritmo, los elementos excluidos del dominio son aquellos que anulen el denominador, que hagan negativo el radicando o que hagan menor o igual a cero el logaritmo.
+Cualquier otra operación estaría permitida, y estos elementos que no presentan inconvenientes están en el dominio de la función.
 
 
 \section{Conjuntos de nivel, secciones y trazas}
@@ -2218,7 +2276,8 @@ Los conjuntos de nivel, las secciones y las trazas son herramientas útiles para
 
 \concept{Conjuntos de nivel}
 
-Un conjunto de nivel es un subconjunto del dominio de una función. Se define fijando la imagen, dándole un valor arbitrario para poder establecer relaciones entre las variables independientes del dominio, restringiéndolo.
+Un conjunto de nivel es un subconjunto del dominio de una función.
+Se define fijando la imagen, dándole un valor arbitrario para poder establecer relaciones entre las variables independientes del dominio, restringiéndolo.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2230,9 +2289,11 @@ Un conjunto de nivel es un subconjunto del dominio de una función. Se define fi
     \end{equation*}
 \end{mdframed}
 
-Dependiendo de la dimensión del conjunto de salida de $f$, las preimágenes de $k$ van a ser, una curva si $n=2$ o una superficie si $n=3$. Es decir que los conjuntos de nivel son curvas de nivel si se trata de un campo escalar de 2 variables y superficies de nivel si se trata de un campo escalar de 3 variables.
+Dependiendo de la dimensión del conjunto de salida de $f$, las preimágenes de $k$ van a ser, una curva si $n=2$ o una superficie si $n=3$.
+Es decir que los conjuntos de nivel son curvas de nivel si se trata de un campo escalar de 2 variables y superficies de nivel si se trata de un campo escalar de 3 variables.
 
-La gráfica del conjunto de nivel tiene una dimensión menos que la gráfica de la función. Por este mismo motivo podemos graficar una superficie de nivel de una función cuya gráfica estaría en 4 dimensiones, aunque no podamos graficar la función.
+La gráfica del conjunto de nivel tiene una dimensión menos que la gráfica de la función.
+Por este mismo motivo podemos graficar una superficie de nivel de una función cuya gráfica estaría en 4 dimensiones, aunque no podamos graficar la función.
 
 Algebraicamente es posible definir conjuntos de nivel en funciones para $n>3$, pero no podrían graficarse.
 
@@ -2355,7 +2416,8 @@ De manera general, para funciones de varias variables (es decir campos escalares
     \begin{defn}
     \end{defn}
     \cusTi{Biyectividad de campos vectoriales}
-    \cusTe{Un campo vectorial es biyectivo si es inyectivo y sobreyectivo simultáneamente. Esto es:}
+    \cusTe{Un campo vectorial es biyectivo si es inyectivo y sobreyectivo simultáneamente.
+    Esto es:}
     \begin{multline*}
         \textrm{Dada} \hspace{1ex} \Vec{F}: \setR^\nth \longrightarrow \setR^\mth \tq
         \\
@@ -2399,14 +2461,17 @@ La homogeneidad de una función está relacionada con el grado de su fórmula.
 
 El límite de una función cuando las variables independientes tienden a cierto valor, sirve para calcular a qué valor del conjunto de llegada se acerca la función si nos acercamos a un punto del conjunto de partida.
 
-Para que exista el límite la función tiene que tender al mismo valor a medida que nos acercamos más y más por cualquiera de los infinitos caminos posibles. En una variable, basta con probar el límite por izquierda y por derecha ya que si son iguales se puede decir que el límite existe y es único. La dificultad principal en varias variables es que el dominio no es solo una recta, y hay infinitas direcciones para acercarse, no solo dos.
+Para que exista el límite la función tiene que tender al mismo valor a medida que nos acercamos más y más por cualquiera de los infinitos caminos posibles.
+En una variable, basta con probar el límite por izquierda y por derecha ya que si son iguales se puede decir que el límite existe y es único.
+La dificultad principal en varias variables es que el dominio no es solo una recta, y hay infinitas direcciones para acercarse, no solo dos.
 
 Por este motivo, si bien se puede demostrar que el límite no existe si por dos caminos la función tiende a valores distintos, no basta con haber probado por algunos caminos para afirmar que el límite existe: hay infinitos caminos posibles.
 
 
 \section{Definición de límite}
 
-Dada la función $f:\setR^\nth \longrightarrow \setR$. Sea $\Vec{x}_0$ un punto de acumulación (Def. \ref{defn:limitPoint}), es decir que $\Vec{x}_0$ no necesariamente pertenece al dominio pero sí lo hace su entorno.
+Dada la función $f:\setR^\nth \longrightarrow \setR$.
+Sea $\Vec{x}_0$ un punto de acumulación (Def. \ref{defn:limitPoint}), es decir que $\Vec{x}_0$ no necesariamente pertenece al dominio pero sí lo hace su entorno.
 
 Si se le asignan a la variable independiente $\Vec{x}$ valores cada vez más cercanos al punto $\Vec{x}_0$, la diferencia $\Delta \Vec{x} = \Vec{x}-\Vec{x}_0$ va a tender a cero.
 
@@ -2428,7 +2493,8 @@ De esta forma, si las imágenes de los valores que va tomando la variable tiende
 
 \section{Métodos algebráicos}
 
-Para calcular el límite de una función $f:\setR^\nth \longrightarrow \setR$ cuando $\Vec{x} \to \Vec{x}_0$ basta con reemplazar $\Vec{x}_0$ en la fórmula de $f$. Esto será posible siempre y cuando la función no sea partida o el resultado que se obtenga no sea \emph{indeterminado} debido a una operación que no esté definida matemáticamente.
+Para calcular el límite de una función $f:\setR^\nth \longrightarrow \setR$ cuando $\Vec{x} \to \Vec{x}_0$ basta con reemplazar $\Vec{x}_0$ en la fórmula de $f$.
+Esto será posible siempre y cuando la función no sea partida o el resultado que se obtenga no sea \emph{indeterminado} debido a una operación que no esté definida matemáticamente.
 
 Las siguientes son todas las posibles indeterminaciones que suelen darse al evaluar $\Vec{x}_0$ en la fórmula de la función:
 
@@ -2536,20 +2602,27 @@ x^3 \pm y^3 &= (x \pm y)^3 \mp 3xy(x\pm y)
     \end{equation*}
 \end{mdframed}
 
-La implicación es en un solo sentido. Es decir, que no es válido decir que si la función tiende a un mismo valor por dos caminos entonces el límite existe. Esta propiedad no sirve para demostrar la existencia del límite, ya que no es posible probar la tendencia de los infinitos caminos por los que se puede llegar al punto.
+La implicación es en un solo sentido.
+Es decir, que no es válido decir que si la función tiende a un mismo valor por dos caminos entonces el límite existe.
+Esta propiedad no sirve para demostrar la existencia del límite, ya que no es posible probar la tendencia de los infinitos caminos por los que se puede llegar al punto.
 
-Por el contrario, es posible demostrar la no existencia del límite, encontrando dos caminos que pasen por el punto mediante los cuales la función tienda a un valor diferente. De esta forma, al no tender a un único valor para todos los caminos, el límite no existiría.
+Por el contrario, es posible demostrar la no existencia del límite, encontrando dos caminos que pasen por el punto mediante los cuales la función tienda a un valor diferente.
+De esta forma, al no tender a un único valor para todos los caminos, el límite no existiría.
 
-La trayectoria que se tome al analizar el límite no puede pasar por ningún punto que no esté en el dominio. De lo contrario, sería posible encontrar un límite diferente, pero sería diferente justamente porque se usaron valores que la función ni siquiera admite.
+La trayectoria que se tome al analizar el límite no puede pasar por ningún punto que no esté en el dominio.
+De lo contrario, sería posible encontrar un límite diferente, pero sería diferente justamente porque se usaron valores que la función ni siquiera admite.
 
-El problema que se puede presentar para demostrar la no existencia de un límite usando el teorema de unicidad es que nunca se sabe si hay otro camino por el cual se puede acercarse al punto que tenga un límite diferente. A continuación se muestran, en orden de complejidad, los caminos que se pueden ir probando hasta encontrar uno que tenga un límite diferente.
+El problema que se puede presentar para demostrar la no existencia de un límite usando el teorema de unicidad es que nunca se sabe si hay otro camino por el cual se puede acercarse al punto que tenga un límite diferente.
+A continuación se muestran, en orden de complejidad, los caminos que se pueden ir probando hasta encontrar uno que tenga un límite diferente.
 
 Para facilitar la notación se estudian límites dobles, es decir, límites de campos escalares tipo $f:\setR^2 \longrightarrow \setR$, pero el análisis se puede generalizar a $\setR^n$.
 \begin{equation*}
     \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
 \end{equation*}
 
-A continuación se muestran diferentes métodos con algunos de los camínos que se pueden tomar para evaluar la tendencia del límite. En cada método se propone un tipo de trayectoria distinta. Para que el límite exista, la tendencia tiene que ser igual para todas las trayectorias de los diferentes métodos así como para las diferentes trayectorias de un mismo método.
+A continuación se muestran diferentes métodos con algunos de los camínos que se pueden tomar para evaluar la tendencia del límite.
+En cada método se propone un tipo de trayectoria distinta.
+Para que el límite exista, la tendencia tiene que ser igual para todas las trayectorias de los diferentes métodos así como para las diferentes trayectorias de un mismo método.
 
 
 \subsection{Límites iterados}
@@ -2566,7 +2639,8 @@ Observar que los límites iterados evalúan las rectas $x=x_0$ e $y=y_0$ y en ca
 
 \subsection{Límite por rectas implícitas}
 
-Los límites radiales o por rectas analizan la tendencia al punto por una familia de rectas, sin incluir las rectas $x=0$ e $y=0$. Se usa la ecuación de una recta para que una variable quede en función de la otra.
+Los límites radiales o por rectas analizan la tendencia al punto por una familia de rectas, sin incluir las rectas $x=0$ e $y=0$.
+Se usa la ecuación de una recta para que una variable quede en función de la otra.
 
 \begin{equation*}
     \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
@@ -2600,7 +2674,8 @@ Si el límite depende de alguno de los parametros $a$ o $b$, significa que depen
 
 \section{Teorema de intercalación}
 
-El teorema de intercalación se usa para demostrar que un límite existe. Antes de demostrar un límite por intercalación hay que haber probado suficientes caminos para tener certeza que por todos los caminos el límite siempre tiende a un mismo valor.
+El teorema de intercalación se usa para demostrar que un límite existe.
+Antes de demostrar un límite por intercalación hay que haber probado suficientes caminos para tener certeza que por todos los caminos el límite siempre tiende a un mismo valor.
 
 Por la primera propiedad de la norma:
 \begin{equation*}
@@ -2625,7 +2700,8 @@ O bien:
     \lim_{\Vec{x} \to \Vec{x}_0} \Big| f(\Vec{x}) - l \Big| = 0
 \end{equation*}
 
-Observar que $\norm{f(\Vec{x})-l}$ está acotado inferiormente por ser siempre positivo. Sea la función $g:\setR^\nth \longrightarrow \setR$ cota superior en un entorno de $\Vec{x}_0$:
+Observar que $\norm{f(\Vec{x})-l}$ está acotado inferiormente por ser siempre positivo.
+Sea la función $g:\setR^\nth \longrightarrow \setR$ cota superior en un entorno de $\Vec{x}_0$:
 \begin{equation*}
     0 \leq |f(\Vec{x})-l| \leq g(\Vec{x})
 \end{equation*}
@@ -2753,14 +2829,20 @@ Pudiendo finalmente expresar la derivada parcial con respecto a la variable $\it
 \end{equation*}
 \end{mdframed}
 
-El versor canónico $\versor{e}_\ith$ que se usó para definir las derivadas parciales es un vector que tiene un 1 en la componente $\ith$-ésima y ceros en las demás componentes. Para derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ el subíndice de $\versor{e}_i$ solo puede tomar dos valores quedando $\versor{e}_1=(1,0)$ o bien $\versor{e}_2=(0,1)$. De esta forma, dependiendo del subíndice asignado quedan definidas las derivadas parciales mencionadas anteriormente, al inicio de la sección.
+El versor canónico $\versor{e}_\ith$ que se usó para definir las derivadas parciales es un vector que tiene un 1 en la componente $\ith$-ésima y ceros en las demás componentes.
+Para derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ el subíndice de $\versor{e}_i$ solo puede tomar dos valores quedando $\versor{e}_1=(1,0)$ o bien $\versor{e}_2=(0,1)$.
+De esta forma, dependiendo del subíndice asignado quedan definidas las derivadas parciales mencionadas anteriormente, al inicio de la sección.
 
     
 \section{Derivadas direccionales}
 
-Notar que el versor $\versor{e}_\ith$ solo puede tener $\nth$ direcciones. En derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ solo puede tener las direcciones $\iVer$ o $\jVer$. En estas direcciones es que la gráfica de la función tiene cierta pendiente, que es lo que calcula la derivada parcial.
+Notar que el versor $\versor{e}_\ith$ solo puede tener $\nth$ direcciones.
+En derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ solo puede tener las direcciones $\iVer$ o $\jVer$.
+En estas direcciones es que la gráfica de la función tiene cierta pendiente, que es lo que calcula la derivada parcial.
 
-Ahora bien, es posible calcular la derivada parcial en una dirección que no sea la de los ejes coordenados. En funciones de dos variables, la derivada direccional es la pendiente que tiene la función sobre una traza, cortando la gráfica de la función con un plano vertical. La derivada direccional se define con un versor director $\versor{r}$ en vez de usar el versor canónico.
+Ahora bien, es posible calcular la derivada parcial en una dirección que no sea la de los ejes coordenados.
+En funciones de dos variables, la derivada direccional es la pendiente que tiene la función sobre una traza, cortando la gráfica de la función con un plano vertical.
+La derivada direccional se define con un versor director $\versor{r}$ en vez de usar el versor canónico.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2786,7 +2868,9 @@ De no usar un versor $(\versor{r})$ se puede usar un vector director $(\Vec{r})$
 
 \section{Operadores}
 
-El operador de Hamilton o operador nabla es un vector que tiene por componentes la operación derivada parcial con respecto a las diferentes $\nth$ variables. Las componentes de este vector no son números ni funciones, si no operaciones. Por este motivo, por si solo no tiene uso pero sí tiene múltiples aplicaciones.
+El operador de Hamilton o operador nabla es un vector que tiene por componentes la operación derivada parcial con respecto a las diferentes $\nth$ variables.
+Las componentes de este vector no son números ni funciones, si no operaciones.
+Por este motivo, por si solo no tiene uso pero sí tiene múltiples aplicaciones.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2797,7 +2881,8 @@ El operador de Hamilton o operador nabla es un vector que tiene por componentes 
     \end{equation*}
 \end{mdframed}
 
-El operador de Laplace o Laplaciano es un vector que tiene por componentes la operación derivada parcial de segundo orden con respecto a las diferentes $\nth$ variables. Así como el operador de Hamilton, las componentes del Laplaciano no son números ni funciones, si no operaciones.
+El operador de Laplace o Laplaciano es un vector que tiene por componentes la operación derivada parcial de segundo orden con respecto a las diferentes $\nth$ variables.
+Así como el operador de Hamilton, las componentes del Laplaciano no son números ni funciones, si no operaciones.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2808,7 +2893,9 @@ El operador de Laplace o Laplaciano es un vector que tiene por componentes la op
     \end{equation*}
 \end{mdframed}
 
-Para una función $f:\setR^\nth \longrightarrow \setR$, es posible obtener $\nth$ derivadas parciales. Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo vectorial con una derivada parcial en cada componente. Si la función es \emph{diferenciable}, a este vector de las derivadas se lo llama gradiente, y se define con el operador nabla como sigue.
+Para una función $f:\setR^\nth \longrightarrow \setR$, es posible obtener $\nth$ derivadas parciales.
+Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo vectorial con una derivada parcial en cada componente.
+Si la función es \emph{diferenciable}, a este vector de las derivadas se lo llama gradiente, y se define con el operador nabla como sigue.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2819,7 +2906,10 @@ Para una función $f:\setR^\nth \longrightarrow \setR$, es posible obtener $\nth
     \end{equation*}
 \end{mdframed}
 
-Para una función $\Vec{F}:\setR^\nth \longrightarrow \setR^\mth$, es posible obtener $\nth \times \mth$ derivadas parciales. Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo matricial que en cada fila tiene el vector derivada de cada función-componente del campo vectorial. Notar que si $\mth=1$ es el caso particular del vector derivada de un campo escalar. Si el campo vectorial es diferenciable la matriz de derivadas parciales lleva el nombre de \emph{Jacobiano}.
+Para una función $\Vec{F}:\setR^\nth \longrightarrow \setR^\mth$, es posible obtener $\nth \times \mth$ derivadas parciales.
+Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo matricial que en cada fila tiene el vector derivada de cada función-componente del campo vectorial.
+Notar que si $\mth=1$ es el caso particular del vector derivada de un campo escalar.
+Si el campo vectorial es diferenciable la matriz de derivadas parciales lleva el nombre de \emph{Jacobiano}.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2837,7 +2927,12 @@ Para una función $\Vec{F}:\setR^\nth \longrightarrow \setR^\mth$, es posible ob
     \end{equation*}
 \end{mdframed}
 
-La matriz Hessiana de un campo escalar es un arreglo matricial de derivadas de segundo orden. La imagen de una función $f:\setR^\nth \longrightarrow \setR$ es un escalar, un valor numérico. Sus primeras derivadas parciales se pueden representar en un vector derivado de $\nth$ componentes. Cada derivada del gradiente estará en función de todas las variables, pudiendo por cada componente del gradiente obtener un nuevo vector de derivadas parciales segundas. A medida que subimos el orden de derivación, se necesita un elemento cuya estructura tenga más dimensiones para representar las derivadas. Para las derivadas segundas de $f$ se define la \emph{Matriz Hessiana}, que tiene todas las posibles derivadas cruzadas y en la diagonal principal las derivadas segundas que solamente fueron derivadas con respecto a una misma variable.
+La matriz Hessiana de un campo escalar es un arreglo matricial de derivadas de segundo orden.
+La imagen de una función $f:\setR^\nth \longrightarrow \setR$ es un escalar, un valor numérico.
+Sus primeras derivadas parciales se pueden representar en un vector derivado de $\nth$ componentes.
+Cada derivada del gradiente estará en función de todas las variables, pudiendo por cada componente del gradiente obtener un nuevo vector de derivadas parciales segundas.
+A medida que subimos el orden de derivación, se necesita un elemento cuya estructura tenga más dimensiones para representar las derivadas.
+Para las derivadas segundas de $f$ se define la \emph{Matriz Hessiana}, que tiene todas las posibles derivadas cruzadas y en la diagonal principal las derivadas segundas que solamente fueron derivadas con respecto a una misma variable.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2858,7 +2953,9 @@ La matriz Hessiana de un campo escalar es un arreglo matricial de derivadas de s
 
 \section{Regla de la cadena}
 
-Una función compuesta es aquella cuyo conjunto de partida es el conjunto de llegada de otra función. Es decir que su dominio es la imagen de otra cierta función. También se puede interpretar como una función cuyas variables dependen a su vez de otro parámetro.
+Una función compuesta es aquella cuyo conjunto de partida es el conjunto de llegada de otra función.
+Es decir que su dominio es la imagen de otra cierta función.
+También se puede interpretar como una función cuyas variables dependen a su vez de otro parámetro.
 \clearpage
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -2878,7 +2975,9 @@ Una función compuesta es aquella cuyo conjunto de partida es el conjunto de lle
     \end{equation*}
 \end{mdframed}
 
-La derivación de funciones compuestas cumple la misma regla que en una variable. La derivada de $\Vec{H}$ compuesta por $\Vec{G}$ es igual a la derivada de $\Vec{H}$ evaluada en $\Vec{G}$ evaluada en el punto, por la derivada de $\Vec{G}$ evaluada en el punto. Esto es:
+La derivación de funciones compuestas cumple la misma regla que en una variable.
+La derivada de $\Vec{H}$ compuesta por $\Vec{G}$ es igual a la derivada de $\Vec{H}$ evaluada en $\Vec{G}$ evaluada en el punto, por la derivada de $\Vec{G}$ evaluada en el punto.
+Esto es:
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -2894,7 +2993,8 @@ La derivación de funciones compuestas cumple la misma regla que en una variable
 
 Calcular las derivadas sucesivas o derivadas de orden superior conciste en derivar una función tantas veces como el orden $k \in \setN$ de la derivada lo indique.
 
-En funciones de una variable, simplemente es hacer la derivada de la derivada sucesivamente. La única dificultad que se puede presentar es que calcular la próxima derivada sea cada vez más difícil de computar.
+En funciones de una variable, simplemente es hacer la derivada de la derivada sucesivamente.
+La única dificultad que se puede presentar es que calcular la próxima derivada sea cada vez más difícil de computar.
 
 En funciones de varias variables, cada vez que hagamos una derivada parcial hasta llegar al orden deseado, al volver a derivar vamos a tener nuevas derivadas parciales que vamos a tener que derivar por separado y cada una de estas nuevas derivadas va a tener varias derivadas parciales nuevas de manera sucesiva.
 
@@ -2903,7 +3003,8 @@ La cantidad total $N$ de derivadas parciales que tenga una función $f:\setR^\nt
     N = \nth^k\
 \end{equation*}
 
-De las cuales va a haber $\nth$ derivadas parciales que se derivaron solamente con respecto a una variable de manera sucesiva. Eventualmente, estas derivadas no mixtas son diferentes entre si.
+De las cuales va a haber $\nth$ derivadas parciales que se derivaron solamente con respecto a una variable de manera sucesiva.
+Eventualmente, estas derivadas no mixtas son diferentes entre si.
 
 Mediante la siguiente sucesión se representan, en cada uno de sus elementos, las derivadas de orden $k$ con respecto a cada variable $x_\ith$:
 \begin{align*}
@@ -2917,9 +3018,12 @@ Mediante la siguiente sucesión se representan, en cada uno de sus elementos, la
 
 Si en vez de derivar con respecto a una misma variable, se deriva la primera vez con respecto a una variable, luego con respecto a otra y así sucesivamente, se obtiene una derivada mixta.
 
-Va a haber derivadas sucesivas mixtas que se derivaron con respecto a cada variable igual cantidad de veces, de manera curzada. El Teorema de Schwarz dice que las derivadas mixtas del mismo orden que tengan igual cantidad de variables diferenciadas van a ser iguales. En otras palabras, que da igual derivar primero con respecto a una variable y luego con respecto a otra que hacerlo al revez.
+Va a haber derivadas sucesivas mixtas que se derivaron con respecto a cada variable igual cantidad de veces, de manera curzada.
+El Teorema de Schwarz dice que las derivadas mixtas del mismo orden que tengan igual cantidad de variables diferenciadas van a ser iguales.
+En otras palabras, que da igual derivar primero con respecto a una variable y luego con respecto a otra que hacerlo al revez.
 
-Las posibles combinaciones de derivadas que se pueden hacer son muchas. Pero por el Teorema de Schwarz, sabemos que hay varias que van a ser iguales, ya que la cantidad $(M)$ de grupos de derivadas eventualmente distintas entre sí, es:
+Las posibles combinaciones de derivadas que se pueden hacer son muchas.
+Pero por el Teorema de Schwarz, sabemos que hay varias que van a ser iguales, ya que la cantidad $(M)$ de grupos de derivadas eventualmente distintas entre sí, es:
 \begin{equation*}
     M = \dfrac{(k+\nth-1)!}{k!\left(\nth-1\right)!}
 \end{equation*}
@@ -2947,27 +3051,34 @@ Bajo estas hipótesis dadas, tomando el límite en la ecuación anterior se hace
     + \lim_{\Vec{x} \to \Vec{x}_0} E(\Vec{x})
 \end{equation*}
 
-Dependiendo del valor de $\nth$, la aproximación puede ser una recta tangente, un plano tangente o un hiperplano tangente, todos dados por las derivadas sucesivas de $f$. La aproximación está definida con la derivada de la función. Cuanto más elevado sea el orden de la derivada, más precisa va a ser la aproximación. Cuanto más lejos del punto $\Vec{x}_0$ se evalúe, mayor va a ser el error.
+Dependiendo del valor de $\nth$, la aproximación puede ser una recta tangente, un plano tangente o un hiperplano tangente, todos dados por las derivadas sucesivas de $f$.
+La aproximación está definida con la derivada de la función.
+Cuanto más elevado sea el orden de la derivada, más precisa va a ser la aproximación.
+Cuanto más lejos del punto $\Vec{x}_0$ se evalúe, mayor va a ser el error.
 
-A continuación se presentan algunos casos particulares de \emph{aproximaciones a fin}, según la cantidad $\nth$ de variables y el orden $k$ de las derivadas. Se la llama \emph{a fin} dado que es posible proponerla pero no es posible afirmar que es una buena aproximación hasta no demostrar que la función que intenta aproximar es efectivamente diferenciable.
+A continuación se presentan algunos casos particulares de \emph{aproximaciones a fin}, según la cantidad $\nth$ de variables y el orden $k$ de las derivadas.
+Se la llama \emph{a fin} dado que es posible proponerla pero no es posible afirmar que es una buena aproximación hasta no demostrar que la función que intenta aproximar es efectivamente diferenciable.
 
 \concept{Recta tangente}
 
-Es una aproximación lineal de primer orden para funciones de variable real $\nth=1$. Está formada por un vector director que es la tasa de crecimiento o derivada en ese punto más el valor de la función en el punto.
+Es una aproximación lineal de primer orden para funciones de variable real $\nth=1$.
+Está formada por un vector director que es la tasa de crecimiento o derivada en ese punto más el valor de la función en el punto.
 \begin{equation*}
     R(x) = f(x_0) + \frac{\dif}{\dif x} f(x_0) \left( x-x_0 \right)
 \end{equation*}
 
 \concept{Plano tangente}
 
-Es una aproximación lineal (a fin) de primer orden para funciones de $\nth=2$ variables. Está formado por dos vectores directores que son las derivadas parciales en el punto más el valor de la función en el punto.
+Es una aproximación lineal (a fin) de primer orden para funciones de $\nth=2$ variables.
+Está formado por dos vectores directores que son las derivadas parciales en el punto más el valor de la función en el punto.
 \begin{equation*}
     T(\Vec{x}) = f(\Vec{x}_0) + \frac{\partial}{\partial x} f(\Vec{x}_0) \left(x-x_0\right) + \frac{\partial}{\partial y} f(\Vec{x}_0) \left(y-y_0\right)
 \end{equation*}
 
 \concept{Hiperplano tangente}
 
-Es una aproximación lineal (a fin) de primer orden para funciones de $n$ variables. Está formado por el producto interno entre el vector derivada de $f$ y el vector incremento, más el valor de la función en el punto.
+Es una aproximación lineal (a fin) de primer orden para funciones de $n$ variables.
+Está formado por el producto interno entre el vector derivada de $f$ y el vector incremento, más el valor de la función en el punto.
 \begin{equation*}
     T(\Vec{x}) = f(\Vec{x}_0) + \grad f(\Vec{x}_0) \cdot \Delta \Vec{x}
 \end{equation*}
@@ -2979,7 +3090,9 @@ Donde:
 
 \concept{Aproximación de segundo orden}
 
-Una aproximación lineal puede ser una recta o un plano, en funciones de 1 o 2 variables respectivamente. Una aproximación no lineal más precisa se obtiene haciendo el desarrollo de Taylor con derivadas de orden superior. Particularmente, la aproximación de segundo orden se hace mediante el Hessiano:
+Una aproximación lineal puede ser una recta o un plano, en funciones de 1 o 2 variables respectivamente.
+Una aproximación no lineal más precisa se obtiene haciendo el desarrollo de Taylor con derivadas de orden superior.
+Particularmente, la aproximación de segundo orden se hace mediante el Hessiano:
 \begin{equation*}
     T(\Vec{x}) = f(\Vec{x}_0) + \grad f(\Vec{x}_0) \cdot \Delta \Vec{x} + \frac{1}{2} H(\Vec{x}_0) \cdot \Delta \Vec{x}
 \end{equation*}
@@ -2992,7 +3105,8 @@ Donde:
 
 \section{Incremento vs. Diferencial}
 
-Consideremos dos puntos $P=\begin{bmatrix} P_x & P_y \end{bmatrix}$ y $Q=\begin{bmatrix} Q_x & Q_y \end{bmatrix}$ que pertenecen al gráfico de una curva plana. Una curva se puede interpretar como el gráfico de $f:\setR \longrightarrow \setR \tq f(x)=y$.
+Consideremos dos puntos $P=\begin{bmatrix} P_x & P_y \end{bmatrix}$ y $Q=\begin{bmatrix} Q_x & Q_y \end{bmatrix}$ que pertenecen al gráfico de una curva plana.
+Una curva se puede interpretar como el gráfico de $f:\setR \longrightarrow \setR \tq f(x)=y$.
 
 Realizando la resta vectorial $Q-P$ queda el segmento de recta secante que pasa por estos dos puntos.
 \begin{equation*}
@@ -3014,7 +3128,8 @@ Cada componente de esta diferencia entre vectores se conoce como el incremento e
     \Delta y &= y-y_0
 \end{align*}
 
-Analicemos la relación entre las variables $x$ e $y$ de la función $y(x)$ cuyo gráfico genera la curva. Haciendo una aproximación lineal de $y(x)$, que en el gráfico sería la recta tangente, se tiene:
+Analicemos la relación entre las variables $x$ e $y$ de la función $y(x)$ cuyo gráfico genera la curva.
+Haciendo una aproximación lineal de $y(x)$, que en el gráfico sería la recta tangente, se tiene:
 \begin{align*}
     y(x) &= R(x)+E(x)
     \\
@@ -3025,7 +3140,8 @@ Analicemos la relación entre las variables $x$ e $y$ de la función $y(x)$ cuyo
     \Delta y &= \frac{\dif}{\dif x} y(x_0) \, \Delta x +E(x)
 \end{align*}
 
-Si hacemos que el punto $Q$ tienda a estar cerca de $P$ de manera que $x \to x_0$, entonces $\Delta x \to 0$. En tal caso, según el teorema de Taylor, el error tiende a ser nulo quedando:
+Si hacemos que el punto $Q$ tienda a estar cerca de $P$ de manera que $x \to x_0$, entonces $\Delta x \to 0$.
+En tal caso, según el teorema de Taylor, el error tiende a ser nulo quedando:
 \begin{equation*}
     \Delta y = \frac{\dif}{\dif x} y(x_0) \, \Delta x \quad \textrm{con} \hspace{1ex} \Delta x \to 0
 \end{equation*}
@@ -3066,7 +3182,9 @@ Tomando el límite cuando $\Delta x \to 0$ se tiene:
     = \lim_{\Delta x \to 0} \braces{ \frac{\dif}{\dif x} f(x_0) } + \lim_{\Delta x \to 0} \frac{E(x_0 + \Delta x)}{\Delta x}
 \end{multline*}
 
-De un lado de la igualdad se tiene la definición de derivada en el punto, que se puede reemplazar por la derivada en el punto porque la función era derivable por hipótesis. Del otro lado se tiene el límite de una constante más el error. Como la expresión entre corchetes es la derivada evaluada en el punto, para que se cumpla la igualdad el error debe tender a cero:
+De un lado de la igualdad se tiene la definición de derivada en el punto, que se puede reemplazar por la derivada en el punto porque la función era derivable por hipótesis.
+Del otro lado se tiene el límite de una constante más el error.
+Como la expresión entre corchetes es la derivada evaluada en el punto, para que se cumpla la igualdad el error debe tender a cero:
 \begin{equation*}
     \lim_{\Delta x \to 0} \frac{E(x_0 + \Delta x)}{\Delta x} = 0
 \end{equation*}
@@ -3076,9 +3194,11 @@ Por lo tanto, si una función de una variable es derivable, entonces es diferenc
 
 \section{Diferenciabilidad de funciones de 2 variables}
 
-Que una función de dos variables sea diferenciable implica que su gráfica sea suave. Es decir, que no tenga picos, simas, esquinas ni dobleces.
+Que una función de dos variables sea diferenciable implica que su gráfica sea suave.
+Es decir, que no tenga picos, simas, esquinas ni dobleces.
 
-Las funciones de 2 o más variables tienen varias derivadas parciales. Por lo tanto, por más que una función sea derivable no significa que sea continua y que exista una buena aproximación tangente.
+Las funciones de 2 o más variables tienen varias derivadas parciales.
+Por lo tanto, por más que una función sea derivable no significa que sea continua y que exista una buena aproximación tangente.
 
 Dada $f: \setR^2 \longrightarrow \setR \tq f(x,y)=z$ derivable en $(x_0,y_0)$ cuya aproximación lineal de Taylor es:
 \begin{multline*}
@@ -3122,7 +3242,9 @@ El límite cuando $(\Delta x,\Delta y) \to (0,0)$ es:
     = \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} \frac{E(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}}
 \end{multline*}
 
-En el numerador del miembro izquierdo no necesariamente se tiene una resta de dos cosas iguales. Por lo tanto el miembro derecho no necesariamente es cero como pasaba en funciones de una variable. Para que $f(x,y)$ sea diferenciable, y el error de la aproximación sea infinitésimo, hay que demostrar que:
+En el numerador del miembro izquierdo no necesariamente se tiene una resta de dos cosas iguales.
+Por lo tanto el miembro derecho no necesariamente es cero como pasaba en funciones de una variable.
+Para que $f(x,y)$ sea diferenciable, y el error de la aproximación sea infinitésimo, hay que demostrar que:
 \begin{equation*}
     \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} \frac{f(x_0 + \Delta x,y_0 + \Delta y) - T(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}} = 0
 \end{equation*}
@@ -3202,7 +3324,8 @@ Pueden ser resumidas en la siguiente propiedad.
 
 \section{Aplicaciones del gradiente}
 
-La derivada direccional es la proyección del vector gradiente sobre un versor $\versor{r}$. Si $f(\Vec{x})$ es diferenciable en $\Vec{x}_0$, podemos calcular la derivada multiplicando el vector gradiente $\grad f(\Vec{x})$ por el versor director $\versor{r}$.
+La derivada direccional es la proyección del vector gradiente sobre un versor $\versor{r}$.
+Si $f(\Vec{x})$ es diferenciable en $\Vec{x}_0$, podemos calcular la derivada multiplicando el vector gradiente $\grad f(\Vec{x})$ por el versor director $\versor{r}$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -3213,7 +3336,10 @@ La derivada direccional es la proyección del vector gradiente sobre un versor $
     \end{equation*}
 \end{mdframed}
 
-El gradiente de una función diferenciable pertenece al mismo espacio que pertenece el dominio de la función. La dirección del gradiente tiene la particularidad de ser la de mayor crecimiento de la función. Que el gradiente de la función sea igual al versor director implica y está implicado por que la derivada direccional en la dirección del versor es la mayor de todas las direcciones posibles. Esto es, la derivada máxima de la sucesión de derivadas direccionales.
+El gradiente de una función diferenciable pertenece al mismo espacio que pertenece el dominio de la función.
+La dirección del gradiente tiene la particularidad de ser la de mayor crecimiento de la función.
+Que el gradiente de la función sea igual al versor director implica y está implicado por que la derivada direccional en la dirección del versor es la mayor de todas las direcciones posibles.
+Esto es, la derivada máxima de la sucesión de derivadas direccionales.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -3230,9 +3356,11 @@ El gradiente de una función diferenciable pertenece al mismo espacio que perten
     \end{gather*}
 \end{mdframed}
 
-Podemos demostrar la no diferenciabilidad de una función si las derivadas direccionales tienen una relación no lineal según cambie el versor director. Esto es, que para alguna dirección la función crezca o disminuya con un orden mayor que para el resto de las direcciones.
+Podemos demostrar la no diferenciabilidad de una función si las derivadas direccionales tienen una relación no lineal según cambie el versor director.
+Esto es, que para alguna dirección la función crezca o disminuya con un orden mayor que para el resto de las direcciones.
 
-Observar que la derivada direccional es, usando la definición del gradiente, una multiplicación entre dos vectores y las componentes de ambos son números, entonces siempre vamos a tener una combinación lineal. Si calculamos la derivada direccional por definición usando límite y este nos arroja un resultado no lineal, entonces la función no es diferenciable.
+Observar que la derivada direccional es, usando la definición del gradiente, una multiplicación entre dos vectores y las componentes de ambos son números, entonces siempre vamos a tener una combinación lineal.
+Si calculamos la derivada direccional por definición usando límite y este nos arroja un resultado no lineal, entonces la función no es diferenciable.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -3277,7 +3405,9 @@ Con el fin de deducir la fórmula de $\tfrac{\partial}{\partial x} F(x_0)$ para 
     \dif f(x,y) = \dfrac{\partial}{\partial x} f(x_0,y_0) \cdot \Delta x + \dfrac{\partial}{\partial y} f(x_0,y_0) \cdot \Delta y
 \end{equation*}
 
-La función $f(x,y)$ está igualada a cero por hipótesis. Es decir que no hay variación en la imagen de $f(x,y)$, como si se tratara de un conjunto de nivel. Por lo tanto, el diferencial $\dif f(x,y)$ es nulo:
+La función $f(x,y)$ está igualada a cero por hipótesis.
+Es decir que no hay variación en la imagen de $f(x,y)$, como si se tratara de un conjunto de nivel.
+Por lo tanto, el diferencial $\dif f(x,y)$ es nulo:
 \begin{equation*}
     0 = \dfrac{\partial}{\partial x} f(x_0,y_0) \cdot \Delta x + \dfrac{\partial}{\partial y} f(x_0,y_0) \cdot \Delta y
 \end{equation*}
@@ -3292,7 +3422,9 @@ Como el Teorema de Dini se aplica en un entorno cercano a $(x_0,y_0)$, se tiene 
     0 = \dfrac{\partial}{\partial x} f(x_0,y_0)+ \dfrac{\partial}{\partial y} f(x_0,y_0) \dfrac{\partial y}{\partial x}
 \end{equation*}
 
-Observar que no se puede simplificar los diferenciales $\partial y$ por más que estén multiplicando y dividiendo, porque $y$ es en realidad una función de $x$. Esta función $y(x)$ es la que se enuncia en el teorema como $F(x)$, cuya fórmula no conocemos, pero que en torno al punto $x_0$ es derivable. Definiendo la ecuación anterior correctamente y despejando $F(x_0)$ se tiene la fórmula de derivación implícita:
+Observar que no se puede simplificar los diferenciales $\partial y$ por más que estén multiplicando y dividiendo, porque $y$ es en realidad una función de $x$.
+Esta función $y(x)$ es la que se enuncia en el teorema como $F(x)$, cuya fórmula no conocemos, pero que en torno al punto $x_0$ es derivable.
+Definiendo la ecuación anterior correctamente y despejando $F(x_0)$ se tiene la fórmula de derivación implícita:
 \begin{equation*}
     0 = \frac{\partial}{\partial x} f(x_0,y_0)+ \frac{\partial}{\partial y} f(x_0,y_0) \, \frac{\partial}{\partial x} F(x_0)
 \end{equation*}
@@ -3367,7 +3499,8 @@ Los puntos críticos son los elementos del dominio que pueden ser un máximo, un
     \end{gather*}
 \end{mdframed}
 
-Un extremo local o relativo evaluado en la función toma el valor más alto o más bajo de la imagen, en el entorno del punto. Un extremo absoluto o global es un máximo o mínimo no solo para su entorno, sino también para todos los valores que tome la función en el resto del dominio.
+Un extremo local o relativo evaluado en la función toma el valor más alto o más bajo de la imagen, en el entorno del punto.
+Un extremo absoluto o global es un máximo o mínimo no solo para su entorno, sino también para todos los valores que tome la función en el resto del dominio.
 
 \begin{itemize}
     \item Mínimo local: $f(\Vec{x}_0)<f(\Vec{x}) \quad \forall \hspace{1ex} \Vec{x} \in B(\Vec{x}_0, \delta)$
@@ -3420,7 +3553,8 @@ Dada $f:D_1 \subseteq \setR^\nth \longrightarrow \setR$ restringida a $g:D_2 \su
     L:D_3 \subseteq \setR^{\nth+1} \longrightarrow \setR \tq L(\Vec{x}, \lambda) = f(\Vec{x}) - \lambda g(\Vec{x})
 \end{equation*}
 
-Siendo los candidatos a extremos o puntos de ensilladura de $f$ los mismos puntos críticos de $L$. Por lo tanto, si $f$ y $g$ son campos escalares de dos variables, se tiene que:
+Siendo los candidatos a extremos o puntos de ensilladura de $f$ los mismos puntos críticos de $L$.
+Por lo tanto, si $f$ y $g$ son campos escalares de dos variables, se tiene que:
 \begin{gather*}
     \grad L(x,y,\lambda)=0 \iff
     \\[1em]
@@ -3458,12 +3592,15 @@ Las curvas pueden estar dadas en 2 dimensiones contenidas en un plano o pueden d
 
 Si tuviesemos un hilo tirado en el piso o un alambre doblado colgando, ambos de grosor nulo, podríamos referirnos al espacio que ocupan como curvas en dos y tres dimensiones respectivamente.
 
-Una curva puede ser definida mediante una ecuación paramétrica o una ecuación implícita. Geométricamente, ambas formas de representación describen lo mismo. Pero la ecuación paramétrica indica cómo la curva es ``recorrida'', mientras que la ecuación implícita indica cuáles son los puntos que la delimitan.
+Una curva puede ser definida mediante una ecuación paramétrica o una ecuación implícita.
+Geométricamente, ambas formas de representación describen lo mismo.
+Pero la ecuación paramétrica indica cómo la curva es ``recorrida'', mientras que la ecuación implícita indica cuáles son los puntos que la delimitan.
 
 
 \subsection{Ecuación paramétrica}
 
-La ecuación paramétrica de una curva es una función vectorial que toma valores reales y entrega vectores de 2 o 3 coordenadas. A medida que el parámetro $t$ aumenta, la imagen de la función va trazando los puntos del recorrido.
+La ecuación paramétrica de una curva es una función vectorial que toma valores reales y entrega vectores de 2 o 3 coordenadas.
+A medida que el parámetro $t$ aumenta, la imagen de la función va trazando los puntos del recorrido.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3488,7 +3625,8 @@ Puede haber más de una parametrización correcta para una misma curva.
 
 \subsection{Ecuación implícita}
 
-Las ecuaciones implícitas de una curva delimitan los puntos que la componen. Indican la geometría que tiene el conjunto ($C$) de puntos que conforman la curva en un plano o en el espacio.
+Las ecuaciones implícitas de una curva delimitan los puntos que la componen.
+Indican la geometría que tiene el conjunto ($C$) de puntos que conforman la curva en un plano o en el espacio.
 
 Una curva plana puede estar dada de manera implícita como la gráfica de funciones escalares o como el conjunto de nivel de un campo escalar de 2 variables.
 
@@ -3506,7 +3644,8 @@ Una curva plana puede estar dada de manera implícita como la gráfica de funcio
     C = \braces{ (x,y) \in \setR^2 \tq f(x,y)-k=0 }
 \end{gather*}
 
-Una curva en el espacio puede resultar de la intersección de superficies. En este caso se cumplen simultáneamente las ecuaciones de un sistema que expresa, en cada ecuación, cada una de las superficies que se intersectan.
+Una curva en el espacio puede resultar de la intersección de superficies.
+En este caso se cumplen simultáneamente las ecuaciones de un sistema que expresa, en cada ecuación, cada una de las superficies que se intersectan.
 
 \concept{Intersección entre superficies}
 \begin{gather*}
@@ -3538,7 +3677,9 @@ La imagen de la ecuación paramétrica de una curva son los puntos de dicho plan
     \end{equation*}
 \end{mdframed}
 
-Algunas parametrizaciones no arrojan exactamente todos los puntos de la ecuación implícita, ya que pueden tener discontinuidades numerables. Para una única ecuación implícita, es posible encontrar varias parametrizaciones que sean soluciónes de la misma. Para cada parametrización, existe al menos una ecuación implícita que eventualmente se puede calcular.
+Algunas parametrizaciones no arrojan exactamente todos los puntos de la ecuación implícita, ya que pueden tener discontinuidades numerables.
+Para una única ecuación implícita, es posible encontrar varias parametrizaciones que sean soluciónes de la misma.
+Para cada parametrización, existe al menos una ecuación implícita que eventualmente se puede calcular.
 
 \concept{Parametrización de curvas en un plano}
 
@@ -3546,7 +3687,8 @@ Si se puede poner una variable en función de la otra, entonces existe una param
 
 \concept{Parametrización de curvas en el espacio}
 
-Primero se proyecta la curva sobre alguno de los planos coordenados, de manera tal que esa proyección sea una curva conocida. Luego, se despeja la coordenada no tenida en cuenta en la proyección anterior.
+Primero se proyecta la curva sobre alguno de los planos coordenados, de manera tal que esa proyección sea una curva conocida.
+Luego, se despeja la coordenada no tenida en cuenta en la proyección anterior.
 
 % Agregar vectores tangente y normal. c'(t) es tangente, pero ¿c''(t) es normal?
 
@@ -3563,7 +3705,8 @@ Una curva cerrada es aquella que no tiene principio ni fin.
     \end{equation*}
 \end{mdframed}
 
-Una curva simple no se corta a sí misma. Una curva es simple si tiene una parametrización inyectiva.
+Una curva simple no se corta a sí misma.
+Una curva es simple si tiene una parametrización inyectiva.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3576,7 +3719,8 @@ Una curva simple no se corta a sí misma. Una curva es simple si tiene una param
 
 Por definición, si una parametrización es simple, la implícita también lo es.
 
-Una curva regular tiene una parametrización diferenciable. Una curva es regular si tiene una parametrización cuya derivada es no nula para todos los puntos del dominio.
+Una curva regular tiene una parametrización diferenciable.
+Una curva es regular si tiene una parametrización cuya derivada es no nula para todos los puntos del dominio.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3587,22 +3731,25 @@ Una curva regular tiene una parametrización diferenciable. Una curva es regular
     \end{equation*}
 \end{mdframed}
 
-Por definición, si una parametrización es regular, la implícita también. 
+Por definición, si una parametrización es regular, la implícita también.
 
-Aquellos puntos en los que la curva no es regular se conocen como puntos singulares. Los puntos singulares son puntos en los que una curva presenta una anomalía, que puede implicar que no sea simple (y tenga un punto de cruce), que tenga un punto cuspidal, que tenga un punto de estrangulación (o tacnodo) o que tenga un punto aislado.
+Aquellos puntos en los que la curva no es regular se conocen como puntos singulares.
+Los puntos singulares son puntos en los que una curva presenta una anomalía, que puede implicar que no sea simple (y tenga un punto de cruce), que tenga un punto cuspidal, que tenga un punto de estrangulación (o tacnodo) o que tenga un punto aislado.
 
 Así como el gradiente de un plano nos da los coeficientes de la ecuación del plano, todas las superficies son caracterizadas por su gradiente.
 
 Si hacemos el producto vectorial entre los gradientes de las ecuaciones implícitas de dos superficies que se intersectan, estaremos calculando un vector que es ortogonal a ambos gradientes.
 
-Supongamos que la intersección de esas superficies es una curva. Si en algún punto este producto vectorial se anula $\grad S_1 \times \grad S_2 = (0,0,0)$, significa que la curva tiene versor normal nulo y por lo tanto que no es regular.
+Supongamos que la intersección de esas superficies es una curva.
+Si en algún punto este producto vectorial se anula $\grad S_1 \times \grad S_2 = (0,0,0)$, significa que la curva tiene versor normal nulo y por lo tanto que no es regular.
 
 
 \section{Catálogo de curvas planas}
 
 \concept{Secciones cónicas}
 
-Las secciones cónicas son curvas planas que resultan de la intersección de un cono con un plano inclinado. La curva resultante va a depender de la inclinación del plano y el radio del cono, entre otros parámetros.
+Las secciones cónicas son curvas planas que resultan de la intersección de un cono con un plano inclinado.
+La curva resultante va a depender de la inclinación del plano y el radio del cono, entre otros parámetros.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3725,7 +3872,8 @@ Las secciones cónicas son curvas planas que resultan de la intersección de un 
 
 \section{Superficies}
 
-Una superficie puede ser entendida como un plano que se ``arruga'' a medida que sus dos vectores directores lo recorren. Formalmente, decimos que una superficie es una inmersión que transforma el plano $\setR^2$ y lo aplica en el espacio $\setR^3$.
+Una superficie puede ser entendida como un plano que se ``arruga'' a medida que sus dos vectores directores lo recorren.
+Formalmente, decimos que una superficie es una inmersión que transforma el plano $\setR^2$ y lo aplica en el espacio $\setR^3$.
 
 Las superficies generalmente están dadas en 3 dimensiones, aunque un plano de 2 dimensiones es un caso particular de una superficie.
 
@@ -3750,7 +3898,8 @@ Una diferencia con las curvas, es que las superficies requieren de dos parametro
 
 \subsection{Ecuación Implícita}
 
-Las ecuaciónes implícitas de una superficie delimitan los puntos que la componen. Indican la geometría que tiene el conjunto ($S$) de puntos que conforman la superficie.
+Las ecuaciónes implícitas de una superficie delimitan los puntos que la componen.
+Indican la geometría que tiene el conjunto ($S$) de puntos que conforman la superficie.
 
 Una superficie puede estar dada de manera implícita como la gráfica de un campo escalar de 2 Variables, como el conjunto de nivel de un campo escalar de 3 variables, y como la intersección de sólidos y superficies.
 
@@ -3770,7 +3919,8 @@ Una superficie puede estar dada de manera implícita como la gráfica de un camp
 
 \concept{Intersección entre sólidos y superficies}
 
-Una superficie puede resultar de la intersección entre solidos, superficies, curvas y cualquier conjunto de puntos en general. En este caso, se cumple el sistema de ecuaciones e inecuaciones que expresan los sólidos, superficies o conjuntos que se intersecten.
+Una superficie puede resultar de la intersección entre solidos, superficies, curvas y cualquier conjunto de puntos en general.
+En este caso, se cumple el sistema de ecuaciones e inecuaciones que expresan los sólidos, superficies o conjuntos que se intersecten.
 
 
 \subsection{Parametrización de la implícita}
@@ -3806,7 +3956,8 @@ Al haber dos parámetros, hay dos vectores tangentes linealmente independientes.
 
 Los vectores tangentes se pueden hacer unitarios dividiendolos por su norma.
 
-Al ser los vectores tangentes las derivadas parciales, su dirección no es cualquiera si no que entre si forman un ángulo recto. Calculando el producto vectorial, se obtiene el vector que es normal a los vectores tangentes, y por lo tanto normal a la superficie.
+Al ser los vectores tangentes las derivadas parciales, su dirección no es cualquiera si no que entre si forman un ángulo recto.
+Calculando el producto vectorial, se obtiene el vector que es normal a los vectores tangentes, y por lo tanto normal a la superficie.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3817,7 +3968,8 @@ Al ser los vectores tangentes las derivadas parciales, su dirección no es cualq
     \end{equation*}
 \end{mdframed}
 
-Por otro lado, se puede calcular a partir de la ecuación implícita de una superficie. Así como los coeficientes de la implícita de un plano son los componentes del vector normal, el gradiente de la ecuación implícita de una superficie es el vector normal a la misma.
+Por otro lado, se puede calcular a partir de la ecuación implícita de una superficie.
+Así como los coeficientes de la implícita de un plano son los componentes del vector normal, el gradiente de la ecuación implícita de una superficie es el vector normal a la misma.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3847,8 +3999,9 @@ Se dice que una superficie está orientada positivamente cuando el versor normal
     \cusTe{Una superficie es simple si tiene una parametrización inyectiva.}
 \end{mdframed}
 
-Una superficie es regular si es suave y no tiene picos, ni cimas, ni dobleces, ni esquinas. Esto equivale a que el vector normal formado a partir del producto vectorial entre los vectores tangentes nunca se anule. O lo que es lo mismo, que el rango de la matriz de $3 \times 2$ derivada de la 
-ecuación paramétrica sea menor que dos.
+Una superficie es regular si es suave y no tiene picos, ni cimas, ni dobleces, ni esquinas.
+Esto equivale a que el vector normal formado a partir del producto vectorial entre los vectores tangentes nunca se anule.
+O lo que es lo mismo, que el rango de la matriz de $3 \times 2$ derivada de la ecuación paramétrica sea menor que dos.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -3939,7 +4092,8 @@ Las superficies elípticas no tienen simetría axial, pero son simétricas son r
 
 \concept{Superficies de revolución:}
 
-Las superficies de revolución son simétricas con respecto a un eje. Se pueden concebir rotando media vuelta las curvas cónicas sobre dicho eje de simetría y luego uniendo las posiciones durante el giro.
+Las superficies de revolución son simétricas con respecto a un eje.
+Se pueden concebir rotando media vuelta las curvas cónicas sobre dicho eje de simetría y luego uniendo las posiciones durante el giro.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3950,8 +4104,9 @@ Las superficies de revolución son simétricas con respecto a un eje. Se pueden 
     \end{equation*}
 \end{mdframed}
 
-Intersectando un cono de revolución con un plano, se obtienen las secciones cónicas y secciones cónicas degeneradas. Pero además, este cono se genera por revolución a partir de una recta. Esta, a su vez,
-es una sección cónica degenerada, lo cual resulta un tanto paradójico.
+Intersectando un cono de revolución con un plano, se obtienen las secciones cónicas y secciones cónicas degeneradas.
+Pero además, este cono se genera por revolución a partir de una recta.
+Esta, a su vez, es una sección cónica degenerada, lo cual resulta un tanto paradójico.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3974,7 +4129,8 @@ es una sección cónica degenerada, lo cual resulta un tanto paradójico.
 
 Cualquiera de las parametrizaciones del elipsoide pueden ser usadas reemplazando los parámetros por el radio de modo que $a=b=c=r$ para parametrizar una esfera.
 
-A la siguiente superficie de revolución también se la conoce como esferoide. Las ecuaciones implícita y paramétrica son idénticas a la del elipsoide tradicional, con la particularidad de que dos de los parámetros dos iguales entre si.
+A la siguiente superficie de revolución también se la conoce como esferoide.
+Las ecuaciones implícita y paramétrica son idénticas a la del elipsoide tradicional, con la particularidad de que dos de los parámetros dos iguales entre si.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3985,7 +4141,8 @@ A la siguiente superficie de revolución también se la conoce como esferoide. L
     \end{equation*}
 \end{mdframed}
 
-Si $a=c \enspace \lor \enspace b=c$ se lo llama Esferoide Oblato, y la simetría sería con respecto al eje $x$ o al eje $y$. Si $a=b$ se la llama Esferoide Prolato y la simetría sería con respecto al eje $z$.
+Si $a=c \enspace \lor \enspace b=c$ se lo llama Esferoide Oblato, y la simetría sería con respecto al eje $x$ o al eje $y$.
+Si $a=b$ se la llama Esferoide Prolato y la simetría sería con respecto al eje $z$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -3996,7 +4153,9 @@ Si $a=c \enspace \lor \enspace b=c$ se lo llama Esferoide Oblato, y la simetría
     \end{equation*}
 \end{mdframed}
 
-La simetría de esta superficie se va a dar respecto al eje cuyo término no esté elevado al cuadrado. Por otro lado, si $m$ es negativo va a tener una orientación negativa. De $m$ depende, además, qué tan ancho sea el paraboloide.
+La simetría de esta superficie se va a dar respecto al eje cuyo término no esté elevado al cuadrado.
+Por otro lado, si $m$ es negativo va a tener una orientación negativa.
+De $m$ depende, además, qué tan ancho sea el paraboloide.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4018,7 +4177,9 @@ La simetría de esta superficie se va a dar respecto al eje cuyo término no est
 
 \concept{Superficies de extrusión}
 
-Las superficies de extrusión se obtienen trasladando o ``copiando'' una curva a lo largo de un eje. En las ecuaciones implícitas de las superficies por extrusión, la componente sobre la que se crea el copiado no impone ninguna condición. La extrusión también puede darse en los otros ejes, no solo en el $z$.
+Las superficies de extrusión se obtienen trasladando o ``copiando'' una curva a lo largo de un eje.
+En las ecuaciones implícitas de las superficies por extrusión, la componente sobre la que se crea el copiado no impone ninguna condición.
+La extrusión también puede darse en los otros ejes, no solo en el $z$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4073,9 +4234,11 @@ Las superficies de extrusión se obtienen trasladando o ``copiando'' una curva a
 \chapter{Campos vectoriales}
 
 
-Para entender qué es un campo vectorial, primero hay que entender qué es un vector anclado a un punto. También se suele decir vector aplicado en un punto, vector fijado en un punto o vector plantado en un punto.
+Para entender qué es un campo vectorial, primero hay que entender qué es un vector anclado a un punto.
+También se suele decir vector aplicado en un punto, vector fijado en un punto o vector plantado en un punto.
 
-Recordemos que un vector $\overline{AB}$ es un elemento de un espacio vectorial que tiene origen o \emph{cola} en $A$ y \emph{extremo} en $B$. Si $A=\Vec{0}$ entonces la cola está en el origen de coordenadas, y $\overline{AB}=B-A$ se denota simplemente como el vector $\Vec{B}$ o el punto $B$.
+Recordemos que un vector $\overline{AB}$ es un elemento de un espacio vectorial que tiene origen o \emph{cola} en $A$ y \emph{extremo} en $B$.
+Si $A=\Vec{0}$ entonces la cola está en el origen de coordenadas, y $\overline{AB}=B-A$ se denota simplemente como el vector $\Vec{B}$ o el punto $B$.
 
 Un vector anclado a un punto tiene como extremo la suma del vector más el punto y como cola el punto.
 
@@ -4094,7 +4257,9 @@ Un vector anclado a un punto tiene como extremo la suma del vector más el punto
     \end{gather*}
 \end{mdframed}
 
-Esto equivale a decir que el vector anclado $\Vec{v}_{\Vec{x}}$ es la traslación del vector $\Vec{v}$ tal que su origen coincida con el de $\Vec{x}$. Cuando se trata de un vector anclado, sí importa dónde grafiquemos el vector. Los vectores anclados juegan un rol muy importante en los campos vectoriales, ya que un vector anclado a un punto puede estar en función de ese punto:
+Esto equivale a decir que el vector anclado $\Vec{v}_{\Vec{x}}$ es la traslación del vector $\Vec{v}$ tal que su origen coincida con el de $\Vec{x}$.
+Cuando se trata de un vector anclado, sí importa dónde grafiquemos el vector.
+Los vectores anclados juegan un rol muy importante en los campos vectoriales, ya que un vector anclado a un punto puede estar en función de ese punto:
 \begin{equation*}
     \Vec{v}_{\Vec{x}} (\Vec{x}) = \big( v_1(\Vec{x}),v_2(\Vec{x}) \dots v_n(\Vec{x}) \big)_{(x_1,x_2 \dots x_\nth)}
 \end{equation*}
@@ -4114,7 +4279,8 @@ Esto equivale a decir que el vector anclado $\Vec{v}_{\Vec{x}}$ es la traslació
     \end{multline*}
 \end{mdframed}
 
-Un campo vectorial es una función que toma valores vectoriales y les asigna otros valores vectoriales. En dos dimensiones, se puede decir que un campo vectorial es una aplicación que a cada punto del plano le asigna un vector en dicho plano.
+Un campo vectorial es una función que toma valores vectoriales y les asigna otros valores vectoriales.
+En dos dimensiones, se puede decir que un campo vectorial es una aplicación que a cada punto del plano le asigna un vector en dicho plano.
 \begin{equation*}
     \Vec{F}:\setR^2 \longrightarrow \setR^2 \tq \Vec{F}(x,y)= 
     \begin{bmatrix}
@@ -4126,7 +4292,8 @@ Observar que cada componente de $\Vec{F}(\Vec{x})$ es un campo escalar ya que ta
 
 Es importante notar que, para graficar un campo vectorial, cada vector de la imagen se grafica con su respectivo origen, ya que son todos vectores anclados, lo cual no se suele aclarar en la notación con el subíndice.
 
-Por otra parte, si se quiere graficar un campo vectorial estrictamente, como en un plano o en el espacio hay infinitos puntos, la gráfica quedaría como una ``mancha negra'' en todo el espacio. Por este motivo se se acostumbra graficar solo algunos puntos y con la magnitud de los vectores disminuida, para que las flechas no se solapen.
+Por otra parte, si se quiere graficar un campo vectorial estrictamente, como en un plano o en el espacio hay infinitos puntos, la gráfica quedaría como una ``mancha negra'' en todo el espacio.
+Por este motivo se se acostumbra graficar solo algunos puntos y con la magnitud de los vectores disminuida, para que las flechas no se solapen.
 
 \section{Operaciones}
 
@@ -4142,7 +4309,8 @@ Hamilton y el campo.
     \end{equation*}
 \end{mdframed}
 
-El rotor de un campo vectorial se obtiene haciendo el producto vectorial entre el operador de Hamilton y el campo. Al ser un producto vectorial solo está definido para matrices de $3 \times 3$, es decir que solo se puede calcular el rotor de campos en el espacio.
+El rotor de un campo vectorial se obtiene haciendo el producto vectorial entre el operador de Hamilton y el campo.
+Al ser un producto vectorial solo está definido para matrices de $3 \times 3$, es decir que solo se puede calcular el rotor de campos en el espacio.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4181,7 +4349,8 @@ Operando matricialmente se obtiene la siguiente expresión para el rotor:
 
 \section{Campos de gradiente}
 
-Un campo vectorial se llama campo de gradiente o campo conservativo cuando sus componentes son las derivadas parciales de un campo escalar, conocido como función potencial. La notación usada es el producto escalar entre el operador de Hamilton y dicha función potencial.
+Un campo vectorial se llama campo de gradiente o campo conservativo cuando sus componentes son las derivadas parciales de un campo escalar, conocido como función potencial.
+La notación usada es el producto escalar entre el operador de Hamilton y dicha función potencial.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4245,7 +4414,8 @@ Obteniendo la siguiente propiedad que si $\Vec{F}$ es diferenciable en todo el p
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
     \end{prop}
-    Un campo de gradiente es ortogonal a las superficies de nivel de la función potencial asociada al campo. Cualquier curva contenida en la superficie también va a ser ortogonal.
+    Un campo de gradiente es ortogonal a las superficies de nivel de la función potencial asociada al campo.
+    Cualquier curva contenida en la superficie también va a ser ortogonal.
 \end{mdframed}
 
 \begin{mdframed}[style=MyFrame1]
@@ -4271,7 +4441,8 @@ Si $\Vec{F}$ es diferenciable en todo el plano, la implicancia anterior vale en 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
     \end{prop}
-    Si el dominio de un campo vectorial es abierto y simplemente conexo, entonces la forma diferencial asociada es exacta. Por lo tanto, el campo vectorial es un campo de gradientes y admite función potencial.
+    Si el dominio de un campo vectorial es abierto y simplemente conexo, entonces la forma diferencial asociada es exacta.
+    Por lo tanto, el campo vectorial es un campo de gradientes y admite función potencial.
 \end{mdframed}
 
 Por definición, la función potencial está dada por la anti derivada de cualquiera de las componentes de un campo de gradientes más una constante de integración:
@@ -4279,14 +4450,18 @@ Por definición, la función potencial está dada por la anti derivada de cualqu
     f(x,y) = \int F_\ith(\Vec{x}) \partial x_\ith + c
 \end{equation*}
 
-Para un campo de gradiente $\Vec{F}:\setR^2 \longrightarrow \setR^2$ podemos definir la función potencial de cualquiera de las siguientes dos maneras. Hay que tener en cuenta que la ``constante'' de integración en realidad está en función de la variable que no se integre.
+Para un campo de gradiente $\Vec{F}:\setR^2 \longrightarrow \setR^2$ podemos definir la función potencial de cualquiera de las siguientes dos maneras.
+Hay que tener en cuenta que la ``constante'' de integración en realidad está en función de la variable que no se integre.
 \begin{gather*}
     f(x,y) = \int P(x,y) \partial x + c(y)
     \\
     f(x,y) = \int Q(x,y) \partial y + c(x)
 \end{gather*}
 
-Para calcular la ``constante'' de integración hay que igualar las dos formas de calcular la derivada parcial del campo. Una es derivando $f(x,y)$ con respecto de la variable que tome $c$. La otra es tomar la componente del campo que anteriormente no se usó para definir $f(x,y)$, ya que por definición es la derivada de la función potencial. Luego, se integra esta igualdad y se obtiene $c$.
+Para calcular la ``constante'' de integración hay que igualar las dos formas de calcular la derivada parcial del campo.
+Una es derivando $f(x,y)$ con respecto de la variable que tome $c$.
+La otra es tomar la componente del campo que anteriormente no se usó para definir $f(x,y)$, ya que por definición es la derivada de la función potencial.
+Luego, se integra esta igualdad y se obtiene $c$.
 
 Para campos de gradiente $\Vec{F}:\setR^\nth \longrightarrow \setR^\nth$ este mismo procedimiento es válido pero hay que realizarlo $\nth$ veces, ya que cada vez que se integre $c$ va a haber una nueva incógnita pero vamos a tener suficientes ecuaciones para igualar porque se puede definir $f$ de $\nth$ formas distintas.
 
@@ -4309,9 +4484,13 @@ Las curvas integrales o líneas de flujo de un campo vectorial dan una idea de q
 \chapter{Integrales de funciones reales}
 
 
-Al igual que la derivación, la integración solo puede operar con una variable a la vez. Pero a diferencia de las derivadas, es posible computar una unica integral y llegar a un resultado numérico integrando con respecto de todas las variables.
+Al igual que la derivación, la integración solo puede operar con una variable a la vez.
+Pero a diferencia de las derivadas, es posible computar una unica integral y llegar a un resultado numérico integrando con respecto de todas las variables.
 
-Según cómo esté definida la integración va a variar conceptualmente su aplicación. Integrar funciones de una variable equivale a calcular el área debajo de la curva. Integrar funciones de varias variables también es posible, y en el caso de un campo escalar de dos variables, la integral calcula el volumen por debajo de la superficie. Aunque esta noción de la integral es una primera idea intuitiva, ya que la integración tiene muchas otras aplicaciones.
+Según cómo esté definida la integración va a variar conceptualmente su aplicación.
+Integrar funciones de una variable equivale a calcular el área debajo de la curva.
+Integrar funciones de varias variables también es posible, y en el caso de un campo escalar de dos variables, la integral calcula el volumen por debajo de la superficie.
+Aunque esta noción de la integral es una primera idea intuitiva, ya que la integración tiene muchas otras aplicaciones.
 
 
 \section{Integrales de Riemann en 2D}
@@ -4328,11 +4507,15 @@ Sea $R$, una partición de $D$, el área dada por el producto cartesiano entre i
     R = [a,b] \times [c,d] = [x_0,x_n] \times [y_0,y_n]
 \end{equation*}
 
-Nótese que el recinto $R$ es un rectángulo de puntos $\begin{bmatrix} x & y \end{bmatrix} \in \setR^2$ que pertenecen a un plano en el dominio de la función. Mientras que los puntos de la superficie $S$ están definidos como $\begin{bmatrix} x & y & f(x,y) \end{bmatrix} \in \setR^3$ y pertenecen al espacio.
+Nótese que el recinto $R$ es un rectángulo de puntos $\begin{bmatrix} x & y \end{bmatrix} \in \setR^2$ que pertenecen a un plano en el dominio de la función.
+Mientras que los puntos de la superficie $S$ están definidos como $\begin{bmatrix} x & y & f(x,y) \end{bmatrix} \in \setR^3$ y pertenecen al espacio.
 
-Esto implica que los puntos de la superficie $S$ dada por el gráfico de $f(x,y)$ no solamente están ``elevados'' con respecto a los puntos del recinto $R$. Si no que, además, no tienen porqué tener la misma geometría. De hecho, ni siquera pertenecen al mismo espacio vectorial.
+Esto implica que los puntos de la superficie $S$ dada por el gráfico de $f(x,y)$ no solamente están ``elevados'' con respecto a los puntos del recinto $R$.
+Si no que, además, no tienen porqué tener la misma geometría.
+De hecho, ni siquera pertenecen al mismo espacio vectorial.
 
-Justamente el hecho de que tengan otro ``relieve'' va a permitir definir un volumen que no sea el de un cubo, donde bastaría con multiplicar sus lados para calcular el volumen. Por este motivo, se definió $f(x,y) \neq 1$.
+Justamente el hecho de que tengan otro ``relieve'' va a permitir definir un volumen que no sea el de un cubo, donde bastaría con multiplicar sus lados para calcular el volumen.
+Por este motivo, se definió $f(x,y) \neq 1$.
 
 Una vez que se tiene el recinto particionado, se establece para cara partición un paralelepípedo de base igual al área de la partición y de altura tal que uno de sus vértices ``toque'' la gráfica de la función.
 
@@ -4353,7 +4536,8 @@ El volumen de cualquier paralelepípedo es:
     V_{\ith,\jth}= \underbrace{(x_{\ith+1} - x_\ith)}_{\Delta x_\ith} \times \underbrace{(y_{\jth+1} - y_\jth)}_{\Delta y_\jth} \times f(x_\ith,y_\jth)
 \end{equation*}
 
-El volumen de todos los paralelepípedos del recinto es la suma de cada volumen. Esta aproximación del volumen total $V$ que hay por debajo de $S$ es:
+El volumen de todos los paralelepípedos del recinto es la suma de cada volumen.
+Esta aproximación del volumen total $V$ que hay por debajo de $S$ es:
 \begin{equation*}
     V \approx \sum_{\ith,\jth=0}^{\nth-1} V_{\ith,\jth} = \sum_{\ith,\jth=0}^{\nth-1} f(x_\ith,y_\jth) \, \Delta x_\ith \, \Delta y_\jth
 \end{equation*}
@@ -4369,7 +4553,10 @@ El largo $\Delta x_\ith$ y el ancho $\Delta y_\jth$ de cada paralelepípedo depe
     \right.
 \end{equation*}
 
-Al aumentar $\nth$ aumenta la cantidad de particiones y por ende la cantidad de paralelepípedos, no así el tamaño del recinto. Por lo tanto, el grosor de los paralelepipedos tiene que disminuir. Tomar el límite cuando $n\to\infty$ implica sumar los volúmenes de los infinitos paralelepípedos de grosor nulo que hay en el recinto. De esta forma, la aproximación del volumen bajo la superficie pasa a ser una igualdad, quedando definida una integral doble:
+Al aumentar $\nth$ aumenta la cantidad de particiones y por ende la cantidad de paralelepípedos, no así el tamaño del recinto.
+Por lo tanto, el grosor de los paralelepipedos tiene que disminuir.
+Tomar el límite cuando $n\to\infty$ implica sumar los volúmenes de los infinitos paralelepípedos de grosor nulo que hay en el recinto.
+De esta forma, la aproximación del volumen bajo la superficie pasa a ser una igualdad, quedando definida una integral doble:
 \begin{align*}
     V &= \lim_{\nth\to\infty} \sum_{\ith,\jth=0}^{\nth-1} f(x_\ith,y_\jth) \, \Delta x_\ith \, \Delta y_\jth
     \\
@@ -4411,7 +4598,8 @@ Sea $\Vec{T}:A' \subset \setR^2 \longrightarrow A \subset \setR^2$ una transform
 
 \subsection{Distancia lineal}
 
-Dada la función $f:D \subset \setR \longrightarrow \setR \tq f(x)=1$. El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el largo del intervalo.
+Dada la función $f:D \subset \setR \longrightarrow \setR \tq f(x)=1$.
+El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el largo del intervalo.
 \begin{equation*}
     A = \int_{x_0}^{x_1} \dif x = 1 \cdot \Delta x
 \end{equation*}
@@ -4424,7 +4612,8 @@ Dada la función $f:D \subset \setR \longrightarrow \setR \tq f(x)=1$. El cálcu
 
 \subsection{Área bajo una curva plana}
 
-Dada una función $f:D \subset \setR \longrightarrow \setR \tq f(x)>0$. El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el área bajo la gráfica de $f$.
+Dada una función $f:D \subset \setR \longrightarrow \setR \tq f(x)>0$.
+El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el área bajo la gráfica de $f$.
 \begin{equation*}
     A = \int_{x_0}^{x_1} f(x) \, \dif x
 \end{equation*}
@@ -4437,7 +4626,8 @@ Dada una función $f:D \subset \setR \longrightarrow \setR \tq f(x)>0$. El cálc
 
 \subsection{Área del recinto $A$}
 
-Dada la función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)=1$. El cálculo de la integral sobre un recinto $A$ da como resultado el área del recinto.
+Dada la función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)=1$.
+El cálculo de la integral sobre un recinto $A$ da como resultado el área del recinto.
 \begin{equation*}
     A = \iint_A \partial \, x \partial y = 1 \cdot \Delta x \, \Delta y
 \end{equation*}
@@ -4450,7 +4640,8 @@ Dada la función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)=1$. El c�
 
 \subsection{Volumen bajo una superficie}
 
-Dada una función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)>0$. El cálculo de la integral sobre un recinto $A$ da como resultado el volumen bajo la gráfica de $f$.
+Dada una función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)>0$.
+El cálculo de la integral sobre un recinto $A$ da como resultado el volumen bajo la gráfica de $f$.
 \begin{equation*}
     V = \iint_A f(x,y) \partial x \, \partial y
 \end{equation*}
@@ -4463,7 +4654,8 @@ Dada una función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)>0$. El c
 
 \subsection{Volumen del recinto $V$}
 
-Dada la función $f:D \subset \setR^3 \longrightarrow \setR \tq f(x,y,z)=1$. El cálculo de la integral sobre un volumen de integración $V$ da como resultado dicho volumen.
+Dada la función $f:D \subset \setR^3 \longrightarrow \setR \tq f(x,y,z)=1$.
+El cálculo de la integral sobre un volumen de integración $V$ da como resultado dicho volumen.
 \begin{equation*}
     V = \iiint_V \partial x \, \partial y \, \partial z = 1 \cdot \Delta x \, \Delta y \, \Delta z
 \end{equation*}
@@ -4489,7 +4681,8 @@ El área $A$ de una superficie está dada por:
 
 \subsection{Masa de un sólido}
 
-Sea $\rho:\setR^3 \longrightarrow \setR$ una función que determina la densidad en cada punto del espacio ocupado por cierto sólido. La integral de $\rho (x,y,z)$ sobre el volumen $V$ calcula la masa del sólido.
+Sea $\rho:\setR^3 \longrightarrow \setR$ una función que determina la densidad en cada punto del espacio ocupado por cierto sólido.
+La integral de $\rho (x,y,z)$ sobre el volumen $V$ calcula la masa del sólido.
 \begin{equation*}
     m = \iiint_V \rho (x,y,z) \, \partial x \, \partial y \, \partial z
 \end{equation*}
@@ -4497,7 +4690,8 @@ Sea $\rho:\setR^3 \longrightarrow \setR$ una función que determina la densidad 
 
 \section{Integrales sobre curvas y superficies}
 
-Las integrales curvilíneas e integrales de superficie son integrales dobles o triples. Pero como se evalúan sobre curvas o superficies, las variables con respecto a las que se integra se reducen a una o dos, respectivamente.
+Las integrales curvilíneas e integrales de superficie son integrales dobles o triples.
+Pero como se evalúan sobre curvas o superficies, las variables con respecto a las que se integra se reducen a una o dos, respectivamente.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4563,7 +4757,8 @@ Las integrales sobre curvas y superficies de tipo 1 se realizan sobre campos esc
 
 Las integrales sobre curvas y superficies de tipo 2 se realizan sobre campos vectoriales.
 
-El trabajo es la cantidad de energía que se necesita para que una partícula recorra un arco de curva. El movimiento puede darse en 2 o 3 dimensiones espaciales, pero en ambos casos se estaría calculando el trabajo sobre una curva.
+El trabajo es la cantidad de energía que se necesita para que una partícula recorra un arco de curva.
+El movimiento puede darse en 2 o 3 dimensiones espaciales, pero en ambos casos se estaría calculando el trabajo sobre una curva.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -4640,13 +4835,17 @@ Sea $\Vec{F}$ un campo vectorial de clase $\class (\setR^3)$ sea $S$ una superfi
 \chapter{Números complejos}
 
 
-Los números complejos surgen de la necesidad de inventar una solución a la ecuación $x^2=-1$. Es por esto que se define el número imaginario $\iu$ de manera tal que $\iu^2=-1$.
+Los números complejos surgen de la necesidad de inventar una solución a la ecuación $x^2=-1$.
+Es por esto que se define el número imaginario $\iu$ de manera tal que $\iu^2=-1$.
 
-El número $\iu$ pertenece al conjunto $\setI$ de números imaginarios. Los números imaginarios se forman multiplicando el número $\iu$ por un número real $y$.
+El número $\iu$ pertenece al conjunto $\setI$ de números imaginarios.
+Los números imaginarios se forman multiplicando el número $\iu$ por un número real $y$.
 
 Combinando los números reales $\setR \subset \setC$ con los números imaginarios $\setI \subset \setC$ surge el conjunto de los números complejos $\setC=\setR \times \setI$.
 
-A diferencia de los reales, el conjunto de números complejos no es un conjunto ordenado. Los números complejos se representan gráficamente en un plano. El plano complejo tiene en el eje $x$ la conocida recta real mientras que el eje vertical representa los números $\iu \, y$ imaginarios puros.
+A diferencia de los reales, el conjunto de números complejos no es un conjunto ordenado.
+Los números complejos se representan gráficamente en un plano.
+El plano complejo tiene en el eje $x$ la conocida recta real mientras que el eje vertical representa los números $\iu \, y$ imaginarios puros.
 
 Los complejos se pueden expresar de varias formas que se relaciónan entre sí según la fórmula de Euler:
 
@@ -4720,7 +4919,8 @@ O bien podemos expresar un complejo de forma exponencial usando la fórmula de E
 
 \section{Producto}
 
-El producto de dos números complejos da como resultado otro número complejo. Si bien los numeros complejos pueden ser expresados vectorialmente, el producto no es el producto interno de vectores convencionales.
+El producto de dos números complejos da como resultado otro número complejo.
+Si bien los numeros complejos pueden ser expresados vectorialmente, el producto no es el producto interno de vectores convencionales.
 
 El producto se define como la multiplicación de números complejos expresados en forma binomial.
 
@@ -4803,7 +5003,8 @@ Luego:
 
 \concept{Demostración por el conjugado}
 
-Esta demostración es más rápida pero en ella se utilizan elementos todavía no definidos. Ver primero la definición \ref{defn:conjugate}, y las propiedades \ref{prop:eAbsoluteValue} y \ref{prop:|z|^2=z.z*}.
+Esta demostración es más rápida pero en ella se utilizan elementos todavía no definidos.
+Ver primero la definición \ref{defn:conjugate}, y las propiedades \ref{prop:eAbsoluteValue} y \ref{prop:|z|^2=z.z*}.
 \begin{align*}
     z \cdot \conj{z} &= \norm{z}^2
     \\
@@ -5125,9 +5326,12 @@ Se obtiene entonces:
 
 En la notación se suele diferenciar cualquier raiz $n$-ésima $z_{k+1} = z_0^{1/\nth}$ de la única raíz positiva, que recibe el nombre de raíz principal y se denota $z_1=\sqrt[n]{z_0}$.
 
-Se puede observar que la fórmula anterior puede generar $\nth$ valores distintos. De no acotar los valores que puede tomar $\kth$, la formula daría valores repetidos. Las raíces $n$-ésimas van a estar distribuidas en el plano complejo formando un polígono de $\nth$ vértices, separados cada uno del otro por el mismo ángulo.
+Se puede observar que la fórmula anterior puede generar $\nth$ valores distintos.
+De no acotar los valores que puede tomar $\kth$, la formula daría valores repetidos.
+Las raíces $n$-ésimas van a estar distribuidas en el plano complejo formando un polígono de $\nth$ vértices, separados cada uno del otro por el mismo ángulo.
 
-Separando el exponente, cada una de las $\nth$ raíces que arroja la fórmula se puede expresar como un producto en el que uno de los factores siempre va a ser la raíz principal $z_1$. De esta forma, podemos definir una notación equivalente para el conjunto $C$ de raíces $n$-ésimas:
+Separando el exponente, cada una de las $\nth$ raíces que arroja la fórmula se puede expresar como un producto en el que uno de los factores siempre va a ser la raíz principal $z_1$.
+De esta forma, podemos definir una notación equivalente para el conjunto $C$ de raíces $n$-ésimas:
 \begin{equation*}
     C = \braces{z_1 , z_1 \, w , z_1 \, w^2 \ldots z_1 \, w^{n-1}}
 \end{equation*}
@@ -5137,7 +5341,8 @@ Donde:
     w = e^{\iu \left( \tfrac{2 \pi}{\nth} \right)}
 \end{equation*}
 
-Observar que este análisis sirve para estudiar raíces de monomios. En caso de tratarse de un polinomio de más de un término, no podemos conocer las raíces por definición directamente.
+Observar que este análisis sirve para estudiar raíces de monomios.
+En caso de tratarse de un polinomio de más de un término, no podemos conocer las raíces por definición directamente.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -5150,7 +5355,9 @@ Observar que este análisis sirve para estudiar raíces de monomios. En caso de 
 
 \section{Geometría de conjuntos}
 
-Podemos representar un conjunto de números complejos como un conjunto de puntos en el plano complejo. Algunas secciones cónicas, en vez de ser expresadas con sus ecuaciones tradicionales en función de las partes real $(x)$ e imaginaria $(y)$, se pueden expresar en función de los puntos del plano complejo $(z)$ según la propiedad \ref{prop:distance} del módulo. Es posible verificar que los complejos expresados en su forma binomial verifican también las ecuaciones tradicionales de las cónicas.
+Podemos representar un conjunto de números complejos como un conjunto de puntos en el plano complejo.
+Algunas secciones cónicas, en vez de ser expresadas con sus ecuaciones tradicionales en función de las partes real $(x)$ e imaginaria $(y)$, se pueden expresar en función de los puntos del plano complejo $(z)$ según la propiedad \ref{prop:distance} del módulo.
+Es posible verificar que los complejos expresados en su forma binomial verifican también las ecuaciones tradicionales de las cónicas.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -5213,7 +5420,10 @@ Una función de una variable compleja es una aplicación que toma un conjunto ($
     \end{equation*}
 \end{mdframed}
 
-Las funciones complejas no se pueden graficar, porque tanto los elementos del conjunto de partida como los elementos del conjunto de llegada son puntos del plano complejo. Es por esto que para tener ciertas nociones geométricas de la función, podemos hacer dos gráficos en 2D de dichos conjuntos de partida y llegada. Es posible graficar el módulo de una función en 3D. Se usan dos variables independientes para el conjunto de partida y una dependiente para el conjunto de llegada.
+Las funciones complejas no se pueden graficar, porque tanto los elementos del conjunto de partida como los elementos del conjunto de llegada son puntos del plano complejo.
+Es por esto que para tener ciertas nociones geométricas de la función, podemos hacer dos gráficos en 2D de dichos conjuntos de partida y llegada.
+Es posible graficar el módulo de una función en 3D.
+Se usan dos variables independientes para el conjunto de partida y una dependiente para el conjunto de llegada.
 
 Una vez aplicada una función, en ocaciones suele ser útil factorizar todos los términos que tienen multiplicado a $\iu$ de los que no para obtener la expresión binomial de la imagen.
 \begin{equation*}
@@ -5606,7 +5816,8 @@ Finalmente, según la propiedad \ref{prop:ReIm} y nuevamente la propiedad \ref{p
     \end{align*}
 \end{mdframed}
 
-Nótese que tanto la variable $z$ como el punto $z_0$ son complejos. Por lo tanto el incremento $h=z-z_0$ también lo es.
+Nótese que tanto la variable $z$ como el punto $z_0$ son complejos.
+Por lo tanto el incremento $h=z-z_0$ también lo es.
 
 \begin{center}
     \def\svgwidth{0.6\linewidth}
@@ -5668,7 +5879,8 @@ Por la propiedad \ref{prop:limit} del límite, la derivada es un límite doble:
     \begin{defn}
     \end{defn}
     \cusTi{Función armónica}
-    \cusTe{Una función se dice armónica si es un campo escalar real $u: \setR^2 \longrightarrow \setR$ que verifica $\grad^2 u = 0$. Esto es, si cumple:}
+    \cusTe{Una función se dice armónica si es un campo escalar real $u: \setR^2 \longrightarrow \setR$ que verifica $\grad^2 u = 0$.
+    Esto es, si cumple:}
     \begin{equation*}
         \frac{\partial^2}{\partial x^2} u(x,y) + \frac{\partial^2}{\partial y^2} u(x,y) = 0
     \end{equation*}
@@ -5683,7 +5895,8 @@ Por la propiedad \ref{prop:limit} del límite, la derivada es un límite doble:
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
     \end{prop}
-    Si un campo de gradientes $\Vec{F}=\grad u(x,y)$ verifica $\operatorname{div}(\Vec{F})=0$ entonces la función potencial $u(x,y)$ es armónica. Esto es:
+    Si un campo de gradientes $\Vec{F}=\grad u(x,y)$ verifica $\operatorname{div}(\Vec{F})=0$ entonces la función potencial $u(x,y)$ es armónica.
+    Esto es:
     \begin{equation*}
         \grad^2 u(x,y) = u_{xx}'' + u_{yy}'' = 0
     \end{equation*}
@@ -5749,7 +5962,8 @@ Por las ecuaciones de Cauchy-Riemann (Def. \ref{defn:CRequations}) y por el teor
 
 \section{Teorema de Cauchy-Riemann}
 
-El teorema de Cauchy-Riemann relaciona la derivada de una función con las derivadas parciales de los campos escalares $u(x,y)$ y $v(x,y)$ componentes del campo vectorial asociado a la función. Si una función es derivable entonces se cumple la siguiente propiedad.
+El teorema de Cauchy-Riemann relaciona la derivada de una función con las derivadas parciales de los campos escalares $u(x,y)$ y $v(x,y)$ componentes del campo vectorial asociado a la función.
+Si una función es derivable entonces se cumple la siguiente propiedad.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -5760,7 +5974,8 @@ El teorema de Cauchy-Riemann relaciona la derivada de una función con las deriv
     \end{equation*}
 \end{mdframed}
 
-Nótese que las derivadas de la ecuación anterior son las parciales de los campos escalares $u(x,y)$ y $v(x,y)$, componentes del campo vectorial asociado. Es importante no confundirlas con la derivada (\ref{prop:partialDerivate}) en las direcciones de los ejes real e imaginario.
+Nótese que las derivadas de la ecuación anterior son las parciales de los campos escalares $u(x,y)$ y $v(x,y)$, componentes del campo vectorial asociado.
+Es importante no confundirlas con la derivada (\ref{prop:partialDerivate}) en las direcciones de los ejes real e imaginario.
 
 Aplicando la propiedad \ref{prop:CRtheorem} a una función compleja expresada en la forma binomial, podemos obtener dos ecuaciones de gran relevancia.
 \begin{gather*}
@@ -6129,7 +6344,8 @@ Las curvas dadas en el plano complejo son funciones $(c)$ que toman valores real
     c: D\subseteq \setR \longrightarrow \setC \tq c(t) = x(t) + \iu y(t)
 \end{equation*}
 
-Las curvas se derivan y se integran componente a componente. Es decir que es válido:
+Las curvas se derivan y se integran componente a componente.
+Es decir que es válido:
 \begin{gather*}
     \frac{\dif}{\dif t} c(t) = \frac{\dif}{\dif t} x(t) + \iu \frac{\dif}{\dif t} y(t)
     \\[1em]
@@ -6183,7 +6399,9 @@ Se obtiene la siguiente propiedad:
 
 \section{Integrales curvilíneas}
 
-La integración de funciones complejas no está definida. Las integrales de una función compleja tienen sentido si se evalúan sobre una curva del plano complejo. La definición es parecida a las integrales de tipo 2 de cálculo real multivariable (Def. \ref{defn:type2Int}), pero en vez de tener un producto interno se tiene un producto complejo.
+La integración de funciones complejas no está definida.
+Las integrales de una función compleja tienen sentido si se evalúan sobre una curva del plano complejo.
+La definición es parecida a las integrales de tipo 2 de cálculo real multivariable (Def. \ref{defn:type2Int}), pero en vez de tener un producto interno se tiene un producto complejo.
 \begin{gather*}
     \textrm{Sea} \enspace f: \setC \longrightarrow \setC \tq f(z) = u(z) + \iu v(z)
     \\[1ex]
@@ -6194,7 +6412,8 @@ La integración de funciones complejas no está definida. Las integrales de una 
     }
 \end{gather*}
 
-Podemos reescribir la ecuación anterior definiendo dos campos vectoriales reales. La integral curvilínea sería entonces un número complejo que tiene como partes real e imaginaria, integrales curvilíneas reales de tipo 2.1 respectivamente.
+Podemos reescribir la ecuación anterior definiendo dos campos vectoriales reales.
+La integral curvilínea sería entonces un número complejo que tiene como partes real e imaginaria, integrales curvilíneas reales de tipo 2.1 respectivamente.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -6224,7 +6443,8 @@ Podemos reescribir la ecuación anterior definiendo dos campos vectoriales reale
 \section{Teorema de la primitiva}
 \label{sec:primitive}
 
-Una función compleja $f(z)$ tiene primitiva $F(z)$ en un subconjunto abierto $A$ del plano complejo solo si la integral es independiente de la trayectoria. Esto implica que la integral sobre una trayectoria cerrada es nula:
+Una función compleja $f(z)$ tiene primitiva $F(z)$ en un subconjunto abierto $A$ del plano complejo solo si la integral es independiente de la trayectoria.
+Esto implica que la integral sobre una trayectoria cerrada es nula:
 \begin{equation*}
     \exists \, F(z) \iff \oint f(z) \, \dif z = 0
 \end{equation*}
@@ -6321,7 +6541,9 @@ Por lo tanto $g(z) \in \class[\infty]$ y reemplazando $g(z)$ en la fórmula de C
     g(z) = 2 \pi \, f(z)
 \end{equation*}
 
-Finalmente, derivando la ecuación anterior $\nth$ veces, se tiene la generalización del teorema. Además, esto implica que $f(z) \in \mathcal{C} ^ \infty \big( \operatorname{int}(C) \big)$. Nótese que si $\nth=0$ queda la Fórmula de Cauchy dada en la propiedad \ref{prop:CauchyFormula}.
+Finalmente, derivando la ecuación anterior $\nth$ veces, se tiene la generalización del teorema.
+Además, esto implica que $f(z) \in \mathcal{C} ^ \infty \big( \operatorname{int}(C) \big)$.
+Nótese que si $\nth=0$ queda la Fórmula de Cauchy dada en la propiedad \ref{prop:CauchyFormula}.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -6571,7 +6793,8 @@ Si la sucesión $(a_\nth)$ asociada a una serie alternada es estrictamente decre
 
 \section{Series de potencias}
 
-Las Series de Potencias son series definidas en función de una variable independiente. Es decir, que van a quedar definidas distintas series dependiendo en función del valor que se evalúe.
+Las Series de Potencias son series definidas en función de una variable independiente.
+Es decir, que van a quedar definidas distintas series dependiendo en función del valor que se evalúe.
 \begin{gather*}
     S_\nth(z) = \sum_{\nth=n_0}^\Nth a_\nth \, w^{\pm \nth}
     \\[1ex]
@@ -6608,7 +6831,9 @@ Según el signo del exponente $\pm \nth$, podemos clasificar las series de poten
 
 \section{Derivación de series de potencias positivas}
 
-Como las series de potencia están definidas a partir de funciones, podemos derivarlas e integrarlas. Dada una serie $S_\nth$ podemos definir la serie de sus derivadas $D \, S_\nth$ y la serie de sus primitivas $P \, S_\nth$. Estas van a tener la misma región de convergencia.
+Como las series de potencia están definidas a partir de funciones, podemos derivarlas e integrarlas.
+Dada una serie $S_\nth$ podemos definir la serie de sus derivadas $D \, S_\nth$ y la serie de sus primitivas $P \, S_\nth$.
+Estas van a tener la misma región de convergencia.
 \begin{gather*}
     \textrm{Dada} \enspace S_\nth(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
     \\[1ex]
@@ -6629,7 +6854,8 @@ Evaluando $z_0$ en una serie de potencias (Def. \ref{defn:posPowerSeries}), se o
     + a_3 \left(z_0-z_0\right)^3 + \dots + a_\Nth \left(z_0-z_0\right)^\Nth = a_0
 \end{multline*}
 
-Es posible calcular cualquiera de los $\Nth$ coeficientes $a_\nth$ de una serie, al que llamaremos $a_\mth$. Siguiendo el mismo razonamiento anterior, al derivar $\mth$ veces una serie de potencias, se puede deducir por inducción el coeficiente $a_\mth$ a partir de dichas derivadas sucesivas.
+Es posible calcular cualquiera de los $\Nth$ coeficientes $a_\nth$ de una serie, al que llamaremos $a_\mth$.
+Siguiendo el mismo razonamiento anterior, al derivar $\mth$ veces una serie de potencias, se puede deducir por inducción el coeficiente $a_\mth$ a partir de dichas derivadas sucesivas.
 \begin{multline*}
     \frac{\dif}{\dif z} S_\nth(z) = \sum_{\nth=1}^\infty \nth \, a_\nth \left(z-z_0\right)^{\nth-1}
     \\
@@ -6736,7 +6962,9 @@ Sea $C$ una curva cerrada y simple contenida por $A$.
 
 \section{Singularidades aisladas}
 
-Una singularidad es un punto donde una función o bien no está definida o bien no es derivable. Si $f(z)$ tiene una singularidad en $z_0$ pero es derivable en un entorno $0<\norm{z-z_0}<R$ entonces se dice que es una singularidad aislada y $f(z)$ admite desarrollo en Series de Laurent (Sec. \ref{sec:Laurent}). Analizando los coeficientes $b_\nth$ del desarrollo de Laurent, se pueden clasificar las singularidades aisladas de la siguiente manera:
+Una singularidad es un punto donde una función o bien no está definida o bien no es derivable.
+Si $f(z)$ tiene una singularidad en $z_0$ pero es derivable en un entorno $0<\norm{z-z_0}<R$ entonces se dice que es una singularidad aislada y $f(z)$ admite desarrollo en Series de Laurent (Sec. \ref{sec:Laurent}).
+Analizando los coeficientes $b_\nth$ del desarrollo de Laurent, se pueden clasificar las singularidades aisladas de la siguiente manera:
 
 \begin{itemize}
     \item Singularidad evitable:
@@ -6756,7 +6984,8 @@ Una singularidad es un punto donde una función o bien no está definida o bien 
 
 \section{Clasificación de polos}
 
-A veces es posible clasificar la singularidad aislada sin hacer el desarrollo en serie de la función. En particular, se puede detectar si una singularidad aislada es un polo de la siguiente forma.
+A veces es posible clasificar la singularidad aislada sin hacer el desarrollo en serie de la función.
+En particular, se puede detectar si una singularidad aislada es un polo de la siguiente forma.
 
 Si $z_0$ es un Polo de orden $\kth$, la función se va a desarrollar de la siguiente manera:
 \begin{multline*}
@@ -6794,12 +7023,15 @@ Si la función es analítica en $z_0$ y su entorno, tiene desarrollo de Taylor.
     f(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
 \end{equation*}
 
-Cuando $z=z_0$, la función toma el primer término $a_0$ de la serie. Por lo tanto, dado que $f(z_0) = a_0 = 0$, el desarrollo de Taylor comienza en 1.
+Cuando $z=z_0$, la función toma el primer término $a_0$ de la serie.
+Por lo tanto, dado que $f(z_0) = a_0 = 0$, el desarrollo de Taylor comienza en 1.
 \begin{equation*}
     f(z) = \underbrace{a_0}_{f(z_0)=0} + \sum_{\nth=1}^\infty a_\nth (z-z_0)^\nth
 \end{equation*}
 
-Pero además, la función puede tener derivadas sucesivas nulas. Recordar que en un desarrollo de Taylor, los coeficientes $a_\nth$ están dados por las derivadas sucesivas evaluadas en $z_0$. Si una derivada es nula, entonces también lo será este coeficiente.
+Pero además, la función puede tener derivadas sucesivas nulas.
+Recordar que en un desarrollo de Taylor, los coeficientes $a_\nth$ están dados por las derivadas sucesivas evaluadas en $z_0$.
+Si una derivada es nula, entonces también lo será este coeficiente.
 \begin{align*}
     \frac{\dif}{\dif z} f(z_0) &= \frac{\dif^2}{\dif z^2} f(z_0)
     \\[1ex]
@@ -6808,7 +7040,8 @@ Pero además, la función puede tener derivadas sucesivas nulas. Recordar que en
     &= 0
 \end{align*}
 
-Siguiendo el razonamiento anterior, si hay $\kth$ derivadas que se anulan entonces el desarrollo comienza en $\kth$, ya que los términos anteriores son nulos. Tiene que haber al menos un valor de $\kth$ para el que la derivada no se anule, sino la función sería nula.
+Siguiendo el razonamiento anterior, si hay $\kth$ derivadas que se anulan entonces el desarrollo comienza en $\kth$, ya que los términos anteriores son nulos.
+Tiene que haber al menos un valor de $\kth$ para el que la derivada no se anule, sino la función sería nula.
 \begin{equation*}
     f(z) = \sum_{\nth=\kth}^\infty a_\nth \left(z-z_0\right)^\nth
 \end{equation*}
@@ -6836,7 +7069,8 @@ Sacando factor común $\left(z-z_0\right)^\kth$ y definiendo la serie de potenci
 
 De manera general, analizando los ceros de un cociente se pueden clasificar todas las singularidades, incluyendo los polos.
 
-Si $f(z) = h(z)/g(z)$ con $g(z_0)=0$ entonces $f(z)$ tiene una singularidad aislada en $z_0$. Y como $g(z)$ es analítica, se puede expresar como $g(z)=\left(z-z_0\right)^\kth \Phi_g (z)$.
+Si $f(z) = h(z)/g(z)$ con $g(z_0)=0$ entonces $f(z)$ tiene una singularidad aislada en $z_0$.
+Y como $g(z)$ es analítica, se puede expresar como $g(z)=\left(z-z_0\right)^\kth \Phi_g (z)$.
 
 \begin{itemize}
     \item \concept{Caso 1}
@@ -6911,7 +7145,9 @@ Pero las integrales sobre una curva cerrada de las series que tienen primitiva s
     \oint_C f(z) \, \dif z = \oint_C \frac{b_1}{z-z_0} \dif z
 \end{equation*}
 
-Esto significa que la integral sobre la curva $C$ está dada por la integral del término $(z-z_0)^{-1}$ y su coeficiente $b_1$. Por lo cual, es posible tomar cualquier curva $C_i$ que contenga a la singularidad $z_0$. Por la fórmula de Cauchy (Sec. \ref{sec:CauchyFormula}), la integral anterior es:
+Esto significa que la integral sobre la curva $C$ está dada por la integral del término $(z-z_0)^{-1}$ y su coeficiente $b_1$.
+Por lo cual, es posible tomar cualquier curva $C_i$ que contenga a la singularidad $z_0$.
+Por la fórmula de Cauchy (Sec. \ref{sec:CauchyFormula}), la integral anterior es:
 \begin{equation*}
     \oint_C f(z) \, \dif z = 2 \pi \, \iu \, b_1
 \end{equation*}
@@ -6980,7 +7216,8 @@ El método consiste en suponer que $f(t)$ es una función real que surge de eval
 
 \section{Integrales impropias}
 
-Sea $f(z)$ un cociente de polinomios. Se tiene un segmento de la recta real y un semicírculo $(C)$ formando entre ambos una curva cerrada $(C_0)$.
+Sea $f(z)$ un cociente de polinomios.
+Se tiene un segmento de la recta real y un semicírculo $(C)$ formando entre ambos una curva cerrada $(C_0)$.
 
 Este semicírculo cerrado contiene las $\Nth$ singularidades que $f(z) \, e^{\iu \omega z}$ presente en el semiplano superior.
 
@@ -7022,7 +7259,8 @@ Si $\int_C f(z) \, e^{\iu \omega z} \, \dif z = 0$ cuando $R \to \infty$ entonce
     \int_{-\infty}^{\infty} f(z) \, e^{\iu \omega t} \, \dif t = \sum_{\nth=0}^\Nth 2 \pi \, \iu \, b_1(z_\nth)
 \end{equation*}
 
-La siguiente propiedad es de importancia a la hora de computar integrales impropias. Vemos que:
+La siguiente propiedad es de importancia a la hora de computar integrales impropias.
+Vemos que:
 \begin{equation*}
     \norm{e^{\iu \omega z}} = \norm{e^{\iu \omega \left(x + \iu y\right)}} = \underbrace{\norm{e^{\iu \omega x}}}_{=1} e^{-\omega y}
 \end{equation*}
@@ -7163,7 +7401,8 @@ Las funciones que verifican $f(t)=f(t+T)$ para un período $T$ se llaman periód
     \end{equation*}
 \end{mdframed}
 
-Donde tanto $f(t)$ como $e^{\iu \omega t}$ son periódicas. Por lo tanto, se tiene:
+Donde tanto $f(t)$ como $e^{\iu \omega t}$ son periódicas.
+Por lo tanto, se tiene:
 \begin{gather*}
     e^{\iu \omega t} = e^{\iu \omega (t+T)} = e^{\iu \omega t} e^{\iu \omega T}
     \\
@@ -7182,7 +7421,9 @@ Donde tanto $f(t)$ como $e^{\iu \omega t}$ son periódicas. Por lo tanto, se tie
     \end{equation*}
 \end{mdframed}
 
-La transformada de Fourier determina el espectro de frecuencias $\hat{f}(\omega)$ de la forma de onda $f(t)$. Esto es, la relevancia que cada frecuencia $e^{-\iu \omega t}$ tenga. La operación inversa determina la forma de onda $\hat{f}(t)$ que tiene cierto espectro de frecuencias $f(\omega)$.
+La transformada de Fourier determina el espectro de frecuencias $\hat{f}(\omega)$ de la forma de onda $f(t)$.
+Esto es, la relevancia que cada frecuencia $e^{-\iu \omega t}$ tenga.
+La operación inversa determina la forma de onda $\hat{f}(t)$ que tiene cierto espectro de frecuencias $f(\omega)$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -7339,7 +7580,9 @@ La transformada de Fourier determina el espectro de frecuencias $\hat{f}(\omega)
 
 \subsection{Teorema de multiplicación}
 
-Un individuo tiene una probabilidad $P(B)$ de pertenecer a una partición $B$. Además, hay una probabilidad $P(A|B)$ de que el individuo cumpla cierta característica $A$ además de pertenecer a $B$. La probabilidad de que un individuo tenga la característica $A$ y sea parte de la partición $B$ simultaneamente está dada por el teorema de multiplicación.
+Un individuo tiene una probabilidad $P(B)$ de pertenecer a una partición $B$.
+Además, hay una probabilidad $P(A|B)$ de que el individuo cumpla cierta característica $A$ además de pertenecer a $B$.
+La probabilidad de que un individuo tenga la característica $A$ y sea parte de la partición $B$ simultaneamente está dada por el teorema de multiplicación.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -7353,7 +7596,8 @@ Un individuo tiene una probabilidad $P(B)$ de pertenecer a una partición $B$. A
 
 \subsection{Teorema de probabilidad total}
 
-Calcula la probabilidad de que un individuo tenga cierta característica $A$ sobre el total de las particiones. Esto es la suma de las partes de cada partición $B_i$ que cumplen la característica.
+Calcula la probabilidad de que un individuo tenga cierta característica $A$ sobre el total de las particiones.
+Esto es la suma de las partes de cada partición $B_i$ que cumplen la característica.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{prop}
@@ -7634,7 +7878,8 @@ La función de densidad $f_X(x)$ es una aproximación de la altura $h$ de cada r
     f_X: \setR \longrightarrow \setR \tq 0 < f_X(x) \approx h(x)
 \end{equation*}
 
-En el histograma de un experimento, la altura de cada rectángulo depende de la frecuencia relativa $fr$ que tengan los valores $x$ de la VAC y de qué tantos valores $x \in \Delta x$ contemple dicha frecuencia. Luego
+En el histograma de un experimento, la altura de cada rectángulo depende de la frecuencia relativa $fr$ que tengan los valores $x$ de la VAC y de qué tantos valores $x \in \Delta x$ contemple dicha frecuencia.
+Luego
 \begin{equation*}
     h(x) = \frac{f_r}{\Delta x}
 \end{equation*}
@@ -7868,7 +8113,8 @@ Con lo cual no es posible obtener una fórmula para la distribución mediante el
     \end{align*}
 \end{mdframed}
 
-Dos o más variables se dicen idénticamente distribuidas si tienen igual distribución. Esto es
+Dos o más variables se dicen idénticamente distribuidas si tienen igual distribución.
+Esto es
 \begin{equation*}
     \braces{X_1;X_2 \dots X_n} \text{ son IID} \iff F_{X_i}(x)=F_{X_j}(x) \quad \forall \, i,j \in [1,n]
 \end{equation*}
@@ -7937,7 +8183,8 @@ Cualquier parámetro $\theta$ de una muestra aleatoria ya sea este $\mu, \sigma,
     E_{\hat{\theta}} (X_i) = \ave{X} \implies \theta \approx \hat{\theta}
 \end{equation*}
 
-Al estimar un parámetro, se comete un error, ya que $n$ es finito. El error cuadrático medio ($\ecm$) está definido como:
+Al estimar un parámetro, se comete un error, ya que $n$ es finito.
+El error cuadrático medio ($\ecm$) está definido como:
 \begin{equation*}
     \ecm = E \big( (\hat{\theta} - \theta)^2 \big)
     = \big( E(\hat{\theta})-\theta \big)^2 + V(\hat{\theta})
@@ -7949,7 +8196,8 @@ Se dice que un estimador es insesgado si el sesgo es nulo.
 
 \section{Intervalos de confianza}
 
-Además de estimar un parámetro $\theta$ de manera puntual, se puede determinar un \emph{intervalo de confianza} $I=[a;b]$ de manera que los valores entre $a$ y $b$ sean los que probablemente tome el parámetro real. Esto es
+Además de estimar un parámetro $\theta$ de manera puntual, se puede determinar un \emph{intervalo de confianza} $I=[a;b]$ de manera que los valores entre $a$ y $b$ sean los que probablemente tome el parámetro real.
+Esto es
 \begin{equation*}
     P(a<\theta<b) = 1 - \alpha
 \end{equation*}
@@ -8065,7 +8313,10 @@ Dada una muestra aleatoria con distribución normal, se tiene:
 
 Un test de hipótesis sirve para determinar si una modificación en un experimento es significativa o no.
 
-Sea $\mu$ la esperanza luego de haber aplicado la modificación. Se definen dos posibles hipótesis. La hipótesis $h_0$ o ``conservadora'' sugiere que no hay evidencia de que la modificación haya sido eficiente. La hipótesis $h_1$ o ``progresista'' sugiere que la modificación implicaría un cambio efectivo.
+Sea $\mu$ la esperanza luego de haber aplicado la modificación.
+Se definen dos posibles hipótesis.
+La hipótesis $h_0$ o ``conservadora'' sugiere que no hay evidencia de que la modificación haya sido eficiente.
+La hipótesis $h_1$ o ``progresista'' sugiere que la modificación implicaría un cambio efectivo.
 \begin{equation*}
     \left\{
     \begin{aligned}
@@ -8145,14 +8396,17 @@ Por lo tanto, se optará por rechazar $h_0$ si se verifica la siguiente inecuaci
 
 \section{Decibeles}
 
-Las escalas logarítmicas son aquellas que tienen un factor de escala no lineal. En un gráfico con escala logarítmica, los intervalos del eje aumentan de manera no simétrica, como se muestra en la siguiente imagen:
+Las escalas logarítmicas son aquellas que tienen un factor de escala no lineal.
+En un gráfico con escala logarítmica, los intervalos del eje aumentan de manera no simétrica, como se muestra en la siguiente imagen:
 
 \begin{center}
     \def\svgwidth{\linewidth}
     \input{./images/misc-escala-log.pdf_tex}
 \end{center}
 
-En la imagen anterior, el eje $m$ está representado en escala logarítmica con base 10, mientras que el eje $n$ en escala lineal. Una escala logarítmica permite representar fenómenos que requieran más resolución a medida que la variable disminuye. Por ejemplo, el intervalo $[1;10]$ representa la mitad del intervalo total, mientras que el intervalo $[10;19]$ representa menos de la cuarta parte, y aún así ambos tienen el mismo módulo.
+En la imagen anterior, el eje $m$ está representado en escala logarítmica con base 10, mientras que el eje $n$ en escala lineal.
+Una escala logarítmica permite representar fenómenos que requieran más resolución a medida que la variable disminuye.
+Por ejemplo, el intervalo $[1;10]$ representa la mitad del intervalo total, mientras que el intervalo $[10;19]$ representa menos de la cuarta parte, y aún así ambos tienen el mismo módulo.
 
 A partir de la definición del logarítmo, es posible asignar a las magnitudes $m$ un valor del eje $n$ y viceversa:
 \begin{equation*}
@@ -8164,7 +8418,9 @@ Se suelen estudiar relaciones entre una magnitud $(x)$ y un valor de referencia 
     m=\frac{x}{x_0}
 \end{equation*}
 
-Cuando se expresa una relacion $m$ con escala logarítmica en base 10, se dice que su respectivo valor $n$ está en bels. El bel no es una unidad del sistema internacional, sino un indicador de la escala usada. Una magnitud dada en bels indica qué tantos múltiplos de 10 mayor que la referencia es.
+Cuando se expresa una relacion $m$ con escala logarítmica en base 10, se dice que su respectivo valor $n$ está en bels.
+El bel no es una unidad del sistema internacional, sino un indicador de la escala usada.
+Una magnitud dada en bels indica qué tantos múltiplos de 10 mayor que la referencia es.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -8208,7 +8464,9 @@ Al igual que $100\,\si{\centi\metre} = 1\,\si{\metre}$, por más que el decibel 
 
 \section{Promedios y valor eficaz}
 
-La media, valor medio, o simplemente promedio, es un la cantidad de veces que se repite el elemento de un conjunto que más se repite. Se define como un caso particular de la media generalizada tomando $k=1$. Así mismo se definen el valor cuadrático medio (abreviado como rms por las siglas en inglés root mean square) y valor cúbico medio tomando $k=2$ y $k=3$ respectivamente.
+La media, valor medio, o simplemente promedio, es un la cantidad de veces que se repite el elemento de un conjunto que más se repite.
+Se define como un caso particular de la media generalizada tomando $k=1$.
+Así mismo se definen el valor cuadrático medio (abreviado como rms por las siglas en inglés root mean square) y valor cúbico medio tomando $k=2$ y $k=3$ respectivamente.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -8219,9 +8477,13 @@ La media, valor medio, o simplemente promedio, es un la cantidad de veces que se
     \end{equation*}
 \end{mdframed}
 
-Los valores $x_\ith$ podrían tratarse, por ejemplo, de la temperatura hora a hora registrada a lo largo de un día. En tal caso, habría 24 valores de temperatura asociados al tiempo en que se dieron. Pero el cálculo del promedio no distinguiría diferencia entre dos horas consecutivas en las que hubo la misma temperatura porque el tiempo sería independiente. Los valores $x_\ith$ no necesariamente tienen relación entre si, y si la tienen, son variables discretas.
+Los valores $x_\ith$ podrían tratarse, por ejemplo, de la temperatura hora a hora registrada a lo largo de un día.
+En tal caso, habría 24 valores de temperatura asociados al tiempo en que se dieron.
+Pero el cálculo del promedio no distinguiría diferencia entre dos horas consecutivas en las que hubo la misma temperatura porque el tiempo sería independiente.
+Los valores $x_\ith$ no necesariamente tienen relación entre si, y si la tienen, son variables discretas.
 
-Si en vez de hacer mediciones regularmente cada una hora como en el caso anterior, se registrase la temperatura durante intervalos de tiempo en que esta no varía, no se podría definir la cantidad total de $N$ mediciones porque habría infinitos valores (continuos pero diferentes entre sí) de temperatura registrados durante intervalos continuos. Para funciones $f(x)$ que tomen un valor $f_\ith$ constante durante intervalos $\Delta x_\ith$ se define el valor medio ponderado.
+Si en vez de hacer mediciones regularmente cada una hora como en el caso anterior, se registrase la temperatura durante intervalos de tiempo en que esta no varía, no se podría definir la cantidad total de $N$ mediciones porque habría infinitos valores (continuos pero diferentes entre sí) de temperatura registrados durante intervalos continuos.
+Para funciones $f(x)$ que tomen un valor $f_\ith$ constante durante intervalos $\Delta x_\ith$ se define el valor medio ponderado.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -8233,7 +8495,11 @@ Si en vez de hacer mediciones regularmente cada una hora como en el caso anterio
     \end{equation*}
 \end{mdframed}
 
-Si quisiéramos tomar mediciones instantáneas de la temperatura en función del tiempo, no podríamos definir intervalos $\Delta x$ finitos. Estaríamos considerando que los intervalos son infinitesimales. Para funciones continuas, pero que no necesariamente sean constantes por tramos, se toma el límite $\Delta x \to 0$ en el valor medio ponderado. Pero en tal caso, quedaría una integral impropia con $N\to\infty$ que no sería computable. Ahora bien, para funciones periódicas podemos evaluar $N \to x_0+T$ sabiendo que el valor medio es el mismo para cualquier intervalo $[x_0;x_0+T]$.
+Si quisiéramos tomar mediciones instantáneas de la temperatura en función del tiempo, no podríamos definir intervalos $\Delta x$ finitos.
+Estaríamos considerando que los intervalos son infinitesimales.
+Para funciones continuas, pero que no necesariamente sean constantes por tramos, se toma el límite $\Delta x \to 0$ en el valor medio ponderado.
+Pero en tal caso, quedaría una integral impropia con $N\to\infty$ que no sería computable.
+Ahora bien, para funciones periódicas podemos evaluar $N \to x_0+T$ sabiendo que el valor medio es el mismo para cualquier intervalo $[x_0;x_0+T]$.
 
 \begin{mdframed}[style=MyFrame1]
     \begin{defn}
@@ -8326,7 +8592,9 @@ Cada número complejo $z_\ith$ representa una magnitud $x_\ith$ y expresándolo 
     z_\ith = \norm{z_\ith} \, e^{\iu (\omega_\ith t + \varphi_\ith)} = \norm{z_\ith} \, e^{\iu \omega_\ith t} \, e^{\iu \varphi_\ith}
 \end{gather*}
 
-Se define $w_\ith=\norm{z_\ith}\,e^{\varphi_\ith}$ simplemente para simplificar notación. No confundir $w$ con $\omega$. Luego, cada $z_\ith$ queda expresado por:
+Se define $w_\ith=\norm{z_\ith}\,e^{\varphi_\ith}$ simplemente para simplificar notación.
+No confundir $w$ con $\omega$.
+Luego, cada $z_\ith$ queda expresado por:
 \begin{gather*}
     z_1 = w_1 \, e^{\iu \omega_1 t}
     \\
