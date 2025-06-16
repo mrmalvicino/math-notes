@@ -1,0 +1,570 @@
+\chapter{Números complejos}
+
+Los números complejos surgen de la necesidad de inventar una solución a la ecuación $x^2=-1$.
+Es por esto que se define el número imaginario $\iu$ de manera tal que $\iu^2=-1$.
+
+El número $\iu$ pertenece al conjunto $\setI$ de números imaginarios.
+Los números imaginarios se forman multiplicando el número $\iu$ por un número real $y$.
+
+Combinando los números reales $\setR \subset \setC$ con los números imaginarios $\setI \subset \setC$ surge el conjunto de los números complejos $\setC=\setR \times \setI$.
+
+A diferencia de los reales, el conjunto de números complejos no es un conjunto ordenado.
+Los números complejos se representan gráficamente en un plano.
+El plano complejo tiene en el eje $x$ la conocida recta real mientras que el eje vertical representa los números $\iu \, y$ imaginarios puros.
+
+Los complejos se pueden expresar de varias formas que se relaciónan entre sí según la fórmula de Euler:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:EulerFormula}
+    \end{prop}
+    \cusTi{Fórmula de Euler}
+    \begin{equation*}
+        \cos{(\theta)} \pm \iu \sin{(\theta)} = e^{\pm \iu \theta}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Fórmula de Moivre}
+    \begin{equation*}
+        \cos{(n \theta)} \pm \iu \sin{(n \theta)} = e^{\pm \iu n \theta}
+    \end{equation*}
+\end{mdframed}
+
+Un número complejo se puede definir como la suma de un número real con un número imaginario.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:BinomialForm}
+    \end{defn}
+    \cusTi{Forma binomial}
+    \begin{equation*}
+        z = x + \iu y
+    \end{equation*}
+\end{mdframed}
+
+Se puede definir como un par ordenado perteneciente al plano complejo, donde la primer componente es la parte real y la segunda es la parte imaginaria.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:VectorForm}
+    \end{defn}
+    \cusTi{Forma vectorial}
+    \begin{equation*}
+        z = (x,y) = \left[\Re(z),\Im(z)\right] \in \setC
+    \end{equation*}
+\end{mdframed}
+
+Podemos representar un número complejo de forma trigonométrica como un vector de cierto largo $\rho=\norm{z}$ que forma cierto ángulo $\theta = \artan{(x/y)}$ con el eje real.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:TrigForm}
+    \end{defn}
+    \cusTi{Forma polar}
+    \begin{equation*}
+        z = \rho \, \big( \cos{(\theta)} + \iu \sin{(\theta)} \big)
+    \end{equation*}
+\end{mdframed}
+
+O bien podemos expresar un complejo de forma exponencial usando la fórmula de Euler.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:ExpForm}
+    \end{defn}
+    \cusTi{Forma exponencial}
+    \begin{equation*}
+        z = \rho \, e^{\iu \theta}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Producto}
+
+El producto de dos números complejos da como resultado otro número complejo.
+Si bien los numeros complejos pueden ser expresados vectorialmente, el producto no es el producto interno de vectores convencionales.
+
+El producto se define como la multiplicación de números complejos expresados en forma binomial.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Producto}
+    \begin{equation*}
+        (x_1 + \iu y_1) \cdot (x_2 + \iu y_2) = (x_1x_2-y_1y_2) + \iu (y_1x_2+x_1y_2)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Para $z_3=z_1 \cdot z_2 = \norm{z_3} e^{\iu \arg(z_3) } $ se tiene que:
+    \begin{gather*}
+        \norm{z_3} = \norm{z_1} \cdot \norm{z_2}
+        \\[1ex]
+        \arg(z_3) = \arg(z_1) + \arg(z_2)
+    \end{gather*}
+\end{mdframed}
+
+Al multiplicar un número por su inverso, se obtiene la unidad.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:Inverse}
+    \end{defn}
+    \cusTi{Inverso multiplicativo}
+    \begin{equation*}
+        z^{-1}=\frac{1}{z} \iff z \cdot z^{-1} = 1
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        z^{-1}=\dfrac{\conj{z}}{\norm{z}^2}
+    \end{equation*}
+\end{mdframed}
+
+\concept{Demostración por definición}
+
+Dado $x + \iu y$ y su inverso $u + \iu v$, por definición su producto es $1 + \iu 0$ o bien, expresado en forma vectorial:
+\begin{gather*}
+    (x,y) \cdot (u,v) = (1,0)
+    \\
+    (xu-yv,yu+xv) = (1,0)
+\end{gather*}
+
+Obteniendo un sistema de ecuaciones del que es posible despejar las componentes del vector que representan al inverso.
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        1 &= xu-yv
+        \\
+        0 &= yu+xv
+    \end{aligned}
+    \right.
+    \\
+    u = -\frac{xv}{y} \Rightarrow 1= -\frac{x^2v}{y}-yv = -v\left( \dfrac{x^2}{y}+y \right)
+    \\
+    v=\frac{-1}{\frac{x^2}{y}+y}=\dfrac{-y}{\frac{x^2y}{y}+y^2}
+\end{gather*}
+
+Luego:
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        u &= \frac{x}{x^2+y^2}
+        \\[1ex]
+        v &= \frac{-y}{x^2+y^2}
+    \end{aligned}
+    \right.
+    \\
+    z^{-1} = \dfrac{x}{x^2+y^2}-\dfrac{\iu y}{x^2+y^2}
+\end{gather*}
+
+\concept{Demostración por el conjugado}
+
+Esta demostración es más rápida pero en ella se utilizan elementos todavía no definidos.
+Ver primero la definición \ref{defn:conjugate}, y las propiedades \ref{prop:eAbsoluteValue} y \ref{prop:|z|^2=z.z*}.
+\begin{align*}
+    z \cdot \conj{z} &= \norm{z}^2
+    \\
+    \frac{z \cdot \conj{z}}{\norm{z}^2} &= 1
+    \\
+    \frac{\conj{z}}{\norm{z}^2} &= \dfrac{1}{z}=z^{-1}
+\end{align*}
+
+
+\section{Módulo}
+
+El módulo de un número complejo es el largo del vector que lo representaría si este se graficase en el plano complejo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Módulo}
+    \begin{equation*}
+        \norm{z} = \nnorm{(x,y)} = \sqrt{x^2+y^2}
+    \end{equation*}
+\end{mdframed}
+
+El módulo de la resta de dos números complejos es la distancia que hay entre esos dos puntos:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:distance}
+    \end{prop}
+    \begin{equation*}
+        \operatorname{dist}(z_1,z_2)=\norm{z_1-z_2}
+    \end{equation*}
+\end{mdframed}
+
+El módulo del número $e^{\iu}$ se puede expresar como:
+\begin{equation*}
+    \norm{e^{\iu \theta}} = \norm{\cos(\theta) + \iu \sin(\theta)} = \sqrt{\cos^2(\theta) + \sin^2(\theta)}
+\end{equation*}
+
+Con lo cual, $e^{\iu}$ tiene módulo unitario.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:eAbsoluteValue}
+    \end{prop}
+    \begin{equation*}
+        \norm{e^{\iu \theta}} = 1
+    \end{equation*}
+\end{mdframed}
+
+El módulo de un número es mayor que sus componentes:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:zAbsoluteValue}
+    \end{prop}
+    \begin{equation*}
+        \Re(z) \leq \norm{\Re(z)} \leq \norm{z} \geq \norm{\Im(z)} \geq \Im(z)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:triangleInequality}
+    \end{prop}
+    \cusTi{Desigualdad triangular}
+    \begin{equation*}
+        \big| \norm{z_1}-\norm{z_2} \big| \leq \big| z_1 \pm z_2 \big|\leq \norm{z_1} + \norm{z_2}
+    \end{equation*}
+\end{mdframed}
+
+\concept{Demostración}
+
+La parte derecha de la desigualdad es evidente geométricamente, y la otra se demuestra como un corolario de la primera.
+
+Al plantear los dos siguientes casos, quedan demostradas las dos situaciones que contempla el módulo en la desigualdad izquierda de la inecuación:
+
+\begin{itemize}
+    \item Caso $\norm{z_2} \leq \norm{z_1}$
+    \begin{gather*}
+        \norm{z_1} = \norm{(z_1+z_2)-z_2} \leq \norm{z_1+z_2}+\norm{-z_2}
+        \\
+        \norm{z_1} - \norm{-z_2} \leq \norm{z_1+z_2}
+        \\
+        \norm{z_1} - \norm{z_2} \leq \norm{z_1+z_2}
+    \end{gather*}
+
+    \item Caso $\norm{z_1} \leq \norm{z_2}$
+    \begin{gather*}
+        \norm{z_2} = \norm{(z_2+z_1)-z_1} \leq \norm{z_2+z_1}+\norm{-z_1}
+        \\
+        \norm{z_2} - \norm{-z_1} \leq \norm{z_2+z_1}
+        \\
+        \norm{z_2} - \norm{z_1} \leq \norm{z_1+z_2}
+    \end{gather*}
+\end{itemize}
+
+
+\section{Conjugado}
+
+El conjugado $(\conj{z})$ de un número $x+iy$ se define cambiando el signo del termino imaginario.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:conjugate}
+    \end{defn}
+    \cusTi{Conjugado}
+    \begin{equation*}
+        \conj{z} = x - \iu y
+    \end{equation*}
+\end{mdframed}
+
+El conjugado de un número es simétrico a este con respecto del eje real, por lo tanto ambos tienen el mismo módulo:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \norm{z} = \norm{\conj{z}}
+    \end{equation*}
+\end{mdframed}
+
+El conjugado de la suma de dos números es la suma de los conjuados, y análogamente para el producto:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:zw*=(z*w)*}
+    \end{prop}
+    \begin{gather*}
+        \conj{z_1 \pm z_2} = \conj{z_1} \pm \conj{z_2}
+        \\
+        \conj{z_1 \cdot z_2} = \conj{z_1} \cdot \conj{z_2}
+    \end{gather*}
+\end{mdframed}
+
+Sumando el conjugado de un número con este, se obtiene el doble de la parte real y análogamente para la parte imaginaria al hacer la diferencia.
+\begin{gather*}
+        z+\conj{z} = 2x
+        \\
+        z-\conj{z} = 2 \iu y
+    \end{gather*}
+
+Quedando definida la siguiente propiedad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:ReIm}
+    \end{prop}
+    \begin{align*}
+        \Re (z) &= \frac{z+\conj{z}}{2}
+        \\[1ex]
+        \Im (z) &= \frac{z-\conj{z}}{2 \iu}
+    \end{align*}
+\end{mdframed}
+
+Multiplicando un complejo por su conjugado queda:
+\begin{equation*}
+    z \cdot \conj{z} = x^2+y^2
+\end{equation*}
+
+Que es el módulo al cuadrado.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:|z|^2=z.z*}
+    \end{prop}
+    \begin{equation*}
+        z \cdot \conj{z} = \norm{z}^2
+    \end{equation*}
+\end{mdframed}
+
+Si un número complejo es igual a su conjugado, entonces se trata de un número real.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        z = \conj{z} \iff z \in \setR
+    \end{equation*}
+\end{mdframed}
+
+Si el cuadrado de un número es igual al cuadrado de su conjugado, entonces se trata o bien de un real o bien de un imaginario puro.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        z^2=\conj{z}^2 \iff z \in \setR \enspace \lor \enspace z \in \setI
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Potenciación}
+
+Elevar un complejo a la n-ésima potencia se define, para $\nth \in \setZ$, a partir de la forma exponencial de la siguiente manera.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:nPower}
+    \end{defn}
+    \cusTi{Potencia n-ésima}
+    \begin{equation*}
+        z^\nth = \rho^\nth e^{\iu \nth \theta}
+    \end{equation*}
+\end{mdframed}
+
+El conjugado de un número complejo elevado es igual a la potencia del conjugado.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \conj{z^\nth} = \left( \conj{z} \right)^\nth
+    \end{equation*}
+\end{mdframed}
+
+Al igual que podemos calcular las raíces de los polinomios reales de segundo grado, podemos deducir la fórmula resolvente para un polinomio complejo con coeficientes $a,b,c \in \setR$ genéricos:
+\begin{equation*}
+    az^2 + bz + c = 0
+\end{equation*}
+
+En primer lugar, se completan cuadrados:
+\begin{gather*}
+    z^2 + \left(\frac{b}{a} \right) z + \frac{c}{a} = 0
+    \\
+    \left( z+\frac{b}{2a} \right)^2 + \left( \frac{c}{a}-\frac{b^2}{4a^2} \right) = 0
+    \\
+    \left( z+\frac{b}{2a} \right)^2 - \left( \frac{b^2}{4a^2} - \frac{c}{a} \right) = 0
+    \\
+    \norm{z+\frac{b}{2a}} = \sqrt{\frac{b^2}{4a^2} - \frac{c}{a}}
+    = \sqrt{\frac{a \, b^2 - 4 \, a^2 \, c}{4 \, a^3}}
+    = \frac{\sqrt{b^2 - 4ac}}{\norm{2a}}
+    \\
+    z_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+\end{gather*}
+
+Donde:
+\begin{equation*}
+    \textrm{Si} \enspace \frac{b^2}{4a^2} - \frac{c}{a} \geq 0 \Rightarrow b^2 \geq 4ac \Rightarrow z \in \setR
+\end{equation*}
+
+Observar que en el despeje algebráico queda una raíz cuadrada.
+De tratarse solamente de números reales tendría un radicando positivo.
+Pero si proponemos una solución compleja, puede tener un radicando negativo.
+Para expresar esto, vamos a valernos de la definición del número $\iu$ partiendo de la segunda ecuación:
+\begin{gather*}
+    \left( z+\frac{b}{2a} \right)^2 + \left( \frac{c}{a} - \frac{b^2}{4a^2} \right) = 0
+    \\
+    \left( z+\frac{b}{2a} \right)^2 - \iu^2 \left( \frac{c}{a}-\frac{b^2}{4a^2} \right) = 0
+    \\
+    \left( z+\frac{b}{2a} \right)^2 - \left( \iu \sqrt{\frac{4ac-b^2}{4a^2}} \right)^2 = 0
+    \\
+    \scale{0.98}
+    {
+    \left( z+\frac{b}{2a} + \iu \sqrt{\frac{4ac-b^2}{4a^2}} \right) \left( z+\frac{b}{2a} - \iu \sqrt{\frac{4ac-b^2}{4a^2}} \right) = 0
+    }
+\end{gather*}
+
+Y para que el producto anterior sea igual a cero se tiene, o bien:
+\begin{equation*}
+    z + \frac{b}{2a} + \frac{\iu \sqrt{4ac-b^2}}{2a} = 0
+\end{equation*}
+
+O bien:
+\begin{equation*}
+    z + \frac{b}{2a} - \frac{\iu \sqrt{4ac-b^2}}{2a} = 0
+\end{equation*}
+
+Infiriendo así la fórmula resolvente para polinomios complejos de segundo grado:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Fórmula resolvente}
+    \begin{equation*}
+        z_{1,2} = \frac{-b \pm \iu \sqrt{4ac-b^2}}{2a}
+    \end{equation*}
+\end{mdframed}
+
+Donde:
+\begin{equation*}
+    \textrm{Si} \enspace \frac{b^2}{4a^2} - \frac{c}{a} \leq 0 \Rightarrow b^2 \leq 4ac \Rightarrow z \in \setC
+\end{equation*}
+
+Así como se pueden buscar las raíces que anulan los polinomios de números reales, se pueden calcular las raíces complejas que, elevadas a la $n$-ésima potencia, dan como resultado cierto $z_0$ conocido.
+
+El conjunto de raíces n-ésimas se define como:
+\begin{align*}
+    C &= \inBraces{z \in \setC / z^n=z_0}
+    \\
+    &= z_1,z_2,z_3 \ldots z_\nth
+\end{align*}
+
+Aplicando la definición de potencia $n$-ésima (\ref{defn:nPower}) en la parte izquierda de la ecuación y escribiendo la parte derecha usando la forma exponencial, se puede deducir una fórmula para despejar $z$, la incógnita.
+\begin{gather*}
+    \rho^\nth \cdot e^{\iu \nth \theta} = \rho_0 \cdot e^{\iu \theta_0}
+    \\
+    \left\{
+    \begin{aligned}
+        \rho^\nth &= \rho_0
+        \\
+        \nth \theta &= \theta_0 + 2\kth \pi \quad \textrm{con} \enspace \kth \in \setZ
+    \end{aligned}
+    \right.
+    \\[1ex]
+    z_{\kth+1} = \sqrt[\nth]{\rho_0} \enspace \sqrt[\nth]{e^{\iu (\theta_0 + 2 \kth \pi)}} \quad \textrm{con} \enspace \kth \in \{0,1,2 \ldots \nth-1\}
+\end{gather*}
+
+Nótese que el subíndice $\kth+1$ de cada raiz es solamente para evitar cometer abuso de notación usando la notación $z_0$ tanto para la primera raiz como para el número al que le estamos calculando las raices.
+
+Se obtiene entonces:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        z_{\kth+1} = \sqrt[\nth]{\rho_0} \enspace e^{\iu \left( \tfrac{\theta_0}{\nth} + \tfrac{2 \kth \pi}{\nth} \right)}
+    \end{equation*}
+\end{mdframed}
+
+En la notación se suele diferenciar cualquier raiz $n$-ésima $z_{k+1} = z_0^{1/\nth}$ de la única raíz positiva, que recibe el nombre de raíz principal y se denota $z_1=\sqrt[n]{z_0}$.
+
+Se puede observar que la fórmula anterior puede generar $\nth$ valores distintos.
+De no acotar los valores que puede tomar $\kth$, la formula daría valores repetidos.
+Las raíces $n$-ésimas van a estar distribuidas en el plano complejo formando un polígono de $\nth$ vértices, separados cada uno del otro por el mismo ángulo.
+
+Separando el exponente, cada una de las $\nth$ raíces que arroja la fórmula se puede expresar como un producto en el que uno de los factores siempre va a ser la raíz principal $z_1$.
+De esta forma, podemos definir una notación equivalente para el conjunto $C$ de raíces $n$-ésimas:
+\begin{equation*}
+    C = \inBraces{z_1 , z_1 \, w , z_1 \, w^2 \ldots z_1 \, w^{n-1}}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    w = e^{\iu \left( \tfrac{2 \pi}{\nth} \right)}
+\end{equation*}
+
+Observar que este análisis sirve para estudiar raíces de monomios.
+En caso de tratarse de un polinomio de más de un término, no podemos conocer las raíces por definición directamente.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \left( 1 + z + z^2 + z^3 \ldots + z^{\nth-1} \right) \left( 1 - z \right) = 1 - z^\nth
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Geometría de conjuntos}
+
+Podemos representar un conjunto de números complejos como un conjunto de puntos en el plano complejo.
+Algunas secciones cónicas, en vez de ser expresadas con sus ecuaciones tradicionales en función de las partes real $(x)$ e imaginaria $(y)$, se pueden expresar en función de los puntos del plano complejo $(z)$ según la propiedad \ref{prop:distance} del módulo.
+Es posible verificar que los complejos expresados en su forma binomial verifican también las ecuaciones tradicionales de las cónicas.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Línea}
+    \cusTe{Conjunto de puntos $z \in \setC$ que, por simetría, están a igual distancia de dos puntos $z_1$ y $z_2$, verificando:}
+    \begin{equation*}
+        \norm{z-z_1} = \norm{z-z_2}
+    \end{equation*}
+\end{mdframed}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-geom-1.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Circunferencia}
+    \cusTe{Conjunto de los puntos $z \in \setC$ que están a cierta distancia $R \in \setR$ de un centro $z_0$ en el plano complejo, verificando:}
+    \begin{equation*}
+        \norm{z-z_0} = R
+    \end{equation*}
+\end{mdframed}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-geom-2.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elipse}
+    \cusTe{Conjunto de puntos $z \in \setC$ que verifican que la suma de las distancias desde los mismos hasta cada uno de dos focos $F_n \in \setC$ vale constantemente $D \in \setR$, verificando:}
+    \begin{equation*}
+        \norm{z-F_1} + \norm{z-F_2} = D
+    \end{equation*}
+\end{mdframed}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-geom-3.pdf_tex}
+\end{center}

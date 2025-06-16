@@ -1,0 +1,247 @@
+\chapter{Campos vectoriales}
+
+Para entender qué es un campo vectorial, primero hay que entender qué es un vector anclado a un punto.
+También se suele decir vector aplicado en un punto, vector fijado en un punto o vector plantado en un punto.
+
+Recordemos que un vector $\overline{AB}$ es un elemento de un espacio vectorial que tiene origen o \emph{cola} en $A$ y \emph{extremo} en $B$.
+Si $A=\Vec{0}$ entonces la cola está en el origen de coordenadas, y $\overline{AB}=B-A$ se denota simplemente como el vector $\Vec{B}$ o el punto $B$.
+
+Un vector anclado a un punto tiene como extremo la suma del vector más el punto y como cola el punto.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vector anclado}
+    \begin{gather*}
+        \textrm{Sea} \hspace{1ex} \Vec{v} = (v_1,v_2 \dots v_\nth) = \overline{A_v B_v} \in \setR^\nth
+        \\
+        \textrm{Sea} \hspace{1ex} \Vec{x} = (x_1,x_2 \dots x_\nth) = \overline{A_x B_x} \in \setR^\nth \tq A_x = \Vec{0}
+        \\
+        \textrm{Se define} \hspace{1ex} \Vec{v}_{\Vec{x}} = (v_1,v_2 \dots v_\nth)_{(x_1,x_2 \dots x_\nth)} = \overline{AB}
+        \\
+        \textrm{Tal que} \hspace{1ex} A=\Vec{x} \land B=\Vec{x}+\Vec{v}
+    \end{gather*}
+\end{mdframed}
+
+Esto equivale a decir que el vector anclado $\Vec{v}_{\Vec{x}}$ es la traslación del vector $\Vec{v}$ tal que su origen coincida con el de $\Vec{x}$.
+Cuando se trata de un vector anclado, sí importa dónde grafiquemos el vector.
+Los vectores anclados juegan un rol muy importante en los campos vectoriales, ya que un vector anclado a un punto puede estar en función de ese punto:
+\begin{equation*}
+    \Vec{v}_{\Vec{x}} (\Vec{x}) = \big( v_1(\Vec{x}),v_2(\Vec{x}) \dots v_n(\Vec{x}) \big)_{(x_1,x_2 \dots x_\nth)}
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Campo vectorial}
+    \cusTe{Un campo vectorial es una aplicación o función que para cada vector del espacio $\setR^n$ asigna un vector anclado.}
+    \begin{multline*}
+        \Vec{F}:\setR^\nth \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(\Vec{x}) = 
+        \begin{bmatrix}
+            F_1(\Vec{x}) & F_2(\Vec{x}) & \dots & F_\mth(\Vec{x})
+        \end{bmatrix}
+    \end{multline*}
+\end{mdframed}
+
+Un campo vectorial es una función que toma valores vectoriales y les asigna otros valores vectoriales.
+En dos dimensiones, se puede decir que un campo vectorial es una aplicación que a cada punto del plano le asigna un vector en dicho plano.
+\begin{equation*}
+    \Vec{F}:\setR^2 \longrightarrow \setR^2 \tq \Vec{F}(x,y)= 
+    \begin{bmatrix}
+        P(x,y) & Q(x,y)
+    \end{bmatrix}
+\end{equation*}
+
+Observar que cada componente de $\Vec{F}(\Vec{x})$ es un campo escalar ya que tanto $P(x,y)$ como $Q(x,y)$ son funciones de tipo $\setR^2 \longrightarrow \setR$.
+
+Es importante notar que, para graficar un campo vectorial, cada vector de la imagen se grafica con su respectivo origen, ya que son todos vectores anclados, lo cual no se suele aclarar en la notación con el subíndice.
+
+Por otra parte, si se quiere graficar un campo vectorial estrictamente, como en un plano o en el espacio hay infinitos puntos, la gráfica quedaría como una ``mancha negra'' en todo el espacio.
+Por este motivo se se acostumbra graficar solo algunos puntos y con la magnitud de los vectores disminuida, para que las flechas no se solapen.
+
+\section{Operaciones}
+
+La divergencia de un campo vectorial es un número escalar que se obtiene haciendo el producto interno entre el operador de 
+Hamilton y el campo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Divergencia}
+    \begin{equation*}
+        \operatorname{div}(\Vec{F}) = \grad \cdot \Vec{F}(\Vec{x}) = \sum_{i=1}^n \dfrac{\partial}{\partial x_i} \Vec{F}_i(\Vec{x})
+    \end{equation*}
+\end{mdframed}
+
+El rotor de un campo vectorial se obtiene haciendo el producto vectorial entre el operador de Hamilton y el campo.
+Al ser un producto vectorial solo está definido para matrices de $3 \times 3$, es decir que solo se puede calcular el rotor de campos en el espacio.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Rotor}
+    \begin{equation*}
+        \operatorname{rot} (\Vec{F}) = \grad \times \Vec{F}(\Vec{x})
+    \end{equation*}
+\end{mdframed}
+
+Operando matricialmente se obtiene la siguiente expresión para el rotor:
+\begin{equation*}
+    \operatorname{rot} (\Vec{F}) = \operatorname{det}
+    \begin{bmatrix}
+        \versor{e}_1 & \versor{e}_2 & \versor{e}_3 \\[1em]
+        \dfrac{\partial}{\partial x_1} & \dfrac{\partial}{\partial x_2} & \dfrac{\partial}{\partial x_3} \\[1em]
+        F_1(\Vec{x}) & F_2(\Vec{x}) & F_3(\Vec{x})
+    \end{bmatrix}
+\end{equation*}
+\begin{multline*}
+    = \left( \dfrac{\partial F_3(\Vec{x})}{\partial x_2} - \dfrac{\partial F_2(\Vec{x})}{\partial x_3} \right) \iVer \, +
+    \\
+    + \left( \dfrac{\partial F_1(\Vec{x})}{\partial x_3} - \dfrac{\partial F_3(\Vec{x})}{\partial x_1} \right) \jVer \, +
+    \\ + \left( \dfrac{\partial F_2(\Vec{x})}{\partial x_1} - \dfrac{\partial F_1(\Vec{x})}{\partial x_2} \right) \kVer
+\end{multline*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    La divergencia del rotor de un campo vectorial es nula.
+    \begin{equation*}
+        \operatorname{div} \left( \operatorname{rot}(\Vec{F}) \right) = \grad \cdot \left( \grad \times \Vec{F} \right) = 0
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Campos de gradiente}
+
+Un campo vectorial se llama campo de gradiente o campo conservativo cuando sus componentes son las derivadas parciales de un campo escalar, conocido como función potencial.
+La notación usada es el producto escalar entre el operador de Hamilton y dicha función potencial.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Campo de gradiente}
+    \begin{equation*}
+        \Vec{F}(\Vec{x}) = \grad f(\Vec{x})
+    \end{equation*}
+\end{mdframed}
+
+Las derivadas de un campo de gradiente son en realidad las derivadas segundas de la función potencial:
+\begin{align*}
+    \Vec{F}: \setR^2 \longrightarrow \setR^2 \tq
+    \\
+    \Vec{F}(x,y) &= \grad f(x,y)
+    \\
+    &= \begin{bmatrix}
+        \dfrac{\partial}{\partial x} f(x,y) &     \dfrac{\partial}{\partial y} f(x,y)
+    \end{bmatrix}
+    \\
+    &= \begin{bmatrix} P(x,y) & Q(x,y) \end{bmatrix}
+\end{align*}
+
+De manera que si hacemos las derivadas segundas:
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        \dfrac{\partial}{\partial x} P(x,y) &=& f''_{xx}
+        \\[1ex]
+        \dfrac{\partial}{\partial y} P(x,y) &=& f''_{yx}
+    \end{aligned}
+    \right.
+    \\[1em]
+    \left\{
+    \begin{aligned}
+        \dfrac{\partial}{\partial x} Q(x,y) &=& f''_{xy}
+        \\[1ex]
+        \dfrac{\partial}{\partial y} Q(x,y) &=& f''_{yy}
+    \end{aligned}
+    \right.
+\end{gather*}
+
+Y aplicamos el Teorema de Schwarz se tiene:
+\begin{gather*}
+    \textrm{Dado que} \hspace{1ex} \Vec{F}(x,y) = \grad f(x,y) \Rightarrow
+    \\
+    \dfrac{\partial}{\partial y} P(x,y) = \dfrac{\partial}{\partial x} Q(x,y)
+\end{gather*}
+    
+Obteniendo la siguiente propiedad que si $\Vec{F}$ es diferenciable en todo el plano, la implicancia vale en ambos sentidos.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El rotor de un campo de gradiente es nulo.
+    \begin{equation*}
+        \operatorname{rot}(\Vec{F})= \grad \times \grad f(\Vec{x}) = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Un campo de gradiente es ortogonal a las superficies de nivel de la función potencial asociada al campo.
+    Cualquier curva contenida en la superficie también va a ser ortogonal.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si un campo conservativo físicamente representa un campo de fuerza, el trabajo del campo a lo largo de una trayectoria cerrada es nulo.
+    \begin{equation*}
+        \Vec{F}(x,y) = \grad f(x,y) \iff \oint \Vec{F} \cdot d \Vec{s} = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si un campo conservativo físicamente representa un campo de fuerza, el trabajo del campo es independiente de la trayectoria.
+    \begin{equation*}
+        \Vec{F}(x,y) = \grad f(x,y) \Rightarrow \int_C \Vec{F} \cdot d \Vec{s} = f(\Vec{x}_1)-f(\Vec{x}_0)
+    \end{equation*}
+\end{mdframed}
+
+Si $\Vec{F}$ es diferenciable en todo el plano, la implicancia anterior vale en ambos sentidos.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si el dominio de un campo vectorial es abierto y simplemente conexo, entonces la forma diferencial asociada es exacta.
+    Por lo tanto, el campo vectorial es un campo de gradientes y admite función potencial.
+\end{mdframed}
+
+Por definición, la función potencial está dada por la anti derivada de cualquiera de las componentes de un campo de gradientes más una constante de integración:
+\begin{equation*}
+    f(x,y) = \int F_\ith(\Vec{x}) \partial x_\ith + c
+\end{equation*}
+
+Para un campo de gradiente $\Vec{F}:\setR^2 \longrightarrow \setR^2$ podemos definir la función potencial de cualquiera de las siguientes dos maneras.
+Hay que tener en cuenta que la ``constante'' de integración en realidad está en función de la variable que no se integre.
+\begin{gather*}
+    f(x,y) = \int P(x,y) \partial x + c(y)
+    \\
+    f(x,y) = \int Q(x,y) \partial y + c(x)
+\end{gather*}
+
+Para calcular la ``constante'' de integración hay que igualar las dos formas de calcular la derivada parcial del campo.
+Una es derivando $f(x,y)$ con respecto de la variable que tome $c$.
+La otra es tomar la componente del campo que anteriormente no se usó para definir $f(x,y)$, ya que por definición es la derivada de la función potencial.
+Luego, se integra esta igualdad y se obtiene $c$.
+
+Para campos de gradiente $\Vec{F}:\setR^\nth \longrightarrow \setR^\nth$ este mismo procedimiento es válido pero hay que realizarlo $\nth$ veces, ya que cada vez que se integre $c$ va a haber una nueva incógnita pero vamos a tener suficientes ecuaciones para igualar porque se puede definir $f$ de $\nth$ formas distintas.
+
+
+\section{Líneas de flujo}
+
+Las curvas integrales o líneas de flujo de un campo vectorial dan una idea de qué trayectoria va a seguir y a qué velocidad va a ir una partícula que se coloque en un punto del campo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Líneas de flujo}
+    \cusTe{Las líneas de flujo son aquella familia de curvas que son tangentes a los vectores anclados del campo vectorial.}
+    \begin{equation*}
+        \Vec{F} \big( \Vec{c}(t) \big) = \frac{\dif}{\dif t} \Vec{c}(t)
+    \end{equation*}
+\end{mdframed}

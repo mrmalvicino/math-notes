@@ -1,0 +1,438 @@
+\chapter{Diferenciabilidad en funciones reales}
+
+\section{Teorema de Taylor}
+
+Dada la función $f:\setR^\nth \longrightarrow \setR$ \emph{diferenciable} en un punto $\Vec{x}_0$, se define la aproximación $T(\Vec{x})$, tal que en torno al punto esta tiende al límite de la función:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} T(\Vec{x}) = \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})
+\end{equation*}
+
+Y tal que para el resto del dominio, la función se pueda igualar a un valor aproximado $(T)$ más cierto error $(E)$ calculable:
+\begin{equation*}
+    f(\Vec{x}) = T(\Vec{x}) + E(\Vec{x}) \quad \forall \hspace{1ex} x \in \operatorname{Dn}(f)
+\end{equation*}
+
+Bajo estas hipótesis dadas, tomando el límite en la ecuación anterior se hace evidente que el error tiende a cero.
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})
+    = 
+    + \lim_{\Vec{x} \to \Vec{x}_0} E(\Vec{x})
+\end{equation*}
+
+Dependiendo del valor de $\nth$, la aproximación puede ser una recta tangente, un plano tangente o un hiperplano tangente, todos dados por las derivadas sucesivas de $f$.
+La aproximación está definida con la derivada de la función.
+Cuanto más elevado sea el orden de la derivada, más precisa va a ser la aproximación.
+Cuanto más lejos del punto $\Vec{x}_0$ se evalúe, mayor va a ser el error.
+
+A continuación se presentan algunos casos particulares de \emph{aproximaciones a fin}, según la cantidad $\nth$ de variables y el orden $k$ de las derivadas.
+Se la llama \emph{a fin} dado que es posible proponerla pero no es posible afirmar que es una buena aproximación hasta no demostrar que la función que intenta aproximar es efectivamente diferenciable.
+
+\concept{Recta tangente}
+
+Es una aproximación lineal de primer orden para funciones de variable real $\nth=1$.
+Está formada por un vector director que es la tasa de crecimiento o derivada en ese punto más el valor de la función en el punto.
+\begin{equation*}
+    R(x) = f(x_0) + \frac{\dif}{\dif x} f(x_0) \left( x-x_0 \right)
+\end{equation*}
+
+\concept{Plano tangente}
+
+Es una aproximación lineal (a fin) de primer orden para funciones de $\nth=2$ variables.
+Está formado por dos vectores directores que son las derivadas parciales en el punto más el valor de la función en el punto.
+\begin{equation*}
+    T(\Vec{x}) = f(\Vec{x}_0) + \frac{\partial}{\partial x} f(\Vec{x}_0) \left(x-x_0\right) + \frac{\partial}{\partial y} f(\Vec{x}_0) \left(y-y_0\right)
+\end{equation*}
+
+\concept{Hiperplano tangente}
+
+Es una aproximación lineal (a fin) de primer orden para funciones de $n$ variables.
+Está formado por el producto interno entre el vector derivada de $f$ y el vector incremento, más el valor de la función en el punto.
+\begin{equation*}
+    T(\Vec{x}) = f(\Vec{x}_0) + \grad f(\Vec{x}_0) \cdot \Delta \Vec{x}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    \Delta \Vec{x} = \begin{bmatrix} x_1-x_{0_1} & x_2-x_{0_2} & \dots & x_n-x_{0_n} \end{bmatrix}
+\end{equation*}
+
+\concept{Aproximación de segundo orden}
+
+Una aproximación lineal puede ser una recta o un plano, en funciones de 1 o 2 variables respectivamente.
+Una aproximación no lineal más precisa se obtiene haciendo el desarrollo de Taylor con derivadas de orden superior.
+Particularmente, la aproximación de segundo orden se hace mediante el Hessiano:
+\begin{equation*}
+    T(\Vec{x}) = f(\Vec{x}_0) + \grad f(\Vec{x}_0) \cdot \Delta \Vec{x} + \frac{1}{2} H(\Vec{x}_0) \cdot \Delta \Vec{x}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    \Delta \Vec{x} = \begin{bmatrix} x_1-x_{0_1} & x_2-x_{0_2} & \dots & x_n-x_{0_n} \end{bmatrix}
+\end{equation*}
+
+
+\section{Incremento vs. Diferencial}
+
+Consideremos dos puntos $P=\begin{bmatrix} P_x & P_y \end{bmatrix}$ y $Q=\begin{bmatrix} Q_x & Q_y \end{bmatrix}$ que pertenecen al gráfico de una curva plana.
+Una curva se puede interpretar como el gráfico de $f:\setR \longrightarrow \setR \tq f(x)=y$.
+
+Realizando la resta vectorial $Q-P$ queda el segmento de recta secante que pasa por estos dos puntos.
+\begin{equation*}
+    Q-P = \begin{bmatrix} Q_x-P_x & Q_y-P_y \end{bmatrix}
+\end{equation*}
+
+Podemos determinar que uno de los dos puntos de la diferencia quede fijo y el otro sea variable pudiendo tomar cualquier valor de la curva.
+\begin{gather*}
+    \textrm{Sean} \quad
+    Q = \begin{bmatrix}x&y\end{bmatrix} \quad P = \begin{bmatrix}x_0&y_0\end{bmatrix}
+    \\
+    \begin{bmatrix}Q_x-P_x & Q_y-P_y\end{bmatrix} = \begin{bmatrix}x-x_0 & y-y_0\end{bmatrix}
+\end{gather*}
+
+Cada componente de esta diferencia entre vectores se conoce como el incremento en las variables $x$ e $y$ y se denota de la siguiente manera:
+\begin{align*}
+    \Delta x &= x-x_0
+    \\
+    \Delta y &= y-y_0
+\end{align*}
+
+Analicemos la relación entre las variables $x$ e $y$ de la función $y(x)$ cuyo gráfico genera la curva.
+Haciendo una aproximación lineal de $y(x)$, que en el gráfico sería la recta tangente, se tiene:
+\begin{align*}
+    y(x) &= R(x)+E(x)
+    \\
+    y(x) &= y(x_0) + \frac{\dif}{\dif x} y(x_0) \, \Delta x +E(x)
+    \\
+    \underbrace{y(x)}_y - \underbrace{y(x_0)}_{y_0} &= \frac{\dif}{\dif x} y(x_0) \, \Delta x +E(x)
+    \\
+    \Delta y &= \frac{\dif}{\dif x} y(x_0) \, \Delta x +E(x)
+\end{align*}
+
+Si hacemos que el punto $Q$ tienda a estar cerca de $P$ de manera que $x \to x_0$, entonces $\Delta x \to 0$.
+En tal caso, según el teorema de Taylor, el error tiende a ser nulo quedando:
+\begin{equation*}
+    \Delta y = \frac{\dif}{\dif x} y(x_0) \, \Delta x \quad \textrm{con} \hspace{1ex} \Delta x \to 0
+\end{equation*}
+
+Así definimos el diferencial $\dif y$ como la transformación lineal que mejor aproxima al incremento $\Delta y$:
+\begin{gather*}
+    \dif y(x) = \dfrac{\dif}{\dif x} y(x_0) \, \Delta x
+    \\
+    \textrm{Donde} \hspace{1ex} \Delta x \to 0 \Rightarrow \Delta y \approx \dif y(x)
+\end{gather*}
+
+Notar que solo en el caso en que $\Delta x \to 0$ se puede afirmar que $\Delta x = \dif x$ siempre y cuando $y(x)$ sea diferenciable.
+
+
+\section{Diferenciabilidad de funciones de 1 variable}
+
+Dada $f: \setR \longrightarrow \setR \tq f(x)=y$ derivable en $x_0$ cuya aproximación lineal de Taylor es:
+\begin{align*}
+    T(x) &= f(x_0)+\frac{\dif}{\dif x} f(x_0) \left(x-x_0\right)
+    \\
+    T(x_0 + \Delta x) &= f(x_0)+\frac{\dif}{\dif x} f(x_0) \, \Delta x
+\end{align*}
+
+Al reconstruir la función por el teorema de Taylor se tiene:
+\begin{equation*}
+    f(x_0 + \Delta x) = \underbrace{f(x_0)+\frac{\dif}{\dif x} f(x_0) \, \Delta x}_{T(x_0 + \Delta x)} + E(x_0 + \Delta x)
+\end{equation*}
+
+Restando $f(x_0)$ y dividiendo por $\Delta x$ en ambos miembros:
+\begin{equation*}
+    \frac{f(x_0 + \Delta x)-f(x_0)}{\Delta x} = \frac{\dif}{\dif x} f(x_0) + \frac{E(x_0 + \Delta x)}{\Delta x}
+\end{equation*}
+
+Tomando el límite cuando $\Delta x \to 0$ se tiene:
+\begin{multline*}
+    \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x)-f(x_0)}{\Delta x} =
+    \\
+    = \lim_{\Delta x \to 0} \inBraces{ \frac{\dif}{\dif x} f(x_0) } + \lim_{\Delta x \to 0} \frac{E(x_0 + \Delta x)}{\Delta x}
+\end{multline*}
+
+De un lado de la igualdad se tiene la definición de derivada en el punto, que se puede reemplazar por la derivada en el punto porque la función era derivable por hipótesis.
+Del otro lado se tiene el límite de una constante más el error.
+Como la expresión entre corchetes es la derivada evaluada en el punto, para que se cumpla la igualdad el error debe tender a cero:
+\begin{equation*}
+    \lim_{\Delta x \to 0} \frac{E(x_0 + \Delta x)}{\Delta x} = 0
+\end{equation*}
+
+Por lo tanto, si una función de una variable es derivable, entonces es diferenciable.
+
+
+\section{Diferenciabilidad de funciones de 2 variables}
+
+Que una función de dos variables sea diferenciable implica que su gráfica sea suave.
+Es decir, que no tenga picos, simas, esquinas ni dobleces.
+
+Las funciones de 2 o más variables tienen varias derivadas parciales.
+Por lo tanto, por más que una función sea derivable no significa que sea continua y que exista una buena aproximación tangente.
+
+Dada $f: \setR^2 \longrightarrow \setR \tq f(x,y)=z$ derivable en $(x_0,y_0)$ cuya aproximación lineal de Taylor es:
+\begin{multline*}
+    T(x,y) =
+    \\
+    = f(x_0,y_0) + \frac{\partial}{\partial x} f(x_0) \left( x-x_0 \right) + \frac{\partial}{\partial y} f(y_0) \left( y-y_0 \right)
+\end{multline*}
+\begin{multline*}
+    T(x_0 + \Delta x,y_0 + \Delta y) =
+    \\
+    = f(x_0,y_0) + \frac{\partial}{\partial x} f(x_0) \, \Delta x + \frac{\partial}{\partial y} f(y_0) \, \Delta y
+\end{multline*}
+
+La función reconstruida, según el teorema de Taylor, es:
+\begin{multline*}
+    f(x_0 + \Delta x,y_0 + \Delta y) =
+    \\
+    = \underbrace{f(x_0,y_0) + \frac{\partial}{\partial x} f(x_0) \, \Delta x + \frac{\partial}{\partial y} f(y_0) \, \Delta y}_{T(x_0 + \Delta x,y_0 + \Delta y)} +
+    \\
+    + E(x_0 + \Delta x,y_0 + \Delta y)
+\end{multline*}
+
+Restando el plano tangente, se tiene:
+\begin{multline*}
+    f(x_0 + \Delta x,y_0 + \Delta y) - T(x_0 + \Delta x,y_0 + \Delta y) =
+    \\
+    = E(x_0 + \Delta x,y_0 + \Delta y)
+\end{multline*}
+
+En este caso el incremento es vectorial, y si bien no podemos dividir por un vector podemos dividir por su norma, ya que no nos interesa la dirección si no la magnitud.
+\begin{multline*}
+    \frac{f(x_0 + \Delta x,y_0 + \Delta y) - T(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}} =
+    \\
+    = \frac{E(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}}
+\end{multline*}
+
+El límite cuando $(\Delta x,\Delta y) \to (0,0)$ es:
+\begin{multline*}
+    \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} \frac{f(x_0 + \Delta x,y_0 + \Delta y) - T(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}}
+    \\
+    = \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} \frac{E(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}}
+\end{multline*}
+
+En el numerador del miembro izquierdo no necesariamente se tiene una resta de dos cosas iguales.
+Por lo tanto el miembro derecho no necesariamente es cero como pasaba en funciones de una variable.
+Para que $f(x,y)$ sea diferenciable, y el error de la aproximación sea infinitésimo, hay que demostrar que:
+\begin{equation*}
+    \lim_{\substack{\Delta x \to 0 \\ \Delta y \to 0}} \frac{f(x_0 + \Delta x,y_0 + \Delta y) - T(x_0 + \Delta x,y_0 + \Delta y)}{\nnorm{(\Delta x,\Delta y)}} = 0
+\end{equation*}
+
+O lo que es lo mismo haciendo el cambio de variables $(\Delta x,\Delta y)=(x-x_0,y-y_0)$ se tiene que una función de dos variables $f:\setR^2 \longrightarrow \setR$ es diferenciable solo si se cumple lo que se conoce como condición de tangencia:
+\begin{equation*}
+    \lim_{\substack{x \to x_0 \\ y \to y_0}} \frac{f(x,y) - T(x,y)}{\nnorm{(x-x_0,y-y_0)}} = 0
+\end{equation*}
+
+Siendo el plano tangente $T(x,y)$ una buena aproximación lineal dada por:
+\begin{multline*}
+    T(x,y) =
+    \\
+    = f(x_0,y_0) + \frac{\partial}{\partial x} f(x_0) \left(x-x_0\right) + \frac{\partial}{\partial y} f(y_0) \left(y-y_0\right)
+\end{multline*}
+
+
+\section{Definición general de diferenciabilidad}
+
+Dada $f:\setR^\nth \longrightarrow \setR$ contínua y derivable en $\Vec{x}_0$.
+
+Sean $\Delta \Vec{x}$ el vector incremento:
+\begin{equation*}
+    \Delta \Vec{x} = \begin{bmatrix} x_1-x_{0_1} & x_2-x_{0_2} & \dots & x_\nth-x_{0_\nth} \end{bmatrix}
+\end{equation*}
+
+Y $T(\Vec{x})$ la aproximación lineal a fin:
+\begin{equation*}
+    T(\Vec{x}) = f(\Vec{x}) + \grad f(\Vec{x}_0) \cdot \Delta \Vec{x}
+\end{equation*}
+
+Se tiene que $f(\Vec{x})$ es diferenciable en $\Vec{x}_0$ solo si:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} \frac{f(\Vec{x})-T(\Vec{x})}{\nnorm{\Delta \Vec{x}}} = 0
+\end{equation*}
+
+Las siguientes proposiciones sirven para demostrar si una función es o no diferenciable.
+
+\begin{itemize}
+    \item Si ambas funciones derivadas parciales son continuas en un punto, entonces la función es diferenciable en el punto.
+    \item Si alguna de las funciones derivadas parciales no es continua en un punto, entonces no sabemos si la función es o no es diferenciable en ese punto.
+    \item Si la función es diferenciable en un punto, entonces la misma es continua en ese punto.
+    \item Si la función no es continua en un punto, entonces la misma no es diferenciable en ese punto.
+    \item Si la función es diferenciable en un punto, entonces la misma es derivable en ese punto.
+    \item Si la función no es derivable en un punto, entonces la misma no es diferenciable en ese punto.
+\end{itemize}
+
+Y, definiendo la clase de una función de manera que:
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Clase}
+    \cusTe{Una función de clase $\class[\kth]$ tiene derivadas de orden $\kth$ contínuas.}
+\end{mdframed}
+
+Pueden ser resumidas en la siguiente propiedad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Lógica de funciones diferenciables}
+    \begin{gather*}
+        f(\Vec{x}_0) \hspace{1ex} \textrm{es de clase} \hspace{1ex} \class
+        \\
+        \Downarrow
+        \\
+        f(\Vec{x}_0) \hspace{1ex} \textrm{es diferenciable}
+        \\
+        \Downarrow
+        \\
+        f(\Vec{x}_0) \hspace{1ex} \textrm{es contínua}
+        \land
+        f(\Vec{x}_0) \hspace{1ex} \textrm{es derivable}
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Aplicaciones del gradiente}
+
+La derivada direccional es la proyección del vector gradiente sobre un versor $\versor{r}$.
+Si $f(\Vec{x})$ es diferenciable en $\Vec{x}_0$, podemos calcular la derivada multiplicando el vector gradiente $\grad f(\Vec{x})$ por el versor director $\versor{r}$.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Derivada direccional}
+    \begin{equation*}
+        \frac{\partial}{\partial \versor{r}} f(\Vec{x}) = \grad f(\Vec{x}) \cdot \versor{r} = \nnorm{ \grad f(\Vec{x}) } \cos{(\theta)}
+    \end{equation*}
+\end{mdframed}
+
+El gradiente de una función diferenciable pertenece al mismo espacio que pertenece el dominio de la función.
+La dirección del gradiente tiene la particularidad de ser la de mayor crecimiento de la función.
+Que el gradiente de la función sea igual al versor director implica y está implicado por que la derivada direccional en la dirección del versor es la mayor de todas las direcciones posibles.
+Esto es, la derivada máxima de la sucesión de derivadas direccionales.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Máximo crecimiento de la función}
+    \begin{equation*}
+        \grad f(\Vec{x}) = \versor{r} \iff \frac{\partial}{\partial \versor{r}} f(\Vec{x}) = \operatorname{max} \inBraces{ a_{\versor{r}} }
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{gather*}
+        \inBraces{ a_{\versor{r}} } = \inBraces{ \frac{\partial}{\partial \versor{r}} f(\Vec{x}) }
+        \\
+        \versor{r} = (a,b) \tq \sqrt{a^2 + b^2}=1
+    \end{gather*}
+\end{mdframed}
+
+Podemos demostrar la no diferenciabilidad de una función si las derivadas direccionales tienen una relación no lineal según cambie el versor director.
+Esto es, que para alguna dirección la función crezca o disminuya con un orden mayor que para el resto de las direcciones.
+
+Observar que la derivada direccional es, usando la definición del gradiente, una multiplicación entre dos vectores y las componentes de ambos son números, entonces siempre vamos a tener una combinación lineal.
+Si calculamos la derivada direccional por definición usando límite y este nos arroja un resultado no lineal, entonces la función no es diferenciable.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Condición de linealidad de la derivada}
+    \begin{equation*}
+        f \hspace{1ex} \textrm{es diferenciable} \Rightarrow \grad f(\Vec{x}) \cdot \versor{r} = \sum_{\ith=1}^\nth r_i \, \frac{\partial}{\partial x_\ith} f(\Vec{x}_0)
+    \end{equation*}
+\end{mdframed}
+
+Para el caso particular $f:\setR^2 \longrightarrow \setR$ se tiene:
+\begin{align*}
+    \grad f(\Vec{x}) \cdot \versor{r} &= a \, \underbrace{\dfrac{\partial}{\partial x} f(x_0,y_0)}_{\lambda_1} + b \, \underbrace{\dfrac{\partial}{\partial y} f(x_0,y_0)}_{\lambda_2}
+    \\
+    \frac{\partial}{\partial \versor{r}} f(\Vec{x}) &= a\,\lambda_1 + b\,\lambda_2 \iff \textrm{es combinación lineal}
+\end{align*}
+
+
+\section{Teorema de Dini} % Teorema de la función implícita
+
+Sea $f:D \subseteq \setR^2 \longrightarrow \setR$ con $D$ abierto, sea $f \in \mathcal{C}^1$, sea $(x_0,y_0) \in E = \inBraces{ (x,y) \in \setR^2 \tq f(x,y)=0 }$.
+
+Luego:
+\begin{equation*}
+    \exists ! \hspace{1ex} F:E_{x_o, \delta} \subseteq \setR \longrightarrow E_{y_o, \varepsilon} \subseteq \setR \tq F(x)=y
+\end{equation*}
+
+Con:
+\begin{equation*}
+    F(x) \in \mathcal{C}^1(E_{x_o, \delta}) \land f \big( x,F(x) \big) = 0
+\end{equation*}
+
+Tal que:
+\begin{equation*}
+    \frac{\partial}{\partial x} F(x_0) = - \dfrac{\dfrac{\partial}{\partial x} \, f \left( x_0,F(x_0) \right)}{\dfrac{\partial}{\partial y} \, f \left( x_0,F(x_0) \right)}
+\end{equation*}
+
+\concept{Demostración}
+
+Con el fin de deducir la fórmula de $\tfrac{\partial}{\partial x} F(x_0)$ para funciones $f:\setR^2 \longrightarrow \setR$, definimos el diferencial $\dif f(x,y)$:
+\begin{equation*}
+    \dif f(x,y) = \dfrac{\partial}{\partial x} f(x_0,y_0) \cdot \Delta x + \dfrac{\partial}{\partial y} f(x_0,y_0) \cdot \Delta y
+\end{equation*}
+
+La función $f(x,y)$ está igualada a cero por hipótesis.
+Es decir que no hay variación en la imagen de $f(x,y)$, como si se tratara de un conjunto de nivel.
+Por lo tanto, el diferencial $\dif f(x,y)$ es nulo:
+\begin{equation*}
+    0 = \dfrac{\partial}{\partial x} f(x_0,y_0) \cdot \Delta x + \dfrac{\partial}{\partial y} f(x_0,y_0) \cdot \Delta y
+\end{equation*}
+
+Dividiendo por el incremento $\Delta x$ se tiene:
+\begin{equation*}
+    0 = \dfrac{\partial}{\partial x} f(x_0,y_0)+ \dfrac{\partial}{\partial y} f(x_0,y_0) \dfrac{\Delta y}{\Delta x}
+\end{equation*}
+
+Como el Teorema de Dini se aplica en un entorno cercano a $(x_0,y_0)$, se tiene que $\Delta x \to 0$ y podemos reemplazar los incrementos por diferenciales:
+\begin{equation*}
+    0 = \dfrac{\partial}{\partial x} f(x_0,y_0)+ \dfrac{\partial}{\partial y} f(x_0,y_0) \dfrac{\partial y}{\partial x}
+\end{equation*}
+
+Observar que no se puede simplificar los diferenciales $\partial y$ por más que estén multiplicando y dividiendo, porque $y$ es en realidad una función de $x$.
+Esta función $y(x)$ es la que se enuncia en el teorema como $F(x)$, cuya fórmula no conocemos, pero que en torno al punto $x_0$ es derivable.
+Definiendo la ecuación anterior correctamente y despejando $F(x_0)$ se tiene la fórmula de derivación implícita:
+\begin{equation*}
+    0 = \frac{\partial}{\partial x} f(x_0,y_0)+ \frac{\partial}{\partial y} f(x_0,y_0) \, \frac{\partial}{\partial x} F(x_0)
+\end{equation*}
+
+\concept{Generalización del teorema}
+
+Sea $\Vec{f}:D \subseteq \setR^\nth \longrightarrow \setR^\mth$ con $D$ abierto y sea $\Vec{f} \in \mathcal{C}^\infty$, lo cual implica:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        f_1 \big( x_1,x_2 \dots x_\nth, F_1(\Vec{x}), F_2(\Vec{x}) \dots F_\mth(\Vec{x}) \big) &= 0
+        \\
+        f_2 \big( x_1,x_2 \dots x_\nth, F_1(\Vec{x}), F_2(\Vec{x}) \dots F_\mth(\Vec{x}) \big) &= 0
+        \\
+        \vdots \hspace{2.7cm} &
+        \\
+        f_\mth \big( x_1,x_2 \dots x_\nth, F_1(\Vec{x}), F_2(\Vec{x}) \dots F_\mth(\Vec{x}) \big) &= 0
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Y así mismo verifica:
+\begin{equation*}
+    \operatorname{det}
+    \begin{bmatrix}
+        \dfrac{\partial f_1}{\partial F_1} & \cdots & \dfrac{\partial f_1}{\partial F_m}
+        \\
+        \vdots & \ddots & \vdots
+        \\
+        \dfrac{\partial f_m}{\partial F_1} & \cdots & \dfrac{\partial f_m}{\partial F_m}
+    \end{bmatrix}
+    \neq 0
+\end{equation*}
+
+Por lo tanto:
+\begin{equation*}
+    \exists ! \hspace{1ex} \Vec{F}: B_{x_0,\delta} \subseteq \setR^\nth \longrightarrow B_{y_0,\varepsilon} \subseteq \setR^\mth
+\end{equation*}
+
+Con:
+\begin{equation*}
+    \Vec{F} \in \mathcal{C}^1(E_{x_0, \delta}) \land \Vec{f}(\Vec{x}, \Vec{F}(\Vec{x}))=0
+\end{equation*}

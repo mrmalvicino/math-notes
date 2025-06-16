@@ -1,0 +1,242 @@
+\chapter{Funciones reales}
+
+\section{Clasificación de funciones}
+
+Podemos clasificar las funciones según sus conjuntos de partida y llegada.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Funciones escalares}
+    \begin{equation*}
+        f:\setR \longrightarrow \setR \tq f(x)=y
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Funciones vectoriales}
+    \begin{multline*}
+        \Vec{F}:\setR \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(x) = \begin{bmatrix} F_1(x) & F_2(x) & \dots & F_\mth(x) \end{bmatrix}
+    \end{multline*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Campos escalares}
+    \begin{equation*}
+        f:\setR^\nth \longrightarrow \setR \tq f(x_1,x_2 \dots x_\nth)=y
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Campos vectoriales}
+    \begin{multline*}
+        f:\setR^\nth \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(\Vec{x}) = \begin{bmatrix} F_1(\Vec{x}) & F_2(\Vec{x}) & \dots & F_\mth(\Vec{x}) \end{bmatrix}
+    \end{multline*}
+\end{mdframed}
+
+
+\section{Dominio}
+
+El dominio es un subconjunto del conjunto de partida de una función.
+El dominio es el conjunto de elementos que admiten las variables de una función.
+
+Por ejemplo, suponiendo que la función tenga una división, una raíz de orden par o un logaritmo, los elementos excluidos del dominio son aquellos que anulen el denominador, que hagan negativo el radicando o que hagan menor o igual a cero el logaritmo.
+Cualquier otra operación estaría permitida, y estos elementos que no presentan inconvenientes están en el dominio de la función.
+
+
+\section{Conjuntos de nivel, secciones y trazas}
+
+Los conjuntos de nivel, las secciones y las trazas son herramientas útiles para conocer cómo es la gráfica de una función de forma analítica.
+
+
+\concept{Conjuntos de nivel}
+
+Un conjunto de nivel es un subconjunto del dominio de una función.
+Se define fijando la imagen, dándole un valor arbitrario para poder establecer relaciones entre las variables independientes del dominio, restringiéndolo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto de nivel}
+    \cusTe{El conjunto de nivel $k$ es aquel que forman todos los vectores del dominio tales que la función de esos vectores tiene como valor $k$.}
+    \begin{equation*}
+        A_{k} = \big\{ \Vec{x} \in \operatorname{Dn}(f) \tq f(\Vec{x})=k \big\}
+    \end{equation*}
+\end{mdframed}
+
+Dependiendo de la dimensión del conjunto de salida de $f$, las preimágenes de $k$ van a ser, una curva si $n=2$ o una superficie si $n=3$.
+Es decir que los conjuntos de nivel son curvas de nivel si se trata de un campo escalar de 2 variables y superficies de nivel si se trata de un campo escalar de 3 variables.
+
+La gráfica del conjunto de nivel tiene una dimensión menos que la gráfica de la función.
+Por este mismo motivo podemos graficar una superficie de nivel de una función cuya gráfica estaría en 4 dimensiones, aunque no podamos graficar la función.
+
+Algebraicamente es posible definir conjuntos de nivel en funciones para $n>3$, pero no podrían graficarse.
+
+
+\concept{Secciones}
+
+Una sección fija alguna de las variables independientes para conocer qué forma tienen los elementos de la imagen en función de las otras variables que no se fijaron.
+
+Para una función de dos variables, visualmente la gráfica de la función se vería cortada por un plano vertical.
+
+
+\concept{Trazas}
+
+Una traza es la intersección de la gráfica de una función con un plano cualquiera, en cualquier dirección.
+
+
+\section{Inyectividad y sobreyectividad}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Inyectividad de funciones escalares}
+    \cusTe{Si una función escalar es monótona, entonces esta es inyectiva:}
+    \begin{gather*}
+        \textrm{Dada} \hspace{1ex} f: \setR \longrightarrow \setR
+        \\
+        \textrm{Si} \hspace{1ex} \frac{\dif}{\dif x} f(x) \neq 0 \quad \forall x \hspace{1ex} \in \operatorname{Dn}(f)
+        \\
+        \Rightarrow f \hspace{1ex} \textrm{es inyectiva}
+    \end{gather*}
+\end{mdframed}
+
+De manera general, para funciones de varias variables (es decir campos escalares) se estudia la inyectividad por definición: una función es inyectiva si no existen dos valores distintos del dominio que tengan una misma imagen.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Inyectividad}
+    \begin{gather*}
+        f: \setR^\nth \longrightarrow \setR \hspace{1ex} \textrm{es inyectiva si se verifica:}
+        \\
+        f(\Vec{x}_1)=f(\Vec{x}_2) \Rightarrow \Vec{x}_1=\Vec{x}_2
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Inyectividad de funciones vectoriales}
+    \cusTe{Una función vectorial es inyectiva si cada una de sus funciones escalares componentes lo son.}
+    \begin{multline*}
+        \textrm{Dada} \hspace{1ex} \Vec{F}: \setR \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(x) = \begin{bmatrix} f_1(x) & f_2(x) & \ldots & f_\mth(x) \end{bmatrix}
+    \end{multline*}
+    \begin{gather*}
+        \textrm{Si} \hspace{1ex} f_\ith(x) \hspace{1ex} \textrm{es inyectiva} \hspace{1ex} \forall \hspace{1ex} i \in [1;\mth]
+        \\
+        \Rightarrow \Vec{F} \hspace{1ex} \textrm{es inyectiva}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Inyectividad de campos vectoriales}
+    \cusTe{Un campo vectorial es inyectivo si cada uno de sus campos escalares componentes lo son.}
+    \begin{multline*}
+        \textrm{Dada} \hspace{1ex} \Vec{F}: \setR^\nth \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(\Vec{x}) = \begin{bmatrix} f_1(\Vec{x}) & f_2(\Vec{x}) & \ldots & f_\mth(\Vec{x}) \end{bmatrix}
+    \end{multline*}
+    \begin{gather*}
+        \textrm{Si} \hspace{1ex} f_\ith(\Vec{x}) \hspace{1ex} \textrm{es inyectiva} \hspace{1ex} \forall \hspace{1ex} i \in [1;\mth]
+        \\
+        \Rightarrow \Vec{F} \hspace{1ex} \textrm{es inyectiva}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Sobreyectividad}
+    \cusTe{Una función es sobreyectiva si el conjunto de llegada es igual al conjunto imagen.}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Sobreyectividad de funciones escalares}
+    \begin{gather*}
+        \textrm{Dada} \hspace{1ex} f: \setR \longrightarrow \setR
+        \\
+        \textrm{Si} \hspace{1ex} \im(f) = \setR
+        \Rightarrow f \hspace{1ex} \textrm{es sobreyectiva}
+        \\
+        \textrm{Si} \hspace{1ex} \lim_{x \to \infty} f(x) = \pm \infty
+        \Rightarrow f \hspace{1ex} \textrm{es sobreyectiva}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Sobreyectividad de funciones vectoriales}
+    \cusTe{Una función vectorial es sobreyectiva si cada una de sus funciones escalares componentes lo son.}
+    \begin{multline*}
+        \textrm{Dada} \hspace{1ex} \Vec{F}: \setR \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(x) = \begin{bmatrix} f_1(x) & f_2(x) & \ldots & f_\mth(x) \end{bmatrix}
+    \end{multline*}
+    \begin{gather*}
+        \textrm{Si} \hspace{1ex} f_\ith(x) \hspace{1ex} \textrm{es sobreyectiva} \hspace{1ex} \forall \hspace{1ex} i \in [1;\mth]
+        \\
+        \Rightarrow \Vec{F} \hspace{1ex} \textrm{es sobreyectiva}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Biyectividad de campos vectoriales}
+    \cusTe{Un campo vectorial es biyectivo si es inyectivo y sobreyectivo simultáneamente.
+    Esto es:}
+    \begin{multline*}
+        \textrm{Dada} \hspace{1ex} \Vec{F}: \setR^\nth \longrightarrow \setR^\mth \tq
+        \\
+        \Vec{F}(\Vec{x}) = \begin{bmatrix} f_1(\Vec{x}) & f_2(\Vec{x}) & \ldots & f_\mth(\Vec{x}) \end{bmatrix} = \Vec{y}
+    \end{multline*}
+    \begin{gather*}
+        \Vec{F} \hspace{1ex} \textrm{es biyectiva si:}
+        \\
+        \forall \hspace{1ex} \Vec{y} \in \setR^\mth \hspace{1ex} \exists ! \hspace{1ex} \Vec{x} \in \operatorname{Dn}(\Vec{F}): \Vec{y} = \Vec{F}(\Vec{x})
+        \\[1em]
+        \textrm{O bien, si:}
+        \\
+        \forall \hspace{1ex} \Vec{x} \in \operatorname{Dn}(\Vec{F}) \hspace{1ex} \exists ! \hspace{1ex} \Vec{y} \in \setR^m : \Vec{x} = \Vec{F}^{-1}(\Vec{y})
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Funciones homogéneas}
+
+La homogeneidad de una función está relacionada con el grado de su fórmula.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Homogeneidad}
+    \begin{gather*}
+        f:\setR^\nth \longrightarrow \setR \hspace{1ex} \textrm{es homogénea de grado $k$ si:}
+        \\
+        \lambda^k \, f(\Vec{x}) = f(\lambda^k \, \Vec{x})
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si una función es homogénea, se puede calcular el límite por reemplazo directo tras hacer un cambio de variables a coordenadas polares.
+\end{mdframed}

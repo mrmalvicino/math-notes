@@ -1,0 +1,530 @@
+\chapter{Derivadas de funciones complejas}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Derivada}
+    \cusTe{La derivada de $f(z)$ en $z_0 \in \setC$ se define como:}
+    \begin{align*}
+        \frac{\dif}{\dif z} f(z_0) &= \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0}
+        \\[1ex]
+        &= \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h}
+    \end{align*}
+\end{mdframed}
+
+Nótese que tanto la variable $z$ como el punto $z_0$ son complejos.
+Por lo tanto el incremento $h=z-z_0$ también lo es.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-deriv.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:partialDerivate}
+    \end{prop}
+    La derivada toma el mismo valor en todas las direcciones $(\Vec{r})$ del plano y particularmente en los ejes real e imaginario.
+    \begin{equation*}
+        \frac{\dif}{\dif z} f(z_0) = \frac{\partial}{\partial x} f(z_0) = \frac{\partial}{\partial y} f(z_0) = \frac{\partial}{\partial \Vec{r}} f(z_0)
+    \end{equation*}
+\end{mdframed}
+
+Por la propiedad \ref{prop:limit} del límite, la derivada es un límite doble:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{gather*}
+        \frac{\dif}{\dif z} f(z_0) = \lim_{\substack{x \to x_0\\y \to y_0}} \frac{f(x + \iu y) - f(x_0 + \iu y_0)}{(x-x_0) + \iu (y-y_0)}
+        \\[1em]
+        = \lim_{\substack{h_x \to 0\\h_y \to 0}}\frac{f \Big( (x_0+h_x) + \iu (y_0+h_y) \Big) - f(x_0 + \iu y_0)}{h_x + \iu h_y}
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Funciones analíticas}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función analítica}
+    \cusTe{Una función se dice analítica en $z_0$ si es derivable en un entorno abierto del punto.}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si una función es analítica, es de clase $f \in \class[\infty]$ y sus derivadas sucesivas son analíticas.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función entera}
+    \cusTe{Una función se dice entera si es analítica en todo el plano complejo.}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si una función es entera y acotada, entonces es constante.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función armónica}
+    \cusTe{Una función se dice armónica si es un campo escalar real $u: \setR^2 \longrightarrow \setR$ que verifica $\grad^2 u = 0$.
+    Esto es, si cumple:}
+    \begin{equation*}
+        \frac{\partial^2}{\partial x^2} u(x,y) + \frac{\partial^2}{\partial y^2} u(x,y) = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Las componentes $u(x,y)$ y $v(x,y)$ del campo vectorial asociado a una función compleja son armónicas solo si la función es entera.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si un campo de gradientes $\Vec{F}=\grad u(x,y)$ verifica $\operatorname{div}(\Vec{F})=0$ entonces la función potencial $u(x,y)$ es armónica.
+    Esto es:
+    \begin{equation*}
+        \grad^2 u(x,y) = u_{xx}'' + u_{yy}'' = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Las curvas de nivel de $v(x,y)$ son las líneas de flujo del campo del cual $u(x,y)$, en caso de ser armónica, es el potencial.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si $u: D \subseteq \setC \longrightarrow \setC$ está definida en un conjunto $D$ simplemente conexo, entonces $u(x,y)$ es armónica, existe la función $v(x,y)$ conjugada armónica de $u(x,y)$ y, además, $f(x,y)=u(x,y)+iv(x,y)$ es entera.
+\end{mdframed}
+
+\concept{Demostración}
+
+Por las ecuaciones de Cauchy-Riemann (Def. \ref{defn:CRequations}) y por el teorema de Cauchy-Schwarz, se tiene:
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        u_x' &= v_y'
+        \\
+        u_y' &= -v_x'
+    \end{aligned}
+    \right.
+    \\[1ex]
+    \left\{
+    \begin{aligned}
+        u_{xx}'' &= v_{yx}''
+        \\
+        u_{yy}'' &= -v_{xy}''
+    \end{aligned}
+    \right.
+    \\[1ex]
+    u_{xx}'' + u_{yy}''= v_{yx} - v_{xy} = 0
+    \\
+    \therefore u \enspace \textrm{es armónica}
+    \\[1ex]
+    \left\{
+    \begin{aligned}
+        u_x' &= v_y'
+        \\
+        u_y' &= -v_x'
+    \end{aligned}
+    \right.
+    \\[1ex]
+    \left\{
+    \begin{aligned}
+        u_{xy}'' &= v_{yy}''
+        \\
+        u_{yx}'' &= - v_{xx}''
+    \end{aligned}
+    \right.
+    \\[1ex]
+    u_{yx}'' - u_{xy}'' = - v_{xx} - v_{yy} = 0
+    \\
+    \therefore v \enspace \textrm{es la conjugada armónica de} \enspace u
+\end{gather*}
+
+
+\section{Teorema de Cauchy-Riemann}
+
+El teorema de Cauchy-Riemann relaciona la derivada de una función con las derivadas parciales de los campos escalares $u(x,y)$ y $v(x,y)$ componentes del campo vectorial asociado a la función.
+Si una función es derivable entonces se cumple la siguiente propiedad.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:CRtheorem}
+    \end{prop}
+    \begin{equation*}
+        \frac{\dif}{\dif z} f(z_0)= \frac{\partial}{\partial x} f(x_0,y_0)= -\iu \, \frac{\partial}{\partial y} f(x_0,y_0)
+    \end{equation*}
+\end{mdframed}
+
+Nótese que las derivadas de la ecuación anterior son las parciales de los campos escalares $u(x,y)$ y $v(x,y)$, componentes del campo vectorial asociado.
+Es importante no confundirlas con la derivada (\ref{prop:partialDerivate}) en las direcciones de los ejes real e imaginario.
+
+Aplicando la propiedad \ref{prop:CRtheorem} a una función compleja expresada en la forma binomial, podemos obtener dos ecuaciones de gran relevancia.
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial}{\partial x} f(x,y) &= \frac{\partial}{\partial x} u(x,y) + \iu \frac{\partial}{\partial x} v(x,y)
+        \\
+        \frac{\partial}{\partial y} f(x,y) &= \frac{\partial}{\partial y} u(x,y) + \iu \frac{\partial}{\partial y} v(x,y)
+    \end{aligned}
+    \right.
+    \\[1ex]
+    \frac{\partial}{\partial x} u(x,y) + \iu \frac{\partial}{\partial x} v(x,y) = - \iu \left( \frac{\partial}{\partial y} u(x,y) + \iu \frac{\partial}{\partial y} v(x,y) \right)
+    \\[1ex]
+    \frac{\partial}{\partial x} u(x,y) + \iu \frac{\partial}{\partial x} v(x,y) = \frac{\partial}{\partial y} v(x,y) - \iu \frac{\partial}{\partial y} u(x,y)
+\end{gather*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:CRequations}
+    \end{defn}
+    \cusTi{Ecuaciones de C-R}
+    \cusTe{Si una función es derivable entonces se cumple que:}
+    \begin{align*}
+        \frac{\partial}{\partial x} u(x,y) &= \frac{\partial}{\partial y} v(x,y)
+        \\[1em]
+        \frac{\partial}{\partial x} v(x,y) &= - \frac{\partial}{\partial y} u(x,y)
+    \end{align*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si el campo vectorial asociado a una función compleja es diferenciable y se verifican las ecuaciones de Cauchy-Riemann, entonces la función es derivable.
+\end{mdframed}
+
+Aplicando una transformación biyectiva $(T)$ al campo vectorial $(\Vec{F})$ asociado a una función compleja $(f)$, al calcular la matriz de derivadas, o matriz Jacobiana $(J)$, se pueden deducir las relaciones entre las derivadas parciales en coordenadas polares.
+
+Dada la siguiente función compleja y su campo vectorial asociado:
+\begin{equation*}
+    f(z) = u(z) + \iu v(z) \iff \Vec{F} = \begin{bmatrix} u(x,y) & v(x,y) \end{bmatrix}
+\end{equation*}
+
+Dada la siguiente transformación biyectiva:
+\begin{multline*}
+    \Vec{T}: (0;+\infty) \times (\alpha;\alpha+2\pi) \longrightarrow \setR^2 - L_\alpha \tq
+    \\
+    \Vec{T}(\rho,\theta) = \begin{bmatrix} \rho \, \cos(\theta) & \rho \, \sin(\theta) \end{bmatrix}
+\end{multline*}
+
+Se tiene que:
+\begin{equation*}
+    \operatorname{det} \big( J \Vec{T}(\rho,\theta) \big) = \rho \, \cos^2(\theta) + \rho \, \sin^2(\theta) = \rho \neq 0
+\end{equation*}
+
+Por lo tanto, al aplicar la transformación queda:
+\begin{multline*}
+    \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) =
+    \\
+    = \begin{bmatrix} u \Big( \rho \, \cos{(\theta)} , \rho \, \sin(\theta) \Big) & v \Big( \rho \, \cos(\theta) , \rho \, \sin(\theta) \Big) \end{bmatrix}
+\end{multline*}
+
+Y aplicando la regla de la cadena:
+\begin{equation*}
+    J \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) = J_{xy} \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) \cdot J_{\rho\theta} \Vec{T}(\rho,\theta)
+\end{equation*}
+
+Esto, representado de forma matricial, es:
+\begin{equation*}
+    \scale{0.9}{
+    \begin{pmatrix}
+        \dfrac{\partial u}{\partial \rho} & \dfrac{\partial u}{\partial \theta}
+        \\[1em]
+        \dfrac{\partial v}{\partial \rho} & \dfrac{\partial v}{\partial \theta}
+    \end{pmatrix}_{\Vec{T}(\rho,\theta)}
+    =
+    \begin{pmatrix}
+        \dfrac{\partial u}{\partial x} & \dfrac{\partial u}{\partial y}
+        \\[1em]
+        \dfrac{\partial v}{\partial x} & \dfrac{\partial v}{\partial y}
+    \end{pmatrix}_{\Vec{T}(\rho,\theta)}
+    %
+    \begin{pmatrix}
+        \dfrac{\partial T_1}{\partial \rho} & \dfrac{\partial T_1}{\partial \theta}
+        \\[1em]
+        \dfrac{\partial T_2}{\partial \rho} & \dfrac{\partial T_2}{\partial \theta}
+    \end{pmatrix}_{(\rho,\theta)}
+    }
+\end{equation*}
+
+O bien, representado en un sistema de ecuaciones:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial u}{\partial \rho} &=
+        \frac{\partial u}{\partial x} \cdot \frac{\partial T_1}{\partial \rho} + \frac{\partial u}{\partial y} \cdot \frac{\partial T_2}{\partial \rho}
+        \\[1ex]
+        \frac{\partial u}{\partial \theta} &=
+        \frac{\partial u}{\partial x} \cdot \frac{\partial T_1}{\partial \theta} + \frac{\partial u}{\partial y} \cdot \frac{\partial T_2}{\partial \theta}
+        \\[1ex]
+        \frac{\partial v}{\partial \rho} &=
+        \frac{\partial v}{\partial x} \cdot \frac{\partial T_1}{\partial \rho} + \frac{\partial v}{\partial y} \cdot \frac{\partial T_2}{\partial \rho}
+        \\[1ex]
+        \frac{\partial v}{\partial \theta} &=
+        \frac{\partial v}{\partial x} \cdot \frac{\partial T_1}{\partial \theta} + \frac{\partial v}{\partial y} \cdot \frac{\partial T_2}{\partial \theta}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Resolviendo las derivadas de la transformación, que son conocidas, se tiene:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial u}{\partial \rho} &= \frac{\partial u}{\partial x} \cos(\theta) + \frac{\partial u}{\partial y} \sin(\theta)
+        \\[1ex]
+        \frac{\partial u}{\partial \theta} &= -  \frac{\partial u}{\partial x} \rho \sin(\theta) + \frac{\partial u}{\partial y} \rho \cos(\theta)
+        \\[1ex]
+        \frac{\partial v}{\partial \rho} &= \frac{\partial v}{\partial x} \cos(\theta) + \frac{\partial v}{\partial y} \sin(\theta)
+        \\[1ex]
+        \frac{\partial v}{\partial \theta} &= - \frac{\partial v}{\partial x} \rho \sin(\theta) + \frac{\partial v}{\partial y} \rho \cos(\theta)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Aplicando las ecuaciones de Cauchy-Riemann (Def. \ref{defn:CRequations}) a las dos primeras ecuaciones del sistema anterior, se tiene:
+
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial u}{\partial \rho} &= \frac{\partial v}{\partial y} \cos(\theta) - \frac{\partial v}{\partial x} \sin(\theta)
+        \\[1ex]
+        \frac{\partial u}{\partial \theta} &= -  \frac{\partial v}{\partial y} \rho \sin(\theta) - \frac{\partial v}{\partial x} \rho \cos(\theta)
+        \\[1ex]
+        \frac{\partial v}{\partial \rho} &= \frac{\partial v}{\partial x} \cos(\theta) + \frac{\partial v}{\partial y} \sin(\theta)
+        \\[1ex]
+        \frac{\partial v}{\partial \theta} &= -  \frac{\partial v}{\partial x} \rho \sin(\theta) + \frac{\partial v}{\partial y} \rho \cos(\theta)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Para finalmente, al sacar factor común $\rho$:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial u}{\partial \rho} &= \frac{\partial v}{\partial y} \cos(\theta) - \frac{\partial v}{\partial x} \sin(\theta)
+        \\[1ex]
+        \frac{\partial u}{\partial \theta} &= -\rho \left(  \frac{\partial v}{\partial y} \sin(\theta) + \frac{\partial v}{\partial x} \cos(\theta) \right)
+        \\[1ex]
+        \frac{\partial v}{\partial \rho} &= \frac{\partial v}{\partial x} \cos(\theta) + \frac{\partial v}{\partial y} \sin(\theta)
+        \\[1ex]
+        \frac{\partial v}{\partial \theta} &= \rho \left( -  \frac{\partial v}{\partial x} \sin(\theta) + \frac{\partial v}{\partial y} \cos(\theta) \right)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Establecer una relación para las derivadas parciales en coordenadas polares:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:CRpolarEquations}
+    \end{defn}
+    \cusTi{Ecuaciones de C-R en polares}
+    \cusTe{Si una función es derivable entonces se cumple que:}
+    \begin{align*}
+        \frac{\partial}{\partial \rho} u(\rho,\theta) &= \frac{\partial}{\partial \theta}  v(\rho,\theta) \left( \frac{1}{\rho} \right)
+        \\[1em]
+        \frac{\partial}{\partial \rho} v(\rho,\theta) = - \frac{\partial}{\partial \theta} u(\rho,\theta) \left( \frac{1}{\rho} \right)
+    \end{align*}
+\end{mdframed}
+
+
+\subsection{Implicaciones geométricas}
+
+Dado que:
+\begin{equation*}
+    \frac{\dif}{\dif z} f(z) \neq 0 \Rightarrow  J \Vec{F} \neq \Vec{0} \Rightarrow \grad u \neq \Vec{0} \land \grad v \neq \Vec{0}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \grad u(x,y) &= \frac{\partial}{\partial x} u(x,y) + \iu \frac{\partial}{\partial y} u(x,y)
+        \\[1ex]
+        \grad v(x,y) &= \frac{\partial}{\partial x} v(x,y) + \iu \frac{\partial}{\partial y} v(x,y)
+    \end{aligned}
+    \right.
+\end{equation*}
+
+De manera que al aplicar las ecuaciones de Cauchy-Riemann (Def. \ref{defn:CRequations}) sobre el sistema anterior se tiene:
+\begin{align*}
+    \grad v(x,y) &= \frac{\partial}{\partial x} v(x,y) + \iu \frac{\partial}{\partial y} v(x,y)
+    \\
+    &= - \frac{\partial}{\partial y} u(x,y) + \iu \frac{\partial}{\partial x} u(x,y)
+    \\[1ex]
+    \grad v(x,y) &= \iu \left( \frac{\partial}{\partial x} u(x,y) + \iu \frac{\partial}{\partial y} u(x,y) \right)
+\end{align*}
+
+Por lo tanto:
+\begin{equation*}
+    \iu \grad u(x,y) = \grad v(x,y) \enspace \textrm{siendo} \enspace \norm{\grad u(x,y)} = \norm{\grad v(x,y)}
+\end{equation*}
+
+
+\section{Derivación en polares}
+
+Aplicando una transformación biyectiva $(T)$ al campo vectorial $(\Vec{F})$ asociado a una función compleja $(f)$, al calcular la matriz de derivadas, o matriz Jacobiana $(J)$, se puede deducir una fórmula para calcular la derivada a partir de las coordenadas polares.
+
+Dada la siguiente función compleja y su campo vectorial asociado:
+\begin{equation*}
+    f(z) = u(z) + \iu v(z) \iff \Vec{F} = \begin{bmatrix} u(x,y) & v(x,y) \end{bmatrix}
+\end{equation*}
+
+Dada la siguiente transformación biyectiva:
+\begin{multline*}
+    \Vec{T}: (0;+\infty) \times (\alpha;\alpha+2\pi) \longrightarrow \setR^2 - L_\alpha \tq
+    \\
+    \Vec{T}(\rho,\theta) = \begin{bmatrix} \rho \, \cos(\theta) & \rho \, \sin(\theta) \end{bmatrix}
+\end{multline*}
+
+Se tiene que:
+\begin{equation*}
+    \operatorname{det} \big( J \Vec{T}(\rho,\theta) \big) = \rho \, \cos^2(\theta) + \rho \, \sin^2(\theta) = \rho \neq 0
+\end{equation*}
+
+Por lo tanto, al aplicar la transformación queda:
+\begin{multline*}
+    \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) =
+    \\
+    = \begin{bmatrix} u \Big( \rho \, \cos{(\theta)} , \rho \, \sin(\theta) \Big) & v \Big( \rho \, \cos(\theta) , \rho \, \sin(\theta) \Big) \end{bmatrix}
+\end{multline*}
+
+Y aplicando la regla de la cadena:
+\begin{equation*}
+    J \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) = J_{xy} \Vec{F} \Big( \Vec{T}(\rho,\theta) \Big) \cdot J_{\rho\theta} \Vec{T}(\rho,\theta)
+\end{equation*}
+
+Esto, representado de forma matricial donde las filas de las matrices se notan con gradientes, es:
+\begin{equation*}
+    \begin{bmatrix}
+        \grad_{\rho\theta} u
+        \\
+        \grad_{\rho\theta} v
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}
+    =
+    \begin{bmatrix}
+        \grad_{xy} u
+        \\
+        \grad_{xy} v
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}
+    %
+    \begin{bmatrix}
+        J_{\rho\theta} \Vec{T}
+    \end{bmatrix}_{(\rho,\theta)}
+\end{equation*}
+
+Luego, tomando solo uno de los gradientes:
+\begin{equation*}
+    \begin{bmatrix}
+        \grad_{\rho\theta} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}
+    =
+    \begin{bmatrix}
+        \grad_{xy} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}
+    %
+    \begin{bmatrix}
+        J_{\rho\theta} \Vec{T}
+    \end{bmatrix}_{(\rho,\theta)}
+\end{equation*}
+
+Se puede calcular el gradiente $(\grad_{xy})$ multiplicando por la matriz inversa del jacobiano $(J^{-1})$:
+\begin{gather*}
+    \begin{bmatrix}
+        J_{\rho\theta} \Vec{T}
+    \end{bmatrix}_{(\rho,\theta)}^{-1}
+    %
+    \begin{bmatrix}
+        \grad_{\rho\theta} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}^t
+    =
+    \begin{bmatrix}
+        \grad_{xy} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}^t
+    \\[1em]
+    \begin{bmatrix}
+        \cos(\theta) & -\dfrac{\sin(\theta)}{\rho}
+        \\[1em]
+        \sin(\theta) & \dfrac{\cos(\theta)}{\rho}
+    \end{bmatrix}
+    %
+    \begin{bmatrix}
+        \grad_{\rho\theta} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}^t
+    =
+    \begin{bmatrix}
+        \grad_{xy} u
+    \end{bmatrix}_{\Vec{T}(\rho,\theta)}^t
+\end{gather*}
+
+\begin{multline*}
+    \frac{\partial}{\partial x} u \Big( \Vec{T}(\rho,\theta) \Big) =
+    \\
+    = \frac{\partial}{\partial \rho} u \Big( \Vec{T}(\rho,\theta) \Big) \cos(\theta) - \frac{\partial}{\partial \theta} u \Big( \Vec{T}(\rho,\theta) \Big) \frac{\sin(\theta)}{\rho}
+\end{multline*}
+
+\begin{multline*}
+    \frac{\partial}{\partial y} u \Big( \Vec{T}(\rho,\theta) \Big) =
+    \\
+    = \frac{\partial}{\partial \rho} u \Big( \Vec{T}(\rho,\theta) \Big) \sin(\theta) + \frac{\partial}{\partial \theta} u \Big( \Vec{T}(\rho,\theta) \Big) \frac{\cos(\theta)}{\rho}
+\end{multline*}
+
+Por otro lado, aplicando las ecuaciones de Cauchy-Riemann (Def. \ref{defn:CRequations}) en la propiedad \ref{prop:CRtheorem}, se tiene que:
+\begin{equation*}
+    \frac{\dif}{\dif z} f(z) = \frac{\partial}{\partial x} u(x,y) - \iu \frac{\partial}{\partial y} u(x,y)
+\end{equation*}
+
+Por lo que, reemplazando las ecuaciones del sistema en la ecuación anterior se tiene:
+\begin{multline*}
+    \frac{\dif}{\dif z} f(z) = \left( \frac{\partial u}{\partial \rho} \cos(\theta) - \frac{\partial u}{\partial \theta} \frac{\sin(\theta)}{\rho} \right) +
+    \\
+    - \iu \left( \frac{\partial u}{\partial \rho} \sin(\theta) + \frac{\partial u}{\partial \theta} \frac{\cos(\theta)}{\rho} \right)
+\end{multline*}
+
+Sacando factor común en grupos:
+\begin{multline*}
+    \frac{\dif}{\dif z} f(z) = \frac{\partial u}{\partial \rho} \Big( \cos(\theta) - \iu \sin(\theta) \Big) +
+    \\
+    - \frac{1}{\rho} \frac{\partial u}{\partial \theta} \Big( \sin(\theta) + \iu \cos(\theta) \Big)
+\end{multline*}
+
+Aplicando las ecuaciones de Cauchy-Riemann en coordenadas polares (Def. \ref{defn:CRpolarEquations}) se tiene:
+\begin{multline*}
+    \frac{\dif}{\dif z} f(z) = \frac{\partial u}{\partial \rho} \Big( \cos(\theta) - \iu \sin(\theta) \Big) +
+    \\
+    + \frac{\partial v}{\partial \rho} \Big( \sin(\theta) + \iu \cos(\theta) \Big)
+\end{multline*}
+
+Multiplicando y dividiendo por $\iu$ se tiene:
+\begin{multline*}
+    \frac{\dif}{\dif z} f(z) = \frac{\partial u}{\partial \rho} \Big( \cos(\theta) - \iu \sin(\theta) \Big) +
+    \\
+    + \iu \frac{\partial v}{\partial \rho} \Big( \cos(\theta) - \iu \sin(\theta) \Big)
+\end{multline*}
+\begin{gather*}
+    \dfrac{\dif}{\dif z} f(z) = \left( \frac{\partial u}{\partial \rho} + \iu \frac{\partial v}{\partial \rho} \right) \Big( \cos(\theta) - \iu \sin(\theta) \Big)
+    \\[1em]
+    \frac{\dif}{\dif z} f(z) = \left( \frac{\partial}{\partial \rho} u \big( \Vec{T}(\rho,\theta) \big) + \iu \frac{\partial}{\partial \rho} v \big( \Vec{T}(\rho,\theta) \big) \right) e^{-\iu\theta}
+\end{gather*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \frac{\dif}{\dif z} f(z) = \left[ \frac{\partial}{\partial \rho} u \big( \Vec{T}(\rho,\theta) \big) + \iu \frac{\partial}{\partial \rho} v \big( \Vec{T}(\rho,\theta) \big) \right] e^{-\iu\theta}
+    \end{equation*}
+\end{mdframed}

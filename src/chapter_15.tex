@@ -1,0 +1,311 @@
+\chapter{Integrales de funciones reales}
+
+Al igual que la derivación, la integración solo puede operar con una variable a la vez.
+Pero a diferencia de las derivadas, es posible computar una unica integral y llegar a un resultado numérico integrando con respecto de todas las variables.
+
+Según cómo esté definida la integración va a variar conceptualmente su aplicación.
+Integrar funciones de una variable equivale a calcular el área debajo de la curva.
+Integrar funciones de varias variables también es posible, y en el caso de un campo escalar de dos variables, la integral calcula el volumen por debajo de la superficie.
+Aunque esta noción de la integral es una primera idea intuitiva, ya que la integración tiene muchas otras aplicaciones.
+
+\section{Integrales de Riemann en 2D}
+
+A continuación, se ve que una integral sobre un recinto rectangular $R$ calcula el volumen que hay por debajo del gráfico de un campo escalar de dos variables.
+
+Sea $f$ una función contínua y positiva que no vale constantemente uno:
+\begin{equation*}
+    f:D \subseteq \setR^2 \longrightarrow \setR \tq 1 \neq f(x,y) > 0
+\end{equation*}
+
+Sea $R$, una partición de $D$, el área dada por el producto cartesiano entre intervalos de los ejes $x$ e $y$:
+\begin{equation*}
+    R = [a,b] \times [c,d] = [x_0,x_n] \times [y_0,y_n]
+\end{equation*}
+
+Nótese que el recinto $R$ es un rectángulo de puntos $\begin{bmatrix} x & y \end{bmatrix} \in \setR^2$ que pertenecen a un plano en el dominio de la función.
+Mientras que los puntos de la superficie $S$ están definidos como $\begin{bmatrix} x & y & f(x,y) \end{bmatrix} \in \setR^3$ y pertenecen al espacio.
+
+Esto implica que los puntos de la superficie $S$ dada por el gráfico de $f(x,y)$ no solamente están ``elevados'' con respecto a los puntos del recinto $R$.
+Si no que, además, no tienen porqué tener la misma geometría.
+De hecho, ni siquera pertenecen al mismo espacio vectorial.
+
+Justamente el hecho de que tengan otro ``relieve'' va a permitir definir un volumen que no sea el de un cubo, donde bastaría con multiplicar sus lados para calcular el volumen.
+Por este motivo, se definió $f(x,y) \neq 1$.
+
+Una vez que se tiene el recinto particionado, se establece para cara partición un paralelepípedo de base igual al área de la partición y de altura tal que uno de sus vértices ``toque'' la gráfica de la función.
+
+En la siguiente imagen se muestran graficados la superficie $S$ que es la gráfica de $f(x,y)$, un recinto $R$ de $n \times n = 4 \times 4 = 16$ particiones pudiendo $n$ ser cualquier número natural, y uno de los 16 paralelepípedos:
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-integral-1.pdf_tex}
+\end{center}
+
+El volumen del paralelepípedo graficado es:
+\begin{equation*}
+    V_{3,0}= \underbrace{(x_4-x_3)}_{\textrm{largo}} \times \underbrace{(y_1-y_0)}_{\textrm{ancho}} \times \underbrace{f(x_3,y_0)}_{\textrm{alto}}
+\end{equation*}
+
+El volumen de cualquier paralelepípedo es:
+\begin{equation*}
+    V_{\ith,\jth}= \underbrace{(x_{\ith+1} - x_\ith)}_{\Delta x_\ith} \times \underbrace{(y_{\jth+1} - y_\jth)}_{\Delta y_\jth} \times f(x_\ith,y_\jth)
+\end{equation*}
+
+El volumen de todos los paralelepípedos del recinto es la suma de cada volumen.
+Esta aproximación del volumen total $V$ que hay por debajo de $S$ es:
+\begin{equation*}
+    V \approx \sum_{\ith,\jth=0}^{\nth-1} V_{\ith,\jth} = \sum_{\ith,\jth=0}^{\nth-1} f(x_\ith,y_\jth) \, \Delta x_\ith \, \Delta y_\jth
+\end{equation*}
+
+El largo $\Delta x_\ith$ y el ancho $\Delta y_\jth$ de cada paralelepípedo depende de la cantidad $\nth$ de particiones del recinto y de los extremos $a$, $b$, $c$ y $d$ de los intervalos:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \Delta x_\ith &=& x_{\ith+1} - x_\ith = \dfrac{b-a}{\nth}
+        \\[1em]
+        \Delta y_\jth &=& y_{\jth+1} - y_\jth = \dfrac{d-c}{\nth}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Al aumentar $\nth$ aumenta la cantidad de particiones y por ende la cantidad de paralelepípedos, no así el tamaño del recinto.
+Por lo tanto, el grosor de los paralelepipedos tiene que disminuir.
+Tomar el límite cuando $n\to\infty$ implica sumar los volúmenes de los infinitos paralelepípedos de grosor nulo que hay en el recinto.
+De esta forma, la aproximación del volumen bajo la superficie pasa a ser una igualdad, quedando definida una integral doble:
+\begin{align*}
+    V &= \lim_{\nth\to\infty} \sum_{\ith,\jth=0}^{\nth-1} f(x_\ith,y_\jth) \, \Delta x_\ith \, \Delta y_\jth
+    \\
+    &= \int_c^d \int_a^b f(x,y) \, \partial x \, \partial y
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Teorema de Fubini}
+    \cusTe{Si el recinto de integración es rectangular, entonces los extremos de los intervalos son permutables.}
+\end{mdframed}
+
+
+\section*{Cambio de variables en 2D}
+
+Sea $\Vec{T}:A' \subset \setR^2 \longrightarrow A \subset \setR^2$ una transformación de clase $\Vec{T} \in \class (A')$ y sea el determinante de la matriz jacobiana $\operatorname{det}(J \, \Vec{T}(u,v)) \neq 0$, se tiene que:
+\begin{multline*}
+    \iint_A f(x,y) \, \partial x \, \partial y =
+    \\
+    = \iint_{A'} f \left( \Vec{T}(u,v) \right) \norm{ det(J \Vec{T}(u,v)) } \, \partial u \, \partial v
+\end{multline*}
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/calc-transformacion.pdf_tex}
+\end{center}
+
+% \section*{Transformaciones lineales}
+% \section*{Coordenadas polares}
+% \section*{Coordenadas elípticas}
+% \section*{Cambio de variables en 3D}
+% \section*{Coordenadas cilíndricas}
+% \section*{Coordenadas esféricas}
+
+
+\section{Aplicaciones}
+
+
+\subsection{Distancia lineal}
+
+Dada la función $f:D \subset \setR \longrightarrow \setR \tq f(x)=1$.
+El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el largo del intervalo.
+\begin{equation*}
+    A = \int_{x_0}^{x_1} \dif x = 1 \cdot \Delta x
+\end{equation*}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-integral-2.pdf_tex}
+\end{center}
+
+
+\subsection{Área bajo una curva plana}
+
+Dada una función $f:D \subset \setR \longrightarrow \setR \tq f(x)>0$.
+El cálculo de la integral sobre un intervalo $\Delta x$ da como resultado el área bajo la gráfica de $f$.
+\begin{equation*}
+    A = \int_{x_0}^{x_1} f(x) \, \dif x
+\end{equation*}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-integral-3.pdf_tex}
+\end{center}
+
+
+\subsection{Área del recinto $A$}
+
+Dada la función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)=1$.
+El cálculo de la integral sobre un recinto $A$ da como resultado el área del recinto.
+\begin{equation*}
+    A = \iint_A \partial \, x \partial y = 1 \cdot \Delta x \, \Delta y
+\end{equation*}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-integral-4.pdf_tex}
+\end{center}
+
+
+\subsection{Volumen bajo una superficie}
+
+Dada una función $f:D \subset \setR^2 \longrightarrow \setR \tq f(x,y)>0$.
+El cálculo de la integral sobre un recinto $A$ da como resultado el volumen bajo la gráfica de $f$.
+\begin{equation*}
+    V = \iint_A f(x,y) \partial x \, \partial y
+\end{equation*}
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-integral-5.pdf_tex}
+\end{center}
+
+
+\subsection{Volumen del recinto $V$}
+
+Dada la función $f:D \subset \setR^3 \longrightarrow \setR \tq f(x,y,z)=1$.
+El cálculo de la integral sobre un volumen de integración $V$ da como resultado dicho volumen.
+\begin{equation*}
+    V = \iiint_V \partial x \, \partial y \, \partial z = 1 \cdot \Delta x \, \Delta y \, \Delta z
+\end{equation*}
+
+
+\subsection{Longitud de una curva plana}
+
+El largo $L$ de un arco de curva plana está dado por:
+\begin{equation*}
+    L = \int_{t_0}^{t_1} \nnorm{ \dfrac{\dif}{\dif t} \Vec{c}(t) \dif t } \, \dif t
+\end{equation*}
+
+
+\subsection{Área de una superficie}
+
+El área $A$ de una superficie está dada por:
+\begin{align*}
+    A &= \iint_S \nnorm{\Vec{n}(u,v)} \, \partial u \, \partial v
+    \\[1ex]
+    &= \iint_S \nnorm{ \dfrac{\partial}{\partial u} \Vec{s}(u,v) \times \dfrac{\partial}{\partial v} \Vec{s}(u,v) } \, \partial u \, \partial v
+\end{align*}
+
+
+\subsection{Masa de un sólido}
+
+Sea $\rho:\setR^3 \longrightarrow \setR$ una función que determina la densidad en cada punto del espacio ocupado por cierto sólido.
+La integral de $\rho (x,y,z)$ sobre el volumen $V$ calcula la masa del sólido.
+\begin{equation*}
+    m = \iiint_V \rho (x,y,z) \, \partial x \, \partial y \, \partial z
+\end{equation*}
+
+
+\section{Integrales sobre curvas y superficies}
+
+Las integrales curvilíneas e integrales de superficie son integrales dobles o triples.
+Pero como se evalúan sobre curvas o superficies, las variables con respecto a las que se integra se reducen a una o dos, respectivamente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Diferencial de distancia}
+    \begin{equation*}
+        \dif \Vec{s} = \versor{t} \, \dif s = \left( \partial x, \partial y, \partial z \right)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elemento de arco}
+    \begin{equation*}
+        \dif s = \nnorm{ \dfrac{\dif}{\dif t} \Vec{c}(t) } \dif t = \nnorm{ \dif \Vec{s} }
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Diferencial de área}
+    \begin{equation*}
+        \dif \Vec{S} = \versor{n} \, \dif S = \dfrac{\grad S(x,y,z)}{\norm{ \dfrac{\partial}{\partial z} S(x,y,z) } } \, \partial x \, \partial y
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elemento de área}
+    \begin{equation*}
+        \dif S = \nnorm{ \dfrac{\partial}{\partial u} \Vec{s}(u,v) \times \dfrac{\partial}{\partial v} \Vec{s}(u,v) } \, \partial u \, \partial v = \nnorm{ \dif \Vec{S} }
+    \end{equation*}
+\end{mdframed}
+
+
+\concept{Integrales de tipo 1}
+
+Las integrales sobre curvas y superficies de tipo 1 se realizan sobre campos escalares.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Integral curvilínea de tipo 1}
+    \begin{equation*}
+        \int_C f \, \dif s = \int_{t_0}^{t_1} f \big( \Vec{c}(t) \big) \, \nnorm{ \dfrac{\dif}{\dif t} \Vec{c}(t) } \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Integral de superficie de tipo 1}
+    \begin{equation*}
+        \int_S f \, \dif S = \iint f \big( \Vec{s}(u,v) \big) \, \nnorm{ \Vec{n} } \, \partial u \, \partial v
+    \end{equation*}
+\end{mdframed}
+
+
+\concept{Integrales de tipo 2}
+
+Las integrales sobre curvas y superficies de tipo 2 se realizan sobre campos vectoriales.
+
+El trabajo es la cantidad de energía que se necesita para que una partícula recorra un arco de curva.
+El movimiento puede darse en 2 o 3 dimensiones espaciales, pero en ambos casos se estaría calculando el trabajo sobre una curva.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:type2Int}
+    \end{defn}
+    \cusTi{Integral curvilínea de tipo 2 (Trabajo)}
+    \begin{equation*}
+        W = \int_C \Vec{F} \cdot \dif \Vec{s}
+        = \int_{t_0}^{t_1} \Vec{F} \big( \Vec{c}(t) \big) \, \dfrac{\dif}{\dif t} \Vec{c}(t) \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+El flujo en 2 dimensiones espaciales mide que tanto ``Caudal de Fuerza'' fluye a través de una curva en cierto intervalo de tiempo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Integral curvilínea de tipo 2 (Flujo 2D)}
+    \begin{equation*}
+        \Phi = \int_C \Vec{F} \cdot \dif \Vec{S}
+        = \int_{t_0}^{t_1} \Vec{F} \big( \Vec{c}(t) \big) \cdot \versor{n} \, \dif s
+    \end{equation*}
+\end{mdframed}
+
+El flujo en 3 dimensiones espaciales mide que tanto ``Caudal de Fuerza'' fluye a través de una superficie en cierto intervalo de tiempo.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Integral de superficie de tipo 2 (Flujo 3D)}
+    \begin{equation*}
+        \Phi = \int_S \Vec{F} \cdot \dif \Vec{S}
+        = \iint \Vec{F} \big( \Vec{s}(u,v) \big) \cdot \versor{n} \, \dif S
+    \end{equation*}
+\end{mdframed}

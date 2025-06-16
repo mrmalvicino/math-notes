@@ -1,0 +1,217 @@
+\chapter{Topología}
+
+\section{Norma}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Norma}
+    \cusTe{La norma es la distancia entre dos puntos $P$ y $Q$.}
+    \begin{equation*}
+        \nnorm{P-Q} = \operatorname{dist} (P,Q)
+    \end{equation*}
+\end{mdframed}
+
+Hay varios tipos de normas, siendo algunas definiciones más precisas que otras con la desventaja de ser computacionalmente menos eficientes.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Norma 1}
+    \begin{equation*}
+        \nnorm{\Vec{x}}_1 = \sum_{\ith=1}^\nth \norm{x_\ith}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:norm2}
+    \end{defn}
+    \cusTi{Norma 2}
+    \begin{equation*}
+        \nnorm{\Vec{x}}_2 = \sqrt{\sum_{\ith=1}^\nth x_\ith^2}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Norma infinito}
+    \begin{equation*}
+        \nnorm{\Vec{x}}_\infty = \operatorname{max} \big\{ \norm{x_\ith} \big\}
+    \end{equation*}
+\end{mdframed}
+
+
+\concept{Propiedades de la norma 2}
+
+\begin{align*}
+    \nnorm{\Vec{x}} &= 0 \iff \Vec{x} = 0
+    \\[1ex]
+    \nnorm{k \, \Vec{x}} &= \norm{k} \cdot \nnorm{\Vec{x}} \quad k\in\setR
+    \\[1ex]
+    \nnorm{\Vec{x}} &\leq \nnorm{\Vec{x}} + \nnorm{\Vec{y}}
+    \\[1ex]
+    \nnorm{\Vec{x}+\Vec{y}} &\leq \nnorm{\Vec{x}} + \nnorm{\Vec{y}}
+    \\[1ex]
+    \norm{\Vec{x} \cdot \Vec{y}} &\leq \nnorm{\Vec{x}} \cdot \nnorm{\Vec{y}}
+    \\[1ex]
+    \norm{x_\ith} &= \nnorm{\Vec{x}}
+\end{align*}
+
+
+\section{Entornos y bolas}
+
+El entorno o bola de un punto es un conjunto que contiene los puntos más próximos a él.
+Se lo llama entorno cuando se trata de un intervalo en una recta, disco cuando se trata de un plano y bola en el espacio o en $\nth$ dimensiones.
+Dependiendo de si contiene o no a los puntos del borde o al punto del centro se pueden definir bolas abiertas, cerradas y reducidas.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Bola cerrada}
+    \begin{equation*}
+        \Bar{B} (\Vec{x}_0;r) = \{ \Vec{x} \in \setR^n :  \nnorm{\Vec{x}-\Vec{x}_0} \leq r \}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Bola abierta}
+    \begin{equation*}
+        B(\Vec{x}_0;r) = \{ \Vec{x} \in \setR^\nth : \nnorm{\Vec{x}-\Vec{x}_0} <r \}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Bola reducida}
+    \begin{equation*}
+        B' (\Vec{x}_0;r) = \{ \Vec{x} \in \setR^n :  \nnorm{\Vec{x}-\Vec{x}_0} <r \} - \Vec{x}_0
+    \end{equation*}
+\end{mdframed}
+
+A continuación se grafican un disco cerrado, uno abierto y uno reducido respectivamente.
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/topo-bola.pdf_tex}
+\end{center}
+
+
+\section{Clasificación de puntos}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Punto interior}
+    \begin{equation*}
+        \Vec{x}_0 \in A^0 \iff \exists \, r>0 \tq B(\Vec{x}_0;r) \subset A
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Punto exterior}
+    \begin{equation*}
+        \Vec{x}_0 \in A^c \iff \exists \, r>0 \tq B(\Vec{x}_0;r) \subset A^c
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Punto frontera}
+    \begin{multline*}
+        \Vec{x}_0 \in \partial A \iff \forall \, r>0 : \\ B(\Vec{x}_0;r) \cap A \neq \setO \quad \land \quad B(\Vec{x}_0;r) \cap A^c \neq \setO
+    \end{multline*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Punto aislado}
+    \begin{equation*}
+        \Vec{x}_0 : \exists \, r>0 / \big\{ B(\Vec{x}_0;r) \cap A \big\} = \Vec{x}_0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:limitPoint}
+    \end{defn}
+    \cusTi{Punto de acumulación}
+    \begin{equation*}
+        \Vec{x}_0 \in A' \iff \forall r>0 : \big\{ B'(\Vec{x}_0;r) \cap A \big\} \neq \setO
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Clasificación de conjuntos}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Complemento de un conjunto}
+    \begin{equation*}
+        A^c = \setR^\nth - A
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto acotado}
+    \begin{equation*}
+        A: \exists \, r>0 / A \subset B(0;r)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto abierto}
+    \begin{equation*}
+        A: A=A^0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto cerrado}
+    \begin{equation*}
+        A: \big\{ \partial A \subset A \big\} \lor \big\{ A=\operatorname{cl}(A) \big\}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto compacto}
+    \cusTe{$A$ es un conjunto compacto si es cerrado y acotado simultáneamente.}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto conexo}
+    \cusTe{Para todo par de puntos existe al menos una trayectoria que los une.}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto simplemente conexo}
+    \cusTe{Para todo par de curvas dentro del conjunto que comparten sus extremos existe una deformación tal que es posible convertir una curva en la otra dejando fijos los extremos.}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto convexo}
+    \cusTe{Para todo par de puntos existe una trayectoria recta que los une.}
+\end{mdframed}

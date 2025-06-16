@@ -1,0 +1,436 @@
+\chapter{Espacios vectoriales}
+
+Los espacios vectoriales son estructuras algebráicas denotados como $\setV$ por tuplas cuya primer componente representa un conjunto no vacío y las demás indican operaciones definidas, eventualmente sobre un cuerpo $\setK$.
+
+El espacio vectorial $\setV=(\setR^\nth,+,\cdot)$ es una estructura algebráica dada por el conjunto $\setR^\nth$ dotado de las operaciones suma y producto por un escalar sobre el cuerpo $\setK=\setR$ tal que para todo $ \Vec{u},\Vec{v},\Vec{w},\Vec{0} \in \setV$ y para todo $a,b,1 \in \setK$:
+
+La operación interna $+:\setV \times \setV \longrightarrow \setV $ verifica:
+
+\begin{itemize}
+    \item Propiedad conmutativa: $\Vec{v}+\Vec{w}=\Vec{w}+\Vec{v}$
+    \item Propiedad asociativa: $\Vec{u} + \left( \Vec{v}+\Vec{w} \right) = \left( \Vec{u} + \Vec{v} \right) + \Vec{w}$
+    \item Existencia del elemento neutro: $\exists \, \Vec{0} \tq \Vec{v} + \Vec{0} = \Vec{v}$
+    \item Existencia del elem. opuesto: $\exists \, -\Vec{v} \tq \Vec{v} - \Vec{v} = \Vec{0}$
+\end{itemize}
+
+Y la operación externa $\cdot:\setK \times \setV \longrightarrow \setV$ verifica:
+
+\begin{itemize}
+    \item Propiedad asociativa: $a \cdot \left( b \cdot \Vec{v} \right) = \left( a \cdot b \right) \cdot \Vec{v}$
+    \item Prop. distributiva respecto de la suma vectorial: $a \cdot \left( \Vec{v} + \Vec{w} \right) = a \cdot \Vec{v} + a \cdot \Vec{w}$
+    \item Prop. distributiva respecto de la suma escalar: $\Vec{v} \cdot \left(a+b\right) = a \cdot \Vec{v} + b \cdot \Vec{v}$
+    \item Existencia del elemento neutro: $\exists \, 1 \tq \Vec{v} \cdot 1 = \Vec{v}$
+\end{itemize}
+
+
+\section{Subespacios vectoriales}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Combinación lineal}
+    \cusTe{Dados los $\kth$ elementos del conjunto $\inBraces{\Vec{v}_\ith}$ con $1 \leq \ith \leq \kth$ se dice que cierto vector $\Vec{v} \in \setR^\nth$ es combinación lineal de dichos $\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth$ si existen los escalares $\lambda_1, \lambda_2 \dots \lambda_\kth$ tal que:}
+    \begin{equation*}
+        \Vec{v} = \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\kth \, \Vec{v}_\kth
+        = \sum_{\ith=1}^\kth \lambda_\ith \, \Vec{v}_\ith
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Independencia lineal}
+    \cusTe{Un conjunto $S \subseteq \setR^n$ es linealmente independiente si no existe ningún $\Vec{v}_\ith \in S$ que sea combinación lineal de los demás elementos.
+    Esto es:}
+    \begin{equation*}
+        \Vec{0} = \sum_{\ith=1}^\kth \lambda_\ith \, \Vec{v}_\ith
+        \iff \lambda_\ith = 0 \enspace \forall \enspace \ith \in [1;\kth]
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Subespacio vectorial}
+    \cusTe{Se dice que un subconjunto $S \subseteq \setR^\nth$ es un subespacio si para cualquier escalar $\lambda \in \setR$ y dupla de vectores $\Vec{v}_1, \Vec{v}_2 \in S$ se verifica:}
+    \begin{equation*}
+        \Vec{0} \in S \enspace \land \enspace
+        \lambda \, \Vec{v}_1 + \Vec{v}_2 \in S
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Conjunto de generadores}
+    \cusTe{Se dice que el conjunto $A=\inBraces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}$ es un conjunto de generadores de $S \subseteq \setR^\nth$ si es posible obtener cualquier elemento de $S$ mediante combinaciones lineales de los elementos de $A$.}
+    \begin{multline*}
+        S = \operatorname{gen}\inBraces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth} \iff
+        \\
+        \Vec{w} = \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\kth \, \Vec{v}_\kth \quad \forall \, \Vec{w} \in S
+    \end{multline*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Base}
+    \cusTe{Se dice que el conjunto $B=\inBraces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}$ es base de $S \subseteq \setR^\nth$ si es un conjunto generador linealmente independiente.
+    Esto es:}
+    \begin{equation*}
+        S = \operatorname{gen}\inBraces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}
+        \enspace \land \enspace
+        B \hspace{1ex} \textrm{es LI}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Dimensión}
+    \cusTe{Dado el conjunto $S\subseteq \setR^\nth$ y dada la base $B=\inBraces{\Vec{v}_1, \Vec{v}_2 \dots \Vec{v}_\kth}$ tal que $S=\operatorname{gen}(B)$ se define la dimensión de $S$ como la cantidad de elementos de $B$.}
+    \begin{equation*}
+        \operatorname{dim}(S) = \kth
+    \end{equation*}
+\end{mdframed}
+
+Observar que la cantidad ($k$) de elementos de un conjunto generador de $S$ puede ser mayor, igual o menor que la dimensión de un espacio que contenga a $S$.
+Pero no puede ser menor que la dimensión de $S$.
+Se identifican entonces dos casos:
+\begin{itemize}
+    \item Primer caso: $\operatorname{dim}(S) \leq \nth \leq \kth$
+    \item Segundo caso: $\operatorname{dim}(S) \leq \kth \leq \nth$
+\end{itemize}
+
+\begin{mdframed}[style=ExampleFrame]
+    \begin{example}
+    \end{example}
+    Plano con $\operatorname{dim}(S)=2, \nth=3, \kth=4$:
+
+    \begin{center}
+        \def\svgwidth{0.6\linewidth}
+        \input{./images/alg-generadores.pdf_tex}
+    \end{center}
+
+    Plano con $\operatorname{dim}(S)=2, \nth=3, \kth=2$:
+
+    \begin{center}
+        \def\svgwidth{0.6\linewidth}
+        \input{./images/alg-base.pdf_tex}
+    \end{center}
+\end{mdframed}
+
+Observar que la cantidad de elementos de una base de $S$, que es igual a la dimensión de $S$, puede ser menor o igual que la dimensión de un espacio que contenga a $S$ pero no mayor.
+\begin{equation*}
+    \operatorname{dim}(S)\leq\nth
+\end{equation*}
+
+Una base que resulta de particular interés es la llamada \emph{base canónica} denotada como
+\begin{equation*}
+    E = \inBraces{\eVer_1,\eVer_2 \dots \eVer_\nth}
+\end{equation*}
+
+Siendo
+\begin{gather*}
+    \eVer_1 = (1,0,0 \dots 0)
+    \\
+    \eVer_2 = (0,1,0 \dots 0)
+    \\
+    \eVer_\nth = (0,0 \dots 0,1)
+\end{gather*}
+
+
+\section{Coordenadas y cambio de base}
+
+Las coordenadas de un vector $\Vec{w}=(w_1,w_2 \dots w_\nth)$ expresado en la base canónica son las componentes del vector.
+\begin{gather*}
+    \Vec{w} = \lambda_1 \, \eVer_1 + \lambda_2 \, \eVer_2 + \dots + \lambda_\nth \, \eVer_\nth
+    \\
+    \Vec{w} = w_1 \, \eVer_1 + w_2 \, \eVer_2 + \dots + w_\nth \, \eVer_\nth
+    \\
+    [\Vec{w}]_E = (w_1,w_2 \dots w_\nth)
+\end{gather*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Coordenadas en una base dada}
+    \cusTe{Dado un espacio vectorial $\setV$ generado por una base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ para $\Vec{w} \in \setV$ hay una única combinación lineal que permite obtener $\Vec{w} = \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth$ de manera que se definen las coordenadas de $\Vec{w}$ en la base $B$ como:}
+    \begin{equation*}
+        [\Vec{w}]_B = (\lambda_1,\lambda_1 \dots \lambda_\nth) \in \setR^\nth
+    \end{equation*}
+\end{mdframed}
+
+Observar que $\setV$ puede ser un espacio abstracto, por ejemplo de polinomios o matrices.
+Pero las coordenadas de sus elementos van a estar dadas en $\setR^\nth$ porque $\operatorname{dim}(\setV)=\nth$.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Dado el conjunto $\inBraces{\Vec{w}_\ith} \in \setV$ con $1\leq\ith\leq\mth$ y una base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ se tiene que:
+    \begin{gather*}
+        \inBraces{\Vec{w}_1,\Vec{w}_2 \dots \Vec{w}_\mth} \hspace{1ex} \textrm{es LI}
+        \\
+        \Updownarrow
+        \\
+        \inBraces{[\Vec{w}_1]_B , [\Vec{w}_2]_B \dots [\Vec{w}_\mth]_B} \hspace{1ex} \textrm{es LI}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=ExampleFrame]
+    \begin{example}
+    \end{example}
+    Dado el espacio vectorial $\setV=\setR^2$ y dos bases $E=\inBraces{\eVer_1,\eVer_2}$ y $B=\inBraces{\Vec{v}_1,\Vec{v}_2}=\inBraces{(1,1),(1,-1)}$ se quieren calcular, para el vector $\Vec{w}$ ubicado en el punto $(x,y)=(-1,1)$, las coordenadas en cada base.
+    
+    \begin{center}
+        \def\svgwidth{0.6\linewidth}
+        \input{./images/alg-base-cambio.pdf_tex}
+    \end{center}
+    
+    Las coordenadas del vector $\Vec{w}$ en la base canónica son:
+    \begin{align*}
+        [\Vec{w}]_E &= \lambda_1 \, \eVer_1 + \lambda_2 \, \eVer_2
+        \\
+        (x;y) &= \lambda_1 \left(1,0\right) + \lambda_2 \left(0,1\right)
+        \\
+        (-1;1) &= (\lambda_1,\lambda_2)
+    \end{align*}
+    
+    Vemos que en base canónica el vector $\Vec{w}$ tiene como coordenadas sus componentes.
+    
+    Mientras que en la base $B$ las cordenadas de $\Vec{w}$ están dadas por el siguiente sistema lineal:
+    \begin{align*}
+        [\Vec{w}]_E &= \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2
+        \\
+        (x;y) &= \lambda_1 \left(1,1\right) + \lambda_2 \left(1,-1\right)
+        \\
+        (-1;1) &= (\lambda_1+\lambda_2,\lambda_1-\lambda_2)
+    \end{align*}
+    
+    Planteando el sistema de manera tradicional, se obtiene:
+    \begin{gather*}
+        \left\{
+        \begin{aligned}
+            -1 &= \lambda_1+\lambda_2 \Rightarrow -\lambda_2=\lambda_1+1 
+            \\
+            1 &= \lambda_1-\lambda_2 \Rightarrow 1=\lambda_1+(\lambda_1+1)
+        \end{aligned}
+        \right.
+        \\
+        \Rightarrow (0,-1) = (\lambda_1,\lambda_2)
+    \end{gather*}
+    
+    O bien, podríamos haber llegado al mismo resultado planteando el sistema de forma matricial:
+    \begin{gather*}
+        \begin{pmatrix}
+            -1
+            \\
+            1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 1
+            \\
+            1 & -1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            \lambda_1
+            \\
+            \lambda_2
+        \end{pmatrix}
+    \end{gather*}
+\end{mdframed}
+
+En el ejemplo anterior, la matriz que al ser multiplicada por las coordenadas de $\Vec{w}$ en base $B$ da como resultado las coordenadas del vector en base canónica, se la conoce como matriz de cambio de base.
+Observar que tiene por columnas los elementos de la base.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:C_BE}
+    \end{defn}
+    \cusTi{Matriz de cambio de base de $B$ a $E$}
+    \cusTe{Sea $C_{BE}$ una matriz cuyas columnas son las coordenadas en base canónica de los vectores de cierta base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ tal que:}
+    \begin{equation*}
+        \begin{bmatrix}
+            \Vec{w}
+        \end{bmatrix}_E
+        = C_{BE} \cdot
+        \begin{bmatrix}
+            \Vec{w}
+        \end{bmatrix}_B
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{equation*}
+        C_{BE} =
+        \begin{pmatrix}
+            \trans{\inBrackets{\Vec{v}_1}_E} & \trans{\inBrackets{\Vec{v}_2}_E} & \dots & \trans{\inBrackets{\Vec{v}_\nth}_E}
+        \end{pmatrix}
+    \end{equation*}
+\end{mdframed}
+
+A partir de la definición anterior, multiplicando por la inversa de la matriz se tiene:
+\begin{align*}
+    C_{BE} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    &=
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+    \\[1ex]
+    C_{BE}^{-1} \cdot C_{BE} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    &= C_{BE}^{-1} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+    \\[1ex]
+    I \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    &= C_{BE}^{-1} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+    \\[1ex]
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    &= C_{EB} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+\end{align*}
+
+Quedando definida la matriz de cambio de base que al ser multiplicada por un vector en base canónica da como resultado las coordenadas del vector en base $B$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Matriz de cambio de base de $E$ a $B$}
+    \cusTe{Sea $C_{EB}$ la inversa de $C_{BE}$ tal que:}
+    \begin{equation*}
+        \begin{bmatrix}
+            \Vec{w}
+        \end{bmatrix}_B
+        = C_{EB} \cdot
+        \begin{bmatrix}
+            \Vec{w}
+        \end{bmatrix}_E
+    \end{equation*}
+\end{mdframed}
+
+Las  matrices de cambio de base son útiles no solo para cambiar la base en la que están dadas las coordenadas de un vector, sino que también sirven para expresar sistemas matriciales en diferentes bases.
+Esta aplicación es de gran utilidad para cambiar las bases de una transformación lineal, como se verá en el capítulo \ref{cha:TL}.
+Definamos entonces una matriz de cambio de base que cambie la base de matrices (o eventualmente vectores) entre dos bases $B$ y $B'$ genéricas (pudiendo o no ser alguna de las bases la canónica).
+
+Sabemos que una matriz de cambio de base $C_{BE}$ está dada por los elementos de $B$ puestos como columna.
+Así mismo, una matriz de cambio de base $C_{EB'}$ está dada por la inversa de los elementos de $B'$ puestos como columna.
+Estas matrices verifican, por definición, las siguientes ecuaciones respectivamente:
+\begin{gather*}
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+    = C_{BE} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    \\[1ex]
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_{B'}
+    = C_{EB'} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_E
+\end{gather*}
+
+Reemplazando la primera en la segunda se tiene:
+\begin{align*}
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_{B'}
+    &= C_{EB'} \cdot C_{BE} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+    \\[1ex]
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_{B'}
+    &= C_{BB'} \cdot
+    \begin{bmatrix}
+        \Vec{w}
+    \end{bmatrix}_B
+\end{align*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:C_BB'}
+    \end{defn}
+    \cusTi{Matriz de cambio de base de $B$ a $B'$}
+    \begin{equation*}
+        C_{BB'} = C_{EB'} \cdot C_{BE}
+    \end{equation*}
+\end{mdframed}
+
+Al ser una multiplicación matricial, el orden de los factores sí altera el producto.
+Para $C_{BB'}$ la base de entrada es $B$ y la base de salida es $B'$.
+Al desarrollar el producto, a la derecha de la igualdad, la matriz que primero actúa es $C_{BE}$ siendo $B$ su entrada y $E$ su salida.
+Y luego actúa $C_{EB'}$ siendo $E$ su entrada (que es la salida de $C_{BE}$) y $B'$ su salida.
+
+\begin{center}
+    \def\svgwidth{0.4\linewidth}
+    \input{./images/alg-rulo.pdf_tex}
+\end{center}
+
+Esto no solo es así en las matrices de cambio de base, sino en cualquier producto matricial donde haya bases involucradas.
+La primer letra del subíndice de una matriz es la base de entrada de esa matriz, y la segunda la base de salida.
+Y ya sea que se multipliquen dos o más matrices, se cumple que el orden está dado por \emph{el rulo} dibujado.
+
+
+\section{Operaciones entre subespacios}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Intersección}
+    \begin{equation*}
+        A \cap B = \inBraces{\Vec{x} \in V \tq \Vec{x}\in A \land \Vec{x}\in B}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Unión}
+    \begin{equation*}
+        A \cup B = \inBraces{\Vec{x} \in V \tq \Vec{x}\in A \lor \Vec{x}\in B}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Suma}
+    \cusTe{Dados dos subespacios vectoriales $S_1$ y $S_2$ la suma de estos es el conjunto dado por todas las posibles sumas de los elementos $\Vec{v} \in S_1$ y $\Vec{w}\in S_2$.}
+    \begin{equation*}
+        S_1 + S_2 = \inBraces{\Vec{x} \in V \tq \Vec{x}=\Vec{v}+\Vec{w}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Suma directa}
+    \cusTe{Sean $B_1$ y $B_2$ bases de los subespacios $S_1$ y $S_2$ respectivamente.
+    Si el conunto de los elementos de ambas bases $\inBraces{B_1 , B_2}$ es LI, se dice que $S_1$ y $S_2$ están en suma directa.}
+    \begin{equation*}
+        S_1 \oplus S_2 = \operatorname{gen} \inBraces{B_1 , B_2} \iff S_1 \cap S_2 = 0
+    \end{equation*}
+\end{mdframed}

@@ -1,0 +1,282 @@
+\chapter{Derivadas de funciones reales}
+
+\section{Derivadas parciales}
+
+Una derivada es un número que representa la razón de cambio (o cociente incremental) cuando el incremento de una variable independiente tiende a cero.
+
+Para funciones de una variable, es evidente que solo es posible definir un cociente incremental entre la variable dependiente y la independiente:
+\begin{gather*}
+    f:\setR\longrightarrow\setR \tq f(x)=y
+    \\
+    f' = \frac{\dif y}{\dif x} = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} = \lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0}
+\end{gather*}
+
+Para funciones de varias variables, solo se puede analizar el cociente incremental de una variable a la vez, fijando las demás para que permanezcan constantes.
+
+Las dos derivadas \emph{parciales} de una función de dos variables $f:\setR^2 \longrightarrow \setR$ están definidas como sigue.
+\begin{align*}
+    f_x' = \frac{\partial}{\partial x} f(x_0,y_0) &= \lim_{x \to x_0} \frac{f(x,y_0)-f(x_0,y_0)}{x-x_0}
+    \\[1ex]
+    f_y' = \frac{\partial}{\partial y} f(x_0,y_0) &= \lim_{y \to y_0} \frac{f(x_0,y)-f(x_0,y_0)}{y-y_0}
+\end{align*}
+
+O bien, definiendo el vector incremento:
+\begin{equation*}
+    \begin{bmatrix} h & k \end{bmatrix}
+    = \begin{bmatrix} \Delta x & \Delta y \end{bmatrix}
+    = \begin{bmatrix} x-x_0 & y-y_0 \end{bmatrix}
+\end{equation*}
+
+Las derivadas parciales se pueden expresar con la siguiente notación mediante un cambio de variables:
+\begin{align*}
+    f_x' = \dfrac{\partial}{\partial x} f(x_0,y_0) &= \lim_{h \to 0} \dfrac{f(x_0+h,y_0)-f(x_0,y_0)}{h}
+    \\
+    f_y' = \dfrac{\partial}{\partial y} f(x_0,y_0) &= \lim_{k \to 0} \dfrac{f(x_0,y_0+k)-f(x_0,y_0)}{k}
+\end{align*}
+
+De manera general, se puede definir la derivada parcial para funciones de $\nth$ variables como:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Derivada parcial}
+    \begin{equation*}
+        f_{x_\ith}'
+        = \dfrac{\partial}{\partial x_\ith} f(\Vec{x}_0)
+        = \lim_{x_\ith \to x_{0_\ith}} \dfrac{f(\Vec{x}_\ith)-f(\Vec{x}_0)}{x_\ith-x_{0_\ith}}
+    \end{equation*}
+\end{mdframed}
+
+Donde $\Vec{x}_0$ es el punto donde se calcula la derivada y $\Vec{x}_\ith$ es ese mismo punto con la componente $x_\ith$ incrementada:
+\begin{align*}
+    \Vec{x}_0 &= \begin{bmatrix} x_{0_1} & x_{0_2} & \ldots & x_{0_\ith} & \ldots & x_{0_n} \end{bmatrix}
+    \\
+    \Vec{x}_\ith &= \begin{bmatrix} x_{0_1} & x_{0_2} & \ldots & x_\ith & \ldots & x_{0_n} \end{bmatrix}
+\end{align*}
+
+El vector incremento es entonces:
+\begin{equation*}
+    \Delta \Vec{x} = \Vec{x}_\ith - \Vec{x}_0 = \begin{bmatrix} 0 & 0 & \ldots & x_\ith - x_0 & \ldots & 0 \end{bmatrix}
+\end{equation*}
+
+Del cual solo nos interesa analizar la tendencia de la componente $\ith$-ésima haciendo el producto interno con el versor canónico $\versor{e}_\ith=\begin{bmatrix} 0 & 0 & \ldots & 1 & \ldots & 0 \end{bmatrix}$ pudiendo definir:
+\begin{equation*}
+    h = \Delta \Vec{x} \cdot \versor{e}_\ith = x_\ith - x_{0_\ith}
+\end{equation*}
+
+Multiplicando $\versor{e}_\ith$ y sumando $\Vec{x}_0$ en ambos miembros de la ecuación anterior queda definido el cambio de variables para $\Vec{x}_\ith$, que puede que no sea tan obvio como en una variable:
+\begin{equation*}
+    h \, \versor{e}_\ith + \Vec{x}_0 = \Delta \Vec{x} \underbrace{\left( \versor{e}_\ith \cdot \versor{e}_\ith \right)}_{=1} + \Vec{x}_0 = \Vec{x}_\ith
+\end{equation*}
+
+Pudiendo finalmente expresar la derivada parcial con respecto a la variable $\ith$-ésima a partir del cambio de variable.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Derivada parcial}
+    \begin{equation*}
+    f_{x_\ith}'
+    = \frac{\partial}{\partial x_\ith} f(\Vec{x}_0)
+    = \lim_{h \to 0} \frac{f(\Vec{x}_0 + h\,\versor{e}_\ith) - f(\Vec{x}_0)}{h}
+\end{equation*}
+\end{mdframed}
+
+El versor canónico $\versor{e}_\ith$ que se usó para definir las derivadas parciales es un vector que tiene un 1 en la componente $\ith$-ésima y ceros en las demás componentes.
+Para derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ el subíndice de $\versor{e}_i$ solo puede tomar dos valores quedando $\versor{e}_1=(1,0)$ o bien $\versor{e}_2=(0,1)$.
+De esta forma, dependiendo del subíndice asignado quedan definidas las derivadas parciales mencionadas anteriormente, al inicio de la sección.
+
+    
+\section{Derivadas direccionales}
+
+Notar que el versor $\versor{e}_\ith$ solo puede tener $\nth$ direcciones.
+En derivadas parciales de funciones de dos variables $f:\setR^2 \longrightarrow \setR$ solo puede tener las direcciones $\iVer$ o $\jVer$.
+En estas direcciones es que la gráfica de la función tiene cierta pendiente, que es lo que calcula la derivada parcial.
+
+Ahora bien, es posible calcular la derivada parcial en una dirección que no sea la de los ejes coordenados.
+En funciones de dos variables, la derivada direccional es la pendiente que tiene la función sobre una traza, cortando la gráfica de la función con un plano vertical.
+La derivada direccional se define con un versor director $\versor{r}$ en vez de usar el versor canónico.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Derivada direccional}
+    \begin{equation*}
+        f_{\versor{r}}'
+        = \frac{\partial}{\partial \versor{r}} f(\Vec{x}_0)
+        = \lim_{h \to 0} \frac{f(\Vec{x}_0+h\,\versor{r})-f(\Vec{x}_0)}{h}
+    \end{equation*}
+\end{mdframed}
+
+De no usar un versor $(\versor{r})$ se puede usar un vector director $(\Vec{r})$ que no esté normalizado, siempre y cuando luego se contrareste su magnitud.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        f_{\Vec{r}}' = \frac{\partial}{\partial \versor{r}} f(\Vec{x}_0) = \lim_{h \to 0} \dfrac{f(\Vec{x}_0+h\,\Vec{r})-f(\Vec{x}_0)}{h\, \nnorm{\Vec{r}}}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Operadores}
+
+El operador de Hamilton o operador nabla es un vector que tiene por componentes la operación derivada parcial con respecto a las diferentes $\nth$ variables.
+Las componentes de este vector no son números ni funciones, si no operaciones.
+Por este motivo, por si solo no tiene uso pero sí tiene múltiples aplicaciones.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Operador nabla}
+    \begin{equation*}
+        \grad = \begin{bmatrix} \dfrac{\partial}{\partial x_1} & \dfrac{\partial}{\partial x_2} & \cdots & \dfrac{\partial}{\partial x_\nth} \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+El operador de Laplace o Laplaciano es un vector que tiene por componentes la operación derivada parcial de segundo orden con respecto a las diferentes $\nth$ variables.
+Así como el operador de Hamilton, las componentes del Laplaciano no son números ni funciones, si no operaciones.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Operador Laplaciano}
+    \begin{equation*}
+        \grad^2 = \begin{bmatrix} \dfrac{\partial^2}{\partial x_1^2} & \dfrac{\partial^2}{\partial x_2^2} & \cdots & \dfrac{\partial^2}{\partial x_\nth^2} \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+Para una función $f:\setR^\nth \longrightarrow \setR$, es posible obtener $\nth$ derivadas parciales.
+Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo vectorial con una derivada parcial en cada componente.
+Si la función es \emph{diferenciable}, a este vector de las derivadas se lo llama gradiente, y se define con el operador nabla como sigue.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Gradiente a fin}
+    \begin{equation*}
+        \grad f(\Vec{x}) = \begin{bmatrix} \dfrac{\partial f(\Vec{x})}{\partial x_1} & \dfrac{\partial f(\Vec{x})}{\partial x_2} & \cdots & \dfrac{\partial f(\Vec{x})}{\partial x_\nth} \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+Para una función $\Vec{F}:\setR^\nth \longrightarrow \setR^\mth$, es posible obtener $\nth \times \mth$ derivadas parciales.
+Es conveniente establecer una notación de todas las derivadas parciales y armar así un arreglo matricial que en cada fila tiene el vector derivada de cada función-componente del campo vectorial.
+Notar que si $\mth=1$ es el caso particular del vector derivada de un campo escalar.
+Si el campo vectorial es diferenciable la matriz de derivadas parciales lleva el nombre de \emph{Jacobiano}.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Jacobiano a fin}
+    \begin{equation*}
+        J = \Vec{F}'(\Vec{x}) = 
+        \begin{bmatrix}
+            \dfrac{\partial f_1(\Vec{x})}{\partial x_{11}} & \cdots & \dfrac{\partial f_1(\Vec{x})}{\partial x_{1\nth}}
+            \\
+            \vdots & \ddots & \vdots
+            \\
+            \dfrac{\partial f_\mth(\Vec{x})}{\partial x_{\mth 1}} & \cdots & \dfrac{\partial f_\mth(\Vec{x})}{\partial x_{\mth\nth}}
+        \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+La matriz Hessiana de un campo escalar es un arreglo matricial de derivadas de segundo orden.
+La imagen de una función $f:\setR^\nth \longrightarrow \setR$ es un escalar, un valor numérico.
+Sus primeras derivadas parciales se pueden representar en un vector derivado de $\nth$ componentes.
+Cada derivada del gradiente estará en función de todas las variables, pudiendo por cada componente del gradiente obtener un nuevo vector de derivadas parciales segundas.
+A medida que subimos el orden de derivación, se necesita un elemento cuya estructura tenga más dimensiones para representar las derivadas.
+Para las derivadas segundas de $f$ se define la \emph{Matriz Hessiana}, que tiene todas las posibles derivadas cruzadas y en la diagonal principal las derivadas segundas que solamente fueron derivadas con respecto a una misma variable.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Matriz Hessiana}
+    \begin{equation*}
+        H = f''(\Vec{x}) =
+        \begin{bmatrix}
+            \dfrac{\partial^2 f(\Vec{x})}{\partial x_1^2} & \cdots & \dfrac{\partial^2 f(\Vec{x})}{\partial x_1 \partial x_\nth}
+            \\
+            \vdots & \ddots & \vdots
+            \\
+            \dfrac{\partial^2 f(\Vec{x})}{\partial x_\nth \partial x_1} & \cdots & \dfrac{\partial^2 f(\Vec{x})}{\partial x_\nth^2}
+        \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Regla de la cadena}
+
+Una función compuesta es aquella cuyo conjunto de partida es el conjunto de llegada de otra función.
+Es decir que su dominio es la imagen de otra cierta función.
+También se puede interpretar como una función cuyas variables dependen a su vez de otro parámetro.
+\clearpage
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función compuesta}
+    \cusTe{Dadas:}
+    \begin{align*}
+        & \Vec{F}:\setR^\nth \longrightarrow \setR^\mth
+        \\
+        & \Vec{G}:\setR^\nth \longrightarrow \setR^k
+        \\
+        & \Vec{H}:\setR^k \longrightarrow \setR^\mth
+    \end{align*}
+    \noTi{Se puede definir $\Vec{F}$ como la composición de $\Vec{H}$ compuesta por $\Vec{G}$ tal que:}
+    \begin{equation*}
+        \Vec{H} \circ \Vec{G} = \Vec{F}(\Vec{x})=\Vec{H} \left( \Vec{G}(\Vec{x}) \right)
+    \end{equation*}
+\end{mdframed}
+
+La derivación de funciones compuestas cumple la misma regla que en una variable.
+La derivada de $\Vec{H}$ compuesta por $\Vec{G}$ es igual a la derivada de $\Vec{H}$ evaluada en $\Vec{G}$ evaluada en el punto, por la derivada de $\Vec{G}$ evaluada en el punto.
+Esto es:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Regla de la cadena}
+    \begin{equation*}
+        \Vec{F}'(\Vec{x}_0) = \Vec{H}' \left( \Vec{G}(\Vec{x}_0) \right) \cdot \Vec{G} \left( \Vec{x}_0 \right)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Teorema de Schwarz}
+
+Calcular las derivadas sucesivas o derivadas de orden superior conciste en derivar una función tantas veces como el orden $k \in \setN$ de la derivada lo indique.
+
+En funciones de una variable, simplemente es hacer la derivada de la derivada sucesivamente.
+La única dificultad que se puede presentar es que calcular la próxima derivada sea cada vez más difícil de computar.
+
+En funciones de varias variables, cada vez que hagamos una derivada parcial hasta llegar al orden deseado, al volver a derivar vamos a tener nuevas derivadas parciales que vamos a tener que derivar por separado y cada una de estas nuevas derivadas va a tener varias derivadas parciales nuevas de manera sucesiva.
+
+La cantidad total $N$ de derivadas parciales que tenga una función $f:\setR^\nth \longrightarrow \setR$ si se la deriva $k$ veces es:
+\begin{equation*}
+    N = \nth^k\
+\end{equation*}
+
+De las cuales va a haber $\nth$ derivadas parciales que se derivaron solamente con respecto a una variable de manera sucesiva.
+Eventualmente, estas derivadas no mixtas son diferentes entre si.
+
+Mediante la siguiente sucesión se representan, en cada uno de sus elementos, las derivadas de orden $k$ con respecto a cada variable $x_\ith$:
+\begin{align*}
+    \inBraces{a_n}
+    &= \prod_{i=1}^k \dfrac{\partial ^i}{\partial x_n^i} f(\Vec{x}_0)
+    \\
+    &= \inBraces{
+    \dfrac{\partial^k}{\partial x_1^k} f(\Vec{x}_0); \dfrac{\partial^k}{\partial x_2^k} f(\Vec{x}_0); \cdots ; \dfrac{\partial^k}{\partial x_n^k} f(\Vec{x}_0)
+    }
+\end{align*}
+
+Si en vez de derivar con respecto a una misma variable, se deriva la primera vez con respecto a una variable, luego con respecto a otra y así sucesivamente, se obtiene una derivada mixta.
+
+Va a haber derivadas sucesivas mixtas que se derivaron con respecto a cada variable igual cantidad de veces, de manera curzada.
+El Teorema de Schwarz dice que las derivadas mixtas del mismo orden que tengan igual cantidad de variables diferenciadas van a ser iguales.
+En otras palabras, que da igual derivar primero con respecto a una variable y luego con respecto a otra que hacerlo al revez.
+
+Las posibles combinaciones de derivadas que se pueden hacer son muchas.
+Pero por el Teorema de Schwarz, sabemos que hay varias que van a ser iguales, ya que la cantidad $(M)$ de grupos de derivadas eventualmente distintas entre sí, es:
+\begin{equation*}
+    M = \dfrac{(k+\nth-1)!}{k!\left(\nth-1\right)!}
+\end{equation*}

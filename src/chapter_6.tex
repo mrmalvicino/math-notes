@@ -1,0 +1,371 @@
+\chapter{Autovalores}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:autovalor}
+    \end{defn}
+    \cusTi{Autovalor}
+    \cusTe{Sea $A \in \setR^{\nth\times\nth}$ una matriz y $\lambda \in \setR$ un escalar.
+    Se dice que $\lambda$ es un autovalor de $A$ si $\exists \enspace \Vec{v} \in \setR^\nth \tq \Vec{v} \neq \Vec{0}$} verificando:
+    \begin{equation*}
+        A \, \Vec{v} = \lambda \, \Vec{v}
+    \end{equation*}
+\end{mdframed}
+
+Haciendo algunos movimientos algebráicos:
+\begin{equation*}
+    A \, \Vec{v} - \lambda \, \Vec{v} = 0
+\end{equation*}
+
+Queda un sistema lineal homogéneo que siempre tiene (al menos una) solución.
+\begin{equation}
+    \left( A - \lambda \, I \right) \Vec{v} = 0
+    \label{eqn:autovectores}
+\end{equation}
+
+Si el determinante de la matriz asociada al sistema fuese distinto de cero entonces la única solución sería la trivial.
+Pero si $\Vec{v}=\Vec{0}$ es la única solución se estaría contradiciendo a la definición de autovalor (Def. \ref{defn:autovalor}) que pide un vector no nulo.
+Además, no sería útil como aplicación elevar una matriz a cierta potencia.
+
+Para que el sistema tenga infinitas soluciones, además de la trivial, se tiene que cumplir:
+\begin{equation*}
+    \operatorname{det} \left( A - \lambda \, I \right) = 0
+\end{equation*}
+
+Al desarrollar se obtiene un \emph{polinomio característico} de la matriz cuyas raíces son los \emph{autovalores}.
+
+Reemplazando un autovalor $\lambda$ en la ecuación \ref{eqn:autovectores} se obtiene un subespacio de autovectores $\Vec{v}$ que la verifican.
+El subespacio generado por un autovector es llamado \emph{autoespacio} asociado al autovalor evaluado.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Autoespacio de autovectores asociados a un autovalor}
+    \begin{equation*}
+        E_{\lambda_\ith} = \operatorname{gen} \inBraces{\Vec{v}} \tq \Vec{v} \in \Nu \inBraces{A - \lambda_\ith \, I}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Diagonalización}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Matrices semejantes}
+    \cusTe{Dos matrices $A, B \in \setR^{\nth\times\nth}$ son semejantes si existe una matriz $C \in \setR^{\nth\times\nth}$ tal que:}
+    \begin{equation*}
+        A = C^{-1} \cdot B \cdot C
+    \end{equation*}
+\end{mdframed}
+
+Un ejemplo de matrices semejantes son las matrices $M_{AB}$ y $M_{A'B'}$ de la propiedad \ref{prop:M_BB} cuando $A'=B'=E$ y $A=B$ ya que en tal caso para $C_{EB}=C_{BE}^{-1}$ se tiene:
+\begin{equation*}
+    M_{BB} = C_{EB} \cdot M_{EE} \cdot C_{BE}
+\end{equation*}
+
+Una característica importante de las matrices semejantes es que tienen el mismo polinomio característico.
+
+Una matriz se dice diagonalizable si existe una matriz semejante que sea diagonal.
+Notar que dos matrices que no sean cuadradas no van a poder verificar la condición de semejanza, porque en tal caso no es posible definir $C$ y su inversa.
+
+Sea $D$ una matriz diagonal, si $A$ es diagonalizable se tiene:
+\begin{equation*}
+    A = C^{-1} \cdot D \cdot C
+\end{equation*}
+
+En tal caso, las potencias donde se eleva una matriz diagonalizable $A$ a un exponente $\kth$ pueden ser computadas más eficientemente.
+A saber:
+\begin{align*}
+    A^2 &= \left( C^{-1} \cdot D \cdot C \right) \left( C^{-1} \cdot D \cdot C \right)
+    \\
+    &= C^{-1} \cdot D \cdot I \cdot D \cdot C
+    \\
+    &= C^{-1} \cdot D^2 \cdot C
+    \\[1ex]
+    A^3 &= \left( C^{-1} \cdot D^2 \cdot C \right) \left( C^{-1} \cdot D \cdot C \right)
+    \\
+    &= C^{-1} \cdot D^2 \cdot I \cdot D \cdot C
+    \\
+    &= C^{-1} \cdot D^3 \cdot C
+\end{align*}
+
+Y por extrapolación se infiere:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si $A$ es diagonalizable, entonces es semejante a una matriz diagonal $D$ y se verifica:
+    \begin{equation*}
+        A^\kth = C^{-1} \cdot D^\kth \cdot C
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=ExampleFrame]
+    \begin{example}
+    \end{example}
+    Determinar si la matriz $M_{EE}(f)$ de la siguiente transformación lineal es diagonalizable.
+    \begin{equation*}
+        f:\setR^2\longrightarrow\setR^2\tq f(x,y)=(2x-y , y)
+    \end{equation*}
+    
+    Expresando $f(x,y)=(2x-y , y)$ de forma matricial se tiene:
+    \begin{gather*}
+        M_{EE}(f) \cdot
+        \begin{pmatrix}
+            x
+            \\
+            y
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            2x-y
+            \\
+            y
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            2 & -1
+            \\
+            0 & 1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            x
+            \\
+            y
+        \end{pmatrix}
+        \\[1ex]
+        M_{EE}(f) =
+        \begin{pmatrix}
+            2 & -1
+            \\
+            0 & 1
+        \end{pmatrix}
+    \end{gather*}
+    
+    Si $M_{EE}(f)$ es diagonalizable, entonces:
+    \begin{equation*}
+        M_{EE}(f) = C_{BE} \cdot M_{BB}(f) \cdot C_{EB}
+    \end{equation*}
+    
+    Tal que:
+    \begin{equation*}
+        M_{BB}(f) =
+        \begin{pmatrix}
+            a_{11} & 0
+            \\
+            0 & a_{22}
+        \end{pmatrix}
+    \end{equation*}
+    
+    Y además siendo las columnas de $M_{BB}(f)$ las coordenadas en base $B$ de los transformados de la base $B$.
+    Esto es:
+    \begin{equation*}
+        M_{BB}(f) =
+        \begin{pmatrix}
+            \trans{\inBrackets{f(\Vec{v}_1)}_B} & \trans{\inBrackets{f(\Vec{v}_2)}_B}
+        \end{pmatrix}
+    \end{equation*}
+    
+    Entonces, por definición de coordenadas:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            \inBrackets{f(\Vec{v}_1)}_B &= (a_{11} , 0)
+            \\[1ex]
+            \inBrackets{f(\Vec{v}_2)}_B &= (0 , a_{22})
+        \end{aligned}
+        \right.
+    \end{equation*}
+    
+    Pués:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f(\Vec{v}_1) &= a_{11} \, \Vec{v}_1 + 0 \, \Vec{v}_2 = a_{11} \, \Vec{v}_1
+            \\
+            f(\Vec{v}_2) &= 0 \, \Vec{v}_1 + a_{22} \, \Vec{v}_2 = a_{22} \, \Vec{v}_2
+        \end{aligned}
+        \right.
+    \end{equation*}
+    
+    Lo cual significa que $a_{11}$ y $a_{22}$ son los autovalores de $M_{EE}(f)$, de ahora en más llamados:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+        \lambda_1 &= a_{11}
+        \\
+        \lambda_2 &= a_{22}
+        \end{aligned}
+        \right.
+    \end{equation*}
+    
+    Para calcularlos:
+    \begin{gather*}
+        \operatorname{det} \left( M_{EE}(f) - \lambda \, I \right) = 0
+        \\[1ex]
+        \operatorname{det}
+        \begin{pmatrix}
+            2-\lambda & -1
+            \\
+            0 & 1-\lambda
+        \end{pmatrix}
+        = 0
+        \\[1ex]
+        \left( 2-\lambda \right) \left( 1-\lambda \right) = 0
+        \\[1ex]
+        \left\{
+        \begin{aligned}
+        \lambda_1 &= 2
+        \\
+        \lambda_2 &= 1
+        \end{aligned}
+        \right.
+    \end{gather*}
+    
+    Los autovectores son aquellos $\Vec{v}$ que verifican:
+    \begin{equation*}
+        \left( M_{EE}(f) - \lambda \, I \right) \Vec{v} = 0
+    \end{equation*}
+    
+    Para $\lambda_1=2$ se tiene:
+    \begin{equation}
+        \begin{pmatrix}
+            0 & -1
+            \\
+            0 & -1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            x
+            \\
+            y
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0
+            \\
+            0
+        \end{pmatrix}
+        \Rightarrow y=0
+    \end{equation}
+    
+    Para $\lambda_1=2$ se tiene:
+    \begin{equation}
+        \begin{pmatrix}
+            1 & -1
+            \\
+            0 & 0
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            x
+            \\
+            y
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0
+            \\
+            0
+        \end{pmatrix}
+        \Rightarrow y=x
+    \end{equation}
+    
+    De manera que la bases de autovectores es:
+    \begin{equation*}
+        B = \inBraces{\Vec{v}_1 , \Vec{v}_2} = \inBraces{(1,0),(1,1)}
+    \end{equation*}
+    
+    Verificándose:
+    \begin{equation*}
+        \left\{
+        \begin{aligned}
+            f(\Vec{v}_1) = 2 \, \Vec{v}_1
+            \\
+            f(\Vec{v}_2) = 1 \, \Vec{v}_2
+        \end{aligned}
+        \right.
+    \end{equation*}
+    
+    De manera que las matrices semejantes verifican:
+    \begin{gather*}
+        M_{EE}(f) = C_{BE} \cdot M_{BB}(f) \cdot C_{EB}
+        \\
+        \begin{pmatrix}
+            2 & -1
+            \\
+            0 & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 1
+            \\
+            0 & 1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            2 & 0
+            \\
+            0 & 1
+        \end{pmatrix}
+        \cdot
+        \begin{pmatrix}
+            1 & 1
+            \\
+            0 & 1
+        \end{pmatrix}^{-1}
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Multiplicidad}
+
+Se llama \emph{multiplicidad algebráica} al grado de un autovalor como raíz del polinomio característico.
+Mientras que se llama \emph{multiplicidad geométrica} a la dimensión del autoespacio asociado a un autovalor.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \operatorname{MultG} (\lambda_0) \leq \operatorname{MultA} (\lambda_0)
+    \end{equation*}
+\end{mdframed}
+
+Si $\Vec{v} \neq \Vec{0}$ pertenece a $E_{\lambda_1} \cap E_{\lambda_1}$ sería un autovalor de ambos autovectores.
+Esto es:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        f(\Vec{v}) &= \lambda_1 \Vec{v}
+        \\
+        f(\Vec{v}) &= \lambda_2 \Vec{v}
+    \end{aligned}
+    \right.
+    \Rightarrow \Vec{0} = f(\Vec{v}) - f(\Vec{v}) = \left( \lambda_1-\lambda_2 \right) \Vec{v}
+\end{equation*}
+
+Pero dado que $\Vec{v}\neq\Vec{0}$ se tiene que $\lambda_1=\lambda_2$ lo cual es absurdo.
+Por lo tanto, se tiene la siguiente propiedad que se puede demostrar para una cantidad arbitraria de autoespacios.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        E_{\lambda_1} \cap E_{\lambda_1} = \Vec{0}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Sea $\lambda$ un autovalor de la matriz $A\in\setR^{\nth\times\nth}$ entonces $A$ es diagonalizable si y solo si:
+    \begin{gather*}
+        \operatorname{MultG} (\lambda_\ith) = \operatorname{MultA} (\lambda_\ith) \quad 1\leq\ith\leq\nth
+        \\
+        \iff
+        \\
+        \operatorname{dim}(\setV) = \operatorname{dim}(E_{\lambda_1} \oplus E_{\lambda_2} \dots E_{\lambda_\nth})
+    \end{gather*}
+\end{mdframed}

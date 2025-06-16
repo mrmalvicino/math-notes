@@ -1,0 +1,148 @@
+\chapter{Transformaciones complejas}
+
+\section{Transformada de Laplace}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Transformada de Laplace}
+    \begin{equation*}
+        \mathcal{L}(f) = F(s) = \int_0^\infty e^{-st} f(t) \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+\begin{center}
+    \renewcommand{\arraystretch}{2.5}
+    \begin{tabular}{|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{Tabla de transformadas}
+        \\ \hline \hline
+        $f(t)$ & $F(s)$
+        \\ \hline \hline
+        $t^n$ & $\dfrac{n!}{s^{n+1}}$
+        \\ \hline
+        $e^{at}$ & $\dfrac{1}{s-a} $
+        \\ \hline
+        $\cos(bt)$ & $\dfrac{s}{s^2+b^2}$
+        \\ \hline
+        $\sin(bt)$ & $\dfrac{b}{s^2+b^2}$
+        \\ \hline
+        $\cosh(at)$ & $\dfrac{s}{s^2-a^2}$
+        \\ \hline
+        $\sinh(at)$ & $\dfrac{a}{s^2-a^2}$
+        \\ \hline
+    \end{tabular}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Linealidad}
+    \begin{equation*}
+        \mathcal{L}(af + bg) = a \, \mathcal{L}(f) + b \, \mathcal{L}(g)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Transformada de la derivada}
+    \begin{equation*}
+        \mathcal{L}(f') = s \, \mathcal{L}(f) - f(0)
+    \end{equation*}
+\end{mdframed}
+
+Análogamente, de manera iterada, se pueden obtener expresiones para las transformadas de las derivadas sucesivas:
+\begin{gather*}
+    \mathcal{L}(f'') = s^2 \, \mathcal{L}(f) - s \, f(0) - f'(0)
+    \\[1ex]
+    \mathcal{L}(f''') = s^3 \, \mathcal{L}(f) - s^2 \, f(0) - s \, f'(0) - f''(0)
+    \\
+    \vdots
+    \\
+    \scale{0.95}{
+    \mathcal{L}(f^n) = s^\nth \,\mathcal{L}(f) - s^{\nth-1} \, f(0) - s^{\nth-2} \, f'(0) \dots - s^0 \, f^{\nth-1}(0)
+    }
+\end{gather*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Traslación en $s$}
+    \begin{equation*}
+        G(s) = F(s-a)
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{equation*}
+        g(t) = e^{at} \, f(t)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Traslación en $t$}
+    \begin{equation*}
+        \mathcal{L}(g)=e^{-sa}\mathcal{L}(f)
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{equation*}
+        g(t) = f(t-a)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Transformada de Fourier}
+
+Las funciones que verifican $f(t)=f(t+T)$ para un período $T$ se llaman periódicas y se pueden desarrollar en series de Fourier.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Serie de Fourier}
+    \begin{equation*}
+        f(t) = \sum_{\kth=-\infty}^{\infty} \hat{f}_\kth \, e^{\iu \omega t}
+    \end{equation*}
+\end{mdframed}
+
+Donde tanto $f(t)$ como $e^{\iu \omega t}$ son periódicas.
+Por lo tanto, se tiene:
+\begin{gather*}
+    e^{\iu \omega t} = e^{\iu \omega (t+T)} = e^{\iu \omega t} e^{\iu \omega T}
+    \\
+    1 = e^{\iu \omega T} = \cos(\omega T) + \iu \sin(\omega T)
+    \\
+    \omega T = 2 \pi k
+    \\
+    \omega = 2 \pi k f
+\end{gather*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \hat{f}_k = \frac{1}{T} \int_0^T f(t) \, e^{\iu \omega \kth t} \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+La transformada de Fourier determina el espectro de frecuencias $\hat{f}(\omega)$ de la forma de onda $f(t)$.
+Esto es, la relevancia que cada frecuencia $e^{-\iu \omega t}$ tenga.
+La operación inversa determina la forma de onda $\hat{f}(t)$ que tiene cierto espectro de frecuencias $f(\omega)$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Transformada de Fourier}
+    \begin{equation*}
+        \hat{f}(\omega) = \int_{-\infty}^{\infty} f(t) \, e^{-\iu \omega t} \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Transformada de Fourier inversa}
+    \begin{equation*}
+        \hat{f}(t) = \int_{-\infty}^{\infty} f(\omega) \, e^{-\iu \omega t} \, \dif \omega
+    \end{equation*}
+\end{mdframed}

@@ -1,0 +1,358 @@
+\chapter{Transformaciones lineales}
+\label{cha:TL}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:TL}
+    \end{defn}
+    \cusTi{Transformación lineal}
+    \cusTe{Sean $\setV$ y $\setW$ dos espacios vectoriales, se dice que una función $f:\setV\longrightarrow\setW$ es una transformación lineal si para todo $\Vec{v}_1,\Vec{v}_2\in\setV$ y $\lambda\in\setR$ se verifica:}
+    \begin{equation*}
+        f(\lambda \, \Vec{v}_1 + \Vec{v}_2) = \lambda \, f(\Vec{v}_1) + f(\Vec{v}_2)
+    \end{equation*}
+\end{mdframed}
+
+Observar que si la definición se cumple para todo $\lambda$ y para todo $\Vec{v}$ entonces se cumple particularmente para $\lambda=1$ y para $\Vec{v}_2=\Vec{0}$.
+Es decir que si se cumple $f(\lambda \, \Vec{v}_1 + \Vec{v}_2)=\lambda \, f(\Vec{v}_1) + f(\Vec{v}_2)$ entonces se cumplen las siguientes condiciones simultáneamente:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        f(\Vec{v}_1 + \Vec{v}_2) &= f(\Vec{v}_1) + f(\Vec{v}_2)
+        \\
+        f(\lambda \, \Vec{v}) &= \lambda \, f(\Vec{v})
+    \end{aligned}
+    \right.
+\end{equation*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Condición necesaria}
+    \cusTe{Si $f:\setV\longrightarrow\setW$ es una transformación lineal entonces:}
+    \begin{equation*}
+        f(\Vec{0}_\setV) = \Vec{0}_\setW
+    \end{equation*}
+\end{mdframed}
+
+Una transformación lineal puede ser expresada por su fórmula:
+\begin{equation*}
+    f: \setV \longrightarrow \setW \tq f(\Vec{v}) = \Vec{w}
+\end{equation*}
+
+Puede ser expresada mediante \emph{la matriz de la transformación} 
+\begin{equation*}
+    f: \setV \longrightarrow \setW \tq M_{EE}(f) \cdot \Vec{v} = \Vec{w}
+\end{equation*}
+
+Pero además, puede ser expresada por los transformados de una base.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Teorema fundamental de existencia y unicidad de las transformaciones lineales}
+    \cusTe{Sean $\setV$ y $\setW$ dos espacios vectoriales, $B=\inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base de $\setV$ y $\inBraces{\Vec{w}_1 , \Vec{w}_2 \dots \Vec{w}_\nth} \in \setW$ entonces $\exists ! \enspace f: \setV \longrightarrow \setW$ que es transformación lineal tal que:}
+    \begin{gather*}
+        f(\Vec{v}_1) = \Vec{w}_1
+        \\
+        f(\Vec{v}_2) = \Vec{w}_2
+        \\
+        \vdots
+        \\
+        f(\Vec{v}_\nth) = \Vec{w}_\nth
+    \end{gather*}
+\end{mdframed}
+
+\concept{Demostración}
+
+Para cierto $\Vec{v} \in \setV$, como $B$ es base de $\setV$, se tiene:
+\begin{equation*}
+    \exists ! \enspace \lambda_\ith \hspace{1ex} \textrm{con} \hspace{1ex} 1 \leq \ith \leq \nth \tq
+    \Vec{v} = \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth
+\end{equation*}
+
+Entonces:
+\begin{align*}
+    f(\Vec{v}) &= f \left( \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth \right)
+    \\
+    &= \lambda_1 \, f(\Vec{v}_1) + \lambda_2 \, f(\Vec{v}_2) + \dots + \lambda_\nth \, f(\Vec{v}_\nth)
+    \\
+    &= \lambda_1 \, \Vec{w}_1 + \lambda_2 \, \Vec{w}_2 + \dots + \lambda_\nth \, \Vec{w}_\nth
+    \\
+    &=
+    \begin{pmatrix}
+        \trans{\Vec{w}_1} & \trans{\Vec{w}_2} & \dots & \trans{\Vec{w}_\nth}
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        \lambda_1
+        \\
+        \lambda_2
+        \\
+        \vdots
+        \\
+        \lambda_\nth
+    \end{pmatrix}
+    \\[1ex]
+    &=
+    \begin{pmatrix}
+        w_{11} & w_{21} & \dots & w_{\nth 1}
+        \\
+        w_{12} & w_{22} & \dots & w_{\nth 2}
+        \\
+        \vdots & \vdots & \ddots & \vdots
+        \\
+        w_{1 \mth} & w_{2 \mth} & \dots & w_{\nth \mth}
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        \lambda_1
+        \\
+        \lambda_2
+        \\
+        \vdots
+        \\
+        \lambda_\nth
+    \end{pmatrix}
+    \\[1ex]
+    &= M_{BE} (f) \cdot \trans{[\Vec{v}]_B}
+\end{align*}
+
+Donde $\nth=\operatorname{dim}(\setV)$ y $\mth=\operatorname{dim}(\setW)$.
+
+La matriz $M_{BE}$ de la ecuación anterior tiene como columnas a las imágenes de los elementos de la base $B$.
+Si esta base fuese la canónica, la matriz obtenida sería $M_{EE}(f)$ y estaría dada por las imágenes de los versores canónicos.
+
+Pero en caso de no tener $M(f)$, sino $M_{BE}(f)$, el inconveniente que surge es que las variables que querramos evaluar en $f(\Vec{v})$ van a estar en base $E$ pero las variables de la fórmula en forma matricial en base $B$.
+En tal caso, podemos usar las matrices de cambio de base (Def. \ref{defn:C_BE}) para obtener las coordenadas de $\Vec{v}$ en base canónica.
+\begin{align*}
+    f(\Vec{v}) &= M_{BE} (f) \cdot \trans{[\Vec{v}]_B}
+    \\
+    &= M_{BE} (f) \cdot C_{EB} \cdot \trans{[\Vec{v}]_E}
+    \\
+    &= M_{BE} (f) \cdot C_{EB} \cdot \trans{\Vec{v}}
+    \\
+    &= M(f) \cdot \trans{\Vec{v}}
+\end{align*}
+
+Donde:
+\begin{align*}
+    C_{EB} &=
+    \begin{pmatrix}
+        \trans{\Vec{v}_1} & \trans{\Vec{v}_2} & \dots & \trans{\Vec{v}_\nth}
+    \end{pmatrix}^{-1}
+    \\
+    &=
+    \begin{pmatrix}
+        v_{11} & v_{21} & \dots & v_{\nth 1}
+        \\
+        v_{12} & v_{22} & \dots & v_{\nth 2}
+        \\
+        \vdots & \vdots & \ddots & \vdots
+        \\
+        v_{1 \nth} & v_{2 \nth} & \dots & v_{\nth \nth}
+    \end{pmatrix}^{-1}
+\end{align*}
+
+Observar que los $\Vec{w}$ anteriores están en base canónica, pero podrían estarlo en otra base.
+Podemos definir una transformación matricialmente en bases $A$ y $B$ genéricas de la siguiente forma.
+
+Notar que en tal caso $A$ cumple el papel que antes cumplía $B$, ya que $B$ cumplirá el papel que antes cumplía $E$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Forma matricial de una TL en bases $AB$}
+    \cusTe{Sean $A=\inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base de $\setV$ y $B=\inBraces{\Vec{w}_1 , \Vec{w}_2 \dots \Vec{w}_\mth}$ una base de $\setW$ se define la transformación lineal}
+    \begin{equation*}
+        f: \setV \longrightarrow \setW \tq M_{AB}(f) \cdot \inBrackets{\Vec{v}}_A = \inBrackets{\Vec{w}}_B
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{equation*}
+        M_{AB} (f) =
+        \begin{pmatrix}
+            \trans{\left[f(\Vec{v}_1)\right]_{B}} &
+            \trans{\left[f(\Vec{v}_2)\right]_{B}} &
+            \dots &
+            \trans{\left[f(\Vec{v}_\nth)\right]_{B}}
+        \end{pmatrix}
+    \end{equation*}
+\end{mdframed}
+
+Observar que la matriz $M_{AB}$ tiene $\nth$ columnas según la dimensión de $\setV$ y $\mth$ filas según la dimensión de $\setW$.
+
+Podemos usar las matrices de cambio de base (Def. \ref{defn:C_BB'}) para expresar $M_{AB}$ en bases $A'$ y $B'$.
+\begin{align*}
+    M_{A'B'}(f) \cdot \inBrackets{\Vec{v}}_{A'} &= \inBrackets{\Vec{w}}_{B'}
+    \\
+    C_{BB'} \cdot M_{AB}(f) \cdot C_{A'A} \cdot \inBrackets{\Vec{v}}_{A'} &= \inBrackets{\Vec{w}}_{B'}
+\end{align*}
+
+De manera que:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        M_{A'B'}(f) = C_{BB'} \cdot M_{AB}(f) \cdot C_{A'A}
+    \end{equation*}
+\end{mdframed}
+
+O análogamente:
+\begin{align*}
+    M_{AB}(f) \cdot \inBrackets{\Vec{v}}_A &= \inBrackets{\Vec{w}}_B
+    \\
+    C_{B'B} \cdot M_{A'B'}(f) \cdot C_{AA'} \cdot \inBrackets{\Vec{v}}_A &= \inBrackets{\Vec{w}}_B
+\end{align*}
+
+Obteniendo:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:M_BB}
+    \end{prop}
+    \begin{equation*}
+        M_{AB}(f) = C_{B'B} \cdot M_{A'B'}(f) \cdot C_{AA'}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Imagen y núcleo}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Imagen}
+    \cusTe{Es el conjunto de vectores que resultan de aplicar la transformación a todos los elementos del dominio.}
+    \begin{equation*}
+        \im(f) = \inBraces{\Vec{w} \in \setW \tq \exists \, \Vec{v} \in \setV \enspace \textrm{con} \enspace f(\Vec{v}) = \Vec{w}}
+    \end{equation*}
+\end{mdframed}
+
+Para calcular la imagen se aplica la transformación a cada elemento de una base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ de $\setV$ y así otener un conjunto generador de la imagen.
+Observar que para cualquier elemento $\Vec{v}\in\setV$ se verifica:
+\begin{gather*}
+    f(\Vec{v}) = f(\lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth)
+    \\
+    f(\Vec{v}) = \lambda_1 \, f(\Vec{v}_1) + \lambda_2 \, f(\Vec{v}_2) + \dots + \lambda_\nth \, f(\Vec{v}_\nth)
+    \\
+    \im(f) = \operatorname{gen}\inBraces{f(\Vec{v}_1),f(\Vec{v}_2) \dots f(\Vec{v}_\nth)}
+\end{gather*}
+
+\begin{mdframed}[style=ExampleFrame]
+    \begin{example}
+    \end{example}
+    Sea $f:\operatorname{dn}(f) \subseteq \setR^3 \longrightarrow \im(f) \subseteq \setR^2$ una T.L. tal que $f(x,y,z)=(x+y,y-z)$, se pide calcular la imagen.
+    
+    Aplicando la transformación a los elementos de la base canónica se tiene:
+    \begin{align*}
+        f(\eVer_1) &= (1,0)
+        \\
+        f(\eVer_2) &= (1,1)
+        \\
+        f(\eVer_3) &= (0,-1)
+    \end{align*}
+    
+    Por lo tanto el conjunto generador de la imagen de $f$ es:
+    \begin{equation*}
+        \im(f) = \operatorname{gen}\inBraces{(1,0),(1,1),(0,-1)}
+    \end{equation*}
+    
+    O bien, descartando $(0,-1)=(1,0)-(1,1)$ por ser combinación lineal se tiene:
+    \begin{equation*}
+        \im(f) = \operatorname{gen}\inBraces{(1,0),(1,1)} = \setR^2
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Núcleo}
+    \cusTe{Es el conjunto de vectores que tienen como imagen el origen.}
+    \begin{equation*}
+        \Nu(f) = \inBraces{\Vec{v} \in \setV \tq f(\Vec{v})=\Vec{0}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Teorema de la dimensión}
+    \cusTe{Sea $f:\setV\longrightarrow\setW$ una transformación lineal tal que la dimensión de $\setV$ es finita entonces:}
+    \begin{equation*}
+        \operatorname{dim}(\setV) = \operatorname{dim} \big(\Nu(f)\big) + \operatorname{dim} \big(\im(f)\big)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Clasificación de T.L.}
+
+Si $f: \setV \longrightarrow \setW$ es una T.L. basta con que el núcleo esté compuesto solamente por el vector origen para que $f$ sea inyectiva.
+Esto implica que no existe T.L. cuyo núcleo sea el origen, y además tenga una misma imagen para dos elementos de $\setV$ distintos.
+Esto es:
+\begin{gather*}
+    \textrm{Sea} \enspace f: \setV \longrightarrow \setW \enspace \textrm{una T.L.}
+    \\
+    \textrm{Sean} \enspace \Vec{v}_1,\Vec{v}_2 \in \setV \tq \Vec{v}_1 \neq \Vec{v}_2 \land f(\Vec{v}_1) = f(\Vec{v}_2) \neq \Vec{0}
+    \\
+    \textrm{Observar que} \enspace \Vec{v}_1,\Vec{v}_2 \notin \Nu(f)
+    \\
+    f(\Vec{v}_1) - f(\Vec{v}_2) = \Vec{0}
+    \\
+    f(\Vec{v}_1 - \Vec{v}_2) = \Vec{0}
+    \\
+    \therefore \left( \Vec{v}_1 - \Vec{v}_2 \right) \in \Nu(f) \neq \Vec{0}
+\end{gather*}
+
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Monomorfismo}
+    \begin{multline*}
+        f \enspace \textrm{es un monomorfismo} \iff
+        \\
+        \iff f  \enspace \textrm{es inyectiva}
+        \iff \Nu(f) - \Vec{0} = \setO
+    \end{multline*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Epimorfismo}
+    \begin{multline*}
+        f \enspace \textrm{es un epimorfismo} \iff
+        \\
+        \iff f  \enspace \textrm{es sobreyectiva}
+        \iff \im(f) = \setW
+    \end{multline*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Isomorfismo}
+    \begin{equation*}
+        f \enspace \textrm{es un isomorfismo} \iff f \enspace \textrm{es biyectiva}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Endomorfismo}
+    \begin{equation*}
+        f \enspace \textrm{es un endomorfismo} \iff \setV = \setW
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Automorfismo}
+    \begin{multline*}
+        f \enspace \textrm{es un automorfismo} \iff
+        \\
+        \iff f \enspace \textrm{es isomorfismo y endomorfismo}
+    \end{multline*}
+\end{mdframed}

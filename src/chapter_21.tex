@@ -1,0 +1,217 @@
+\chapter{Integrales de funciones complejas}
+
+\section{Curvas en el plano complejo}
+
+Las curvas dadas en el plano complejo son funciones $(c)$ que toman valores reales $(t\in\setR)$ y los transforman en números complejos $(x + \iu y \in\setC)$.
+\begin{equation*}
+    c: D\subseteq \setR \longrightarrow \setC \tq c(t) = x(t) + \iu y(t)
+\end{equation*}
+
+Las curvas se derivan y se integran componente a componente.
+Es decir que es válido:
+\begin{gather*}
+    \frac{\dif}{\dif t} c(t) = \frac{\dif}{\dif t} x(t) + \iu \frac{\dif}{\dif t} y(t)
+    \\[1em]
+    \int_{t_1}^{t_2} c(t) \, \dif t = \int_{t_1}^{t_2} x(t) \, \dif t + \iu \int_{t_1}^{t_2} y(t) \, \dif t
+\end{gather*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \Re \left( \int_{t_1}^{t_2} c(t) \, \dif t \right) = \int_{t_1}^{t_2} \Re \Big( c(t) \Big) \dif t
+    \end{equation*}
+\end{mdframed}
+
+Haciendo:
+\begin{equation*}
+    \int_{t_1}^{t_2} c(t) \, \dif t = z = \rho \, e^{\iu \theta}
+\end{equation*}
+
+\begin{align*}
+    \rho &= \int_{t_1}^{t_2} e^{-\iu \theta} \, c(t) \, \dif t \quad \textrm{con} \enspace \rho = \norm{z}
+    \\
+    &= \Re (\rho) = \Re \left( \int_{t_1}^{t_2} e^{-\iu \theta} \, c(t) \, \dif t \right)
+    \\
+    &= \int_{t_1}^{t_2} \Re \left( e^{-\iu \theta} c(t) \right) \dif t 
+\end{align*}
+
+\begin{equation*}
+    \rho \leq \int_{t_1}^{t_2} \norm{e^{-\iu \theta} \, c(t)} \, \dif t = \int_{t_1}^{t_2} \norm{c(t)} \, \dif t
+\end{equation*}
+
+Se obtiene la siguiente propiedad:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \norm{\int_{t_1}^{t_2} c(t) \, \dif t} \leq \int_{t_1}^{t_2} \norm{c(t)} \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Longitud de curva}
+    \begin{equation*}
+        \operatorname{long} (C) = \int_C \norm{dz} = \int_{t_1}^{t_2} \norm{\frac{\dif}{\dif t} c(t)} \, \dif t
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Integrales curvilíneas}
+
+La integración de funciones complejas no está definida.
+Las integrales de una función compleja tienen sentido si se evalúan sobre una curva del plano complejo.
+La definición es parecida a las integrales de tipo 2 de cálculo real multivariable (Def. \ref{defn:type2Int}), pero en vez de tener un producto interno se tiene un producto complejo.
+\begin{gather*}
+    \textrm{Sea} \enspace f: \setC \longrightarrow \setC \tq f(z) = u(z) + \iu v(z)
+    \\[1ex]
+    \int_{C} f(z) \, \dif z = \int_{t_1}^{t_2} \left\{ f \Big( c(t) \Big) \cdot \frac{\dif}{\dif t} c(t) \right\} \dif t
+    \\[1ex]
+    \scale{0.98}{
+    \int_{C} f(z) \, \dif z = \int_{t_1}^{t_2} \Big( u \, x' - v \, y' \Big) \dif t + \iu \int_{t_1}^{t_2} \Big( v \, x' + u \, y' \Big) \dif t
+    }
+\end{gather*}
+
+Podemos reescribir la ecuación anterior definiendo dos campos vectoriales reales.
+La integral curvilínea sería entonces un número complejo que tiene como partes real e imaginaria, integrales curvilíneas reales de tipo 2.1 respectivamente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:integral}
+    \end{defn}
+    \cusTi{Integral curvilínea}
+    \begin{equation*}
+        \int_{C} f(z) \, \dif z = \int_{C} \Vec{G} \cdot \dif \Vec{s} + \iu \int_{C} \Vec{H} \cdot \dif \Vec{s}
+    \end{equation*}
+    Donde:
+    \begin{align*}
+        \Vec{G}(x,y) &= \begin{bmatrix} u(x,y) & -v(x,y) \end{bmatrix}
+        \\
+        \Vec{H}(x,y) &= \begin{bmatrix} v(x,y) & u(x,y) \end{bmatrix}
+    \end{align*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \norm{\int_C f(z) \, \dif z} \leq M \, \operatorname{long}(C)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Teorema de la primitiva}
+\label{sec:primitive}
+
+Una función compleja $f(z)$ tiene primitiva $F(z)$ en un subconjunto abierto $A$ del plano complejo solo si la integral es independiente de la trayectoria.
+Esto implica que la integral sobre una trayectoria cerrada es nula:
+\begin{equation*}
+    \exists \, F(z) \iff \oint f(z) \, \dif z = 0
+\end{equation*}
+
+En tal caso, la integral se computa evaluando la primitiva en el punto final menos el inicial:
+\begin{equation*}
+    \int_C f(z) \, \dif z = F \big( c(t_2) \big) - F \big( c(t_1) \big)
+\end{equation*}
+
+
+\section{Teorema de Cauchy-Goursat}
+\label{sec:CauchyGoursat}
+
+Sea $A$ un conjunto abierto simplemente conexo y $C$ una curva cerrada y simple contenida por $A$:
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-int-curv-1.pdf_tex}
+\end{center}
+
+Aplicando el Teorema de Green en cada uno de los campos vectoriales de la definición (\ref{defn:integral}) de integral curvilínea, teniendo en cuenta las ecuaciones de Cauchy-Riemann, se puede observar que los integrandos se anulan.
+\begin{align*}
+    \oint f(z) \, \dif z &= \oint \Vec{G} \cdot \dif \Vec{s} + \iu \oint \Vec{H} \cdot \dif \Vec{s}
+    \\
+    &=
+    \scale{0.93}{
+    \iint_C \left( -v'_x - u'_y \right) \partial x \, \partial y + \iu \iint_C \left( u'_x-v'_y \right) \partial x \, \partial y
+    }
+    \\
+    &= 0
+\end{align*}
+
+En conclusión:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si una función compleja es derivable en $A$ entonces la integral sobre cualquier curva $C$ cerrada y simple contenida por $A$ es nula:
+    \begin{equation*}
+        \oint f(z) \, \dif z = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si una función verifica el teorema de Cauchy-Goursat entonces existe su primitiva, ya que al tener integral cerrada nula cumple el teorema de la primitiva.
+\end{mdframed}
+
+
+\section{Fórmula integral de Cauchy}
+\label{sec:CauchyFormula}
+
+Sea $A$ un conjunto abierto simplemente conexo, sea $C$ una curva cerrada y simple contenida por $A$, sea $z_0$ un punto interior de $C$:
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-int-curv-2.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:CauchyFormula}
+    \end{prop}
+    Si $f(z)$ es derivable en todo el interior de $A$, salvo en $z_0$, se tiene que:
+    \begin{equation*}
+        \oint \frac{f(z)}{z - z_0} \dif z = f(z_0) \, 2 \pi \iu
+    \end{equation*}
+\end{mdframed}
+
+Nótese que si $z_0$ estuviese afuera de $C$ o si $f(z)$ fuese derivable en $z_0$, la integral sobre $C$ se anularía por el Teorema de Cauchy-Goursat (Sec. \ref{sec:CauchyGoursat}).
+
+La propiedad anterior puede ser generalizada.
+\begin{equation*}
+    \textrm{Sea} \enspace g(z) = \oint \frac{f(w)}{w - z} \dif w
+\end{equation*}
+
+Si $f(w)$ es contínua sobre la curva, se tiene que:
+\begin{align*}
+    \frac{\dif}{\dif z} g(z) &= \frac{\dif}{\dif z} \oint \frac{f(w)}{w-z}
+    \\[1ex]
+    &= \oint \left[ \frac{\dif}{\dif z} \frac{f(w)}{w-z} \right] \dif w
+    \\[1ex]
+    &= \oint \dfrac{f(w)}{(w-z)^2} dw
+\end{align*}
+
+Por extrapolación, se tiene:
+\begin{equation*}
+    \frac{\dif^\nth}{\dif z^\nth} g(z) = \nth! \oint \frac{f(w)}{(w-z)^{\nth+1}} \dif w
+\end{equation*}
+
+Por lo tanto $g(z) \in \class[\infty]$ y reemplazando $g(z)$ en la fórmula de Cauchy (Prop. \ref{prop:CauchyFormula}) se tiene:
+\begin{equation*}
+    g(z) = 2 \pi \, f(z)
+\end{equation*}
+
+Finalmente, derivando la ecuación anterior $\nth$ veces, se tiene la generalización del teorema.
+Además, esto implica que $f(z) \in \mathcal{C} ^ \infty \big( \operatorname{int}(C) \big)$.
+Nótese que si $\nth=0$ queda la Fórmula de Cauchy dada en la propiedad \ref{prop:CauchyFormula}.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \frac{\dif^\nth}{\dif z^\nth} f(z_0) = \frac{\nth!}{2 \pi \iu} \oint \frac{f(z)}{(z-z_0)^{\nth+1}} \dif z
+    \end{equation*}
+\end{mdframed}

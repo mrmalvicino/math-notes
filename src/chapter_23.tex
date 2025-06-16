@@ -1,0 +1,151 @@
+\chapter{Polos}
+
+\section{Singularidades aisladas}
+
+Una singularidad es un punto donde una función o bien no está definida o bien no es derivable.
+Si $f(z)$ tiene una singularidad en $z_0$ pero es derivable en un entorno $0<\norm{z-z_0}<R$ entonces se dice que es una singularidad aislada y $f(z)$ admite desarrollo en Series de Laurent (Sec. \ref{sec:Laurent}).
+Analizando los coeficientes $b_\nth$ del desarrollo de Laurent, se pueden clasificar las singularidades aisladas de la siguiente manera:
+
+\begin{itemize}
+    \item Singularidad evitable:
+    \begin{equation*}
+        b_\nth = 0 \enspace \forall \enspace n>0
+    \end{equation*}
+    \item Polo de orden $\kth$:
+    \begin{equation*}
+        b_\nth = 0 \enspace \forall \enspace n>k
+    \end{equation*}
+    \item Singularidad esencial:
+    \begin{equation*}
+        b_\nth \neq 0 \enspace \forall \enspace n>0
+    \end{equation*}
+\end{itemize}
+
+
+\section{Clasificación de polos}
+
+A veces es posible clasificar la singularidad aislada sin hacer el desarrollo en serie de la función.
+En particular, se puede detectar si una singularidad aislada es un polo de la siguiente forma.
+
+Si $z_0$ es un Polo de orden $\kth$, la función se va a desarrollar de la siguiente manera:
+\begin{multline*}
+    f(z) = \frac{b_\kth}{\left(z-z_0\right)^\kth} + \frac{b_{\kth-1}}{\left(z-z_0\right)^{\kth-1}} + \frac{b_{\kth-2}}{\left(z-z_0\right)^{\kth-2}} +
+    \\
+    + \dots + \frac{b_1}{\left(z-z_0\right)} + \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
+\end{multline*}
+
+\begin{multline*}
+    f(z) = \frac{1}{\left(z-z_0\right)^\kth} \Big( b_\kth + b_{\kth-1} \left(z-z_0\right) + b_{\kth-2} \left(z-z_0\right)^2 +
+    \\
+    + \dots + b_1 \left(z-z_0\right)^{\kth-1} + \sum_{n=0}^\infty a_\nth \left(z-z_0\right)^{\nth+\kth} \Big)
+\end{multline*}
+
+Si llamamos $\Phi(z)$ a todo lo que está entre paréntesis, se tiene:
+\begin{equation*}
+    f(z) = \frac{\Phi(z)}{\left(z-z_0\right)^\kth}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    \Phi (z_0) = b_\kth \neq 0 \quad \land \quad \Phi (z_0) \in \class
+\end{equation*}
+
+
+\section{Ceros de una función analítica}
+
+Se dice que $z_0$ es un cero de una $f(z)$ si verifica:
+\begin{equation*}
+    f(z_0)=0
+\end{equation*}
+
+Si la función es analítica en $z_0$ y su entorno, tiene desarrollo de Taylor.
+\begin{equation*}
+    f(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
+\end{equation*}
+
+Cuando $z=z_0$, la función toma el primer término $a_0$ de la serie.
+Por lo tanto, dado que $f(z_0) = a_0 = 0$, el desarrollo de Taylor comienza en 1.
+\begin{equation*}
+    f(z) = \underbrace{a_0}_{f(z_0)=0} + \sum_{\nth=1}^\infty a_\nth (z-z_0)^\nth
+\end{equation*}
+
+Pero además, la función puede tener derivadas sucesivas nulas.
+Recordar que en un desarrollo de Taylor, los coeficientes $a_\nth$ están dados por las derivadas sucesivas evaluadas en $z_0$.
+Si una derivada es nula, entonces también lo será este coeficiente.
+\begin{align*}
+    \frac{\dif}{\dif z} f(z_0) &= \frac{\dif^2}{\dif z^2} f(z_0)
+    \\[1ex]
+    &= \frac{\dif^{\kth-1}}{\dif z^{\kth-1}} f(z_0)
+    \\
+    &= 0
+\end{align*}
+
+Siguiendo el razonamiento anterior, si hay $\kth$ derivadas que se anulan entonces el desarrollo comienza en $\kth$, ya que los términos anteriores son nulos.
+Tiene que haber al menos un valor de $\kth$ para el que la derivada no se anule, sino la función sería nula.
+\begin{equation*}
+    f(z) = \sum_{\nth=\kth}^\infty a_\nth \left(z-z_0\right)^\nth
+\end{equation*}
+
+Sacando factor común $\left(z-z_0\right)^\kth$ y definiendo la serie de potencias positivas como $\Phi(z)$, se tiene:
+\begin{equation*}
+    f(z) = \left(z-z_0\right)^\kth \underbrace{\sum_{\nth=\kth}^\infty a_\nth \left(z-z_0\right)^{\nth-\kth}}_{\Phi (z)}
+\end{equation*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si $z_0$ es un cero de orden $k$, entonces $f$ se puede expresar como:
+    \begin{equation*}
+        f(z) = \left(z-z_0\right)^\kth \Phi (z)
+    \end{equation*}
+    \noTi{Donde:}
+    \begin{equation*}
+        \Phi (z_0) = a_\kth \neq 0
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Clasificación de singularidades}
+
+De manera general, analizando los ceros de un cociente se pueden clasificar todas las singularidades, incluyendo los polos.
+
+Si $f(z) = h(z)/g(z)$ con $g(z_0)=0$ entonces $f(z)$ tiene una singularidad aislada en $z_0$.
+Y como $g(z)$ es analítica, se puede expresar como $g(z)=\left(z-z_0\right)^\kth \Phi_g (z)$.
+
+\begin{itemize}
+    \item \textbf{Caso 1}
+    
+    Si $h(z_0) \neq 0$ entonces $z_0$ es un polo de orden $k$.
+    \begin{align*}
+        f(z) &= \frac{h(z)}{g(z)}
+        \\[1ex]
+        &= \underbrace{\frac{h(z)}{\Phi_g (z)}}_{\Phi_f (z)} \frac{1}{\left(z-z_0\right)^\kth}
+        \\[1ex]
+        &= \frac{\Phi_f (z)}{\left(z-z_0\right)^\kth}
+    \end{align*}
+
+    \item \textbf{Caso 2}
+    
+    Si $h(z_0) = 0$ se tiene:
+    \begin{align*}
+        f(z) &= \frac{\left(z-z_0\right)^\mth}{\left(z-z_0\right)^\kth} \underbrace{\frac{\Phi_h (z)}{\Phi_g (z)}}_{\Phi_f (z)}
+        \\[1ex]
+        &= \left(z-z_0\right)^{\mth-\kth} \Phi_f (z)
+    \end{align*}
+    
+    \begin{itemize}
+        \item \textbf{Caso 2.1}
+        
+        Si $m \geq k$ entonces $z_0$ es una singularidad aislada evitable.
+        \begin{equation*}
+            f(z) = \left(z-z_0\right)^{\mth-\kth} \Phi(z)
+        \end{equation*}
+
+        \item \textbf{Caso 2.2}
+        
+        Si $m<k$ entonces $z_0$ es un polo de orden $k-m$.
+        \begin{equation*}
+            f(z) = \frac{\Phi (z)}{\left(z-z_0\right)^{\kth-\mth}}
+        \end{equation*}
+    \end{itemize}
+\end{itemize}

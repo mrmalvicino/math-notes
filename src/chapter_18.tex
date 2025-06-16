@@ -1,0 +1,318 @@
+\chapter{Funciones complejas}
+
+Una función de una variable compleja es una aplicación que toma un conjunto ($D$) de números complejos y los transforma en otro conjunto ($S$) de números complejos $w \in S$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:complexFunc1}
+    \end{defn}
+    \cusTi{Función compleja}
+    \begin{equation*}
+        f: D \subseteq \setC \longrightarrow S \subseteq \setC \tq f(z) = w
+    \end{equation*}
+\end{mdframed}
+
+Las funciones complejas no se pueden graficar, porque tanto los elementos del conjunto de partida como los elementos del conjunto de llegada son puntos del plano complejo.
+Es por esto que para tener ciertas nociones geométricas de la función, podemos hacer dos gráficos en 2D de dichos conjuntos de partida y llegada.
+Es posible graficar el módulo de una función en 3D.
+Se usan dos variables independientes para el conjunto de partida y una dependiente para el conjunto de llegada.
+
+Una vez aplicada una función, en ocaciones suele ser útil factorizar todos los términos que tienen multiplicado a $\iu$ de los que no para obtener la expresión binomial de la imagen.
+\begin{equation*}
+    w = u + \iu v
+\end{equation*}
+
+Así, las imágenes se pueden expresar como binomios complejos o como pares ordenados, sabiendo que basta con sumar la primer componente ($u$) más la segunda componente ($v$) multiplicada por $\iu$ para obtener nuevamente la forma binomial.
+\begin{equation*}
+    u + \iu v \equiv (u,v)
+\end{equation*}
+
+Siguiendo este criterio, suele usarse el vector $(x,y)$ de variables independientes para representar la variable compleja $x + \iu y$ como notación equivalente.
+\begin{equation*}
+    x + \iu y \equiv (x,y)
+\end{equation*}
+
+Pudiendo definir $\Vec{F}: \setR^2 \longrightarrow \setR^2$ y $f: \setR^2 \longrightarrow \setC$, ambas equivalentes a la función compleja dada en la definición \ref{defn:complexFunc1}.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función compleja}
+    \begin{equation*}
+        f(x,y) = u(x,y) + \iu \, v(x,y)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Campo vectorial asociado a una función compleja}
+    \begin{equation*}
+        \Vec{F}(x,y) = \begin{bmatrix} u(x,y) & v(x,y) \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Límite y continuidad}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Límite de una función compleja}
+    \begin{multline*}
+        \lim_{z \to z_0} f(z) = w_0 \iff \forall \varepsilon > 0 \enspace \exists \enspace \delta > 0 \tq
+        \\
+        0 < \norm{z-z_0} < \delta \Rightarrow \norm{f(z)-w_0} < \varepsilon
+    \end{multline*}
+\end{mdframed}
+
+El límite de una función de variable compleja es en realidad un límite doble pués, según la propiedad \ref{prop:distance}, los módulos involucrados representan distancias en el plano complejo.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:limit}
+    \end{prop}
+    \begin{equation*}
+        \lim_{z \to z_0} f(z) = \lim_{\substack{x \to x_0\\y \to y_0}} f(x + \iu y)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Continuidad}
+    \cusTe{Una función compleja es continua si y solo si:}
+    \begin{equation*}
+        f(z_0)=\lim_{z \to z_0}f(z)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El campo vectorial $\Vec{F}$ asociado a una función compleja $f$ es continuo si y solo si dicha función también lo es:
+    \begin{equation*}
+        \textrm{$f$ es continua $\iff \Vec{F}$ es continuo}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Función acotada}
+    \cusTe{Una función compleja es acotada en un entorno reducido de un punto $(z_0)$ si existe algún valor real $(m,M \in \setR)$ tal que el módulo de la función sea mayor o menor a dicho valor.}
+    \begin{gather*}
+        \norm{f(z)} \geq m \quad \lor \quad \norm{f(z)} \leq M
+        \\[1ex]
+        \forall \quad z: 0 < \norm{z-z_0} < R
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Infinitésimo por acotado}
+    \begin{gather*}
+        \textrm{Dada} \enspace f(z)=g(z) \cdot h(z)
+        \\
+        \textrm{Si} \enspace g(z) \to 0 \enspace \land \enspace h(z) \enspace \textrm{es acotada}
+        \\
+        \textrm{Entonces} \enspace \lim_{z \to z_0} f(z) = 0
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Argumento}
+
+El argumento de un número complejo es el ángulo que este forma con el eje $x$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Argumento de un número complejo}
+    \begin{equation*}
+        \arg(z) = \arctan \inParentheses{\frac{y}{x}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \arg(z) = - \iu \ln \left( \frac{z}{\norm{z}} \right)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El argumento de un complejo es el opuesto del argumento de su inverso.
+    \begin{equation*}
+        \arg(z) = - \arg(z^{-1})
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El argumento del producto de dos números es la suma de los argumentos de esos números.
+    \begin{equation*}
+        \arg (z_1 \, z_2) = \arg(z_1) + \arg(z_2)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El argumento de la división de dos números es la resta de los argumentos de esos números.
+    \begin{equation*}
+        \arg \left( \dfrac{z_1}{z_2} \right) = \arg(z_1) - \arg(z_2)
+    \end{equation*}
+\end{mdframed}
+
+Para poder definir funciones complejas, es necesario que cada elemento del dominio tenga solo una imagen.
+
+Al representar un número complejo en su forma trigonométrica o exponencial es evidente que un mismo punto puede ser expresado mediante distintos números complejos por tener diferentes ángulos:
+\begin{equation*}
+    f(z_0) = w_k = \rho \, e^{\iu \left( \theta + 2 \kth \pi \right)} \quad \textrm{con} \enspace \kth \in \setZ
+\end{equation*}
+
+Por esto, para definir una función se restringen los valores que puede tomar el argumento de la imagen a un intervalo de $2\pi$ radianes a partir de cierto ángulo $\alpha$ arbitrario:
+\begin{equation*}
+    f(z) = w_\alpha \tq \arg(w_\alpha) \in [\alpha;\alpha+2\pi)
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Argumento principal}
+    \cusTe{Se lo define como aquel que toma un valor entre $-\pi$ y $\pi$ y se lo denota con mayúscula para distinguirlo, de modo que:}
+    \begin{equation*}
+        -\pi \leq \operatorname{Arg}(z) \leq \pi
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Exponenciales y logarítmicas}
+
+Plantear una ecuación exponencial tiene como soluciones el conjunto $\sub{S}{exp}$ de los $w \in \setC$ que resultan de elevar el número $e$ a una potencia compleja $z \in \setC$.
+\begin{equation*}
+    \sub{S}{exp} = \inBraces{w \in \setC\ \tq e^z = w} = e^z
+\end{equation*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Sea $w = e^z$ dado que $e^{x + \iu y} = e^x \, e^{\iu y}$ se tiene:
+    \begin{equation*}
+        \norm{w} = e^x \quad \land \quad \arg(w) = y + 2 \kth \pi
+    \end{equation*}
+\end{mdframed}
+
+De forma similar a la ecuación exponencial, para el logaritmo neperiano se puede plantear el conjunto de números $w \in \setC$ que, de estar en el exponente del número $e$, dan como resultado $z \in \setC$.
+\begin{equation*}
+    \sub{S}{ln} = \inBraces{w \in \setC \tq e^w = z} = \ln(z)
+\end{equation*}
+
+Expresando un número complejo en su forma exponencial y aplicando propiedades logarítmicas
+\begin{align*}
+    z &= \norm{z} \, e^{\iu \arg(z)}
+    \\
+    \ln (z) &= \ln \left( \norm{z} \, e^{\iu \arg(z)} \right)
+\end{align*}
+
+Se obtiene la siguiente expresión alternativa para el logaritmo.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \ln(z) = \ln \norm{z} + \iu \left( \theta + 2 \kth\pi \right) \quad \textrm{con} \enspace k \in \setZ
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Trigonométricas}
+
+Partiendo de la propiedad de Euler (Prop. \ref{prop:EulerFormula}) y por la propiedad \ref{prop:ReIm} se tiene:
+\begin{gather*}
+    \left\{
+    \begin{aligned}
+        w &= e^{\iu z} = \cos(z) + \iu \sin(z)
+        \\[1ex]
+        \conj{w} &= e^{-\iu z} = \cos(z) - \iu \sin(z)
+    \end{aligned}
+    \right.
+    \\[1em]
+    \left\{
+    \begin{aligned}
+        w + \conj{w} &= e^{\iu z} + e^{-\iu z} = 2 \cos(z)
+        \\[1ex]
+        w - \conj{w} &= e^{\iu z} - e^{-\iu z} = 2 \iu \sin(z)
+    \end{aligned}
+    \right.
+\end{gather*}
+
+Despejando las ecuaciones del sistema anterior quedan definidas expresiones para el seno y el coseno de números complejos.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Coseno complejo}
+    \begin{equation*}
+        \cos(z) = \frac{e^{\iu z} + e^{-\iu z}}{2}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Seno complejo}
+    \begin{equation*}
+        \sin(z) = \frac{e^{\iu z} - e^{-\iu z}}{2 \iu}
+    \end{equation*}
+\end{mdframed}
+
+O bien, expresando $z$ en su forma binomial
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \cos(z) = \frac{e^{\iu \left(x + \iu y \right)} + e^{-\iu \left(x + \iu y \right)}}{2}
+        \\[1ex]
+        \sin(z) = \frac{e^{\iu \left(x + \iu y \right)} - e^{-\iu \left(x+\iu y\right)}}{2 \iu}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Si $x \neq 0 \land y \neq 0 \Rightarrow z \in \setC$ quedan expresiones alternativas para el coseno y el seno de números complejos:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \cos(z) &= \frac{e^{\iu x - y} + e^{-\iu x + y}}{2}
+        \\[1ex]
+        \sin(z) &= \frac{e^{\iu x - y} - e^{-\iu x + y}}{2\iu}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Si $y=0 \Rightarrow z \in \setR$ quedan expresiones para el coseno y el seno de números reales:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \cos(x) &= \frac{e^{\iu x} + e^{-\iu x}}{2}
+        \\[1ex]
+        \sin(x) &= \frac{e^{\iu x} - e^{-\iu x}}{2\iu}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+Y si $x=0 \Rightarrow z \in \setI$ quedan expresiones para el coseno hiperbólico y el seno hiperbólico de números imaginarios puros:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \cos(\iu y) &= \frac{e^{-y} + e^y}{2} = \cosh(\iu y)
+        \\[1ex]
+        \sin(\iu y) &= \frac{e^{-y} - e^y}{2\iu} = -\iu \sinh{(\iu y)}
+    \end{aligned}
+    \right.
+\end{equation*}

@@ -1,0 +1,265 @@
+\chapter{Aplicaciones en ingeniería}
+
+\section{Decibeles}
+
+Las escalas logarítmicas son aquellas que tienen un factor de escala no lineal.
+En un gráfico con escala logarítmica, los intervalos del eje aumentan de manera no simétrica, como se muestra en la siguiente imagen:
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/misc-escala-log.pdf_tex}
+\end{center}
+
+En la imagen anterior, el eje $m$ está representado en escala logarítmica con base 10, mientras que el eje $n$ en escala lineal.
+Una escala logarítmica permite representar fenómenos que requieran más resolución a medida que la variable disminuye.
+Por ejemplo, el intervalo $[1;10]$ representa la mitad del intervalo total, mientras que el intervalo $[10;19]$ representa menos de la cuarta parte, y aún así ambos tienen el mismo módulo.
+
+A partir de la definición del logarítmo, es posible asignar a las magnitudes $m$ un valor del eje $n$ y viceversa:
+\begin{equation*}
+    \log{m}=n
+\end{equation*}
+
+Se suelen estudiar relaciones entre una magnitud $(x)$ y un valor de referencia $(x_0)$ constante:
+\begin{equation*}
+    m=\frac{x}{x_0}
+\end{equation*}
+
+Cuando se expresa una relacion $m$ con escala logarítmica en base 10, se dice que su respectivo valor $n$ está en bels.
+El bel no es una unidad del sistema internacional, sino un indicador de la escala usada.
+Una magnitud dada en bels indica qué tantos múltiplos de 10 mayor que la referencia es.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Bel}
+    \cusTe{Una relación $n$ dada en bels es aquella que toma una relación $m$ y le aplica una escala logarítmica.}
+    \begin{equation*}
+        f_{\si{\bel}}(x)=\log \Big( \frac{x}{x_0} \Big) \, \si{\bel}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Decibel}
+    \cusTe{Una relación dada en decibeles es la décima parte de una dada en bels.}
+    \begin{equation*}
+        f_{\si{\deci\bel}}(x) = 10 \log \Big( \frac{x}{x_0} \Big) \si{\deci\bel}
+    \end{equation*}
+\end{mdframed}
+
+De esta forma, podemos expresar diferentes magnitudes ($x$) en bels ($\si{\bel}$) o decibeles ($\si{\deci\bel}$) para expresar la relación ($m$) entre la magnitud y el valor de referencia ($x_0$) dado:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline 
+        \multicolumn{4}{|c|}{Escalas logarítmicas} \\ \hline \hline
+        $x$ & $m$ & $f_{\, \si{\bel}}(x)$ & $f_{\si{\deci\bel}}(x)$ \\
+        \hline \hline
+        $x_0$ & 1 & $0 \, \mathrm{bel}$ & $0 \, \si{\deci\bel}$ \\ \hline
+        $2 \, x_0$ & 2 & $0.3 \, \mathrm{bel}$ & $3 \, \si{\deci\bel}$ \\ \hline
+        $10 \, x_0$ & 10 & $1 \, \mathrm{bel}$ & $10 \, \si{\deci\bel}$ \\ \hline
+        $100 \, x_0$ & 100 & $2 \, \mathrm{bel}$ & $20 \, \si{\deci\bel}$ \\ \hline
+        $1000 \, x_0$ & 1000 & $3 \, \mathrm{bel}$ & $30 \, \si{\deci\bel}$ \\ \hline
+        $10^n \, x_0$ & $10^n$ & $n \, \mathrm{bel}$ & $10 n \, \si{\deci\bel}$ \\ \hline
+    \end{tabular}
+\end{center}
+
+Al igual que $100\,\si{\centi\metre} = 1\,\si{\metre}$, por más que el decibel no sea una unidad, el factor de conversión $\si{\deci\bel} = 10^{-1} \,\si{\bel}$ se puede verificar analizando cualquier fila de la tabla anterior.
+
+
+\section{Promedios y valor eficaz}
+
+La media, valor medio, o simplemente promedio, es un la cantidad de veces que se repite el elemento de un conjunto que más se repite.
+Se define como un caso particular de la media generalizada tomando $k=1$.
+Así mismo se definen el valor cuadrático medio (abreviado como rms por las siglas en inglés root mean square) y valor cúbico medio tomando $k=2$ y $k=3$ respectivamente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Media generalizada}
+    \begin{equation*}
+        \sub{x}{med} = \sqrt[\uproot{20} \scriptstyle k]{ \frac{1}{N} \sum_{n=0}^{N} x_\ith^k }
+    \end{equation*}
+\end{mdframed}
+
+Los valores $x_\ith$ podrían tratarse, por ejemplo, de la temperatura hora a hora registrada a lo largo de un día.
+En tal caso, habría 24 valores de temperatura asociados al tiempo en que se dieron.
+Pero el cálculo del promedio no distinguiría diferencia entre dos horas consecutivas en las que hubo la misma temperatura porque el tiempo sería independiente.
+Los valores $x_\ith$ no necesariamente tienen relación entre si, y si la tienen, son variables discretas.
+
+Si en vez de hacer mediciones regularmente cada una hora como en el caso anterior, se registrase la temperatura durante intervalos de tiempo en que esta no varía, no se podría definir la cantidad total de $N$ mediciones porque habría infinitos valores (continuos pero diferentes entre sí) de temperatura registrados durante intervalos continuos.
+Para funciones $f(x)$ que tomen un valor $f_\ith$ constante durante intervalos $\Delta x_\ith$ se define el valor medio ponderado.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Media ponderada}
+    \cusTe{Sea $f(x)$ una función continua por tramos y constante por tramos.}
+    \begin{equation*}
+        \sub{f}{med} = \sqrt[\uproot{36} \scriptstyle k]{ \frac{\sum\limits_{n=0}^{N} f_\ith^k(x) \, \Delta x_\ith}{\sum\limits_{n=0}^{N} \Delta x_\ith }}
+    \end{equation*}
+\end{mdframed}
+
+Si quisiéramos tomar mediciones instantáneas de la temperatura en función del tiempo, no podríamos definir intervalos $\Delta x$ finitos.
+Estaríamos considerando que los intervalos son infinitesimales.
+Para funciones continuas, pero que no necesariamente sean constantes por tramos, se toma el límite $\Delta x \to 0$ en el valor medio ponderado.
+Pero en tal caso, quedaría una integral impropia con $N\to\infty$ que no sería computable.
+Ahora bien, para funciones periódicas podemos evaluar $N \to x_0+T$ sabiendo que el valor medio es el mismo para cualquier intervalo $[x_0;x_0+T]$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Media ponderada}
+    \cusTe{Sea $f(x)$ una función periódica.}
+    \begin{equation*}
+        \sub{f}{med} = \sqrt[\uproot{15} \scriptstyle k]{\frac{1}{T} \int_{x_0}^{x_0+T} f^k(x) \, \dif x}
+    \end{equation*}
+\end{mdframed}
+
+De esta forma cabe destacar el caso particular para el valor cuadrático medio con $k=2$ para funciones periódicas, llamado valor eficaz.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Valor eficaz}
+    \begin{equation*}
+        \rms{f}=\sqrt{\dfrac{1}{T} \int_{x_0}^{x_0+T} f^2(x)\,\dif x}
+    \end{equation*}
+\end{mdframed}
+
+De manera que, por ejemplo, si la función está dada por una expresión senoidal $f(x)=\peak{A} \sin(\omega x + \varphi)$ acotada por $-\peak{A}<f(x)<\peak{A}$, su valor eficaz es:
+\begin{equation*}
+    \rms{f}=\frac{\peak{A}}{\sqrt{2}}
+\end{equation*}
+
+\begin{center}
+    \def\svgwidth{0.8\linewidth}
+    \input{./images/misc-rms.pdf_tex}
+\end{center}
+
+
+% FALTA TERMINAR \section{Crecimiento y decaimiento exponencial}
+
+
+\section{Coordenadas esféricas}
+
+Para ondas tridimensionales que se propagan en frentes de onda esféricos, como lo son el caso de las ondas en campo libre, se define la segunda derivada con respecto del espacio según el laplaciano de presión.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Laplaciano de presión}
+    \begin{equation*}
+        \grad^2 p(r) = \frac{1}{r} \frac{\partial^2 (rp)}{\partial r^2}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Fasores}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Fasor}
+    \cusTe{Un fasor es la representación de una oscilación $x(t)$ a partir de un número complejo $z(\theta)=\norm{z} e^{\iu\theta}$ cuyo ángulo $\theta(t)=\omega t + \varphi$ varía uniformemente de manera que:}
+    \begin{equation*}
+        x(t) = \Re (z)
+    \end{equation*}
+\end{mdframed}
+
+\subsection{Suma de fasores}
+Se tienen $\nth$ valores $x_\ith$ de una magnitud que puede ser expresada por la parte real de un número complejo.
+\begin{gather*}
+    x_1 = \Re(z_1)
+    \\
+    x_2 = \Re(z_2)
+    \\
+    \vdots
+    \\
+    x_\ith = \Re(z_\ith)
+\end{gather*}
+
+Se pretende calcular la suma $x_T$ de dichos valores:
+\begin{align*}
+    x_T &= x_1 + x_2 + \ldots + x_\ith
+    \\
+    x_T &=  \sum_{\ith=1}^\nth x_\ith
+\end{align*}
+
+Cada número complejo $z_\ith$ representa una magnitud $x_\ith$ y expresándolo en su forma polar $z_\ith=\norm{z_\ith}\,e^{\theta_\ith}$ donde $\theta_\ith=\omega_\ith t + \varphi_\ith$ se tiene:
+\begin{gather*}
+    z_1 = \norm{z_1} \, e^{\iu (\omega_1 t + \varphi_1)} = \norm{z_1} \, e^{\iu \omega_1 t} \, e^{\iu \varphi_1}
+    \\
+    z_2 = \norm{z_2} \, e^{\iu (\omega_2 t + \varphi_2)} = \norm{z_2} \, e^{\iu \omega_2 t} \, e^{\iu \varphi_2}
+    \\
+    \vdots
+    \\
+    z_\ith = \norm{z_\ith} \, e^{\iu (\omega_\ith t + \varphi_\ith)} = \norm{z_\ith} \, e^{\iu \omega_\ith t} \, e^{\iu \varphi_\ith}
+\end{gather*}
+
+Se define $w_\ith=\norm{z_\ith}\,e^{\varphi_\ith}$ simplemente para simplificar notación.
+No confundir $w$ con $\omega$.
+Luego, cada $z_\ith$ queda expresado por:
+\begin{gather*}
+    z_1 = w_1 \, e^{\iu \omega_1 t}
+    \\
+    z_2 = w_2 \, e^{\iu \omega_2 t}
+    \\
+    \vdots
+    \\
+    z_\ith = w_\ith \, e^{\iu \omega_\ith t}
+\end{gather*}
+
+La suma $z_T$ va a estar dada por:
+\begin{align*}
+    z_T &= w_1 \, e^{\iu \omega_1 t} + w_2 \, e^{\iu \omega_2 t} + \ldots + w_\ith \, e^{\iu \omega_\ith t}
+    \\
+    z_T &= \sum_{\ith=1}^\nth w_\ith \, e^{\iu \omega_\ith t}
+\end{align*}
+
+Si todos los valores de dicha magnitud tienen la misma frecuencia angular $\omega_1=\omega_2=\ldots=\omega_\ith=\omega_0$ la suma queda dada por:
+
+\begin{align*}
+    z_T &= e^{\iu \omega_0 t} \left( w_1 + w_2 + \ldots + w_\ith \right)
+    \\
+    &=  e^{\iu \omega_0 t} \sum_{\ith=1}^\nth w_\ith
+    \\
+    &= e^{\iu \omega_0 t} \sum_{\ith=1}^\nth \norm{z_\ith} e^{\varphi_\ith}
+    \\
+    &= e^{\iu \omega_0 t} \sum_{\ith=1}^\nth \norm{z_\ith} \big[ \cos(\varphi_\ith)+\iu\sin(\varphi_\ith) \big]
+    \\
+    &= e^{\iu \omega_0 t} \left[ \sum_{\ith=1}^\nth \norm{z_\ith} \cos(\varphi_\ith) + \iu \sum_{\ith=1}^\nth \norm{z_\ith} \sin(\varphi_\ith) \right]
+    \\
+    &= e^{\iu \omega_0 t} \, w_T
+\end{align*}
+
+Donde $w_T=\sum_{\ith=1}^\nth w_\ith$ fue definido nuevamente para simplificar notación.
+
+El módulo de $w_T$ es:
+\begin{equation*}
+    \norm{w_T} = \sqrt{\left[ \sum_{\ith=1}^\nth \norm{z_\ith} \cos(\varphi_\ith) \right]^2 + \left[ \sum_{\ith=1}^\nth \norm{z_\ith} \sin(\varphi_\ith) \right]^2}
+\end{equation*}
+
+La fase $\varphi_T$ de $w_T$ es:
+\begin{equation*}
+    \varphi_T = \arctan \left( \frac{\sum_{\ith=1}^\nth \norm{z_\ith} \sin(\varphi_\ith)}{\sum_{\ith=1}^\nth \norm{z_\ith} \cos(\varphi_\ith)} \right)
+\end{equation*}
+
+Pudiendo expresar, finalmente, la suma $z_T$ como:
+\begin{align*}
+    z_T  &= e^{\iu \omega_0 t} \, w_T
+    \\
+    &= e^{\iu \omega_0 t} \, \norm{w_T} e^{\iu \varphi_T}
+    \\
+    &= \norm{w_T} \, e^{\iu(\omega_0 t + \varphi_T)}
+\end{align*}
+
+Luego, la magnitud $x_T$ es por definición:
+\begin{equation*}
+    x_T(t) = \Re(z_T) = \norm{w_T} \cos(\omega_0 t + \varphi_T)
+\end{equation*}
+
+Observar que la frecuencia angular $\omega_0$ de la suma $z_T$ es la misma que la de los sumandos, de modo que la suma tiene el período de los fasores que se sumen.
+
+% FALTA TERMINAR \subsection{Multiplicación de fasores}

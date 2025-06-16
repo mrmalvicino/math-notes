@@ -1,0 +1,179 @@
+\chapter{Residuos}
+
+\section{Teorema de los residuos}
+\label{sec:residue}
+
+El residuo $(b_1)$ es el coeficiente del primer término de las series de potencias negativas:
+\begin{equation*}
+    f(z) = \frac{b_1}{z-z_0} + \sum_{\nth=2}^\infty \frac{b_\nth}{\left(z-z_0\right)^\nth} + \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
+\end{equation*}
+
+Las siguientes, son las primitivas de las series de la ecuación anterior:
+\begin{align*}
+    \int \sum_{\nth=2}^\infty \frac{b_\nth}{\left(z-z_0\right)^\nth} \dif z
+    &= \sum_{\nth=2}^\infty b_\nth \frac{-1}{\nth-1} \frac{1}{\left(z-z_0\right)^{\nth-1}}
+    \\
+    \int \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth \dif z
+    &= \sum_{\nth=0}^\infty \frac{a_\nth}{\nth+1} \left(z-z_0\right)^{\nth+1}
+\end{align*}
+
+Calculando la integral de $f(z)$ sobre una curva cerrada $C$ contenida en un conjunto abierto simplemente conexo $A$, se tiene:
+\begin{multline*}
+    \oint_C f(z) \, \dif z =
+    \\
+    \scale{0.96}{
+    = \oint_C \frac{b_1}{z-z_0} \dif z + \oint \sum_{\nth=2}^\infty \frac{b_\nth}{\left(z-z_0\right)^n} + \oint \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
+    }
+\end{multline*}
+
+Pero las integrales sobre una curva cerrada de las series que tienen primitiva se anulan por el teorema de la primitiva (Sec. \ref{sec:primitive}), quedando de la ecuación anterior solamente:
+\begin{equation*}
+    \oint_C f(z) \, \dif z = \oint_C \frac{b_1}{z-z_0} \dif z
+\end{equation*}
+
+Esto significa que la integral sobre la curva $C$ está dada por la integral del término $(z-z_0)^{-1}$ y su coeficiente $b_1$.
+Por lo cual, es posible tomar cualquier curva $C_i$ que contenga a la singularidad $z_0$.
+Por la fórmula de Cauchy (Sec. \ref{sec:CauchyFormula}), la integral anterior es:
+\begin{equation*}
+    \oint_C f(z) \, \dif z = 2 \pi \, \iu \, b_1
+\end{equation*}
+
+El teorema de los residuos permite calcular la integral sobre una curva cerrada que encierre una cantidad $\Nth$ finita de singularidades aisladas:
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/calc-polos-2.pdf_tex}
+\end{center}
+
+\begin{center}
+    \def\svgwidth{0.5\linewidth}
+    \input{./images/calc-polos-1.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \oint_C f(z) \, \dif z = \sum_{\nth=0}^\Nth 2 \pi \, \iu \, b_1(z_\nth)
+    \end{equation*}
+    \noTi{Donde, el residuo de cada polo está dado por:}
+    \begin{equation*}
+        b_1(z_0) = \frac{\dif^{\kth-1}}{\dif z^{\kth-1}} \frac{\Phi(z_0)}{(\kth-1)!}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Integrales reales periódicas}
+
+Esta es una aplicación del teorema de los residuos (Sec. \ref{sec:residue}) que permite calcular integrales de funciones periódicas de una variable real:
+\begin{equation*}
+    \int_{t_0}^{t_0+T} f(t) \, \dif t
+\end{equation*}
+
+Dada una circunferencia unitaria $C$ parametrizada:
+\begin{equation*}
+    z(t) = e^{\iu \omega t} = \cos(\omega t) + \iu \sin(\omega t)
+\end{equation*}
+
+Donde:
+\begin{gather*}
+    t_0 \leq t < t_0+T
+    \\
+    T = \frac{1}{\omega}
+\end{gather*}
+
+Y su diferencial de arco está dado por:
+\begin{equation*}
+    \dif z = \iu \, \omega \, e^{\iu \omega t} \, \dif t
+\end{equation*}
+
+A partir de la propiedad \ref{prop:ReIm} y la parametrización de $C$, se aplica el siguiente cambio de variable:
+\begin{gather*}
+    \cos(\omega t) = \frac{1}{2} \left( z + \frac{1}{z} \right)
+    \\[1ex]
+    \sin(\omega t) = \frac{1}{2\iu} \left( z - \frac{1}{z} \right)
+\end{gather*}
+
+El método consiste en suponer que $f(t)$ es una función real que surge de evaluar la curva $z(t)$ en una función compleja $f(z)$ de manera que su parte imaginaria es nula:
+\begin{equation*}
+    \int_{t_0}^{t_0+T} f \left( e^{\iu \omega t} \right) \dif t  = \oint_C f(z) \, \dif z
+\end{equation*}
+
+
+\section{Integrales impropias}
+
+Sea $f(z)$ un cociente de polinomios.
+Se tiene un segmento de la recta real y un semicírculo $(C)$ formando entre ambos una curva cerrada $(C_0)$.
+
+Este semicírculo cerrado contiene las $\Nth$ singularidades que $f(z) \, e^{\iu \omega z}$ presente en el semiplano superior.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-polos-3.pdf_tex}
+\end{center}
+
+\begin{equation*}
+    f(z) = \frac{P(z)}{Q(z)}
+\end{equation*}
+
+Donde:
+\begin{equation*}
+    Q(z_0) \neq 0 \quad \forall \enspace z_0 \in C_o
+\end{equation*}
+
+Además, el grado de $P(z)$ y de $Q(z)$ verifican:
+\begin{gather*}
+    \textrm{Si} \enspace \omega = 0 \Rightarrow \operatorname{grad}(P) > \operatorname{grad}(Q) + 1
+    \\[1ex]
+    \textrm{Si} \enspace \omega \neq 0 \Rightarrow \operatorname{grad}(P) > \operatorname{grad}(Q)
+\end{gather*}
+
+Se define entonces la siguiente integral curvilínea sobre el total de la curva cerrada:
+\begin{equation*}
+    \oint f(z) \, e^{\iu \omega z} \, \dif z = \int_C f(z) \, e^{\iu \omega z} \, \dif z + \int_{-R}^{R} f(t) \, e^{\iu \omega t} \, \dif t
+\end{equation*}
+
+La parte izquierda de la ecuación se resuelve independientemente del radio $(R)$ del semicírculo, por el teorema de los residuos (Sec. \ref{sec:residue}).
+
+Tomando el límite cuando $R\to\infty$ queda definida una integral real impropia.
+\begin{equation*}
+    \sum_{\nth=0}^\Nth 2 \pi \, \iu \, b_1(z_\nth) = \int_C f(z) \, e^{\iu \omega z} \, \dif z + \int_{-\infty}^{\infty} f(z) \, e^{\iu \omega t} \, \dif t
+\end{equation*}
+
+Si $\int_C f(z) \, e^{\iu \omega z} \, \dif z = 0$ cuando $R \to \infty$ entonces la integral impropia queda definida como sigue:
+\begin{equation*}
+    \int_{-\infty}^{\infty} f(z) \, e^{\iu \omega t} \, \dif t = \sum_{\nth=0}^\Nth 2 \pi \, \iu \, b_1(z_\nth)
+\end{equation*}
+
+La siguiente propiedad es de importancia a la hora de computar integrales impropias.
+Vemos que:
+\begin{equation*}
+    \norm{e^{\iu \omega z}} = \norm{e^{\iu \omega \left(x + \iu y\right)}} = \underbrace{\norm{e^{\iu \omega x}}}_{=1} e^{-\omega y}
+\end{equation*}
+
+Obteniendo:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{gather*}
+        \norm{e^{\iu \omega z}} = e^{-\omega y}
+        \\[1em]
+        \left\{
+        \begin{aligned}
+            \norm{e^{\iu \omega z}} &< 1 \iff \omega \, y > 0
+            \\
+            \norm{e^{\iu \omega z}} &> 1 \iff \omega \, y < 0
+        \end{aligned}
+        \right.
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Desigualdad de Jordan}
+    \begin{equation*}
+        \int_0^\pi e^{-R \sin(\theta)} \, \dif \theta < \frac{\pi}{R}
+    \end{equation*}
+\end{mdframed}

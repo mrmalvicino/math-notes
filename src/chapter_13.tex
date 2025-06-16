@@ -1,0 +1,647 @@
+\chapter{Geometría diferencial}
+
+\section{Curvas}
+
+Una curva puede ser entendida como un camino que a priori es recto pero instante a instante va cambiando de dirección, doblándose conforme es recorrido.
+
+Las curvas pueden estar dadas en 2 dimensiones contenidas en un plano o pueden darse en las 3 dimensiones espaciales.
+
+Si tuviesemos un hilo tirado en el piso o un alambre doblado colgando, ambos de grosor nulo, podríamos referirnos al espacio que ocupan como curvas en dos y tres dimensiones respectivamente.
+
+Una curva puede ser definida mediante una ecuación paramétrica o una ecuación implícita.
+Geométricamente, ambas formas de representación describen lo mismo.
+Pero la ecuación paramétrica indica cómo la curva es ``recorrida'', mientras que la ecuación implícita indica cuáles son los puntos que la delimitan.
+
+
+\subsection{Ecuación paramétrica}
+
+La ecuación paramétrica de una curva es una función vectorial que toma valores reales y entrega vectores de 2 o 3 coordenadas.
+A medida que el parámetro $t$ aumenta, la imagen de la función va trazando los puntos del recorrido.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Curva en el plano}
+    \begin{equation*}
+        \Vec{c}: \setR \longrightarrow \setR^2 \tq \Vec{c}(t) = \begin{bmatrix} x(t) & y(t) \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Curva en el espacio}
+    \begin{equation*}
+        \Vec{c}: \setR \longrightarrow \setR^3 \tq \Vec{c}(t) = \begin{bmatrix} x(t) & y(t) & z(t) \end{bmatrix}
+    \end{equation*}
+\end{mdframed}
+
+Puede haber más de una parametrización correcta para una misma curva.
+
+
+\subsection{Ecuación implícita}
+
+Las ecuaciones implícitas de una curva delimitan los puntos que la componen.
+Indican la geometría que tiene el conjunto ($C$) de puntos que conforman la curva en un plano o en el espacio.
+
+Una curva plana puede estar dada de manera implícita como la gráfica de funciones escalares o como el conjunto de nivel de un campo escalar de 2 variables.
+
+\concept{Gráfica de funciones escalares}
+\begin{gather*}
+    \textrm{Dada} \hspace{1ex} f:\setR \longrightarrow \setR \tq f(x)=y
+    \\
+    C = \inBraces{ (x,y) \in \setR^2 \tq f(x)-y=0 }
+\end{gather*}
+
+\concept{Curva de nivel de un campo escalar}
+\begin{gather*}
+    \textrm{Dada} \hspace{1ex} f:\setR^2 \longrightarrow \setR \tq f(x,y)=k
+    \\
+    C = \inBraces{ (x,y) \in \setR^2 \tq f(x,y)-k=0 }
+\end{gather*}
+
+Una curva en el espacio puede resultar de la intersección de superficies.
+En este caso se cumplen simultáneamente las ecuaciones de un sistema que expresa, en cada ecuación, cada una de las superficies que se intersectan.
+
+\concept{Intersección entre superficies}
+\begin{gather*}
+    C = \{ (x,y,z) \in \setR^3 \tq S_1 \cap S_2 \ldots \cap S_k \}
+    \\[1ex]
+    \left\{
+    \begin{aligned}
+        & S_1 (x,y,z)=0
+        \\
+        & S_2 (x,y,z)=0
+        \\
+        & \hspace{1.3cm} \vdots
+        \\
+        & S_k (x,y,z)=0
+    \end{aligned}
+    \right.
+\end{gather*}
+
+\subsection{Parametrización de la implícita}
+
+La imagen de la ecuación paramétrica de una curva son los puntos de dicho plano o espacio que están delimitados por la ecuación implícita.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    La parametrización $\Vec{c}$ es solución de la ecuación implícita $C$.
+    \begin{equation*}
+        \im (\Vec{c}) \subseteq C
+    \end{equation*}
+\end{mdframed}
+
+Algunas parametrizaciones no arrojan exactamente todos los puntos de la ecuación implícita, ya que pueden tener discontinuidades numerables.
+Para una única ecuación implícita, es posible encontrar varias parametrizaciones que sean soluciónes de la misma.
+Para cada parametrización, existe al menos una ecuación implícita que eventualmente se puede calcular.
+
+\concept{Parametrización de curvas en un plano}
+
+Si se puede poner una variable en función de la otra, entonces existe una parametrización.
+
+\concept{Parametrización de curvas en el espacio}
+
+Primero se proyecta la curva sobre alguno de los planos coordenados, de manera tal que esa proyección sea una curva conocida.
+Luego, se despeja la coordenada no tenida en cuenta en la proyección anterior.
+
+% Agregar vectores tangente y normal. c'(t) es tangente, pero ¿c''(t) es normal?
+
+\subsection{Clasificación de curvas}
+
+Una curva cerrada es aquella que no tiene principio ni fin.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Curva cerrada}
+    \begin{equation*}
+        \Vec{c}: [t_0;t_1] \subset \setR \longrightarrow \setR^2 \tq \Vec{c}(t_0) = \Vec{c}(t_1)
+    \end{equation*}
+\end{mdframed}
+
+Una curva simple no se corta a sí misma.
+Una curva es simple si tiene una parametrización inyectiva.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Curva simple}
+    \begin{equation*}
+        t_1 \neq t_2 \Rightarrow \Vec{c}(t_1) \neq \Vec{c}(t_2)
+    \end{equation*}
+\end{mdframed}
+
+Por definición, si una parametrización es simple, la implícita también lo es.
+
+Una curva regular tiene una parametrización diferenciable.
+Una curva es regular si tiene una parametrización cuya derivada es no nula para todos los puntos del dominio.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Curva regular}
+    \begin{equation*}
+        \frac{\dif}{\dif t} \Vec{c}(t) \neq 0
+    \end{equation*}
+\end{mdframed}
+
+Por definición, si una parametrización es regular, la implícita también.
+
+Aquellos puntos en los que la curva no es regular se conocen como puntos singulares.
+Los puntos singulares son puntos en los que una curva presenta una anomalía, que puede implicar que no sea simple (y tenga un punto de cruce), que tenga un punto cuspidal, que tenga un punto de estrangulación (o tacnodo) o que tenga un punto aislado.
+
+Así como el gradiente de un plano nos da los coeficientes de la ecuación del plano, todas las superficies son caracterizadas por su gradiente.
+
+Si hacemos el producto vectorial entre los gradientes de las ecuaciones implícitas de dos superficies que se intersectan, estaremos calculando un vector que es ortogonal a ambos gradientes.
+
+Supongamos que la intersección de esas superficies es una curva.
+Si en algún punto este producto vectorial se anula $\grad S_1 \times \grad S_2 = (0,0,0)$, significa que la curva tiene versor normal nulo y por lo tanto que no es regular.
+
+
+\section{Catálogo de curvas planas}
+
+\concept{Secciones cónicas}
+
+Las secciones cónicas son curvas planas que resultan de la intersección de un cono con un plano inclinado.
+La curva resultante va a depender de la inclinación del plano y el radio del cono, entre otros parámetros.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Circunferencia}
+    \begin{gather*}
+        \left(x-x_0\right)^2 + \left(y-y_0\right)^2 = r^2
+        \\[1em]
+        \Vec{c}:[0;2 \pi) \subset \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t)= \begin{bmatrix} x_0 + r \cos{(t)} & y_0 + r \sin{(t)} \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elipse}
+    \begin{gather*}
+        \frac{(x-x_0)^2}{a^2}+\dfrac{(y-y_0)^2}{b^2}=1
+        \\[1em]
+        \Vec{c}:[0;2 \pi) \subset \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t)= \begin{bmatrix} x_0 + a\cos{(t)} & y_0 + b\sin{(t)} \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Parábola horizontal}
+    \begin{gather*}
+        \left(y-y_0\right)^2 = 2p\left(x-x_0\right)
+        \\[1em]
+        \Vec{c}:\setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t) = \begin{bmatrix} x_0 + \dfrac{t^2}{2p} & y_0 + t \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Parábola vertical}
+    \begin{gather*}
+        \left(x-x_0\right)^2=2p\left(y-y_0\right)
+        \\[1em]
+        \Vec{c}:\setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t) = \begin{bmatrix} x_0 + t & y_0 + \dfrac{t^2}{2p} \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Hipérbola}
+    \begin{gather*}
+        \dfrac{(x-x_0)^2}{a^2}-\dfrac{(y-y_0)^2}{b^2}=1
+        \\[1em]
+        \Vec{c}_1:[0;2 \pi) \subset \setR \longrightarrow \setR^2
+        \\
+        \Vec{c}_1(t) = \begin{bmatrix} x_0 + a\cosh{(t)} & y_0 + b\sinh{(t)} \end{bmatrix}
+        \\[1em]
+        \Vec{c}_2:\left[-\tfrac{\pi}{2}; \tfrac{3}{2} \pi\right) \subset \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}_2(t)= \begin{bmatrix} x_0 + a\tan{(t)} & y_0 + b\sec{(t)} \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Hipérbola conjugada}
+    \begin{gather*}
+        \dfrac{(x-x_0)^2}{a^2}-\dfrac{(y-y_0)^2}{b^2}=-1
+        \\[1em]
+        \Vec{c}:[0;2 \pi) \subset \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t)= \begin{bmatrix} x_0 + a\sinh{(t)} & y_0 + b\cosh{(t)} \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\concept{Secciones cónicas degeneradas}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Recta}
+    \begin{gather*}
+        \dfrac{(x-x_0)}{a}=\dfrac{(y-y_0)}{b}
+        \\[1em]
+        \Vec{c}: \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t) = \begin{bmatrix} x_0 + at & y_0 + bt \end{bmatrix}
+    \end{gather*}
+\end{mdframed}
+
+\concept{Espirógrafos}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Cardioide}
+    \begin{gather*}
+        \left( (x-x_0)^2 - 2a(x-x_0) + (y-y_0)^2 \right)^2 = \\
+        = \left( 2a(x-x_0) \right)^2 + \left( 2a(y-y_0) \right)^2
+        \\[1em]
+        \Vec{c}:[0;2 \pi) \subset \setR \longrightarrow \setR^2 \tq
+        \\
+        \Vec{c}(t) = \left\{
+        \begin{aligned}
+            x(t) &= x_0 + \cos{(t)} \big( a\cos{(t)} \big) \\
+            y(t) &= y_0 + \sin{(t)} \big( a\cos{(t)} \big)
+        \end{aligned}
+        \right.
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Superficies}
+
+Una superficie puede ser entendida como un plano que se ``arruga'' a medida que sus dos vectores directores lo recorren.
+Formalmente, decimos que una superficie es una inmersión que transforma el plano $\setR^2$ y lo aplica en el espacio $\setR^3$.
+
+Las superficies generalmente están dadas en 3 dimensiones, aunque un plano de 2 dimensiones es un caso particular de una superficie.
+
+Si tuviesemos una hoja de papel arrugada, una sábana suspendida en el aire, un maple de huevos, o una carpa de camping, todos de grosor nulo, podriamos referirnos al espacio que ocupan como superficies dadas en tres dimensiones.
+
+
+\subsection{Ecuación paramétrica}
+
+Una diferencia con las curvas, es que las superficies requieren de dos parametros para ser recorridas completamente.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Superficie}
+    \begin{multline*}
+        \Vec{s}: \setR^2 \longrightarrow \setR^3 \tq
+        \\
+        \Vec{s}(u,v) = \begin{bmatrix} x(u,v) & y(u,v) & z(u,v) \end{bmatrix}
+    \end{multline*}
+\end{mdframed}
+
+
+\subsection{Ecuación Implícita}
+
+Las ecuaciónes implícitas de una superficie delimitan los puntos que la componen.
+Indican la geometría que tiene el conjunto ($S$) de puntos que conforman la superficie.
+
+Una superficie puede estar dada de manera implícita como la gráfica de un campo escalar de 2 Variables, como el conjunto de nivel de un campo escalar de 3 variables, y como la intersección de sólidos y superficies.
+
+\concept{Gráfica de campos escalares}
+\begin{gather*}
+    \textrm{Dada} \hspace{1ex} f:\setR^2 \longrightarrow \setR \tq f(x,y)=z
+    \\
+    S= \inBraces{ (x,y,z) \in \setR^3 \tq f(x,y)-z=0 }
+\end{gather*}
+
+\concept{Conjunto de nivel de un campo escalar}
+\begin{gather*}
+    \textrm{Dada} \hspace{1ex}  f:\setR^3 \longrightarrow \setR \tq f(x,y,z)=k
+    \\
+    S= \inBraces{ (x,y,z) \in \setR^3 \tq f(x,y,z)-k=0 }
+\end{gather*}
+
+\concept{Intersección entre sólidos y superficies}
+
+Una superficie puede resultar de la intersección entre solidos, superficies, curvas y cualquier conjunto de puntos en general.
+En este caso, se cumple el sistema de ecuaciones e inecuaciones que expresan los sólidos, superficies o conjuntos que se intersecten.
+
+
+\subsection{Parametrización de la implícita}
+
+La imagen de la ecuación paramétrica de una superficie son los puntos del espacio que están delimitados por las ecuaciones implícitas.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    La parametrización $\Vec{s}$ es solución de las ecuaciones implícitas $S$.
+    \begin{equation*}
+        \im (\Vec{s}) \subseteq S
+    \end{equation*}
+\end{mdframed}
+
+Al igual que ocurría con las curvas, la implícita puede representar puntos que la parametrización no alcanza a recorrer.
+
+
+\subsection{Vectores tangente y normal}
+
+Al haber dos parámetros, hay dos vectores tangentes linealmente independientes.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vectores tangente}
+    \begin{equation*}
+        \Vec{\tang}_1 = \frac{\partial}{\partial u} \Vec{s}(u,v)
+        \quad
+        \Vec{\tang}_2 = \frac{\partial}{\partial v} \Vec{s}(u,v)
+    \end{equation*}
+\end{mdframed}
+
+Los vectores tangentes se pueden hacer unitarios dividiendolos por su norma.
+
+Al ser los vectores tangentes las derivadas parciales, su dirección no es cualquiera si no que entre si forman un ángulo recto.
+Calculando el producto vectorial, se obtiene el vector que es normal a los vectores tangentes, y por lo tanto normal a la superficie.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vector normal}
+    \begin{equation*}
+        \Vec{n} = \Vec{\tang}_1 \times \Vec{\tang}_2
+    \end{equation*}
+\end{mdframed}
+
+Por otro lado, se puede calcular a partir de la ecuación implícita de una superficie.
+Así como los coeficientes de la implícita de un plano son los componentes del vector normal, el gradiente de la ecuación implícita de una superficie es el vector normal a la misma.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Vector normal}
+    \begin{equation*}
+        \Vec{n} = \grad S
+    \end{equation*}
+\end{mdframed}
+
+
+\subsection{Clasificación de superficies}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Superficie orientable}
+    \cusTe{Una superficie es orientable cuando se pueden definir dos versores normales opuestos que la recorran.}
+\end{mdframed}
+
+Se dice que una superficie está orientada positivamente cuando el versor normal en un punto de la misma apunta hacia afuera.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Superficie simple}
+    \cusTe{Una superficie es simple si tiene una parametrización inyectiva.}
+\end{mdframed}
+
+Una superficie es regular si es suave y no tiene picos, ni cimas, ni dobleces, ni esquinas.
+Esto equivale a que el vector normal formado a partir del producto vectorial entre los vectores tangentes nunca se anule.
+O lo que es lo mismo, que el rango de la matriz de $3 \times 2$ derivada de la ecuación paramétrica sea menor que dos.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Superficie regular}
+    \begin{equation*}
+        \Vec{n} \neq 0 \iff \operatorname{ran} \begin{bmatrix} \Vec{\tang}_1^{\,t} & \Vec{\tang}_2^{\,t} \end{bmatrix} <2
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Catálogo de superficies}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Plano}
+    \begin{equation*}
+        a\,x +b\,y +c\,z = d
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El área de un plano es igual a la norma del producto vectorial entre sus vectores directores, es decir la norma del vector normal.
+\end{mdframed}
+
+\concept{Superficies elípticas}
+
+Las superficies elípticas no tienen simetría axial, pero son simétricas son respecto a un plano cartesiano.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Cono elíptico}
+    \begin{equation*}
+        \frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = \frac{(z-z_0)^2}{c^2}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elipsoide}
+    \begin{gather*}
+        \frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} + \frac{(z-z_0)^2}{c^2} = 1
+        \\[1em]
+        \Vec{s}_1(t) = \left\{
+        \begin{aligned}
+            x(u,v) &= x_0 + a \cos{(u)} \sin{(v)} \\
+            y(u,v) &= y_0 + b \sin{(u)} \sin{(v)} \\
+            z(u,v) &= z_0 + c \cos{(v)}
+        \end{aligned}
+        \right.
+        \\
+        \textrm{Con} \hspace{1ex} 0 \leq u < 2 \pi \quad 0 \leq v \leq \pi
+        \\[1ex]
+        \Vec{s}_2(t) = \left\{
+        \begin{aligned}
+            x(u,v) &= x_0 + a \cos{(u)} \cos{(v)} \\
+            y(u,v) &= y_0 + b \sin{(u)} \cos{(v)} \\
+            z(u,v) &= z_0 + c \sin{(v)}
+        \end{aligned}
+        \right.
+        \\
+        \textrm{Con} \hspace{1ex} 0 \leq u < 2 \pi \quad -\dfrac{\pi}{2} \leq v \leq \dfrac{\pi}{2}
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Paraboloide elíptico}
+    \begin{equation*}
+        \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = \dfrac{z-z_0}{c}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Paraboloide hiperbólico}
+    \begin{equation*}
+        \dfrac{(x-x_0)^2}{a^2} - \dfrac{(y-y_0)^2}{b^2} = \dfrac{z-z_0}{c}
+    \end{equation*}
+\end{mdframed}
+
+\concept{Superficies de revolución:}
+
+Las superficies de revolución son simétricas con respecto a un eje.
+Se pueden concebir rotando media vuelta las curvas cónicas sobre dicho eje de simetría y luego uniendo las posiciones durante el giro.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Cono de revolución}
+    \begin{equation*}
+        (x-x_0)^2 + (y-y_0)^2 = m\left(z-z_0\right)^2
+    \end{equation*}
+\end{mdframed}
+
+Intersectando un cono de revolución con un plano, se obtienen las secciones cónicas y secciones cónicas degeneradas.
+Pero además, este cono se genera por revolución a partir de una recta.
+Esta, a su vez, es una sección cónica degenerada, lo cual resulta un tanto paradójico.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Esfera}
+    \begin{gather*}
+        (x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = r^2
+        \\[1em]
+        \Vec{s}(t) = \left\{
+        \begin{aligned}
+            x(u,v) &= x_0 + r \sin{(u)} \cos{(v)} \\
+            y(u,v) &= y_0 + r \sin{(u)} \sin{(v)} \\
+            z(u,v) &= z_0 + r \cos{(u)}
+        \end{aligned}
+        \right.
+        \\
+        \textrm{Con} \hspace{1ex} 0 \leq u < \pi \quad 0 \leq v < 2 \pi
+    \end{gather*}
+\end{mdframed}
+
+Cualquiera de las parametrizaciones del elipsoide pueden ser usadas reemplazando los parámetros por el radio de modo que $a=b=c=r$ para parametrizar una esfera.
+
+A la siguiente superficie de revolución también se la conoce como esferoide.
+Las ecuaciones implícita y paramétrica son idénticas a la del elipsoide tradicional, con la particularidad de que dos de los parámetros dos iguales entre si.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Elipsoide de revolución}
+    \begin{equation*}
+        a=b \enspace \lor \enspace b=c \enspace \lor \enspace a=c
+    \end{equation*}
+\end{mdframed}
+
+Si $a=c \enspace \lor \enspace b=c$ se lo llama Esferoide Oblato, y la simetría sería con respecto al eje $x$ o al eje $y$.
+Si $a=b$ se la llama Esferoide Prolato y la simetría sería con respecto al eje $z$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Paraboloide de revolución}
+    \begin{equation*}
+        (x-x_0)^2 + (y-y_0)^2 = m(z-z_0)
+    \end{equation*}
+\end{mdframed}
+
+La simetría de esta superficie se va a dar respecto al eje cuyo término no esté elevado al cuadrado.
+Por otro lado, si $m$ es negativo va a tener una orientación negativa.
+De $m$ depende, además, qué tan ancho sea el paraboloide.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Hiperboloide de 1 hoja}
+    \begin{equation*}
+        \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} - \dfrac{(z-z_0)^2}{c^2} = 1
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Hiperboloide de 2 hojas}
+    \begin{equation*}
+        \dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} - \dfrac{(z-z_0)^2}{c^2} = -1
+    \end{equation*}
+\end{mdframed}
+
+\concept{Superficies de extrusión}
+
+Las superficies de extrusión se obtienen trasladando o ``copiando'' una curva a lo largo de un eje.
+En las ecuaciones implícitas de las superficies por extrusión, la componente sobre la que se crea el copiado no impone ninguna condición.
+La extrusión también puede darse en los otros ejes, no solo en el $z$.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Cilindro}
+    \begin{equation*}
+        S = (x,y,z) \in \setR^3 \tq (x-x_0)^2 + (y-y_0)^2 = r^2
+    \end{equation*}
+\end{mdframed}
+
+\concept{Otras superficies}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Toro}
+    \begin{gather*}
+        \scale{0.98}{ \left( a - \sqrt{(x-x_0)^2+(y-y_0)^2)} \right)^2 + (z-z_0)^2 = r^2 }
+        \\[1em]
+        \Vec{s}(t) = \left\{
+        \begin{aligned}
+            x(u,v) &= x_0 + (a+r \cos{(u)}) \cos{(v)} \\
+            y(u,v) &= y_0 + (a+r \cos{(u)}) \sin{(v)} \\
+            z(u,v) &= z_0 + r \sin{(u)}
+        \end{aligned}
+        \right.
+        \\
+        \textrm{Con} \hspace{1ex} -\pi \leq u < \pi \quad 0 \leq v \leq 2 \pi
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Cinta de Möbius}
+    \begin{gather*}
+        \Vec{s}(t) = \left\{
+        \scale{0.98}{
+        \begin{aligned}
+            x(u,v) &= x_0 + \cos{(u)} \left( \dfrac{v}{2} \cos{\Big(\dfrac{u}{2}\Big)}+a \right) \\[1ex]
+            y(u,v) &= y_0 + \sin{(u)} \left( \dfrac{v}{2} \cos{\Big(\dfrac{u}{2}\Big)}+a \right) \\[1ex]
+            z(u,v) &= z_0 + \dfrac{v}{2} \sin{\Big(\dfrac{u}{2}\Big)}
+        \end{aligned}
+        }
+        \right.
+        \\
+        \textrm{Con} \hspace{1ex} \leq u < 2 \pi \quad -\dfrac{1}{2} \leq v \leq \dfrac{1}{2}
+    \end{gather*}
+\end{mdframed}

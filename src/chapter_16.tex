@@ -1,0 +1,31 @@
+\chapter{Teoremas del cálculo integral}
+
+\section{Teo. de Green-Riemann}
+
+El Teorema de Green relaciona la integral curvilínea de tipo 2.1 con la integral doble de la tercera componente del rotacional.
+
+Sea $C$ una curva cerrada y simple, orientada positivamente y sea $A$ un recinto simplemente conexo, se tiene que:
+\begin{align*}
+    \oint_C \Vec{F} \cdot \dif \Vec{s}
+    &= \iint_A \left( \grad \times \Vec{F} \right) \kVer \, \partial x \, \partial y
+    \\[1ex]
+    &= \left( \dfrac{\partial}{\partial x} F_2 - \dfrac{\partial}{\partial y} F_1 \right) \partial x \, \partial y
+\end{align*}
+
+\section{Teo. de Stokes}
+
+El Teorema de Stokes relaciona la integral curvilínea de tipo 2.1 con la integral de superficie del rotacional.
+
+Sea $\Vec{F}$ un campo vectorial de clase $\class (\setR^3)$ y sea $S$ una superficie cerrada, simple, diferenciable y compatible con la orientación, se tiene que:
+\begin{equation*}
+    \oint_C \Vec{F} \cdot \dif \Vec{s} = \oiint_S \left( \grad \times \Vec{F} \right) \dif \Vec{S}
+\end{equation*}
+
+\section{Teo. de Gauss-Ostrogradsky}
+
+El Teorema de Gauss relaciona la integral de superficie de tipo 2.2 con la divergencia de una fuerza en un volumen.
+
+Sea $\Vec{F}$ un campo vectorial de clase $\class (\setR^3)$ sea $S$ una superficie cerrada, simple, diferenciable y compatible con la orientación, se tiene que:
+\begin{equation*}
+    \oiint_S \Vec{F} \cdot \dif \Vec{S} = \iiint_V \left( \grad \cdot \Vec{F} \right) \partial x \, \partial y \, \partial z
+\end{equation*}

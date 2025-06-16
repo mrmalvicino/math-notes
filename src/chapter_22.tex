@@ -1,0 +1,400 @@
+\chapter{Series}
+
+\section{Sucesiones}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Sucesión}
+    \cusTe{Una sucesión es una función que toma valores del conjunto de los números naturales y devuelve números complejos.}
+    \begin{equation*}
+        a_\nth: \setN \longrightarrow \setC \tq a_\nth = h_\nth + \iu \, k_\nth
+    \end{equation*}
+\end{mdframed}
+
+Planteando el siguiente límite y resolviendo por regla de l'Hôpital-Bernoulli se obtiene una importante propiedad.
+\begin{align*}
+    \lim_{\nth\to\infty} \sqrt[\nth]{\nth^\kth}
+    &= \lim_{\nth\to\infty} \nth^{\kth/\nth}
+    \\
+    &= \lim_{\nth\to\infty} e^{\left[ \ln(\nth)^{\kth/\nth} \right]}
+    \\
+    &= \lim_{n\to\infty} e^{\left[ \tfrac{\kth}{\nth} \ln(n) \right]}
+    \\
+    &= e^{\kth \, \lim_{\nth\to\infty} \left[ \tfrac{\ln(\nth)}{\nth} \right]}
+    \\
+    &= e^{\kth \, \lim_{\nth\to\infty} \left[ \frac{1}{\nth} \right]}
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \lim_{n\to\infty} \sqrt[n]{n^k} = 1 \quad \textrm{con} \enspace \nth, \kth \in \setN
+    \end{equation*}
+\end{mdframed}
+
+Así como puede ser de utilidad la siguiente propiedad, por ejemplo para identificar alternancia de signo.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \lim_{\nth\to\infty} \kth^\nth =
+        \left\{
+        \begin{aligned}
+            \infty \enspace & \textrm{si} \enspace k>1
+            \\
+            1 \enspace & \textrm{si} \enspace k=1
+            \\
+            0 \enspace & \textrm{si} \enspace -1<k<1
+            \\
+            \pm 1 \enspace & \textrm{si} \enspace k = -1
+            \\
+            \pm \infty \enspace & \textrm{si} \enspace k<-1
+        \end{aligned}
+        \right.
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Suma parcial}
+    \cusTe{Una suma parcial es una sumatoria de $\Nth$ elementos de una sucesión.}
+    \begin{gather*}
+        S_\Nth: \setN \longrightarrow \setC \tq
+        \\
+        S_\Nth = \sum_{\nth=n_0}^\Nth \inBraces{a_\nth} = a_0 + a_1 + a_2 + \dots + a_\Nth
+    \end{gather*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Serie}
+    \cusTe{Una serie es una sumatoria de los infinitos elementos de una sucesión.}
+    \begin{equation*}
+        S_\nth = \lim_{\Nth \to \infty} \inBraces{S_\Nth} = \sum_{\nth=n_0}^ \infty \inBraces{a_\nth}
+    \end{equation*}
+\end{mdframed}
+
+Si la serie tiende a un número $w_0 \in \setC$, se dice convergente, verificando:
+\begin{equation*}
+    \sum_{\nth=n_0}^ \infty \inBraces{a_\nth} = w_0
+\end{equation*}
+
+
+\section{Convergencia de series}
+
+La fórmula de la sucesión asociada a una serie es determinante para la convergencia de esta, ya que hay criterios que se basan solo en el análisis de la sucesión y no en la sumatoria en sí.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Condición necesaria}
+    \begin{equation*}
+        S_\nth \enspace \textrm{es convergente} \Rightarrow \lim_{\nth\to\infty} \inBraces{a_\nth} = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Convergencia absoluta}
+    \begin{equation*}
+        \sum_{\nth=n_0}^\infty \inBraces{a_\nth} \enspace \textrm{converge} \iff \sum_{\nth=n_0}^\infty \norm{a_\nth} \enspace \textrm{converge}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:DAlembert}
+    \end{prop}
+    \cusTi{Criterio de D'Alembert}
+    \cusTe{Planteando:}
+    \begin{equation*}
+        \lim_{\nth\to\infty} \norm{\frac{a_{\nth+1}}{a_\nth}} = L \neq 1
+    \end{equation*}
+    \cusTe{Se tiene que:}
+    \begin{itemize}
+        \item Si $L<1$ entonces $S_\nth$ converge
+        \item Si $L>1$ entonces $S_\nth$ no converge
+    \end{itemize}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:CauchyCriterion}
+    \end{prop}
+    \cusTi{Criterio de Cauchy}
+    \cusTe{Planteando:}
+    \begin{equation*}
+        \lim_{\nth\to\infty} \norm{\sqrt[n]{a_\nth}} = L \neq 1
+    \end{equation*}
+    \cusTe{Se tiene que:}
+    \begin{itemize}
+        \item Si $L<1$ entonces $S_\nth$ converge
+        \item Si $L>1$ entonces $S_\nth$ no converge
+    \end{itemize}
+\end{mdframed}
+
+
+\section{Serie aritmética}
+
+Es también conocida como la \emph{serie de Gauss} por haber este deducido su fórmula para el caso donde $\Nth=100$ a los once años de edad.
+\begin{align*}
+    S_\nth &= \sum_{\nth=1}^N \nth
+    \\[1ex]
+    &= 1 + 2 + 3 + \dots + \Nth
+    \\[1em]
+    &= \frac{\Nth(\Nth+\nth)}{2}
+\end{align*}
+
+Esta serie es divergente ya que si evaluamos $\nth\to\infty$ en la sucesion asociada o en la fórmula, el límite tiende a infinito.
+
+
+\section{Serie geométrica}
+
+Esta serie mantiene una razón constante, ya que cada término sumado se obtiene multiplicando el anterior por la razón $\kth$.
+\begin{align*}
+    S_\nth &= a_1 \sum_{\nth=0}^\Nth \kth^\nth
+    \\[1ex]
+    &= a_1 + a_1 \, \kth + a_1 \, \kth^2 + \dots + a_1 \, \kth^\Nth
+    \\[1em]
+    &= \frac{1-\kth^{\Nth+1}}{1-\kth}
+\end{align*}
+
+La convergencia depende de la razón $\kth$:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \lim_{\nth\to\infty} S_\nth &= \frac{a_1}{1-\kth} \iff \norm{\kth} < 1
+        \\[1ex]
+        \lim_{\nth\to\infty} S_\nth &= \infty \iff \norm{\kth} \geq 1
+    \end{aligned}
+    \right.
+\end{equation*}
+
+
+\section{Serie p}
+
+\begin{align*}
+    S_\nth &= \sum_{\nth=1}^\Nth \frac{1}{\nth^p}
+    \\[1ex]
+    &= \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \dots + \frac{1}{\Nth^p}
+\end{align*}
+
+La convergencia depende del parámetro $p$:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        & \textrm{Si} \enspace 0 < p \leq 1 \Rightarrow S_\nth \enspace \textrm{es divergente.}
+        \\[1ex]
+        & \textrm{Si} \enspace 1 < p \Rightarrow S_\nth \enspace \textrm{es convergente.}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+El caso particular en que $p=1$ se lo conoce como \emph{serie armónica}.
+
+
+\section{Serie telescópica}
+
+Esta serie es siempre convergente:
+\begin{align*}
+    S_\nth &= \sum_{\nth=1}^\Nth \left( a_\nth - a_{\nth+1} \right)
+    \\[1ex]
+    &= (a_1-a_2) + (a_2 - a_3) + \dots + (a_\Nth - a_{\Nth+1})
+    \\[1em]
+    &= a_1 - a_{\Nth+1}
+    \\[1em]
+    &= a_1 - \lim_{\nth\to\infty} a_{\nth+1}
+\end{align*}
+
+
+\section{Serie alternada}
+
+Los términos sumados se intercalan entre positivos y negativos.
+\begin{align*}
+    S_\nth &= \sum_{\nth=1}^\Nth (-1)^\nth \, a_\nth
+    \\
+    &= -a_1 + a_2 - a_3 + \dots + (-1)^\Nth \, a_\Nth
+\end{align*}
+
+Si la sucesión $(a_\nth)$ asociada a una serie alternada es estrictamente decreciente, entonces la serie es convergente.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Criterio de Leibniz}
+    \begin{equation*}
+        S_\nth \enspace \textrm{es convergente} \iff \frac{\dif a_\nth}{\dif \nth} \leq 0
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Series de potencias}
+
+Las Series de Potencias son series definidas en función de una variable independiente.
+Es decir, que van a quedar definidas distintas series dependiendo en función del valor que se evalúe.
+\begin{gather*}
+    S_\nth(z) = \sum_{\nth=n_0}^\Nth a_\nth \, w^{\pm \nth}
+    \\[1ex]
+    \textrm{Donde} \enspace w = f(z) = z-z_0
+\end{gather*}
+
+Para determinar el radio de convergencia se suele usar el Criterio de D'Alembert (Prop. \ref{prop:DAlembert}) o el Criterio de Cauchy (Prop. \ref{prop:CauchyCriterion}).
+
+Según el signo del exponente $\pm \nth$, podemos clasificar las series de potencias en positivas y negativas.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:posPowerSeries}
+    \end{defn}
+    \cusTi{Series de potencias positivas}
+    \begin{align*}
+        S_\nth &= \sum_{\nth=0}^\Nth a_\nth \left( z-z_0 \right)^\nth
+        \\[1ex]
+        &= a_0 + a_1 \left( z-z_0 \right) + \dots + a_\Nth \left( z-z_0 \right)^\Nth
+    \end{align*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Series de potencias negativas}
+    \begin{align*}
+        S_\nth &= \sum_{\nth=1}^\Nth b_\nth \left( z-z_0 \right)^{-\nth}
+        \\[1ex]
+        &= \frac{b_1}{(z-z_0)} + \frac{b_2}{(z-z_0)^2} + \dots + \frac{b_\Nth}{(z-z_0)^\Nth}
+    \end{align*}
+\end{mdframed}
+
+
+\section{Derivación de series de potencias positivas}
+
+Como las series de potencia están definidas a partir de funciones, podemos derivarlas e integrarlas.
+Dada una serie $S_\nth$ podemos definir la serie de sus derivadas $D \, S_\nth$ y la serie de sus primitivas $P \, S_\nth$.
+Estas van a tener la misma región de convergencia.
+\begin{gather*}
+    \textrm{Dada} \enspace S_\nth(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth
+    \\[1ex]
+    \frac{\dif}{\dif z} S_\nth(z) = \sum_{\nth=1}^\infty \nth \, a_\nth \left(z-z_0\right)^{\nth-1}
+    \\[1ex]
+    \int S_\nth(z) \, \dif z = \sum_{\nth=0}^\infty \frac{a_\nth \left(z-z_0\right)^{\nth+1}}{\nth+1}
+\end{gather*}
+
+Notar que para que la derivada de una serie exista, hay que verificar que al incrementar $z$ en $h$ la imagen esté dentro del radio de convergencia.
+
+
+\section{Coeficientes de series de potencias positivas}
+
+Evaluando $z_0$ en una serie de potencias (Def. \ref{defn:posPowerSeries}), se observa que el único término sumado va a ser el que verifique $\nth=0$, ya que si $\nth>0$ los terminos sumados son nulos.
+\begin{multline*}
+    S_\nth(z_0) = a_0 + a_1 \left(z_0-z_0\right) + a_2 \left(z_0-z_0\right)^2 +
+    \\
+    + a_3 \left(z_0-z_0\right)^3 + \dots + a_\Nth \left(z_0-z_0\right)^\Nth = a_0
+\end{multline*}
+
+Es posible calcular cualquiera de los $\Nth$ coeficientes $a_\nth$ de una serie, al que llamaremos $a_\mth$.
+Siguiendo el mismo razonamiento anterior, al derivar $\mth$ veces una serie de potencias, se puede deducir por inducción el coeficiente $a_\mth$ a partir de dichas derivadas sucesivas.
+\begin{multline*}
+    \frac{\dif}{\dif z} S_\nth(z) = \sum_{\nth=1}^\infty \nth \, a_\nth \left(z-z_0\right)^{\nth-1}
+    \\
+    \Rightarrow \frac{\dif}{\dif z} S_\nth(z_0) = 1 \cdot a_1
+\end{multline*}
+\begin{multline*}
+    \frac{\dif^2}{\dif z^2} S_\nth(z) = \sum_{\nth=2}^\infty \nth \left(\nth-1\right) a_\nth \left(z-z_0\right)^{\nth-2}
+    \\
+    \Rightarrow \frac{\dif^2}{\dif z^2} S_\nth(z_0) = 2 \cdot 1 \cdot a_2
+\end{multline*}
+\begin{multline*}
+    \frac{\dif^3}{\dif z^3} S_\nth(z) = \sum_{\nth=3}^\infty \nth \left(\nth-1\right) \left(\nth-2\right) a_\nth \left(z-z_0\right)^{\nth-3}
+    \\
+    \Rightarrow \frac{\dif^3}{\dif z^3} S_\nth(z_0) = 3 \cdot 2 \cdot 1 \cdot a_3
+\end{multline*}
+\begin{equation*}
+    \vdots
+\end{equation*}
+\begin{multline*}
+    \frac{\dif^\mth}{\dif z^\mth} S_\nth (z) =
+    \\
+    \scale{0.96}{
+    = \sum_{\nth=\mth}^\infty \nth \left(\nth-1\right) \left(\nth-2\right) \dots \big( \nth-\left(\mth-1\right) \big) \, a_\nth \left(z-z_0\right)^{\nth-\mth}
+    }
+    \\
+    \Rightarrow \frac{\dif^\mth}{\dif z^\mth} S_\nth(z_0) = \mth! \, a_\mth
+\end{multline*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Coeficiente de serie de potencias positivas}
+    \begin{equation*}
+        a_\mth = \left( \frac{1}{\mth!} \right) \frac{\dif^\mth}{\dif z^\mth} S_\nth(z_0)
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Teorema de Taylor}
+
+Sea $A$ un conjunto abierto tal que:
+\begin{equation*}
+    A = \inBraces{z \in \setC \tq \norm{z-z_0}<R}
+\end{equation*}
+
+Sea $C$ una curva cerrada y simple contenida por $A$.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-series-1.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Desarrollo por Taylor}
+    \cusTe{Si una función es derivable en $A$ entonces se puede desarrollar en series de Taylor:}
+    \begin{equation*}
+        f(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth \quad \forall \enspace z \in A
+    \end{equation*}
+    \cusTe{Donde:}
+    \begin{align*}
+        a_\nth &= \left( \frac{1}{\nth!} \right) \frac{\dif^\nth}{\dif z^\nth} f(z_0)
+        \\[1ex]
+        &= \left( \frac{1}{2 \pi \iu} \right) \oint \frac{f(z)}{(z-z_0)^{\nth+1}} \dif z
+    \end{align*}
+\end{mdframed}
+
+
+\section{Teorema de Laurent}
+\label{sec:Laurent}
+
+Sea $A$ un conjunto abierto tal que:
+\begin{equation*}
+    A = \inBraces{z \in \setC \tq 0 \leq r< \norm{z-z_0}<R \leq \infty}
+\end{equation*}
+
+Sea $C$ una curva cerrada y simple contenida por $A$.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/calc-series-2.pdf_tex}
+\end{center}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Desarrollo por Laurent}
+    \cusTe{Si una función es derivable en $A$ entonces se puede desarrollar en series de Laurent:}
+    \begin{equation*}
+        f(z) = \sum_{\nth=0}^\infty a_\nth \left(z-z_0\right)^\nth + \sum_{\nth=1}^\infty b_\nth \left(z-z_0\right)^{-\nth}
+    \end{equation*}
+    \cusTe{Donde:}
+    \begin{align*}
+        a_\nth &= \left( \frac{1}{2\pi \iu} \right) \displaystyle\oint \frac{f(z)}{\left(z-z_0\right)^{\nth+1}} \dif z
+        \\[1ex]
+        b_\nth &= \left( \frac{1}{2\pi \iu} \right) \displaystyle\oint f(z) \left(z-z_0\right)^\nth \dif z
+    \end{align*}
+\end{mdframed}

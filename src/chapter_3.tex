@@ -1,0 +1,104 @@
+\chapter{Álgebra elemental}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Matriz diagonal}
+    \cusTe{Una matriz se dice diagonal si $a_{ij}=0$ cuando $i \neq j$}
+    \begin{equation*}
+        A =
+        \begin{pmatrix}
+            a_{11} & 0 & \dots & 0
+            \\
+            0 & a_{22} & \dots & 0
+            \\
+            \vdots & \vdots & \ddots & \vdots
+            \\
+            0 & 0 & \dots & a_{\mth\nth}
+        \end{pmatrix}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El determinante de una matriz triangulada inferior o superiormente es el producto de su diagonal principal.
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si el determinante de una matriz equivalente es distinto de cero, entonces el determinante de la matriz original también lo es.
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Rango de una matriz}
+    \cusTe{Se denota como $\operatorname{Rg}(M)$ la cantidad de filas o columnas LI de una matriz una vez triangulada.}
+\end{mdframed}
+
+\begin{center}
+    \def\svgwidth{\linewidth}
+    \input{./images/alg-sistemas.pdf_tex}
+\end{center}
+
+
+\section{Teo. de Rouché–Frobenius}
+
+Dado un sistema lineal de $\mth$ ecuaciones con $\nth$ incógnitas:
+\begin{equation*}
+    \left\{
+    \begin{matrix}
+        a_{1,1} \, x_1 + a_{1,2} \, x_2 + \dots + a_{1,\nth} \, x_\nth & = & b_1
+        \\
+        a_{2,1} \, x_1 + a_{2,2} \, x_2 + \dots + a_{2,\nth} \, x_\nth & = & b_2
+        \\
+        \vdots & \vdots & \vdots
+        \\
+        a_{\mth,1} \, x_1 + a_{\mth,2} \, x_2 + \dots + a_{\mth,\nth} \, x_\nth & = & b_\mth
+    \end{matrix}
+    \right.
+\end{equation*}
+
+Representado de forma matricial por:
+\begin{gather*}
+    A \cdot \Vec{x} = \Vec{b}
+    \\
+    \begin{pmatrix}
+        a_{1,1} & \dots & a_{1,\nth}
+        \\
+        \vdots & \ddots & \vdots
+        \\
+        a_{\mth,1} & \dots & a_{\mth,\nth}
+    \end{pmatrix}
+    \cdot
+    \begin{pmatrix}
+        x_1
+        \\
+        \vdots
+        \\
+        x_\nth
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        b_1
+        \\
+        \vdots
+        \\
+        b_\mth
+    \end{pmatrix}
+\end{gather*}
+
+Entonces el sistema lineal es compatible si el rango de la matriz de coeficientes es igual al rango de la matriz ampliada:
+\begin{equation*}
+    \operatorname{rg}(A) = \operatorname{rg}\left(A\Big|\Vec{b}\right)
+\end{equation*}
+
+Y el conjunto de soluciones $S$ se puede expresar de forma paramétrica por $\nth-\operatorname{rg}(A)$ parámetros.
+Particularmente, si $\operatorname{rg}(A)=\nth$ entonces la solución es un único punto.
+
+Más formalmente, se dice que el conjunto de soluciones forman un subespacio afín $S\in\setR^\nth$ que verifica:
+\begin{equation*}
+    \operatorname{dim}(S) = \nth-\operatorname{rg}(A)
+\end{equation*}

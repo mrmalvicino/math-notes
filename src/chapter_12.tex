@@ -1,0 +1,107 @@
+\chapter{Extremos de funciones reales}
+
+El conjunto de puntos críticos es la unión de los conjuntos de puntos estacionarios y puntos de no diferenciabilidad.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Puntos críticos}
+    \begin{multline*}
+        A = \inBraces{ \Vec{x} \in \setR^\nth \tq \grad f(\Vec{x}) = \Vec{0} }
+        \\
+        \cup \inBraces{ \Vec{x} \in \setR^\nth \tq f(\Vec{x}) \hspace{1ex} \textrm{no es diferenciable} }
+    \end{multline*}
+\end{mdframed}
+
+Los puntos críticos son los elementos del dominio que pueden ser un máximo, un mínimo o un punto de ensilladura.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Puntos críticos}
+    \begin{gather*}
+        \Vec{x}_0 \hspace{1ex} \textrm{es extremo} \lor \Vec{x}_0 \hspace{1ex} \textrm{es punto de ensilladura}
+        \\
+        \Rightarrow \Vec{x}_0 \hspace{1ex} \textrm{es un punto crítico.}
+    \end{gather*}
+\end{mdframed}
+
+Un extremo local o relativo evaluado en la función toma el valor más alto o más bajo de la imagen, en el entorno del punto.
+Un extremo absoluto o global es un máximo o mínimo no solo para su entorno, sino también para todos los valores que tome la función en el resto del dominio.
+
+\begin{itemize}
+    \item Mínimo local: $f(\Vec{x}_0)<f(\Vec{x}) \quad \forall \hspace{1ex} \Vec{x} \in B(\Vec{x}_0, \delta)$
+
+    \item Máximo local: $f(\Vec{x}_0)>f(\Vec{x}) \quad \forall \hspace{1ex} \Vec{x} \in B(\Vec{x}_0, \delta)$
+
+    \item Mínimo absoluto: $f(\Vec{x}_0)<f(\Vec{x}) \quad \forall \hspace{1ex} \Vec{x} \in \operatorname{Dn}(f)$
+
+    \item Máximo absoluto: $f(\Vec{x}_0)>f(\Vec{x}) \quad \forall \hspace{1ex} \Vec{x} \in \operatorname{Dn}(f)$
+\end{itemize}
+
+Si $\Vec{x}_0 \in \operatorname{Dn}(f)$ es un punto crítico y no es un extremo, entonces es un punto de ensilladura.
+
+Si trasladamos la gráfica de manera que en el punto en cuestión la imagen sea nula, las secciones de la función en un punto silla son, o bien funciones cúbicas donde la función cambia de signo, o bien parábolas donde en una dirección la parábola es cóncava hacia arriba y en otra hacia abajo.
+
+
+\section{Método de Sylvester}
+
+Este método para clasificar puntos críticos conciste en calcular el determinante de la matriz Hessiana de la función.
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \operatorname{det}(H) < 0 & \Rightarrow \Vec{x}_0 \hspace{1ex} \textrm{es punto de ensilladura}
+        \\
+        \operatorname{det}(H) = 0 &\Rightarrow \hspace{1ex} \textrm{el criterio no aplica}
+        \\
+        \operatorname{det}(H) > 0 &\Rightarrow \Vec{x}_0 \hspace{1ex} \textrm{es extremo}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+En el último caso podemos determinar si el extremo se trata de un máximo o un mínimo estudiando la derivada segunda.
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \frac{\partial^2}{\partial x_1^2} f(\Vec{x}_0) < 0 &\Rightarrow \Vec{x}_0 \hspace{1ex} \textrm{es máximo}
+        \\[1em]
+        \frac{\partial^2}{\partial x_1^2} f(\Vec{x}_0) > 0 &\Rightarrow \Vec{x}_0 \hspace{1ex} \textrm{es mínimo}
+    \end{aligned}
+    \right.
+\end{equation*}
+
+
+\section{Extremos Condicionados}
+
+El método por multiplicadores de Lagrange sirve para buscar extremos de la función para un conjunto restringido.
+
+Dada $f:D_1 \subseteq \setR^\nth \longrightarrow \setR$ restringida a $g:D_2 \subseteq \setR^\nth \longrightarrow \setR \tq g(\Vec{x})=0 \land \grad g(\Vec{x}) \neq \Vec{0}$ se puede construir la función $L$ que verifica:
+\begin{equation*}
+    L:D_3 \subseteq \setR^{\nth+1} \longrightarrow \setR \tq L(\Vec{x}, \lambda) = f(\Vec{x}) - \lambda g(\Vec{x})
+\end{equation*}
+
+Siendo los candidatos a extremos o puntos de ensilladura de $f$ los mismos puntos críticos de $L$.
+Por lo tanto, si $f$ y $g$ son campos escalares de dos variables, se tiene que:
+\begin{gather*}
+    \grad L(x,y,\lambda)=0 \iff
+    \\[1em]
+    \left\{
+    \begin{aligned}
+        \frac{\partial}{\partial x} f(x,y) - \lambda \frac{\partial}{\partial x} g(x,y) &= 0
+        \\[1ex]
+        \frac{\partial}{\partial y} f(x,y) - \lambda \frac{\partial}{\partial y} g(x,y) &= 0
+        \\[1ex]
+        \frac{\partial}{\partial \lambda} f(x,y) - \lambda \frac{\partial}{\partial \lambda} g(x,y) &= 0
+    \end{aligned}
+    \right.
+    \\[1em]
+    \left\{
+    \begin{aligned}
+        \frac{\partial}{\partial x} f(x,y) &= \lambda \frac{\partial}{\partial x} g(x,y)
+        \\[1ex]
+        \frac{\partial}{\partial y} f(x,y) &= \lambda \frac{\partial}{\partial y} g(x,y)
+        \\[1ex]
+        g(x,y) &= 0
+    \end{aligned}
+    \right.
+\end{gather*}

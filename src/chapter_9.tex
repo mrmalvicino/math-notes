@@ -1,0 +1,285 @@
+\chapter{Límites de funciones reales}
+
+El límite de una función cuando las variables independientes tienden a cierto valor, sirve para calcular a qué valor del conjunto de llegada se acerca la función si nos acercamos a un punto del conjunto de partida.
+
+Para que exista el límite la función tiene que tender al mismo valor a medida que nos acercamos más y más por cualquiera de los infinitos caminos posibles.
+En una variable, basta con probar el límite por izquierda y por derecha ya que si son iguales se puede decir que el límite existe y es único.
+La dificultad principal en varias variables es que el dominio no es solo una recta, y hay infinitas direcciones para acercarse, no solo dos.
+
+Por este motivo, si bien se puede demostrar que el límite no existe si por dos caminos la función tiende a valores distintos, no basta con haber probado por algunos caminos para afirmar que el límite existe: hay infinitos caminos posibles.
+
+
+\section{Definición de límite}
+
+Dada la función $f:\setR^\nth \longrightarrow \setR$.
+Sea $\Vec{x}_0$ un punto de acumulación (Def. \ref{defn:limitPoint}), es decir que $\Vec{x}_0$ no necesariamente pertenece al dominio pero sí lo hace su entorno.
+
+Si se le asignan a la variable independiente $\Vec{x}$ valores cada vez más cercanos al punto $\Vec{x}_0$, la diferencia $\Delta \Vec{x} = \Vec{x}-\Vec{x}_0$ va a tender a cero.
+
+De esta forma, si las imágenes de los valores que va tomando la variable tienden al mismo valor por todos los caminos del entorno de $\Vec{x}_0$, entonces el límite existe.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Límite}
+    \begin{gather*}
+        \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})=l \iff
+        \\
+        \forall \hspace{1ex} \varepsilon >0 \hspace{1ex} \exists \hspace{1ex} \delta(\varepsilon,\Vec{x})>0 \tq
+        \\[1ex]
+        \nnorm{ \Vec{x}-\Vec{x}_0 } < \delta \Rightarrow \nnorm{ f(\Vec{x})-l } < \varepsilon
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Métodos algebráicos}
+
+Para calcular el límite de una función $f:\setR^\nth \longrightarrow \setR$ cuando $\Vec{x} \to \Vec{x}_0$ basta con reemplazar $\Vec{x}_0$ en la fórmula de $f$.
+Esto será posible siempre y cuando la función no sea partida o el resultado que se obtenga no sea \emph{indeterminado} debido a una operación que no esté definida matemáticamente.
+
+Las siguientes son todas las posibles indeterminaciones que suelen darse al evaluar $\Vec{x}_0$ en la fórmula de la función:
+
+\begin{equation*}
+    \dfrac{0}{0} ; \dfrac{\infty}{\infty} ; 1^\infty ; \infty^0 ; 0 \cdot \infty ; \infty-\infty
+\end{equation*}
+
+Si al evaluar $f(\Vec{x}_0)$ se obtiene alguna de estas indeterminaciones no es posible determinar, en caso de que exista, el valor al que tiende el límite ni concluir que no existe.
+
+A veces es posible hacer movimientos algebráicos y reescribir $f(\Vec{x})$ usando las siguiente propiedades.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Infinitésimo por acotado}
+    \begin{gather*}
+        \textrm{Sea} \hspace{1ex} f(\Vec{x}) = g(\Vec{x}) \, h(\Vec{x})
+        \\
+        \textrm{Si} \hspace{1ex} g(\Vec{x}_0) \to 0 \land h(\Vec{x}_0) \hspace{1ex} \textrm{está acotada}
+        \Rightarrow f(\Vec{x}_0) \to 0
+    \end{gather*}
+\end{mdframed}
+
+% AGREGAR Cambio de Variables
+% AGREGAR Factorización
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Diferencia de cuadrados}
+    \begin{equation*}
+        x^2-y^2 = (x+y)(x-y)
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Suma y resta de cubos}
+    \begin{equation*}
+        x^3 \pm y^3 = (x \pm y)(x^2 \mp xy + y^2)
+    \end{equation*}
+\end{mdframed}
+
+\concept{Demostración}
+\begin{align*}
+(x \pm y)^2 &= (x \pm y)(x \pm y)=x^2 \pm xy + y^2
+\\
+(x \pm y)^3 &= (x \pm y)(x \pm y)^2=(x \pm y)(x^2 \pm xy + y^2)
+\\
+&= x^3 \pm 3x^2y + 3xy^2 \pm y^3
+\\
+&= x^3 \pm 3xy(x \pm y) \pm y^3
+\\
+x^3 \pm y^3 &= (x \pm y)^3 \mp 3xy(x\pm y)
+\\
+&= (x \pm y) \Big( (x\pm y)^2 \mp 3xy \Big)
+\\
+&= x^2 \pm 2xy \mp 3xy + y^2
+\end{align*}
+
+% AGREGAR El método de completar cuadrados
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Límite fundamental}
+    \begin{equation*}
+        \lim_{x \to x_0} \dfrac{\sin{\Big( f(x) \Big)}}{f(x)} = 1 \iff f(x_0) \rightarrow 0
+    \end{equation*}
+\end{mdframed}
+
+% AGREGAR Propiedad de Bernoulli
+
+\section{Propiedades de los límites}
+
+\begin{itemize}
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} k f(\Vec{x}) = k \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) \quad \textrm{con} \hspace{1ex} k \in \setR$
+
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})+g(\Vec{x})=\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) + \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})$
+
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) \cdot g(\Vec{x})=\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) \cdot \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})$
+
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} \dfrac{f(\Vec{x})}{g(\Vec{x})} = \dfrac{\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})}{\lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})} \quad \textrm{con} \hspace{1ex} g(\Vec{x}) \neq 0$
+
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} \Big( f(\Vec{x}) \Big)^{g(\Vec{x})}= \Big( \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) \Big)^{\lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})}$
+
+\item $\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} \ln{\Big( f(\Vec{x}) \Big)} = \ln{\Big( \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) \Big)}$
+
+\item $\displaystyle\lim_{\Vec{x} \to 0} \dfrac{k}{\Vec{x}} = \infty \quad \textrm{con} \hspace{1ex} k \in \setR-0$
+
+\item $\displaystyle\lim_{\Vec{x} \to \infty} \dfrac{k}{\Vec{x}} = 0 \quad \textrm{con} \hspace{1ex} k \in \setR$
+
+\end{itemize}
+
+
+\section{Unicidad del límite}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Si el límite existe, entonces es único.
+    \begin{equation*}
+        \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = l_1  \hspace{1ex} \land \hspace{1ex} \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = l_2 \hspace{1ex} \Rightarrow \hspace{1ex} l_1=l_2
+    \end{equation*}
+\end{mdframed}
+
+La implicación es en un solo sentido.
+Es decir, que no es válido decir que si la función tiende a un mismo valor por dos caminos entonces el límite existe.
+Esta propiedad no sirve para demostrar la existencia del límite, ya que no es posible probar la tendencia de los infinitos caminos por los que se puede llegar al punto.
+
+Por el contrario, es posible demostrar la no existencia del límite, encontrando dos caminos que pasen por el punto mediante los cuales la función tienda a un valor diferente.
+De esta forma, al no tender a un único valor para todos los caminos, el límite no existiría.
+
+La trayectoria que se tome al analizar el límite no puede pasar por ningún punto que no esté en el dominio.
+De lo contrario, sería posible encontrar un límite diferente, pero sería diferente justamente porque se usaron valores que la función ni siquiera admite.
+
+El problema que se puede presentar para demostrar la no existencia de un límite usando el teorema de unicidad es que nunca se sabe si hay otro camino por el cual se puede acercarse al punto que tenga un límite diferente.
+A continuación se muestran, en orden de complejidad, los caminos que se pueden ir probando hasta encontrar uno que tenga un límite diferente.
+
+Para facilitar la notación se estudian límites dobles, es decir, límites de campos escalares tipo $f:\setR^2 \longrightarrow \setR$, pero el análisis se puede generalizar a $\setR^n$.
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
+\end{equation*}
+
+A continuación se muestran diferentes métodos con algunos de los camínos que se pueden tomar para evaluar la tendencia del límite.
+En cada método se propone un tipo de trayectoria distinta.
+Para que el límite exista, la tendencia tiene que ser igual para todas las trayectorias de los diferentes métodos así como para las diferentes trayectorias de un mismo método.
+
+
+\subsection{Límites iterados}
+
+Tomar límites iterados o reiterados es tomar el límite de la función dejando solo una variable libre y las otras fijas.
+
+\begin{equation*}
+    \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
+    = \lim_{\substack{x \to x_0\\y = y_0}} f(x,y)
+    = \lim_{\substack{x = x_0\\y \to y_0}} f(x,y)
+\end{equation*}
+
+Observar que los límites iterados evalúan las rectas $x=x_0$ e $y=y_0$ y en caso de que sean distintos, quedaría probado que el límite no existe.
+
+\subsection{Límite por rectas implícitas}
+
+Los límites radiales o por rectas analizan la tendencia al punto por una familia de rectas, sin incluir las rectas $x=0$ e $y=0$.
+Se usa la ecuación de una recta para que una variable quede en función de la otra.
+
+\begin{equation*}
+    \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
+    = \lim_{\substack{x \to x_0\\y=mx+b}} f(x,y)
+    = \lim_{\substack{x=my+b\\y \to y_0}} f(x,y)
+\end{equation*}
+
+Si el límite queda en función del parámetro $m$ quiere decir que el valor del límite va a depender de la pendiente $m$ de la recta, con lo que queda demostrada su no existencia.
+
+
+\subsection{Límite por rectas paramétricas}
+
+A diferencia de usar la ecuación implícita de una recta, si se usa una parametrización también se analiza la tendencia por los ejes coordenados.
+
+\begin{equation*}
+    \lim_{\substack{x \to x_0\\y \to y_0}} f(x,y)
+    = \lim_{\substack{x=at+x_0\\y=bt+y_0\\t \to 0}} f(x,y)
+\end{equation*}
+
+Si el límite depende de alguno de los parametros $a$ o $b$, significa que dependiendo de la recta por la que se aproxime el resultado va a ser distinto, quedando demostrada la inexistencia del límite.
+
+
+% \subsection{Límite por curvas}
+
+% \subsection{Límite por curvas de nivel}
+
+% \subsection{Límite por familia de curvas}
+
+% \subsection{Límite por familia de curvas más una excluida del dominio}
+
+
+\section{Teorema de intercalación}
+
+El teorema de intercalación se usa para demostrar que un límite existe.
+Antes de demostrar un límite por intercalación hay que haber probado suficientes caminos para tener certeza que por todos los caminos el límite siempre tiende a un mismo valor.
+
+Por la primera propiedad de la norma:
+\begin{equation*}
+    \nnorm{\Vec{x}} = 0 \iff \Vec{x} = \Vec{0}
+\end{equation*}
+
+Y por las propiedades de los límites:
+\begin{equation*}
+    \displaystyle\lim_{\Vec{x} \to \Vec{x}_0} \norm{f(\Vec{x})}
+    = \norm{\displaystyle\lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})}
+\end{equation*}
+
+Luego:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = 0 \iff \lim_{\Vec{x} \to \Vec{x}_0} \norm{f(\Vec{x})} = 0
+\end{equation*}
+
+O bien:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} \Big\{ f(\Vec{x}) - l \Big\} = 0
+    \iff
+    \lim_{\Vec{x} \to \Vec{x}_0} \Big| f(\Vec{x}) - l \Big| = 0
+\end{equation*}
+
+Observar que $\norm{f(\Vec{x})-l}$ está acotado inferiormente por ser siempre positivo.
+Sea la función $g:\setR^\nth \longrightarrow \setR$ cota superior en un entorno de $\Vec{x}_0$:
+\begin{equation*}
+    0 \leq |f(\Vec{x})-l| \leq g(\Vec{x})
+\end{equation*}
+
+Luego, tomando límite en los tres miembros de la inecuación, si y solo si $\lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})=0$ se tiene:
+\begin{equation*}
+    0 \leq \lim_{\Vec{x} \to \Vec{x}_0} \norm{f(\Vec{x})-l} \leq 0
+\end{equation*}
+
+Al ser el límite mayor igual y menor igual que cero simultaneamente, la única solución posible es que valga solo el igual:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} \norm{f(\Vec{x})-l} = 0
+\end{equation*}
+
+Finalmente nuevamente por la primera propiedad de la norma:
+\begin{equation*}
+    \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x}) = l
+\end{equation*}
+
+Con lo cual, basta con demostrar la existencia de una función $g:\setR^\nth \longrightarrow \setR \tq \lim_{\Vec{x} \to \Vec{x}_0} g(\Vec{x})=0$ que sea cota superior para demostrar la existencia del límite.
+
+
+\concept{Acotaciones importantes}
+
+\begin{equation*}
+x^3 \leq |x^3| = \left( \sqrt{x^2} \right)^3 \leq \left( \sqrt{x^2+y^{2n}} \right)^3
+\end{equation*}
+
+
+\section{Continuidad}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Continuidad}
+    \cusTe{Una función $f:\setR^\nth \longrightarrow \setR$ es contínua en $\Vec{x}_0$ si se verifica que:}
+    \begin{equation*}
+        f(\Vec{x}_0)= \lim_{\Vec{x} \to \Vec{x}_0} f(\Vec{x})
+    \end{equation*}
+\end{mdframed}

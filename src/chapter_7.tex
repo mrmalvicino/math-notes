@@ -1,0 +1,522 @@
+\chapter{Espacios euclídeos}
+
+Los \emph{espacios euclídeos} son espacios vectoriales dotados de un producto interno.
+Se diferencian de los \emph{espacios normados} para los que se define distancia y norma y los \emph{espacios métricos} para los que solo se define distancia, por no tener estos producto interno.
+
+El producto interno para espacios euclídeos permite definir una noción de norma, de ángulo u ortogonalidad y de proyección ortogonal para elementos de un subespacio.
+
+
+\section{Producto interno}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:intProd}
+    \end{defn}
+    \cusTi{Producto interno}
+    \cusTe{Sea $\setV$ un subespacio vectorial, se define la función $\intProd{\enspace}{\enspace}: \setV \times \setV \longrightarrow \setR$ como un producto interno si y solo si es una forma bilineal, simétrica y definida positiva.
+    Esto es, si para todo $\Vec{u},\Vec{v},\Vec{w} \in \setV , \lambda \in \setR$ se verifica:}
+    \begin{align*}
+        \textrm{Bilinealidad:} &
+        \\
+        \intProd{\Vec{u}+\Vec{v}}{\Vec{w}} &= \intProd{\Vec{u}}{\Vec{w}} + \intProd{\Vec{v}}{\Vec{w}}
+        \\
+        \intProd{\lambda \, \Vec{v}}{\Vec{w}} &= \lambda \intProd{\Vec{v}}{\Vec{w}}
+        \\
+        \textrm{Simetría:} &
+        \\
+        \intProd{\Vec{v}}{\Vec{w}} &= \intProd{\Vec{w}}{\Vec{v}}
+        \\
+        \textrm{Definido positivo:} &
+        \\
+        \intProd{\Vec{v}}{\Vec{v}} &\geq 0
+    \end{align*}
+\end{mdframed}
+
+Sea $A\in\setR^{\nth\times\nth}$ una matriz cuadrada y simétrica:
+\begin{equation*}
+    A =
+    \begin{pmatrix}
+        a_{11} & a_{12} & \dots & a_{1\nth}
+        \\
+        a_{21} & a_{22} & \dots & a_{2\nth}
+        \\
+        \vdots & \vdots & \ddots & \vdots
+        \\
+        a_{\nth 1} & a_{\nth 2} & \dots & a_{\nth \nth}
+    \end{pmatrix}
+\end{equation*}
+
+Y definida positiva, con los siguientes $\nth$ determinantes positivos:
+\begin{gather*}
+    \operatorname{det}(a_{11})>0
+    \\
+    \operatorname{det}
+    \begin{pmatrix}
+        a_{11} & a_{12}
+        \\
+        a_{21} & a_{22}
+    \end{pmatrix}
+    >0
+    \\
+    \operatorname{det}
+    \begin{pmatrix}
+        a_{11} & a_{12} & a_{13}
+        \\
+        a_{21} & a_{22} & a_{23}
+        \\
+        a_{31} & a_{32} & a_{33}
+    \end{pmatrix}
+    >0
+    \\
+    \vdots
+    \\
+    \operatorname{det}(A)>0
+\end{gather*}
+
+De manera general, el producto interno para $\setV = \setR^\nth$ puede estar definido por el siguiente producto matricial.
+\begin{equation*}
+    \intProd{\Vec{v}}{\Vec{w}} = \Vec{v} \cdot A \cdot \trans{\Vec{w}}
+\end{equation*}
+
+De manera que si $A=I$ se obtiene el producto escalar entre vectores:
+\begin{align*}
+    \intProd{\Vec{v}}{\Vec{w}} &= \Vec{v} \cdot \trans{\Vec{w}}
+    \\
+    &= \sum_{\ith=1}^\nth v_\ith \, w_\ith
+\end{align*}
+
+Que para $\setV = \setR^2$ es:
+\begin{align*}
+    \intProd{\Vec{v}}{\Vec{w}} &= (v_x,v_y) \cdot (w_x,w_y)
+    \\
+    &= v_x \, w_x + v_y \, w_y
+\end{align*}
+
+Pero para ciertos espacios vectoriales los productos internos pueden ser más abstractos.
+Para el espacio vectorial de funciones contínuas el producto interno puede estar definido por una integral.
+\begin{equation*}
+    \intProd{f}{g} = \int_a^b f(x) \, g(x) \, \dif x
+\end{equation*}
+
+Como se mencionó anteriormente, los conceptos de norma, distancia, ángulo y ortogonalidad se definen en función del producto interno.
+Esto significa que la norma de un mismo vector puede tener distintos valores para productos internos diferentes.
+Y así mismo, la distancia o el ángulo entre dos vectores puede variar en función de cómo se defina el producto interno.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Norma}
+    \begin{equation*}
+        \nnorm{\Vec{v}} = \sqrt{\intProd{\Vec{v}}{\Vec{v}}}
+    \end{equation*}
+\end{mdframed}
+
+Observar que para $\setV = \setR^\nth$, si el producto interno es el producto escalar, la fórmula es la definida según la norma 2 (Def. \ref{defn:norm2}).
+Particularmente para $\setR^2$ es:
+\begin{equation*}
+    \nnorm{\Vec{v}} = \sqrt{(x,y) \cdot (x,y)} = \sqrt{x^2+y^2}
+\end{equation*}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Distancia}
+    \begin{equation*}
+        \operatorname{dist}(\Vec{v},\Vec{w}) = \nnorm{\Vec{v}-\Vec{w}} = \sqrt{\intProd{\Vec{v}-\Vec{w}}{\Vec{v}-\Vec{w}}}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    El ángulo $\theta$ que forman dos vectores $\Vec{v}$ y $\Vec{w}$ es:
+    \begin{equation*}
+        \cos(\theta) = \frac{\intProd{\Vec{v}}{\Vec{w}}}{\nnorm{v} \, \nnorm{w}}
+    \end{equation*}
+\end{mdframed}
+
+A partir de esta propiedad vemos que si dos vectores forman un ángulo de $\theta=\ang{90}$, la expresión queda igualada a cero y se verifica cuando el numerador es nulo.
+
+Surgen luego las siguientes definiciones:
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Ortogonalidad}
+    \cusTe{Dos vectores $\Vec{v}$ y $\Vec{w}$ son ortogonales si}
+    \begin{equation*}
+        \intProd{\Vec{v}}{\Vec{w}} = 0
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Base ortogonal}
+    \cusTe{Una base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ es ortogonal si:}
+    \begin{equation*}
+        \intProd{\Vec{v}_\ith}{\Vec{v}_\jth} = 0 \quad \forall \enspace  \ith\neq\jth \enspace \textrm{con} \enspace \ith,\jth \in [1,\nth]
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+    \end{defn}
+    \cusTi{Base ortonormal}
+    \cusTe{Una base $B=\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ es ortonormal si es ortogonal y además:}
+    \begin{equation*}
+        \nnorm{\Vec{v}_\ith} = 1 \quad \forall \enspace  \ith \in [1,\nth]
+    \end{equation*}
+\end{mdframed}
+
+La proyección de un vector $\Vec{v}$ sobre un director $\Vec{r}$ es un tercer vector proporcional a $\Vec{r}$.
+En $\setR^2$ y $\setR^3$ la proporción surge de \emph{proyectar}, desde la punta de $\Vec{v}$, una recta que sea ortogonal a $\Vec{r}$.
+A contnuación se tiene un esquema en $\setR^2$.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/alg-orto-1.pdf_tex}
+\end{center}
+
+Se plantea entonces la condición de proporción mencionada y se pretende deducir cuál es el factor de proporcionalidad $\lambda$.
+\begin{equation}
+    \proy_{\Vec{r}}(\Vec{v}) = \lambda \, \Vec{r}
+    \label{eqn:orto1}
+\end{equation}
+
+Vemos que el vector que va desde la proyección $\proy_{\Vec{r}}(\Vec{v})$ hasta $\Vec{v}$ está dado por la resta de estos y es ortogonal a $\Vec{r}$.
+Con lo cual:
+\begin{equation}
+    \intProd{\Vec{v} - \proy_{\Vec{r}}(\Vec{v})}{\Vec{r}} = 0
+    \label{eqn:orto2}
+\end{equation}
+
+Reemplazando la ecuación \ref{eqn:orto1} en la ecuación \ref{eqn:orto2} y aplicando las propiedades del producto interno (Def. \ref{defn:intProd}), se despeja $\lambda$.
+\begin{align*}
+    \intProd{\Vec{v} - \lambda \, \Vec{r}}{\Vec{r}} &= 0
+    \\
+    \intProd{\Vec{v}}{\Vec{r}} - \lambda \intProd{\Vec{r}}{\Vec{r}} &=
+    \\
+    \intProd{\Vec{v}}{\Vec{r}} - \lambda \, \nnorm{\Vec{r}}^2 &=
+    \\
+    \lambda &= \frac{\intProd{\Vec{v}}{\Vec{r}}}{\nnorm{\Vec{r}}^2}
+\end{align*}
+
+Por lo tanto, reemplazando $\lambda$ en la ecuacíon \ref{eqn:orto1} se infiere la relación entre $\proy_{\Vec{r}}(\Vec{v})$ y $\Vec{r}$ obteniendo una fórmula para la proyección ortogonal entre 2 vectores en el plano o el espacio.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:proyOrto}
+    \end{prop}
+    \cusTi{Proyección ortogonal}
+    \cusTe{La proyección ortogonal de $\Vec{v}$ sobre $\Vec{r}$ está dada por:}
+    \begin{equation*}
+        \proy_{\Vec{r}}(\Vec{v}) = \frac{\intProd{\Vec{v}}{\Vec{r}}}{\nnorm{\Vec{r}}^2} \, \Vec{r}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Desigualdad de Cauchy-Schwartz}
+    \begin{equation*}
+        \intProd{\Vec{v}}{\Vec{w}} \leq \nnorm{\Vec{v}} \, \nnorm{\Vec{w}}
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Ortogonalización de Gram Schmidt}
+
+El método de Gram Schmidt es un algoritmo recursivo para obtener, a partir de cierta base dada, una base ortogonal que genere el mismo subespacio que la base original.
+
+Sea $B=\inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base de cierto subespacio $\setV$.
+Llamaremos $B'$ a la nueva base ortogonal de $\setV$ dada por:
+\begin{equation*}
+    B' = \inBraces{\Vec{w}_1 , \Vec{w}_2 \dots \Vec{w}_\nth}
+\end{equation*}
+
+El primer elemento de $B'$ lo podemos definir de manera arbitraria a partir de cualquier elemento de $B$.
+\begin{equation*}
+    \Vec{w}_1 = \Vec{v}_1
+\end{equation*}
+
+El segundo elemento de $B'$ se define de manera análoga a como se dedujo la proyección ortogonal anteriormente (Prop. \ref{prop:proyOrto}).
+A continuación se tiene un esquema equivalente, ya que el proyectado y el director son elementos de la base $B$ por lo que cambia la notación.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/alg-orto-2.pdf_tex}
+\end{center}
+
+Vemos que podemos construir un vector ortogonal a $\Vec{v}_1$ restando al proyectado la proyección ortogonal.
+Este será el segundo elemento de la base ortogonal $B'$.
+\begin{align*}
+    \Vec{w}_2 &= \Vec{v}_2 - \proy_{\Vec{v}_1}(\Vec{v}_2)
+    \\[1ex]
+    &= \Vec{v}_2 - \frac{\intProd{\Vec{v}_2}{\Vec{v}_1}}{\nnorm{\Vec{v}_1}^2} \, \Vec{v}_1
+\end{align*}
+
+Si la base original $B$ fuese de 3 o más elementos, el tercer elemento de la nueva base ortogonal $B'$ se obtendría con el mismo razonamiento.
+La siguiente es una representación simplista de los vectores de $B$ y sus proyecciones, a partir de las que se obtienen los vectores de $B'$.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/alg-orto-3.pdf_tex}
+\end{center}
+
+Quedando el tercer elemento $\Vec{w}_3$ expresado por:
+\begin{align*}
+    \Vec{w}_3 &= \Vec{v}_3 - \proy_{\Vec{v}_1}(\Vec{v}_3) - \proy_{\Vec{w}_2}(\Vec{v}_3)
+    \\[1ex]
+    &= \Vec{v}_3 - \frac{\intProd{\Vec{v}_3}{\Vec{v}_1}}{\nnorm{\Vec{v}_1}^2} \, \Vec{v}_1 - \frac{\intProd{\Vec{v}_3}{\Vec{w}_2}}{\nnorm{\Vec{w}_2}^2} \, \Vec{w}_2
+\end{align*}
+
+A primera vista uno puede suponer que el término $-\proy_{\Vec{w}_2}(\Vec{v}_3)$ está de más, pero no es así.
+En la representación anterior la proyección de $\Vec{v}_3$ sobre $\Vec{w}_2$ es nula, y por eso este término no afecta la ecuación.
+Un esquema más representativo sería el siguiente, donde $\Vec{v}_3$ no está contenido en el plano gris y aún así forma parte de una base de $\setR^3$ junto con $\Vec{v}_1$ y $\Vec{v}_2$.
+
+\begin{center}
+    \def\svgwidth{0.7\linewidth}
+    \input{./images/alg-orto-4.pdf_tex}
+\end{center}
+
+De esta forma podemos ver que la resta $\Vec{v}_3-\proy_{\Vec{v}_1}(\Vec{v}_3)$ sobresale del plano gris.
+Por este motivo, es necesario restar la componente vertical, que es $\proy_{\Vec{w}_2}(\Vec{v}_3)$.
+
+
+\section{Complemento ortogonal}
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:compOrto}
+    \end{defn}
+    \cusTi{Complemento ortogonal}
+    \begin{equation*}
+        S^\perp = \inBraces{\Vec{w} \in \setV \tq \intProd{\Vec{v}}{\Vec{w}} = 0 \quad \forall \enspace \Vec{v} \in S}
+    \end{equation*}
+\end{mdframed}
+
+Dado $S=\operatorname{gen}\inBraces{\Vec{v}_1,\Vec{v}_2 \dots \Vec{v}_\nth}$ se parte de la definición \ref{defn:compOrto} para calcular el complemento ortogonal por propiedades de producto interno (Def. \ref{defn:intProd}).
+\begin{gather*}
+    \intProd{\Vec{v}}{\Vec{w}} = 0
+    \\
+    \intProd{\lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth}{\Vec{w}} = 0
+    \\
+    \lambda_1 \intProd{\Vec{w}}{\Vec{v}_1} + \lambda_2 \intProd{\Vec{w}}{\Vec{v}_2} + \dots + \lambda_\nth \intProd{\Vec{w}}{\Vec{v}_\nth} = 0
+\end{gather*}
+
+Ya que esto se va a dar si y solo si:
+\begin{equation*}
+    \left\{
+    \begin{aligned}
+        \intProd{\Vec{w}}{\Vec{v}_1} &= 0
+        \\
+        \intProd{\Vec{w}}{\Vec{v}_2} &= 0
+        \\
+        \vdots \enspace &
+        \\
+        \intProd{\Vec{w}}{\Vec{v}_\nth} &= 0
+    \end{aligned}
+    \right.
+\end{equation*}
+
+De manera que se pueden despejar los generadores de $S^\perp$ del sistema anterior.
+
+Una propiedad importante es que el complemento ortogonal de $S$ no comparte ningún elemento con $S$ más allá del origen.
+\begin{gather*}
+    \textrm{Si} \enspace \Vec{v} \neq \Vec{0} \enspace \land \enspace \Vec{v} \in S \enspace \land \enspace \Vec{v} \in S^\perp \Rightarrow
+    \\
+    \intProd{\Vec{v}}{\Vec{v}} = 0 \iff \nnorm{\Vec{v}}^2 = 0 \iff \Vec{v} = \Vec{0}
+\end{gather*}
+
+Con lo cual inferimos por absurdo:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    Dado $S \in \setV$ y su complemento ortogonal $S^\perp \in \setV$ se tiene que:
+    \begin{equation*}
+        S \cap S^\perp = \Vec{0}
+    \end{equation*}
+\end{mdframed}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:comp2}
+    \end{prop}
+    Dado $S \in \setV$ y su complemento ortogonal $S^\perp \in \setV$ se tiene que:
+    \begin{equation*}
+        S \oplus S^\perp = \setV
+    \end{equation*}
+\end{mdframed}
+
+Si se tiene una base ortogonal $B^\perp = \inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ de un subespacio $\setV$, es posible calcular las coordenadas de un vector en dicha base $\inBrackets{\Vec{v}}_{B^\perp}=(\lambda_1 , \lambda_2 \dots \lambda_\nth)$ a partir de una aplicación del producto interno.
+
+Escribiendo $\Vec{v}$ como combinación lineal de la base $B^\perp$:
+\begin{equation*}
+    \Vec{v} = \lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth
+\end{equation*}
+
+De manera que al hacer el producto interno entre $\Vec{v}$ y cualquiera de los elementos de la base $B^\perp$ se tiene, por ejemplo para el primer $\Vec{v}_\ith$ de la base:
+\begin{align*}
+    \intProd{\Vec{v}}{\Vec{v}_1} &= \intProd{\lambda_1 \, \Vec{v}_1 + \lambda_2 \, \Vec{v}_2 + \dots + \lambda_\nth \, \Vec{v}_\nth}{\Vec{v}_1}
+    \\
+    = \lambda_1 \intProd{\Vec{v}_1}{\Vec{v}_1} &+ \lambda_2 \intProd{\Vec{v}_2}{\Vec{v}_1} + \dots + \lambda_\nth \intProd{\Vec{v}_\nth}{\Vec{v}_1}
+    \\
+    &= \lambda_1 \intProd{\Vec{v}_1}{\Vec{v}_1}
+    \\
+    &= \lambda_1 \, \nnorm{\Vec{v}_1}^2
+    \\
+    \frac{\intProd{\Vec{v}}{\Vec{v}_1}}{\nnorm{\Vec{v}_1}^2}&= \lambda_1
+\end{align*}
+
+Y así para cualquier coordenada.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:orto3}
+    \end{prop}
+    \cusTi{Coordenadas en una base ortogonal}
+    \cusTe{Sea $B^\perp = \inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\nth}$ una base ortogonal de $\setV$, dado $\Vec{v}\in\setV$ en base canónica se pueden calcular las coordenadas $\inBrackets{\Vec{v}}_{B^\perp}=(\lambda_1 , \lambda_2 \dots \lambda_\nth)$ según:}
+    \begin{equation*}
+        \lambda_\ith = \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2}
+    \end{equation*}
+    \noTi{Con $\Vec{v}_\ith \in B^\perp$ para todo $1 \leq \ith \leq \nth$}
+\end{mdframed}
+
+
+\section{Mínima distancia}
+
+Sea $(\setV, \intProd{\,}{\,})$ un espacio euclídeo, $S\in\setV$ un subespacio y $S^\perp\in\setV$ su complemento ortogonal.
+
+Dadas $B=\inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\kth}$ y $B^\perp = \inBraces{\Vec{v}_{\kth+1} , \Vec{v}_{\kth+2} \dots \Vec{v}_\nth}$ dos bases ortogonales de $S$ y $S^\perp$ respectivamente.
+
+Se define una base ortogonal de $\setV$ según la propiedad \ref{prop:comp2}.
+\begin{equation*}
+    \setV = \operatorname{gen} \inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\kth , \Vec{v}_{\kth+1} , \Vec{v}_{\kth+2} \dots \Vec{v}_\nth}
+\end{equation*}
+
+De manera que podemos escribir cualquier elemento $\Vec{v}\in\setV$ como:
+\begin{equation*}
+    \Vec{v} = \Vec{s} + \Vec{s}^\perp
+\end{equation*}
+
+Tal que:
+\begin{itemize}
+    \item 
+    $\Vec{s} \in S$ es combinación lineal de $B=\inBraces{\Vec{v}_1 , \Vec{v}_2 \dots \Vec{v}_\kth}$
+    
+    \item
+    $\Vec{s}^\perp \in S^\perp$ es comb. lin. de $B^\perp = \inBraces{\Vec{v}_{\kth+1} , \Vec{v}_{\kth+2} \dots \Vec{v}_\nth}$
+\end{itemize}
+
+Siguiendo el razonamiento que se usó para inferir la propiedad \ref{prop:orto3}, podemos expresar estas combinaciones lineales de la siguiente manera.
+\begin{equation}
+    \Vec{v} = \Vec{s} + \Vec{s}^\perp =
+    \sum_{\ith=1}^\kth \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2} \Vec{v}_\ith +
+    \sum_{\ith=\kth+1}^\nth \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2} \Vec{v}_\ith
+    \label{eqn:orto}
+\end{equation}
+
+La ecuación \ref{eqn:orto} es de suma importancia, ya que da cuenta de la simplicidad con la que se puede definir la proyección ortogonal sin perder rigurosidad en la definición.
+
+\begin{mdframed}[style=DefinitionFrame]
+    \begin{defn}
+        \label{defn:proyOrto}
+    \end{defn}
+    \cusTi{Proyección ortogonal}
+    \cusTe{La proyección de un vector $\Vec{v}$ sobre un subespacio $S\subset\setV$ se define como una transformación lineal $\setV \longrightarrow S$ tal que:}
+    \begin{equation*}
+        \proy_S(\Vec{v}) =
+        \left\{
+        \begin{aligned}
+            \Vec{v} & \iff \Vec{v} \in S
+            \\
+            \Vec{0} & \iff \Vec{v} \in S^\perp
+        \end{aligned}
+        \right.
+    \end{equation*}
+\end{mdframed}
+
+A continuación se tiene un esquema para $\setV=\setR^3$ donde $S$ es un plano y $S^\perp$ una recta.
+
+\begin{center}
+    \def\svgwidth{0.6\linewidth}
+    \input{./images/alg-proyeccion.pdf_tex}
+\end{center}
+
+En la figura anterior se observa que $\Vec{s}$ es la proyección ortogonal de $\Vec{v}$ sobre el subespacio $S$.
+
+Dado que podemos escribir $\Vec{v}$ como la suma de un vector de $S$ más uno de $S^\perp$ y dado que la proyección es una transformación lineal (Def. \ref{defn:TL}), vemos que al plantear la proyección se tiene:
+\begin{align*}
+    \proy_S(\Vec{v}) &= \proy_S(\Vec{s}+\Vec{s}^\perp)
+    \\
+    &= \underbrace{\proy_S(\Vec{s})}_{\Vec{s}} + \underbrace{\proy_S(\Vec{s}^\perp)}_{\Vec{0}}
+    \\
+    &= \Vec{s}
+    \\
+    &= \sum_{\ith=1}^\kth \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2} \Vec{v}_\ith
+\end{align*}
+
+A partir de esta conclusión no solo vemos que la definición \ref{defn:proyOrto} es correcta.
+Sino que además se obtiene la siguiente fórmula para la proyección de $\Vec{v}$ sobre $S$, que es el elemento de $S$ que está a la menor distancia de $\Vec{v}$.
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+        \label{prop:proyOrto2}
+    \end{prop}
+    \begin{equation*}
+        \proy_S(\Vec{v}) = \sum_{\ith=1}^\kth \frac{\intProd{\Vec{v}}{\Vec{v}_\ith}}{\nnorm{\Vec{v}_\ith}^2} \Vec{v}_\ith
+    \end{equation*}
+\end{mdframed}
+
+
+\section{Aproximación de señales por series de Fourier}
+
+Sea $T_N: \left[-\pi;\pi\right] \longrightarrow \setR$ un polinomio trigonométrico de orden $\Nth$ tal que:
+\begin{equation*}
+    T_\Nth(x) = \frac{a_0}{2} + \sum_{\ith=1}^\Nth \left[ a_\ith \sin(\ith x) + b_\ith \cos(\ith x) \right]
+\end{equation*}
+
+Sea $S_\Nth$ un subconjunto, del conjunto de funciones integrables en el intervalo $[-\pi;\pi]$, formado por los polinomios trigonométricos:
+\begin{equation*}
+    S_\Nth = \inBraces{T_\Nth: \left[-\pi;\pi\right] \longrightarrow \setR}
+\end{equation*}
+
+Dada $B$ una base ortogonal de $S_\Nth$:
+\begin{multline*}
+    B = \{ 1 , \sin(x) , \cos(x) , \sin(2x) , \cos(2x) ,
+    \\
+    \dots \sin(\Nth x) , \cos(\Nth x) \}
+\end{multline*}
+
+De manera que:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \operatorname{dim}(S) = 2 \Nth + 1
+    \end{equation*}
+\end{mdframed}
+
+Para el producto interno definido como:
+\begin{equation*}
+    \intProd{f}{g} = \int_{-\pi}^\pi f(x) \, g(x) \, \dif x
+\end{equation*}
+
+Podemos definir la proyección ortogonal de una función $f$ sobre el subespacio $S_\Nth$ de polinomios trigonométricos.
+Como se vio en la sección anterior esta proyección sería, de todos los elementos de $S_\Nth$, aquel polinomio que mejor se aproxime a $f$ por estar a la mínima distancia.
+Según la propiedad \ref{prop:proyOrto2} esta aproximación estaría dada por:
+\begin{multline*}
+    \proy_{S_\Nth}(f) = \frac{\intProd{f}{1}}{\nnorm{1}^2} 1 +
+    \\[1ex]
+    + \frac{\intProd{f}{\sin(x)}}{\nnorm{\sin(x)}^2} \sin(x) + \frac{\intProd{f}{\cos(x)}}{\nnorm{\cos(x)}^2} \cos(x) +
+    \\[1ex]
+    + \frac{\intProd{f}{\sin(2x)}}{\nnorm{\sin(2x)}^2} \sin(2x) + \frac{\intProd{f}{\cos(2x)}}{\nnorm{\cos(2x)}^2} \cos(2x) + \dots
+    \\[1ex]
+    + \frac{\intProd{f}{\sin(\Nth x)}}{\nnorm{\sin(\Nth x)}^2} \sin(\Nth x) + \frac{\intProd{f}{\cos(\Nth x)}}{\nnorm{\cos(\Nth x)}^2} \cos(\Nth x)
+\end{multline*}
+
+Según el desarrollo en serie de Fourier sabemos que si $f$ es periódica y si el polinomio trigonométrico fuese de orden infinito, la suma convergería exactamente a la función.
+En tal caso, los valores que multiplican a los elementos de la base $B$ son llamados coeficientes de Fourier.

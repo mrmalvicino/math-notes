@@ -1,0 +1,73 @@
+\chapter{Propiedades complejas}
+
+\section{Identidades de ángulos dobles}
+
+Sea $z=\rho \, e^{\iu \theta}$ un número complejo expresado en forma polar, por un lado podemos expresar el cuadrado como:
+\begin{align*}
+    z^2 &= \rho^2 \, e^{2 \iu \theta}
+    \\
+    &= \rho^2 \left[ \cos(2 \theta) + \iu \sin(2 \theta) \right]
+\end{align*}
+
+O bien desarrollando el cuadrado por definición del producto como:
+\begin{align*}
+    z^2 &= \rho^2 \, \left(e^{\iu \theta}\right)^2
+    \\
+    &= \rho^2 \, \left[ \cos(\theta) + \iu \sin(\theta) \right]^2
+    \\
+    &= \rho^2 \, \left[ \cos^2(\theta) - \sin^2(\theta) + 2\iu \cos(\theta) \sin(\theta) \right]
+\end{align*}
+
+Luego, tomando las partes real e imaginaria de $z^2$ y dividiendo por $\rho^2$ se tiene:
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \cusTi{Identidades de ángulos dobles}
+    \begin{gather*}
+        \frac{\Re (z^2)}{\rho^2} = \cos(2 \theta) = \cos^2(\theta) - \sin^2(\theta)
+        \\[1ex]
+        \frac{\im (z^2)}{\rho^2} = \sin(2 \theta) = 2\cos(\theta) \sin(\theta)
+    \end{gather*}
+\end{mdframed}
+
+
+\section{Cuadrado del módulo del binomio}
+
+Sea $w=z_1+z_2$ la suma de dos números complejos dados por $z_1=\norm{z_1} \, e^{\theta_1}$ y $z_1=\norm{z_2} \, e^{\theta_2}$, al elevar al cuadrado el módulo de $w$ se tiene:
+\begin{equation*}
+    \norm{w}^2 = \norm{z_1+z_2}^2
+\end{equation*}
+
+Usando la propiedad \ref{prop:|z|^2=z.z*} queda:
+\begin{equation*}
+    \norm{w}^2 = \left(z_1+z_2\right) \left( \conj{z_1+z_2} \right)
+\end{equation*}
+
+Usando la propiedad \ref{prop:zw*=(z*w)*} primero para la suma y luego para el producto se tiene:
+\begin{align*}
+    \norm{w}^2 &= \left(z_1+z_2\right) \left(\conj{z_1}+\conj{z_2}\right)
+    \\
+    &= z_1 \, \conj{z_1} + z_2 \, \conj{z_2} + z_1 \, \conj{z_2} + \conj{z_1} \, z_2
+    \\
+    &= z_1 \, \conj{z_1} + z_2 \, \conj{z_2} + z_1 \, \conj{z_2} + \conj{z_1 \, \conj{z_2}}
+\end{align*}
+
+Finalmente, según la propiedad \ref{prop:ReIm} y nuevamente la propiedad \ref{prop:|z|^2=z.z*} se tiene:
+\begin{align*}
+    \norm{w}^2 &= z_1 \, \conj{z_1} + z_2 \, \conj{z_2} + 2 \, \Re \left( z_1 \, \conj{z_2} \right)
+    \\
+    &= \norm{z_1}^2 + \norm{z_2}^2 + 2 \, \Re \left( z_1 \, \conj{z_2} \right)
+    \\
+    &= \norm{z_1}^2 + \norm{z_2}^2 + 2 \, \Re \left( \norm{z_1} \, e^{\theta_1} \, \norm{z_2} \, e^{-\theta_2} \right)
+    \\
+    &= \norm{z_1}^2 + \norm{z_2}^2 + 2 \, \norm{z_1} \, \norm{z_2} \, \Re \left( e^{\theta_1-\theta_2} \right)
+\end{align*}
+
+\begin{mdframed}[style=PropertyFrame]
+    \begin{prop}
+    \end{prop}
+    \begin{equation*}
+        \norm{z_1 + z_2}^2 = \norm{z_1}^2 + \norm{z_2}^2 + 2 \, \norm{z_1} \, \norm{z_2} \, \cos (\theta_1-\theta_2)
+    \end{equation*}
+\end{mdframed}
